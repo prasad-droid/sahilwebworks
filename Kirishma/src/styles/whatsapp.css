@@ -1,0 +1,108 @@
+/* ==========================================================================
+   Floating WhatsApp button
+   ========================================================================== */
+
+.whatsapp {
+  position: fixed;
+  right: clamp(0.85rem, 3vw, 1.5rem);
+  bottom: clamp(0.85rem, 3vw, 1.5rem);
+  z-index: 950;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  height: 58px;
+  padding: 0 1rem;
+  border-radius: var(--radius-pill);
+  background: #1f8f4e;
+  color: #fff;
+  box-shadow: 0 12px 30px rgba(31, 143, 78, 0.4);
+  transition: background-color var(--dur-fast) var(--ease), transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+
+.whatsapp:hover {
+  background: #197a42;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(31, 143, 78, 0.5);
+}
+
+.whatsapp__icon {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+}
+
+.whatsapp__label {
+  position: relative;
+  z-index: 1;
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transition: max-width var(--dur) var(--ease), opacity var(--dur) var(--ease);
+}
+
+.whatsapp:hover .whatsapp__label,
+.whatsapp:focus-visible .whatsapp__label {
+  max-width: 9rem;
+  opacity: 1;
+}
+
+/* Subtle attention pulse, disabled for reduced motion in global.css. */
+.whatsapp__pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-pill);
+  border: 2px solid #1f8f4e;
+  opacity: 0;
+  animation: whatsappPulse 2.8s var(--ease) infinite;
+  pointer-events: none;
+}
+
+@keyframes whatsappPulse {
+  0% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  70% {
+    opacity: 0;
+    transform: scale(1.12);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.12);
+  }
+}
+
+/* On small screens show the label by default so the purpose is obvious. */
+@media (max-width: 600px) {
+  .whatsapp {
+    height: 54px;
+  }
+
+  .whatsapp__label {
+    max-width: 8rem;
+    opacity: 1;
+  }
+}
+
+/* At 320px the full label would cover half the viewport, so show the icon. */
+@media (max-width: 359px) {
+  .whatsapp {
+    padding: 0;
+    width: 54px;
+    justify-content: center;
+  }
+
+  .whatsapp__label {
+    display: none;
+  }
+}

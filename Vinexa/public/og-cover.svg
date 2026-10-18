@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="og-cover placeholder">
+  <defs>
+    <linearGradient id="bgogcover" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#123D2C"/>
+      <stop offset="1" stop-color="#1F5D42"/>
+    </linearGradient>
+    <pattern id="dotsogcover" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#C9A227" opacity="0.18"/>
+    </pattern>
+    <pattern id="linesogcover" width="60" height="60" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="60" stroke="#1F5D42" stroke-width="1" opacity="0.08"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="500" fill="url(#bgogcover)"/>
+  <rect width="800" height="500" fill="url(#linesogcover)"/>
+  <rect width="800" height="500" fill="url(#dotsogcover)"/>
+  <circle cx="400" cy="250" r="196" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="400" cy="250" r="182" fill="none" stroke="#1F5D42" stroke-width="1" opacity="0.25"/>
+  <circle cx="400" cy="250" r="142" fill="#EAF3ED" stroke="#FFFFFF" stroke-width="3"/>
+  <circle cx="400" cy="250" r="142" fill="none" stroke="#C9A227" stroke-width="2" opacity="0.55" stroke-dasharray="3 10"/>
+  <circle cx="400" cy="250" r="122" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.5"/>
+  <g><circle cx="400" cy="250" r="150" fill="none" stroke="#C9A227" stroke-width="3"/><circle cx="400" cy="250" r="138" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.4"/><path d="M310 250 a90 90 0 0 1 180 0" fill="none" stroke="#FFFFFF" stroke-width="3"/><path d="M400 160 a90 90 0 0 1 0 180" fill="none" stroke="#FFFFFF" stroke-width="3"/><line x1="400" y1="320" x2="366" y2="186" stroke="#C9A227" stroke-width="7" stroke-linecap="round" transform="rotate(-16 400 320)"/><line x1="400" y1="320" x2="434" y2="186" stroke="#C9A227" stroke-width="7" stroke-linecap="round" transform="rotate(16 400 320)"/><line x1="400" y1="320" x2="400" y2="172" stroke="#C9A227" stroke-width="7" stroke-linecap="round" transform="rotate(0 400 320)"/><ellipse cx="366" cy="154" rx="9" ry="30" fill="none" stroke="#1F5D42" stroke-width="6" transform="rotate(-16 366 154)"/><ellipse cx="434" cy="154" rx="9" ry="30" fill="none" stroke="#1F5D42" stroke-width="6" transform="rotate(16 434 154)"/><ellipse cx="400" cy="138" rx="9" ry="30" fill="none" stroke="#1F5D42" stroke-width="6" transform="rotate(0 400 138)"/></g>
+</svg>

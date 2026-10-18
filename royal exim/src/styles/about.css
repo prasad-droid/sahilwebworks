@@ -1,0 +1,150 @@
+.about {
+  padding-block: clamp(4.5rem, 9vw, 7.5rem);
+  background: var(--surface);
+}
+
+.about__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.about__copy {
+  max-width: 560px;
+}
+
+.about__text {
+  margin-top: 1.3rem;
+  font-size: 1.06rem;
+  color: var(--text);
+}
+
+.about__points {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.7rem;
+}
+
+.about__points li {
+  position: relative;
+  padding-left: 1.9rem;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.about__points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 9px;
+  height: 9px;
+  border: 2px solid var(--accent);
+  transform: rotate(45deg);
+}
+
+.about__visual {
+  position: relative;
+}
+
+.about__frame {
+  position: relative;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-l);
+  background: linear-gradient(160deg, #fbfcfa 0%, #eef2f0 100%);
+  box-shadow: var(--shadow);
+  color: var(--primary);
+}
+
+.about__frame::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 74px;
+  height: 74px;
+  border-top: 4px solid var(--accent);
+  border-left: 4px solid var(--accent);
+  border-top-left-radius: var(--radius-l);
+}
+
+.about__map {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.about__card {
+  position: absolute;
+  bottom: -26px;
+  left: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.15rem 1.5rem;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border-left: 4px solid var(--accent);
+  box-shadow: var(--shadow-l);
+  min-width: 260px;
+}
+
+.about__card-icon {
+  display: inline-flex;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--accent);
+}
+
+.about__card-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.about__card-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.about__card strong {
+  display: block;
+  margin-top: 0.15rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--dark);
+}
+
+@media (max-width: 900px) {
+  .about__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .about__copy {
+    max-width: 100%;
+  }
+
+  .about__visual {
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about__card {
+    left: 0;
+    right: 0;
+    min-width: 0;
+  }
+}

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="620" viewBox="0 0 800 620">
+  
+  <defs>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f0d78c"/>
+      <stop offset="50%" stop-color="#d4af37"/>
+      <stop offset="100%" stop-color="#b8952a"/>
+    </linearGradient>
+    <radialGradient id="goldGlow">
+      <stop offset="0%" stop-color="#f0d78c" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#f0d78c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="roseGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#c98a94"/>
+      <stop offset="100%" stop-color="#b76e79"/>
+    </linearGradient>
+    <linearGradient id="plumGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4d1236"/>
+      <stop offset="50%" stop-color="#6a1b4d"/>
+      <stop offset="100%" stop-color="#8a2f64"/>
+    </linearGradient>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#d4af37" fill-opacity="0.28"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="620" fill="#fdf3ef"/>
+  <rect width="800" height="620" fill="url(#dots)"/>
+  <circle cx="640" cy="90" r="150" fill="none" stroke="#d4af37" stroke-opacity="0.4" stroke-width="1.5"/>
+  <g transform="translate(400 250) scale(1.35)">
+  <g transform="translate(0 0) scale(1)">
+    <circle cx="0" cy="0" r="58" fill="url(#goldGlow)"/>
+    <path d="M0 -44 L26 -14 L0 40 L-26 -14 Z" fill="url(#goldGrad)" stroke="#b8952a" stroke-width="2"/>
+    <path d="M-26 -14 L26 -14 L0 -44 Z" fill="#fff6d8"/>
+    <path d="M-14 -10 L0 -30 L14 -10 L0 8 Z" fill="#ffe9a8"/>
+    <circle cx="-34" cy="8" r="12" fill="url(#roseGrad)"/>
+    <circle cx="34" cy="8" r="12" fill="url(#roseGrad)"/>
+    <circle cx="0" cy="52" r="12" fill="url(#roseGrad)"/>
+    <circle cx="-34" cy="8" r="4" fill="#fff"/>
+    <circle cx="34" cy="8" r="4" fill="#fff"/>
+    <circle cx="0" cy="52" r="4" fill="#fff"/>
+  </g></g>
+  <text x="400" y="470" font-family="Playfair Display, Georgia, serif" font-size="38" font-weight="700" fill="#4d1236" text-anchor="middle">India-Based Exporter</text>
+  <text x="400" y="512" font-family="Playfair Display, Georgia, serif" font-size="38" font-weight="700" fill="#b76e79" text-anchor="middle">&amp; Wholesaler</text>
+  <rect x="340" y="545" width="120" height="3" fill="#d4af37"/>
+</svg>

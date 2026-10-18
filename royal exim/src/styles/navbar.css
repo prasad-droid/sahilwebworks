@@ -1,0 +1,235 @@
+.navbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  padding-block: 0.9rem;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    padding 0.3s ease;
+}
+
+.navbar--scrolled {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 24px rgba(18, 59, 74, 0.1);
+  padding-block: 0.55rem;
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.navbar__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.navbar__logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+}
+
+.navbar__name {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-display);
+  font-size: 1.16rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.1;
+  transition: color 0.3s ease;
+}
+
+.navbar__name small {
+  font-family: var(--font-body);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.navbar--scrolled .navbar__name {
+  color: var(--dark);
+}
+
+.navbar__toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.navbar__toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  border-radius: 2px;
+  background: #fff;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.navbar--scrolled .navbar__toggle span {
+  background: var(--primary);
+}
+
+.navbar__toggle.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navbar__toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__toggle.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.navbar__links a {
+  position: relative;
+  padding: 0.35rem 0;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.82);
+  transition: color 0.25s ease;
+}
+
+.navbar__links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s ease;
+}
+
+.navbar__links a:hover {
+  color: #fff;
+}
+
+.navbar__links a.is-active {
+  color: var(--accent);
+}
+
+.navbar__links a.is-active::after {
+  transform: scaleX(1);
+}
+
+.navbar--scrolled .navbar__links a {
+  color: var(--text);
+}
+
+.navbar--scrolled .navbar__links a:hover {
+  color: var(--primary);
+}
+
+.navbar--scrolled .navbar__links a.is-active {
+  color: var(--primary-deep);
+}
+
+.navbar__cta {
+  padding: 0.7rem 1.4rem;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 1024px) {
+  .navbar__toggle {
+    display: inline-flex;
+  }
+
+  .navbar__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(320px, 82vw);
+    padding: 5.5rem 2.25rem 2.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1.75rem;
+    background: var(--surface);
+    box-shadow: var(--shadow-l);
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    overflow-y: auto;
+  }
+
+  .navbar__menu.is-open {
+    transform: translateX(0);
+  }
+
+  .navbar__links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .navbar__links a,
+  .navbar--scrolled .navbar__links a {
+    display: block;
+    padding: 0.7rem 0;
+    font-size: 1.05rem;
+    color: var(--dark);
+  }
+
+  .navbar__links a::after {
+    display: none;
+  }
+
+  .navbar__links a.is-active {
+    color: var(--accent-deep);
+  }
+
+  .navbar__cta {
+    width: 100%;
+    justify-content: center;
+    margin-top: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar__name {
+    font-size: 1.05rem;
+  }
+
+  .navbar__logo {
+    width: 38px;
+    height: 38px;
+  }
+}

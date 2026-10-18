@@ -1,0 +1,111 @@
+.affirmations {
+  position: relative;
+  overflow: hidden;
+}
+
+.affirmations::before,
+.affirmations::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.affirmations::before {
+  width: 520px;
+  height: 520px;
+  top: -240px;
+  right: -140px;
+  background: radial-gradient(circle, rgba(13, 148, 136, 0.22), transparent 65%);
+}
+
+.affirmations::after {
+  width: 480px;
+  height: 480px;
+  bottom: -220px;
+  left: -140px;
+  background: radial-gradient(circle, rgba(224, 184, 74, 0.12), transparent 65%);
+}
+
+.affirmations__list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.affirmations__list li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 30px 20px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.affirmations__list li:hover {
+  transform: translateY(-4px);
+  border-color: rgba(224, 184, 74, 0.5);
+}
+
+.affirmations__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(224, 184, 74, 0.14);
+  color: var(--gold-400);
+  border: 1px solid rgba(224, 184, 74, 0.3);
+}
+
+.affirmations__text {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: #fff;
+  line-height: 1.45;
+}
+
+.affirmations__mark {
+  position: absolute;
+  right: 14px;
+  bottom: -18px;
+  font-family: Georgia, serif;
+  font-size: 5rem;
+  color: rgba(224, 184, 74, 0.18);
+  line-height: 1;
+}
+
+.affirmations__foot {
+  position: relative;
+  z-index: 1;
+  margin: 40px auto 0;
+  max-width: 580px;
+  text-align: center;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+@media (max-width: 1020px) {
+  .affirmations__list { grid-template-columns: repeat(3, 1fr); }
+  .affirmations__list li:nth-last-child(-n+2) { grid-column: span 1; }
+}
+
+@media (max-width: 680px) {
+  .affirmations__list { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 440px) {
+  .affirmations__list { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,48 @@
+:root {
+  /* Brand palette */
+  --primary: #2e7d32;
+  --primary-dark: #1b5e20;
+  --primary-soft: #e8f3e9;
+  --secondary: #6d9e3f;
+  --accent: #b8893f;
+  --accent-soft: #f7efe2;
+  --cream: #f8f7f2;
+  --white: #ffffff;
+  --text: #2b2b2b;
+  --gray: #666666;
+  --border: #e3e8e1;
+
+  /* Gradients */
+  --grad-primary: linear-gradient(135deg, #2e7d32 0%, #6d9e3f 100%);
+  --grad-accent: linear-gradient(135deg, #b8893f 0%, #d9b368 100%);
+  --grad-hero: radial-gradient(1200px 700px at 85% -10%, rgba(109, 158, 63, 0.28), transparent 60%),
+    radial-gradient(900px 600px at -10% 110%, rgba(46, 125, 50, 0.22), transparent 55%),
+    linear-gradient(180deg, #eef5ec 0%, #f8f7f2 100%);
+
+  /* Typography */
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-body: "Poppins", "Segoe UI", Arial, sans-serif;
+
+  /* Layout */
+  --container: 1200px;
+  --section-pad: 96px;
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+
+  /* Effects */
+  --shadow-sm: 0 4px 14px rgba(43, 43, 43, 0.06);
+  --shadow-md: 0 12px 32px rgba(43, 43, 43, 0.1);
+  --shadow-lg: 0 28px 60px rgba(43, 43, 43, 0.16);
+  --shadow-primary: 0 14px 34px rgba(46, 125, 50, 0.28);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --speed-fast: 0.22s;
+  --speed-med: 0.4s;
+  --speed-slow: 0.7s;
+
+  /* Header */
+  --header-h: 84px;
+}

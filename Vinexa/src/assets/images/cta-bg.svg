@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="cta-bg placeholder">
+  <defs>
+    <linearGradient id="bgctabg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#123D2C"/>
+      <stop offset="1" stop-color="#1F5D42"/>
+    </linearGradient>
+    <pattern id="dotsctabg" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#C9A227" opacity="0.18"/>
+    </pattern>
+    <pattern id="linesctabg" width="60" height="60" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="60" stroke="#1F5D42" stroke-width="1" opacity="0.08"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="500" fill="url(#bgctabg)"/>
+  <rect width="800" height="500" fill="url(#linesctabg)"/>
+  <rect width="800" height="500" fill="url(#dotsctabg)"/>
+  <circle cx="400" cy="250" r="196" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="400" cy="250" r="182" fill="none" stroke="#1F5D42" stroke-width="1" opacity="0.25"/>
+  <circle cx="400" cy="250" r="142" fill="#EAF3ED" stroke="#FFFFFF" stroke-width="3"/>
+  <circle cx="400" cy="250" r="142" fill="none" stroke="#C9A227" stroke-width="2" opacity="0.55" stroke-dasharray="3 10"/>
+  <circle cx="400" cy="250" r="122" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.5"/>
+  <g><rect x="300" y="130" width="200" height="62" rx="6" fill="none" stroke="#EAF3ED" stroke-width="9"/><rect x="300" y="196" width="200" height="62" rx="6" fill="none" stroke="#EAF3ED" stroke-width="9"/><rect x="300" y="262" width="200" height="62" rx="6" fill="none" stroke="#EAF3ED" stroke-width="9"/><line x1="300" y1="162" x2="500" y2="162" stroke="#EAF3ED" stroke-width="9"/><line x1="300" y1="227" x2="500" y2="227" stroke="#EAF3ED" stroke-width="9"/><circle cx="460" cy="161" r="7" fill="#C9A227"/><circle cx="340" cy="226" r="7" fill="#C9A227"/><circle cx="470" cy="292" r="7" fill="#C9A227"/><path d="M300 318 h200 l-16-44 h-168 z" fill="none" stroke="#1F5D42" stroke-width="11" stroke-linejoin="round"/><line x1="400" y1="170" x2="400" y2="274" stroke="#1F5D42" stroke-width="9"/><path d="M402 174 q58 6 58 58 l-58 14 z" fill="none" stroke="#1F5D42" stroke-width="9" stroke-linejoin="round"/><path d="M398 174 q-46 10-46 52 l46 16 z" fill="none" stroke="#C9A227" stroke-width="9" stroke-linejoin="round"/><path d="M280 318 q30-10 60 0 t60 0 t60 0" fill="none" stroke="#1F5D42" stroke-width="7"/><circle cx="680" cy="110" r="46" fill="#C9A227" opacity="0.3"/></g>
+</svg>

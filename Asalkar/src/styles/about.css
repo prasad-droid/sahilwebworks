@@ -1,0 +1,291 @@
+/* ============ About ============ */
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.about-visual {
+  position: relative;
+}
+
+.about-visual .main {
+  border-radius: var(--radius-lg);
+  background: linear-gradient(150deg, #0a4d8c, #2e86de);
+  padding: 24px;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 18px;
+}
+
+.about-visual .main::before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  border: 34px solid rgba(255, 255, 255, 0.08);
+  right: -70px;
+  top: -70px;
+}
+
+.about-visual .main::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 26px solid rgba(255, 255, 255, 0.07);
+  left: -60px;
+  bottom: -60px;
+}
+
+.about-visual .main .about-media {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  right: 24px;
+  height: 210px;
+  border-radius: var(--radius);
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 18px 40px rgba(10, 77, 140, 0.35);
+  z-index: 2;
+}
+
+.about-visual .main .kicker {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+.about-visual .main .big {
+  font-family: var(--font-heading);
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: 800;
+  line-height: 1.1;
+  position: relative;
+  z-index: 2;
+}
+
+.about-visual .main .big em {
+  font-style: normal;
+  display: block;
+  color: #bfe0ff;
+}
+
+.about-visual .main .ship {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.about-visual .main .ship .ship-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.about-visual .main .ship svg {
+  width: 22px;
+  height: 22px;
+}
+
+.about-content h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.about-content h3 svg {
+  width: 22px;
+  height: 22px;
+}
+
+.about-content p {
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.about-points {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.about-points li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--light);
+  border: 1px solid var(--border);
+  transition: all var(--transition);
+}
+
+.about-points li:hover {
+  border-color: var(--accent);
+  background: #eef6ff;
+  transform: translateY(-2px);
+}
+
+.about-points .tick {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--gradient);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.about-points .tick svg {
+  width: 12px;
+  height: 12px;
+  stroke-width: 3;
+}
+
+/* ============ Mission & Vision ============ */
+.mission-vision {
+  position: relative;
+  overflow: hidden;
+}
+
+.mission-vision .mv-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(800px 400px at 10% 0%, rgba(46, 134, 222, 0.1), transparent 60%),
+    radial-gradient(700px 380px at 90% 100%, rgba(10, 77, 140, 0.1), transparent 60%);
+  pointer-events: none;
+}
+
+.mv-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.mv-card {
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition);
+}
+
+.mv-card.mv-mission {
+  background: var(--gradient);
+  color: var(--white);
+  box-shadow: var(--shadow-lg);
+}
+
+.mv-card.mv-vision {
+  background: var(--white);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.mv-card.mv-vision:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent);
+}
+
+.mv-card .mv-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+
+.mv-mission .mv-icon {
+  background: rgba(255, 255, 255, 0.16);
+  color: var(--white);
+}
+
+.mv-vision .mv-icon {
+  background: var(--gradient-soft);
+  color: var(--primary);
+}
+
+.mv-card .mv-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.mv-card h3 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.mv-mission h3 {
+  color: var(--white);
+}
+
+.mv-card p {
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.mv-mission p {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.mv-vision p {
+  color: var(--text);
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+  .mv-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .about-points {
+    grid-template-columns: 1fr;
+  }
+  .mv-card {
+    padding: 30px 24px;
+  }
+}

@@ -1,0 +1,250 @@
+/* ==========================================================================
+   Aviyana Enterprises — Animations
+   Reveal system, keyframes, and reduced-motion support.
+   ========================================================================== */
+
+:root {
+  --reveal-duration: 0.8s;
+}
+
+/* --------------------------- Reveal on scroll ----------------------------- */
+
+.reveal {
+  opacity: 0;
+  transition:
+    opacity var(--reveal-duration) var(--ease),
+    transform var(--reveal-duration) var(--ease);
+  will-change: opacity, transform;
+}
+
+.reveal-fade-up {
+  transform: translateY(30px);
+}
+
+.reveal-fade-right {
+  transform: translateX(-30px);
+}
+
+.reveal-fade-left {
+  transform: translateX(30px);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ------------------------------- Keyframes -------------------------------- */
+
+@keyframes scroll-drop {
+  0% {
+    transform: translateY(-100%);
+  }
+  60%,
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes wa-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+@keyframes botanical-drift {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(2deg);
+  }
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+@keyframes node-pulse {
+  0% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  60% {
+    opacity: 0.25;
+    transform: scale(2.4);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3);
+  }
+}
+
+@keyframes origin-pulse {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.9);
+  }
+}
+
+/* ------------------------- Hero load animation ---------------------------- */
+
+.hero__eyebrow,
+.hero__title,
+.hero__lead,
+.hero__actions,
+.hero__support {
+  opacity: 0;
+  animation: hero-reveal 0.9s var(--ease) forwards;
+}
+
+.hero__eyebrow {
+  animation-delay: 0.15s;
+}
+
+.hero__title {
+  animation-delay: 0.28s;
+}
+
+.hero__lead {
+  animation-delay: 0.42s;
+}
+
+.hero__actions {
+  animation-delay: 0.56s;
+}
+
+.hero__support {
+  animation-delay: 0.72s;
+}
+
+@keyframes hero-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --------------------------- Botanical shapes ----------------------------- */
+
+@keyframes blob-float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-18px) scale(1.06);
+  }
+}
+
+.hero__botanical {
+  animation: botanical-drift 9s ease-in-out infinite;
+}
+
+.hero__botanical--two {
+  animation-delay: 1.6s;
+  animation-duration: 12s;
+}
+
+/* ---------------------------- Global network ------------------------------- */
+
+.gr-origin__pulse,
+.gr-node {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.gr-link {
+  animation: dash-flow 3.2s linear infinite;
+}
+
+.gr-origin__pulse:nth-child(1) {
+  animation: origin-pulse 3s ease-out infinite;
+}
+
+.gr-origin__pulse:nth-child(2) {
+  animation: origin-pulse 3s ease-out infinite 1.5s;
+}
+
+.gr-node {
+  animation: node-pulse 3.2s ease-out infinite;
+}
+
+/* --------------------------- Sequential reveal ----------------------------- */
+
+.process__step.reveal.is-visible .process__num {
+  animation: num-pop 0.5s var(--ease) both;
+}
+
+@keyframes num-pop {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* --------------------------- Reduced motion -------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero__eyebrow,
+  .hero__title,
+  .hero__lead,
+  .hero__actions,
+  .hero__support {
+    opacity: 1;
+    animation: none;
+  }
+
+  .hero__botanical,
+  .whatsapp-float::before,
+  .gr-link,
+  .gr-origin__pulse,
+  .gr-node {
+    animation: none;
+  }
+}

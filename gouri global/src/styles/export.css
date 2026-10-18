@@ -1,0 +1,147 @@
+.export {
+  background:
+    radial-gradient(1000px 600px at 50% -10%, rgba(213, 168, 76, 0.12), transparent 60%),
+    var(--dark);
+  color: var(--cream);
+  overflow: hidden;
+  position: relative;
+}
+
+.export__container {
+  text-align: center;
+}
+
+.export__heading {
+  max-width: 640px;
+  margin: 0 auto 48px;
+}
+
+.export__eyebrow {
+  color: var(--accent);
+}
+
+.export__title {
+  color: var(--cream);
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  margin-bottom: 12px;
+}
+
+.export__tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+/* ---------- World visual ---------- */
+.export__visual {
+  max-width: 780px;
+  margin: 0 auto 40px;
+  color: rgba(248, 242, 229, 0.55);
+}
+
+.world-map {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 95 / 62;
+  border: 1px solid rgba(248, 242, 229, 0.14);
+  border-radius: var(--radius-lg);
+  background: radial-gradient(
+    80% 80% at 50% 50%,
+    rgba(213, 168, 76, 0.08),
+    transparent 80%
+  );
+  overflow: hidden;
+}
+
+.world-map__img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+  opacity: 0.55;
+  filter: sepia(0.5) saturate(1.15) brightness(0.9) contrast(0.95);
+}
+
+.world-map__overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.world-map__india {
+  fill: var(--accent);
+  animation: indiaPulse 2.6s ease-in-out infinite;
+  transform-origin: 678.9px 270.1px;
+}
+
+.world-map__india-halo {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  opacity: 0.5;
+  animation: indiaHalo 2.6s ease-in-out infinite;
+  transform-origin: 678.9px 270.1px;
+}
+
+.world-map__arc {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.1;
+  stroke-dasharray: 23 23;
+  opacity: 0.7;
+  animation: arcDash 6s linear infinite;
+}
+
+.world-map__point {
+  fill: var(--accent);
+  opacity: 0.85;
+}
+
+.world-map__label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  fill: var(--dark);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+@keyframes indiaPulse {
+  0%, 100% { r: 20; }
+  50% { r: 24; }
+}
+
+@keyframes indiaHalo {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.25); opacity: 0.2; }
+}
+
+@keyframes arcDash {
+  to { stroke-dashoffset: -684; }
+}
+
+/* ---------- Copy ---------- */
+.export__copy {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.export__copy p {
+  font-size: 1.05rem;
+  color: rgba(248, 242, 229, 0.85);
+  margin-bottom: 30px;
+}
+
+.export__cta {
+  font-size: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .world-map__india,
+  .world-map__india-halo,
+  .world-map__arc {
+    animation: none;
+  }
+}

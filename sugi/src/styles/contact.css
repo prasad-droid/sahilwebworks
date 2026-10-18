@@ -1,0 +1,87 @@
+.contact {
+  background: var(--white);
+}
+
+.contact__head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+}
+
+.contact__head .eyebrow {
+  justify-content: center;
+}
+
+.contact__head .section-title,
+.contact__head .section-sub {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.2rem, 3vw, 2rem);
+}
+
+.contact-card {
+  background: var(--cream);
+  border: 1px solid rgba(101, 113, 83, 0.16);
+  border-radius: 1.1rem;
+  padding: 2rem 1.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+  text-align: center;
+  align-items: center;
+}
+
+.contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-card__label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.contact-card__value {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  word-break: break-word;
+  transition: color 0.3s var(--ease);
+}
+
+.contact-card__value:hover {
+  color: var(--forest);
+}
+
+.contact-card__value--email {
+  font-size: 1rem;
+}
+
+.contact-card__note {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.contact-card .btn {
+  margin-top: 0.4rem;
+  padding: 0.7rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 860px) {
+  .contact__cards {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+}

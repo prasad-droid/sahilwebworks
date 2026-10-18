@@ -1,0 +1,110 @@
+.process {
+  background: var(--white);
+  overflow: hidden;
+}
+
+.process-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+}
+
+.process-track::before {
+  content: "";
+  position: absolute;
+  top: 44px;
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--accent) 0 10px, transparent 10px 20px);
+  z-index: 0;
+}
+
+.process-step {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 6px;
+}
+
+.step-dot {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 20px;
+  display: grid;
+  place-items: center;
+  background: var(--light);
+  border: 2px dashed var(--accent);
+  border-radius: 50%;
+  color: var(--secondary);
+  font-size: 30px;
+  transition: background var(--transition), color var(--transition), transform var(--transition), border-color var(--transition);
+}
+
+.step-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.step-number {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--primary);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+}
+
+.process-step:hover .step-dot {
+  background: var(--primary);
+  color: var(--accent);
+  transform: translateY(-6px) rotate(6deg);
+}
+
+.process-step:hover .step-dot::after {
+  opacity: 1;
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+.process-step h3 {
+  font-size: 20px;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.process-step p {
+  font-size: 14px;
+  color: var(--gray);
+}
+
+@media (max-width: 991px) {
+  .process-track {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 34px 20px;
+  }
+  .process-track::before {
+    display: none;
+  }
+}
+
+@media (max-width: 575px) {
+  .process-track {
+    grid-template-columns: 1fr;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+}

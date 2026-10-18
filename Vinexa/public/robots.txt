@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /assets/
+Disallow: /dist/
+
+Sitemap: https://www.vinexaglobal.com/sitemap.xml

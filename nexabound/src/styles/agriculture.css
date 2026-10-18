@@ -1,0 +1,33 @@
+.agri-category .category-title {
+  color: var(--secondary);
+}
+
+.agri-badge {
+  background: rgba(40, 92, 77, 0.92);
+}
+
+.agri-card .product-card-btn {
+  background: var(--secondary);
+}
+
+.agri-card .product-card-btn:hover {
+  background: var(--secondary-light);
+  box-shadow: 0 4px 12px rgba(40, 92, 77, 0.3);
+}
+
+.agri-card:hover {
+  border-color: rgba(40, 92, 77, 0.4);
+}
+
+.agri-card .product-card-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(40, 92, 77, 0.25), transparent 60%);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.agri-card:hover .product-card-image::after {
+  opacity: 1;
+}

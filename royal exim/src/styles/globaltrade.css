@@ -1,0 +1,71 @@
+.globaltrade {
+  position: relative;
+  padding-block: clamp(5rem, 10vw, 8rem);
+  background: linear-gradient(130deg, #0b2a36 0%, var(--primary) 55%, #1c5248 120%);
+  color: #fff;
+  overflow: hidden;
+}
+
+.globaltrade::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1.4px);
+  background-size: 28px 28px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.globaltrade__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.globaltrade__map {
+  position: relative;
+  color: #dfe7ea;
+}
+
+.globaltrade__india {
+  display: block;
+  width: 100%;
+  max-height: 540px;
+  object-fit: cover;
+  border-radius: var(--radius-l);
+  filter: drop-shadow(0 24px 40px rgba(6, 30, 40, 0.5));
+}
+
+.globaltrade__copy {
+  max-width: 520px;
+}
+
+.globaltrade__text {
+  margin-top: 1.2rem;
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  font-weight: 500;
+  color: #fff;
+}
+
+.globaltrade__sub {
+  margin-top: 0.9rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.02rem;
+}
+
+.globaltrade__copy .btn {
+  margin-top: 2.1rem;
+}
+
+@media (max-width: 900px) {
+  .globaltrade__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .globaltrade__map {
+    order: 2;
+    max-width: 620px;
+  }
+}

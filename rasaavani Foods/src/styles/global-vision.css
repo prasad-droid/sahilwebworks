@@ -1,0 +1,353 @@
+/* ============================================================
+   Global vision, Community, Journey timeline
+   ============================================================ */
+
+/* --------------------------------------------------- Global vision --- */
+.global__grid {
+  display: grid;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.global__subhead {
+  margin-top: 0.9rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 1rem + 1vw, 1.6rem);
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+.global__copy {
+  margin-top: 1.25rem;
+  max-width: 54ch;
+  color: rgba(250, 244, 232, 0.85);
+}
+
+.global__audience-title {
+  margin-top: 2rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(250, 244, 232, 0.6);
+}
+
+.global__audience {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.9rem;
+}
+
+.global__audience li {
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  color: var(--color-cream);
+  border: 1px solid rgba(250, 244, 232, 0.28);
+  border-radius: var(--radius-pill);
+  transition: background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.global__audience li:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-primary-dark);
+}
+
+.global__closing {
+  margin-top: 2rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--color-cream);
+}
+
+.global__closing span {
+  color: var(--color-accent);
+}
+
+.global__visual {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.global__map {
+  width: 100%;
+  height: auto;
+  max-width: 560px;
+  margin-inline: auto;
+}
+
+.global__globe {
+  stroke: rgba(250, 244, 232, 0.28);
+  stroke-width: 1;
+}
+
+.global__grid-line {
+  fill: none;
+  stroke: rgba(250, 244, 232, 0.14);
+  stroke-width: 1;
+}
+
+.global__route {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 1.6;
+  stroke-dasharray: 6 7;
+  stroke-linecap: round;
+  animation: dash 3.5s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -52;
+  }
+}
+
+.global__node circle {
+  fill: var(--color-cream);
+}
+
+.global__node text {
+  fill: rgba(250, 244, 232, 0.82);
+  font-family: var(--font-body);
+  font-size: 15px;
+  letter-spacing: 0.04em;
+}
+
+.global__node--origin text {
+  fill: var(--color-cream);
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.global__dot {
+  fill: var(--color-primary) !important;
+}
+
+.global__pulse {
+  fill: var(--color-accent);
+  opacity: 0.5;
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: originPulse 2.6s var(--ease-out) infinite;
+}
+
+@keyframes originPulse {
+  0% {
+    transform: scale(0.4);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.global__node--world circle {
+  fill: var(--color-accent);
+}
+
+.global__visual-caption {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(31, 26, 22, 0.18);
+  border: 1px solid rgba(250, 244, 232, 0.14);
+  border-radius: var(--radius-md);
+}
+
+.global__visual-thumb {
+  flex: 0 0 auto;
+  width: 84px;
+  height: 84px;
+  border-radius: var(--radius-sm);
+}
+
+.global__visual-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.global__visual-caption p {
+  font-size: 0.82rem;
+  color: rgba(250, 244, 232, 0.7);
+}
+
+@media (min-width: 900px) {
+  .global__grid {
+    grid-template-columns: 1fr 1.05fr;
+  }
+}
+
+/* ------------------------------------------------------- Community --- */
+.community__grid {
+  display: grid;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.community__media {
+  position: relative;
+  padding-bottom: 3rem;
+  padding-right: 2.5rem;
+}
+
+.community__figure {
+  margin: 0;
+}
+
+.community__figure--tall {
+  aspect-ratio: 4 / 5;
+  box-shadow: var(--shadow-md);
+}
+
+.community__figure--small {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 48%;
+  aspect-ratio: 1 / 1;
+  border: 6px solid var(--color-sand);
+  box-shadow: var(--shadow-lg);
+}
+
+.community__lead {
+  margin-top: 1.25rem;
+  font-size: var(--fs-lead);
+  color: var(--color-dark);
+  max-width: 52ch;
+}
+
+.community__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.community__list li {
+  position: relative;
+  padding-left: 1.9rem;
+  color: var(--color-text);
+}
+
+.community__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--color-primary);
+  transform: rotate(45deg);
+}
+
+.community__statement {
+  margin-top: 1.75rem;
+  padding-left: 1.2rem;
+  border-left: 2px solid var(--color-accent);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--color-dark);
+}
+
+@media (min-width: 900px) {
+  .community__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* --------------------------------------------------- Journey timeline -- */
+.journey__timeline {
+  --line-top: 3.35rem;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+}
+
+.journey__timeline::before {
+  content: '';
+  position: absolute;
+  top: var(--line-top);
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.journey__step {
+  position: relative;
+  text-align: left;
+}
+
+.journey__number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--color-accent);
+}
+
+.journey__marker {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 13px;
+  height: 13px;
+  margin: 0.95rem 0 1.1rem;
+  background: var(--color-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px var(--color-cream);
+}
+
+.journey__title {
+  font-size: var(--fs-h4);
+  margin-bottom: 0.4rem;
+}
+
+.journey__text {
+  font-size: 0.92rem;
+  color: var(--color-text);
+}
+
+@media (max-width: 767px) {
+  .journey__timeline {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+  .journey__timeline::before {
+    display: none;
+  }
+  .journey__step {
+    padding-left: 3rem;
+  }
+  .journey__step::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2.5rem;
+    bottom: -1.75rem;
+    width: 1px;
+    background: var(--color-border);
+  }
+  .journey__step:last-child::before {
+    display: none;
+  }
+  .journey__marker {
+    position: absolute;
+    left: 0;
+    top: 0.9rem;
+    margin: 0;
+  }
+}

@@ -1,0 +1,24 @@
+:root {
+  --primary: #2B5C84;
+  --secondary: #5FA8D3;
+  --accent: #C9A227;
+  --white: #FFFFFF;
+  --cream: #F8F8F5;
+  --text: #222222;
+  --gray: #666666;
+  --border: #E4E7EA;
+
+  --primary-dark: #1d4465;
+  --primary-light: #3f6f9c;
+  --accent-dark: #a8861d;
+  --shadow-sm: 0 2px 10px rgba(43, 92, 132, 0.08);
+  --shadow-md: 0 8px 28px rgba(43, 92, 132, 0.14);
+  --shadow-lg: 0 18px 48px rgba(43, 92, 132, 0.20);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --container: 1240px;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Poppins', sans-serif;
+  --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}

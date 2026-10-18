@@ -1,0 +1,16 @@
+{
+  "name": "VINEXA GLOBAL ENTERPRISES",
+  "short_name": "VINEXA",
+  "description": "Indian Merchant Exporter & Global Sourcing Partner for agricultural products, engineering products and engineering services.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1F5D42",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

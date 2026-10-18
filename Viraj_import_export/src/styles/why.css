@@ -1,0 +1,69 @@
+.why {
+  background: linear-gradient(160deg, var(--primary-dark) 0%, var(--primary) 100%);
+  color: var(--cream);
+}
+
+.why .section__title {
+  color: var(--white);
+}
+
+.why .section__sub {
+  color: rgba(248, 245, 240, 0.8);
+}
+
+.why .section__eyebrow {
+  color: var(--accent);
+}
+
+.why__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.why-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  display: flex;
+  gap: 16px;
+  backdrop-filter: blur(6px);
+  transition: background var(--transition), transform var(--transition), border-color var(--transition);
+}
+
+.why-card:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(199, 164, 107, 0.5);
+  transform: translateY(-6px);
+}
+
+.why-card__icon {
+  font-size: 1.6rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.why-card__title {
+  color: var(--white);
+  font-size: 1.08rem;
+  margin-bottom: 6px;
+}
+
+.why-card__desc {
+  color: rgba(248, 245, 240, 0.82);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 1024px) {
+  .why__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .why__grid {
+    grid-template-columns: 1fr;
+  }
+}

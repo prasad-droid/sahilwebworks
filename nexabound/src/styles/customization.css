@@ -1,0 +1,93 @@
+.customization {
+  background: var(--background);
+}
+
+.customization-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.customization-visual {
+  position: relative;
+}
+
+.customization-card-stack {
+  display: grid;
+  gap: 20px;
+}
+
+.customization-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px;
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  transition: var(--transition);
+}
+
+.customization-option:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+  transform: translateX(4px);
+}
+
+.customization-option-number {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--white);
+  font-size: 0.85rem;
+  font-weight: 800;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.customization-option-content h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--dark);
+}
+
+.customization-option-content p {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.customization-content .section-label {
+  margin-bottom: 12px;
+}
+
+.customization-content .section-heading {
+  margin-bottom: 20px;
+}
+
+.customization-content .section-subheading {
+  margin-bottom: 32px;
+}
+
+.customization-highlight {
+  padding: 20px 24px;
+  background: rgba(196, 138, 58, 0.08);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-bottom: 32px;
+  font-size: 0.95rem;
+  color: var(--dark);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .customization-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

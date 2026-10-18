@@ -1,0 +1,163 @@
+.markets {
+  padding-block: clamp(4.5rem, 9vw, 7.5rem);
+  background: var(--background);
+}
+
+.markets__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.markets__copy {
+  max-width: 560px;
+}
+
+.markets__intro {
+  margin-top: 1.2rem;
+  font-size: 1.05rem;
+}
+
+.markets__audience {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.6rem;
+}
+
+.markets__pill {
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: var(--shadow-s);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.markets__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.6rem;
+}
+
+.markets__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: var(--shadow-s);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.markets__chip em {
+  color: var(--muted);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.markets__chip-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--secondary);
+}
+
+.markets__note {
+  margin-top: 1.6rem;
+  padding-left: 1.1rem;
+  border-left: 3px solid var(--accent);
+  color: var(--muted);
+  font-size: 0.97rem;
+}
+
+.markets__copy .btn {
+  margin-top: 2rem;
+}
+
+.markets__visual {
+  position: relative;
+}
+
+.markets__panel {
+  position: relative;
+  overflow: hidden;
+  padding: 1.6rem 1.6rem 1.4rem;
+  border: 1px solid #22464f;
+  border-radius: var(--radius-l);
+  background: linear-gradient(150deg, #16404f 0%, #0f2c38 100%);
+  box-shadow: var(--shadow-l);
+  color: #dfe7ea;
+}
+
+.markets__panel::after {
+  content: "";
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200, 155, 74, 0.16), transparent 70%);
+  pointer-events: none;
+}
+
+.markets__route {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0 0.25rem 0.4rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.markets__route-india {
+  color: #fff;
+  white-space: nowrap;
+}
+
+.markets__route-line {
+  flex: 1;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--accent) 0 6px,
+    transparent 6px 12px
+  );
+}
+
+.markets__route-world {
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.markets__map {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-top: 0.35rem;
+}
+
+@media (max-width: 900px) {
+  .markets__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .markets__copy {
+    max-width: 100%;
+  }
+
+  .markets__visual {
+    max-width: 620px;
+  }
+}

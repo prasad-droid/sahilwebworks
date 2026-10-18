@@ -1,0 +1,131 @@
+.story {
+  overflow: hidden;
+}
+
+.story__grid {
+  display: grid;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.story__media {
+  position: relative;
+  padding-bottom: 3.5rem;
+  padding-right: 2.5rem;
+}
+
+.story__figure {
+  margin: 0;
+}
+
+.story__figure--main {
+  aspect-ratio: 4 / 5;
+  box-shadow: var(--shadow-md);
+}
+
+.story__figure--inset {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 52%;
+  aspect-ratio: 1 / 1;
+  border: 6px solid var(--color-cream);
+  box-shadow: var(--shadow-lg);
+}
+
+.story__stamp {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  gap: 0.1rem;
+  background: var(--color-primary);
+  color: var(--color-cream);
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+.story__stamp span {
+  font-size: 0.55rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(250, 244, 232, 0.7);
+}
+
+.story__stamp strong {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--color-cream);
+  font-style: italic;
+}
+
+.story__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  margin-top: 1.75rem;
+  max-width: 60ch;
+}
+
+.story__emphasis {
+  padding-left: 1.2rem;
+  border-left: 2px solid var(--color-accent);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--color-dark);
+}
+
+.story__closing em {
+  color: var(--color-primary);
+}
+
+.story__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  border-bottom: 1px solid var(--color-accent);
+  padding-bottom: 0.4rem;
+  transition: gap var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.story__link:hover {
+  gap: 0.9rem;
+  color: var(--color-primary-dark);
+}
+
+@media (min-width: 900px) {
+  .story__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(3rem, 7vw, 6rem);
+  }
+}
+
+@media (max-width: 599px) {
+  .story__media {
+    padding-right: 1.75rem;
+  }
+  .story__figure--inset {
+    width: 58%;
+  }
+  .story__stamp {
+    width: 76px;
+    height: 76px;
+  }
+  .story__stamp strong {
+    font-size: 0.82rem;
+  }
+}

@@ -1,0 +1,48 @@
+:root {
+  /* Brand colors */
+  --primary-green: #1f5d42;
+  --primary-green-rgb: 31, 93, 66;
+  --dark-green: #123d2c;
+  --dark-green-rgb: 18, 61, 44;
+  --light-green: #eaf3ed;
+  --gold: #c9a227;
+  --gold-rgb: 201, 162, 39;
+  --light-gold: #e8d58a;
+  --gold-text: #8a6c14;
+  --cream: #f8f6ef;
+  --white: #ffffff;
+  --black: #172019;
+  --text: #303832;
+  --muted: #68736c;
+  --border: #dde4df;
+
+  /* Functional */
+  --whatsapp: #1fa855;
+  --danger: #b3261e;
+  --success: #1f7a4d;
+
+  /* Typography */
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-body: "Poppins", "Segoe UI", system-ui, sans-serif;
+
+  /* Layout */
+  --container: 1200px;
+  --container-narrow: 880px;
+  --radius-sm: 6px;
+  --radius: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 26px;
+  --shadow-sm: 0 2px 10px rgba(23, 32, 25, 0.06);
+  --shadow: 0 12px 34px rgba(18, 61, 44, 0.1);
+  --shadow-lg: 0 24px 60px rgba(18, 61, 44, 0.16);
+  --shadow-gold: 0 14px 38px rgba(201, 162, 39, 0.22);
+
+  /* Transitions */
+  --transition: 0.28s cubic-bezier(0.22, 0.61, 0.36, 1);
+  --transition-slow: 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  /* Z-index scale */
+  --z-nav: 1000;
+  --z-menu: 1200;
+  --z-whatsapp: 900;
+}

@@ -1,0 +1,143 @@
+.inquiry {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 44px 40px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.inquiry::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.inquiry__head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.inquiry__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.inquiry__head h2 {
+  font-size: 24px;
+}
+
+.inquiry > p {
+  color: var(--text-light);
+  font-size: 14.5px;
+  margin-bottom: 28px;
+}
+
+.inquiry__form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.inquiry__field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.inquiry__field--full {
+  grid-column: 1 / -1;
+}
+
+.inquiry__field label {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.inquiry__field label span {
+  color: var(--accent);
+}
+
+.inquiry__field input,
+.inquiry__field select,
+.inquiry__field textarea {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--text);
+  transition: var(--transition);
+  outline: none;
+}
+
+.inquiry__field textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.inquiry__field input:focus,
+.inquiry__field select:focus,
+.inquiry__field textarea:focus {
+  border-color: var(--primary);
+  background: var(--white);
+  box-shadow: 0 0 0 4px rgba(11, 61, 145, 0.1);
+}
+
+.inquiry__field select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%230B3D91' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 42px;
+  cursor: pointer;
+}
+
+.inquiry__form .btn {
+  width: 100%;
+  margin-top: 6px;
+  grid-column: 1 / -1;
+}
+
+.inquiry__success {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-light);
+  border: 1px solid rgba(0, 163, 163, 0.4);
+  color: var(--accent-dark);
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+@media (max-width: 640px) {
+  .inquiry {
+    padding: 32px 24px;
+  }
+  .inquiry__form {
+    grid-template-columns: 1fr;
+  }
+  .inquiry__head h2 {
+    font-size: 20px;
+  }
+}

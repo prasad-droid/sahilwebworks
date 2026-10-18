@@ -1,0 +1,170 @@
+/* ==========================================================================
+   FAQ - accessible accordion.
+   ========================================================================== */
+
+.faq__list {
+  display: grid;
+  gap: 0.6rem;
+  max-width: 860px;
+  margin-inline: auto;
+}
+
+.faq__item {
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--white);
+  overflow: hidden;
+  transition: border-color var(--t-base) var(--ease-out), box-shadow var(--t-base) var(--ease-out);
+}
+
+.faq__item:hover {
+  border-color: rgba(31, 77, 53, 0.24);
+}
+
+.faq__item.is-open {
+  border-color: rgba(31, 77, 53, 0.32);
+  box-shadow: var(--shadow-md);
+}
+
+.faq__q {
+  margin: 0;
+}
+
+.faq__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding: 1.05rem 1.15rem;
+  text-align: left;
+  font-family: var(--font-sans);
+  transition: background-color var(--t-fast) var(--ease-out);
+}
+
+.faq__trigger:hover {
+  background: var(--surface);
+}
+
+.faq__trigger:focus-visible {
+  outline: 3px solid rgba(31, 77, 53, 0.4);
+  outline-offset: -3px;
+}
+
+.faq__trigger-text {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  font-size: 0.98rem;
+  font-weight: 800;
+  line-height: 1.4;
+  color: var(--primary-dark);
+}
+
+.faq__num {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent-deep);
+  flex: none;
+}
+
+/* Rotating chevron-ish arrow. */
+.faq__icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--surface-alt);
+  color: var(--primary);
+  transition: transform var(--t-base) var(--ease-out), background-color var(--t-base) var(--ease-out),
+    color var(--t-base) var(--ease-out);
+}
+
+.faq__item.is-open .faq__icon {
+  transform: rotate(90deg);
+  background: var(--primary);
+  color: var(--white);
+}
+
+/* Collapsed state animates grid-rows; `hidden` removes it from the a11y tree. */
+.faq__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--t-slow) var(--ease-out);
+}
+
+.faq__item.is-open .faq__panel {
+  grid-template-rows: 1fr;
+}
+
+.faq__panel[hidden] {
+  display: grid;
+  visibility: hidden;
+}
+
+.faq__answer {
+  overflow: hidden;
+}
+
+.faq__answer p {
+  padding: 0 1.15rem 1.15rem 3.1rem;
+  font-size: var(--fs-sm);
+  line-height: 1.72;
+  color: var(--text-soft);
+}
+
+@media (min-width: 640px) {
+  .faq__answer p {
+    padding-left: 3.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq__answer p {
+    padding-left: 1.15rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Footer CTA
+   -------------------------------------------------------------------------- */
+.faq__foot {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+  max-width: 860px;
+  margin: clamp(1.5rem, 1rem + 1.8vw, 2.25rem) auto 0;
+  padding: clamp(1.15rem, 0.9rem + 1.2vw, 1.75rem);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  border: 1px dashed var(--border-strong);
+}
+
+.faq__foot strong {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+}
+
+.faq__foot p {
+  margin-top: 0.25rem;
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--text-soft);
+}
+
+@media (min-width: 768px) {
+  .faq__foot {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .faq__foot .btn {
+    flex: none;
+  }
+}

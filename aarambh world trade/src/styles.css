@@ -1,0 +1,23 @@
+/* ==========================================================================
+   AARAMBH WORLDTRADE - application stylesheet.
+   global.css must load first: it defines the design tokens that every
+   section stylesheet consumes.
+   ========================================================================== */
+
+@import './styles/global.css';
+
+@import './styles/navbar.css';
+@import './styles/hero.css';
+@import './styles/trust.css';
+@import './styles/about.css';
+@import './styles/products.css';
+@import './styles/services.css';
+@import './styles/process.css';
+@import './styles/whyus.css';
+@import './styles/markets.css';
+@import './styles/gallery.css';
+@import './styles/faq.css';
+@import './styles/form.css';
+@import './styles/contact.css';
+@import './styles/footer.css';
+@import './styles/floating.css';

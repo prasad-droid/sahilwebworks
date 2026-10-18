@@ -1,0 +1,72 @@
+/* ==========================================================================
+   GET A QUOTE CTA
+   ========================================================================== */
+
+.quote-cta {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(4.5rem, 11vw, 8rem) 0;
+  color: var(--white);
+  background: radial-gradient(circle at 20% 20%, #1f4a3d 0%, var(--charcoal) 70%);
+}
+
+.quote-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(216, 199, 163, 0.13) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(circle at center, #000 35%, transparent 78%);
+  -webkit-mask-image: radial-gradient(circle at center, #000 35%, transparent 78%);
+}
+
+.quote-cta__inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.4fr auto;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.quote-cta__copy {
+  max-width: 62ch;
+}
+
+.quote-cta__title {
+  color: var(--white);
+  font-size: clamp(1.8rem, 4vw, 2.85rem);
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.quote-cta__text {
+  color: rgba(247, 244, 236, 0.82);
+  font-size: 1.05rem;
+  line-height: 1.78;
+}
+
+.quote-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.quote-cta__actions .btn {
+  white-space: nowrap;
+  padding: 0.95rem 1.7rem;
+}
+
+@media (max-width: 860px) {
+  .quote-cta__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .quote-cta__copy {
+    max-width: none;
+  }
+  .quote-cta__actions {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,90 @@
+/* ============================================================
+   Our Values
+   ============================================================ */
+
+.values__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.value-card {
+  position: relative;
+  padding: 30px 28px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease),
+    border-color 0.3s var(--ease);
+}
+
+.value-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.32s var(--ease);
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--steel-200);
+}
+
+.value-card:hover::before {
+  transform: scaleY(1);
+}
+
+.value-card__head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.value-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  background: var(--teal-soft);
+  color: var(--teal);
+  transition: background-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+.value-card:hover .value-card__icon {
+  background: var(--teal);
+  color: var(--white);
+}
+
+.value-card__title {
+  font-size: 1.08rem;
+  margin: 0;
+}
+
+.value-card__text {
+  font-size: 0.89rem;
+  color: var(--text-muted);
+  line-height: 1.62;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 940px) {
+  .values__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
+  .values__grid {
+    grid-template-columns: 1fr;
+  }
+}

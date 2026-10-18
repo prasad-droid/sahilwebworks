@@ -1,0 +1,35 @@
+:root {
+  --primary: #0b5fa5;
+  --secondary: #0e8bcf;
+  --accent: #2cb67d;
+  --green-light: #7fdcaf;
+  --green-tint: #e6f7ef;
+  --white: #ffffff;
+  --light: #f5fafd;
+  --text: #222222;
+  --gray: #666666;
+  --border: #d9e7f2;
+
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --h-hero: 60px;
+  --h-section: 42px;
+  --h-card: 24px;
+  --p-size: 18px;
+  --btn-size: 16px;
+
+  --shadow-sm: 0 4px 14px rgba(11, 95, 165, 0.08);
+  --shadow-md: 0 12px 32px rgba(11, 95, 165, 0.12);
+  --shadow-lg: 0 24px 48px rgba(11, 95, 165, 0.16);
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  --navbar-height: 76px;
+  --section-pad: 110px;
+  --container: 1200px;
+
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}

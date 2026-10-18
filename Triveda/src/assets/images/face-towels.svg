@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f2f7fb"/>
+      <stop offset="1" stop-color="#dce9f4"/>
+    </linearGradient>
+    <linearGradient id="tow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#d8e8f5"/>
+    </linearGradient>
+    <linearGradient id="acc" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#C9A227"/>
+      <stop offset="1" stop-color="#a8861d"/>
+    </linearGradient>
+    <pattern id="terry" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <circle cx="3" cy="3" r="2.2" fill="rgba(43,92,132,0.07)"/>
+      <circle cx="10" cy="10" r="2.2" fill="rgba(43,92,132,0.07)"/>
+    </pattern>
+  </defs>
+  <rect width="600" height="500" fill="url(#bg)"/>
+  <circle cx="100" cy="80" r="130" fill="rgba(95,168,211,0.18)"/>
+  <circle cx="520" cy="430" r="150" fill="rgba(201,162,39,0.14)"/>
+  <g transform="translate(130,150)">
+    <rect x="-80" y="0" width="500" height="200" rx="16" fill="url(#tow)"/>
+    <rect x="-80" y="0" width="500" height="200" rx="16" fill="url(#terry)"/>
+    <rect x="30" y="24" width="280" height="14" rx="7" fill="url(#acc)"/>
+    <path d="M-80 200 L420 200 L392 222 L-52 222 Z" fill="#c3d9ec"/>
+    <rect x="-30" y="70" width="340" height="90" rx="10" fill="#ffffff"/>
+    <rect x="-30" y="70" width="340" height="90" rx="10" fill="url(#terry)"/>
+  </g>
+</svg>

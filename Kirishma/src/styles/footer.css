@@ -1,0 +1,150 @@
+/* ==========================================================================
+   Footer — warm, premium brand footer
+   ========================================================================== */
+
+.footer {
+  background: #2a1c14;
+  color: rgba(250, 245, 233, 0.72);
+  border-top: 3px solid var(--accent);
+}
+
+.footer__inner {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3rem);
+  padding-block: clamp(2.75rem, 6vw, 4rem);
+}
+
+/* ------------------------------- brand --------------------------------- */
+
+.footer__brand {
+  max-width: 24rem;
+}
+
+.footer__logo {
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+  padding: 0.35rem 0.6rem;
+  margin-bottom: 1.1rem;
+  border-radius: var(--radius-sm);
+  background: rgba(250, 245, 233, 0.94);
+}
+
+.footer__name {
+  margin: 0 0 0.25rem;
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+  font-weight: 600;
+}
+
+.footer__tagline {
+  margin: 0 0 1rem;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-style: italic;
+}
+
+.footer__about {
+  margin: 0;
+  color: rgba(250, 245, 233, 0.62);
+  font-size: 0.87rem;
+  line-height: 1.75;
+}
+
+/* ------------------------------ columns -------------------------------- */
+
+.footer__col-title {
+  margin-bottom: 1rem;
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.footer__links {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.footer__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  color: rgba(250, 245, 233, 0.72);
+  font-size: 0.9rem;
+  transition: color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+
+.footer__link:hover {
+  color: var(--accent);
+  transform: translateX(3px);
+}
+
+.footer__address {
+  display: block;
+  padding-block: 0.15rem;
+  color: rgba(250, 245, 233, 0.62);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* ------------------------------- bottom -------------------------------- */
+
+.footer__bottom {
+  border-top: 1px solid rgba(250, 245, 233, 0.12);
+}
+
+.footer__bottom-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding-block: 1.25rem;
+  text-align: center;
+}
+
+.footer__copyright,
+.footer__business-type {
+  margin: 0;
+  color: rgba(250, 245, 233, 0.55);
+  font-size: 0.8rem;
+}
+
+.footer__business-type {
+  color: rgba(201, 154, 74, 0.75);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+}
+
+/* ============================ RESPONSIVE =============================== */
+
+@media (min-width: 560px) {
+  .footer__inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer__brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 960px) {
+  .footer__inner {
+    grid-template-columns: 1.6fr 0.8fr 1fr 1.1fr;
+  }
+
+  .footer__brand {
+    grid-column: auto;
+  }
+
+  .footer__bottom-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+  }
+}

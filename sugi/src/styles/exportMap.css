@@ -1,0 +1,172 @@
+/* ==========================================================================
+   COUNTRIES WE EXPORT TO — animated world map
+   ========================================================================== */
+
+.export-map {
+  background: radial-gradient(circle at 50% 15%, var(--forest) 0%, var(--charcoal) 78%);
+  color: var(--white);
+  overflow: hidden;
+}
+
+.export-map__head {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+}
+
+.export-map__head .eyebrow {
+  justify-content: center;
+}
+
+.export-map__head .section-title {
+  color: var(--white);
+  margin: 0 auto;
+}
+
+.export-map__head .section-sub {
+  color: rgba(247, 244, 236, 0.72);
+  margin: 1.1rem auto 0;
+}
+
+.export-map__viz {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid rgba(184, 151, 91, 0.28);
+  box-shadow: var(--shadow-lg);
+}
+
+.export-map__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.export-map__graticule {
+  stroke: rgba(216, 199, 163, 0.1);
+  stroke-width: 0.6;
+}
+
+.export-map__land {
+  fill: rgba(216, 199, 163, 0.16);
+  stroke: rgba(184, 151, 91, 0.45);
+  stroke-width: 0.5;
+  stroke-linejoin: round;
+}
+
+/* ---------- routes ---------- */
+.export-map__route {
+  stroke-dasharray: 5 7;
+  animation: mapFlow 2.6s linear infinite;
+}
+
+@keyframes mapFlow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+/* ---------- origin ---------- */
+.export-map__origin-dot {
+  fill: var(--sand);
+  stroke: var(--white);
+  stroke-width: 1.5;
+}
+
+.export-map__pulse {
+  fill: rgba(184, 151, 91, 0.35);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mapPulse 2.6s ease-out infinite;
+}
+
+@keyframes mapPulse {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.9;
+  }
+  70% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* ---------- destinations ---------- */
+.export-map__dot {
+  fill: var(--gold);
+  stroke: rgba(24, 32, 29, 0.9);
+  stroke-width: 1;
+}
+
+.export-map__point {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mapBlink 3.4s ease-in-out infinite;
+}
+
+.export-map__point:hover .export-map__dot {
+  fill: var(--white);
+}
+
+@keyframes mapBlink {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+}
+
+/* ---------- origin label ---------- */
+.export-map__origin-label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.export-map__origin-label span {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--white);
+}
+
+.export-map__origin-label small {
+  font-size: 0.6rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.export-map__foot {
+  text-align: center;
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+  color: rgba(247, 244, 236, 0.7);
+  font-style: italic;
+  font-size: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .export-map__route,
+  .export-map__pulse,
+  .export-map__point {
+    animation: none;
+  }
+  .export-map__point {
+    opacity: 1;
+  }
+}

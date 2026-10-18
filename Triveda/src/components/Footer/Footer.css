@@ -1,0 +1,143 @@
+.footer {
+  background: #132c42;
+  color: rgba(255, 255, 255, 0.72);
+  padding: 72px 0 0;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 0.9fr 1.2fr;
+  gap: 48px;
+  padding-bottom: 56px;
+}
+
+.footer-brand .logo {
+  margin-bottom: 20px;
+}
+
+.footer-brand .logo-name {
+  color: var(--white);
+}
+
+.footer-brand > p {
+  font-size: 13.5px;
+  font-weight: 300;
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+
+.footer-tagline {
+  font-family: var(--font-heading);
+  font-style: italic;
+  color: var(--accent) !important;
+  font-size: 15px !important;
+}
+
+.footer-col h3 {
+  font-size: 17px;
+  color: var(--white);
+  margin-bottom: 22px;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.footer-col h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 36px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.footer-col ul a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.68);
+  transition: all var(--transition);
+}
+
+.footer-col ul a svg {
+  font-size: 10px;
+  color: var(--accent);
+  transition: transform var(--transition);
+}
+
+.footer-col ul a:hover {
+  color: var(--white);
+  transform: translateX(4px);
+}
+
+.footer-col ul a:hover svg {
+  transform: translateX(2px);
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  font-size: 13px;
+}
+
+.footer-contact a,
+.footer-contact span {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.footer-contact a:hover {
+  color: var(--accent);
+}
+
+.footer-contact svg {
+  color: var(--accent);
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 22px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.footer-made {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-made svg {
+  color: var(--accent);
+}
+
+@media (max-width: 1020px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 620px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}

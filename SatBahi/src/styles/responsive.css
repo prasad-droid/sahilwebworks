@@ -1,0 +1,239 @@
+/* ==========================================================================
+   RESPONSIVE — SATBHAI EXIM
+   ========================================================================== */
+
+@media (max-width: 1250px) {
+  .navbar__links {
+    gap: 18px;
+  }
+
+  .navbar__link {
+    font-size: 0.86rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .navbar__cta .btn--outline {
+    display: none;
+  }
+}
+
+@media (max-width: 1100px) {
+  .trustbar__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .industries__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .why__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar__links,
+  .navbar__cta {
+    display: none;
+  }
+
+  .navbar__hamburger {
+    display: flex;
+  }
+
+  /* Mobile menu drawer */
+  .mobile-menu {
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-lg);
+    padding: 20px var(--gutter) 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transform: translateY(-12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition), transform var(--transition);
+  }
+
+  .mobile-menu.is-open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .mobile-menu__link {
+    padding: 13px 8px;
+    font-weight: 500;
+    font-size: 1.02rem;
+    border-bottom: 1px solid var(--cream);
+  }
+
+  .mobile-menu__link.is-active {
+    color: var(--primary);
+  }
+
+  .mobile-menu__ctas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-top: 40px;
+    text-align: center;
+  }
+
+  .hero__text {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero__actions {
+    justify-content: center;
+  }
+
+  .hero__visual {
+    max-width: 520px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero__badge-float--quality {
+    left: 6px;
+  }
+
+  .hero__badge-float--global {
+    right: 6px;
+  }
+
+  .hero__stats {
+    margin-top: 28px;
+  }
+
+  .about__grid,
+  .custom__grid,
+  .rfq__grid,
+  .contact__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about__media {
+    max-width: 460px;
+    margin: 0 auto;
+  }
+
+  .products__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .categories__grid,
+  .services__grid,
+  .process__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
+  }
+
+  .gallery__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .products__grid,
+  .categories__grid,
+  .services__grid,
+  .process__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonials__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonials__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trustbar__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .industries__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form {
+    padding: 24px;
+  }
+
+  .custom__list {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero__stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .hero__stat strong {
+    font-size: 1.15rem;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+  }
+
+  .product-card__actions {
+    grid-template-columns: 1fr;
+  }
+
+  .rfq__contact-item {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .trustbar__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__badge-float--quality,
+  .hero__badge-float--global {
+    display: none;
+  }
+}

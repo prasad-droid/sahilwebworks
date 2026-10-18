@@ -1,0 +1,93 @@
+/* ==========================================================================
+   HOME ABOUT SECTION
+   ========================================================================== */
+
+.about-section {
+  background: var(--white);
+}
+
+.about-section__grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.about-section__media {
+  position: relative;
+}
+
+.about-section__image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+}
+
+.about-section__badge {
+  position: absolute;
+  bottom: -1.4rem;
+  right: -0.75rem;
+  background: var(--forest);
+  color: var(--white);
+  padding: 1rem 1.4rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(184, 151, 91, 0.35);
+}
+
+.about-section__badge-top,
+.about-section__badge-bottom {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  font-size: 0.98rem;
+}
+
+.about-section__badge-top {
+  color: var(--sand);
+}
+
+.about-section__badge-arrow {
+  color: var(--gold);
+  font-size: 1.1rem;
+}
+
+.about-section__content .section-title {
+  margin-bottom: 1.3rem;
+}
+
+.about-section__text {
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  max-width: 58ch;
+}
+
+.about-section__cta {
+  margin-top: 1.4rem;
+}
+
+@media (max-width: 900px) {
+  .about-section__grid {
+    grid-template-columns: 1fr;
+  }
+  .about-section__media {
+    max-width: 520px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .about-section__badge {
+    right: 0.5rem;
+  }
+  .about-section__image {
+    aspect-ratio: 4 / 3;
+  }
+}

@@ -1,0 +1,136 @@
+.global-reach {
+  position: relative;
+  overflow: hidden;
+  background: var(--primary);
+}
+
+.global-reach::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 78% 40%, rgba(93, 127, 58, 0.5), transparent 46%),
+    linear-gradient(160deg, #2c5c37 0%, var(--primary) 60%, #1c3822 100%);
+  pointer-events: none;
+}
+
+.global-reach__blob {
+  width: 380px;
+  height: 380px;
+  bottom: -160px;
+  left: -140px;
+  background: rgba(201, 154, 61, 0.18);
+}
+
+.global-reach__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.global-reach__content .section-label {
+  color: var(--accent);
+}
+
+.global-reach__content .section-label::before {
+  background: var(--accent);
+}
+
+.global-reach__content .section-title {
+  color: var(--white);
+}
+
+.global-reach__content .section-subtitle {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.global-reach__text {
+  color: rgba(255, 255, 255, 0.72);
+  max-width: 520px;
+  margin: 18px 0 24px;
+}
+
+.global-reach__points {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.global-reach__point {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.96rem;
+}
+
+.global-reach__point-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* Map */
+.global-reach__visual {
+  position: relative;
+}
+
+.global-reach__map-wrap {
+  position: relative;
+  padding: 20px;
+}
+
+.global-reach__map {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.global-reach__chip {
+  position: absolute;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dark);
+  background: var(--cream);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+}
+
+.global-reach__chip--origin {
+  top: 0;
+  left: 32%;
+}
+
+.global-reach__chip--markets {
+  bottom: 8px;
+  right: 12px;
+}
+
+@media (max-width: 1000px) {
+  .global-reach__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .global-reach__visual {
+    max-width: 620px;
+  }
+}
+
+@media (max-width: 480px) {
+  .global-reach__chip--origin {
+    left: 20%;
+  }
+}

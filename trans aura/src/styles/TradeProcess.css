@@ -1,0 +1,123 @@
+.process__timeline {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+  position: relative;
+  counter-reset: step;
+}
+
+.process__timeline::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: 6%;
+  right: 6%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--navy-800), var(--teal-500) 50%, var(--gold-500));
+  opacity: 0.35;
+}
+
+.process__step {
+  position: relative;
+  text-align: center;
+  padding: 0 6px;
+}
+
+.process__node {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.process__num {
+  width: 48px;
+  height: 48px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--teal-500);
+  color: var(--navy-800);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.05rem;
+  box-shadow: var(--shadow-xs);
+  position: relative;
+  z-index: 1;
+}
+
+.process__icwrap {
+  width: 40px;
+  height: 40px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(224, 184, 74, 0.16);
+  color: var(--navy-800);
+  border: 1px solid rgba(201, 162, 39, 0.35);
+}
+
+.process__step h3 {
+  font-size: 1.02rem;
+  margin-bottom: 8px;
+}
+
+.process__step p {
+  font-size: 0.87rem;
+  margin: 0;
+  color: var(--body);
+}
+
+.process__note {
+  margin: 40px auto 0;
+  max-width: 620px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+@media (max-width: 960px) {
+  .process__timeline {
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 520px;
+    margin-inline: auto;
+  }
+
+  .process__timeline::before {
+    top: 0;
+    bottom: 0;
+    left: 24px;
+    right: auto;
+    width: 2px;
+    height: auto;
+    background: linear-gradient(180deg, var(--navy-800), var(--teal-500) 50%, var(--gold-500));
+    opacity: 0.3;
+  }
+
+  .process__step {
+    display: flex;
+    gap: 20px;
+    text-align: left;
+    padding: 0 0 34px 0;
+  }
+
+  .process__node {
+    flex-shrink: 0;
+    margin: 0;
+  }
+
+  .process__num {
+    width: 48px;
+    height: 48px;
+    background: var(--navy-800);
+    color: var(--gold-400);
+    border-color: var(--navy-800);
+  }
+
+  .process__step h3 { margin-bottom: 6px; }
+}

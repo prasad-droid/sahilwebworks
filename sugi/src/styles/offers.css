@@ -1,0 +1,71 @@
+/* ==========================================================================
+   OFFERS & PROMOTIONS
+   ========================================================================== */
+
+.offers {
+  background: var(--white);
+}
+
+.offers__head {
+  max-width: 42rem;
+  margin-bottom: 2.5rem;
+}
+
+.offers__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.4rem;
+}
+
+.offers__card {
+  background: var(--cream);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.offers__media {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.offers__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.offers__body {
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  flex: 1;
+}
+
+.offers__title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--charcoal);
+}
+
+.offers__text {
+  color: var(--muted);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.offers__dates {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.offers__cta {
+  align-self: flex-start;
+}

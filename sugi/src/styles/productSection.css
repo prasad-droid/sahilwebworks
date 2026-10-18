@@ -1,0 +1,54 @@
+/* ==========================================================================
+   PRODUCT SECTION (shared by Home + Products page)
+   ========================================================================== */
+
+.product-section {
+  background: var(--cream);
+}
+
+.product-section__head {
+  max-width: 780px;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.product-section__group + .product-section__group {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.product-section__group-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: clamp(1.3rem, 2.6vw, 1.85rem);
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: clamp(1.2rem, 2.5vw, 1.8rem);
+}
+
+.product-section__group-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(184, 151, 91, 0.55), transparent);
+}
+
+.product-section__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: clamp(1.25rem, 2.6vw, 2rem);
+}
+
+.product-section__grid > div {
+  min-width: 0;
+}
+
+/* detail layout on the Products page: one card per row */
+.product-section__grid--detail {
+  grid-template-columns: 1fr;
+}
+
+@media (max-width: 760px) {
+  .product-section__group-title::after {
+    display: none;
+  }
+}

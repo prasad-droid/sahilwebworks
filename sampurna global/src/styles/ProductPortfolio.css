@@ -1,0 +1,298 @@
+/* ================= Product Portfolio ================= */
+.portfolio__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 34px;
+}
+
+.portfolio__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.portfolio__chip {
+  padding: 9px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-ink-soft);
+  background: var(--color-bg);
+  border: 1px solid var(--color-line);
+  transition: background-color 0.3s var(--ease), color 0.3s var(--ease),
+    border-color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.portfolio__chip:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent-dark);
+}
+.portfolio__chip.is-active {
+  background: var(--color-ink);
+  border-color: var(--color-ink);
+  color: #fff;
+}
+
+.portfolio__sort select {
+  padding: 10px 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-line);
+  background: var(--color-surface);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.portfolio__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 28px;
+}
+
+/* Product card */
+.product-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+}
+
+.product-card__media {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--color-beige);
+}
+.product-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease);
+}
+.product-card:hover .product-card__media img {
+  transform: scale(1.08);
+}
+.product-card__badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(255, 255, 255, 0.92);
+}
+.product-card__quick {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translate(-50%, 12px);
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
+  background: rgba(26, 26, 26, 0.9);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  opacity: 0;
+  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
+  backdrop-filter: blur(4px);
+}
+.product-card:hover .product-card__quick,
+.product-card:focus-within .product-card__quick {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.product-card__body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.product-card__cat {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+}
+.product-card__body h3 {
+  font-size: 1.15rem;
+  margin: 8px 0 14px;
+}
+
+.product-card__specs {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 18px;
+  flex: 1;
+}
+.product-card__spec {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.82rem;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed var(--color-line);
+}
+.product-card__spec dt {
+  color: var(--color-muted);
+}
+.product-card__spec dd {
+  color: var(--color-ink);
+  font-weight: 600;
+  text-align: right;
+}
+
+.portfolio__empty {
+  text-align: center;
+  padding: 40px 0;
+  color: var(--color-muted);
+}
+.portfolio__empty code {
+  background: var(--color-beige);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+/* ---------- Product modal ---------- */
+.pmodal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(18, 16, 14, 0.6);
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.3s var(--ease);
+}
+.pmodal__panel {
+  position: relative;
+  width: min(920px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  display: grid;
+  gap: 0;
+  animation: modalIn 0.4s var(--ease);
+  box-shadow: var(--shadow-lg);
+}
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.pmodal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--color-ink);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s var(--ease);
+}
+.pmodal__close:hover {
+  transform: rotate(90deg);
+}
+.pmodal__close svg {
+  width: 22px;
+  height: 22px;
+}
+.pmodal__media {
+  position: relative;
+  background: var(--color-beige);
+}
+.pmodal__media img {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  object-fit: cover;
+}
+.pmodal__media .badge {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  background: rgba(255, 255, 255, 0.92);
+}
+.pmodal__body {
+  padding: 32px;
+}
+.pmodal__cat {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+}
+.pmodal__body h3 {
+  font-size: 1.7rem;
+  margin: 10px 0 22px;
+}
+.pmodal__specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 24px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--color-line);
+}
+.pmodal__specs dt {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 2px;
+}
+.pmodal__specs dd {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.pmodal__note {
+  display: flex;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  background: var(--color-beige);
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 24px;
+}
+.pmodal__note svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--color-accent-dark);
+}
+.pmodal__actions {
+  display: grid;
+  gap: 12px;
+}
+
+@media (min-width: 760px) {
+  .pmodal__panel {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+  .pmodal__media img {
+    min-height: 100%;
+  }
+}

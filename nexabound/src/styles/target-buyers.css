@@ -1,0 +1,71 @@
+.target-buyers {
+  background: var(--surface);
+}
+
+.target-buyers-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.target-buyers-header .section-subheading {
+  margin: 0 auto;
+}
+
+.target-buyers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.target-buyer-card {
+  padding: 32px 24px;
+  background: var(--background);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+.target-buyer-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent);
+}
+
+.target-buyer-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: var(--radius-md);
+  font-size: 1.4rem;
+  color: var(--white);
+}
+
+.target-buyer-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+.target-buyer-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .target-buyers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .target-buyers-grid {
+    grid-template-columns: 1fr;
+  }
+}

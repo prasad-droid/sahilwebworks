@@ -1,0 +1,171 @@
+﻿/* ============ SUSTAINABILITY ============ */
+.sustainability {
+  display: grid;
+  gap: 56px;
+  align-items: center;
+}
+
+.sustainability__visual {
+  position: relative;
+  min-height: 420px;
+  display: grid;
+  place-items: center;
+}
+
+.sustainability__orbit {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(31, 77, 58, 0.35);
+  display: grid;
+  place-items: center;
+  animation: orbitSpin 28s linear infinite;
+}
+
+.sustainability__orbit--one {
+  width: 320px;
+  height: 320px;
+}
+
+.sustainability__orbit--two {
+  width: 220px;
+  height: 220px;
+  animation-direction: reverse;
+  animation-duration: 22s;
+}
+
+@keyframes orbitSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.sustainability__orbit img {
+  animation: counterSpin 28s linear infinite;
+}
+
+.sustainability__orbit--one .sustainability__leaf {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid var(--white);
+  box-shadow: var(--shadow-md);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: counterSpin 28s linear infinite;
+}
+
+.sustainability__orbit--two .sustainability__leaf--small {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--white);
+  box-shadow: var(--shadow-md);
+  position: absolute;
+  bottom: -6px;
+  left: -10px;
+  animation: counterSpin2 22s linear infinite;
+}
+
+@keyframes counterSpin {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: -360deg;
+  }
+}
+
+@keyframes counterSpin2 {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+
+.sustainability__core {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+
+.sustainability__core-icon {
+  font-size: 1.7rem;
+  margin-bottom: 6px;
+}
+
+.sustainability__core strong {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.sustainability__blocks {
+  display: grid;
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.sustainability__block {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 22px 24px;
+  border: 1px solid var(--border);
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out),
+    border-color 0.4s var(--ease-out);
+}
+
+.sustainability__block:hover {
+  transform: translateX(8px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--secondary);
+}
+
+.sustainability__number {
+  flex-shrink: 0;
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.sustainability__block-title {
+  font-size: 1.14rem;
+  margin-bottom: 6px;
+}
+
+.sustainability__block-text {
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+@media (min-width: 768px) {
+  .sustainability {
+    grid-template-columns: 1fr 1.1fr;
+    gap: 72px;
+  }
+
+  .sustainability__visual {
+    order: -1;
+  }
+}

@@ -1,0 +1,91 @@
+.why__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.why__card {
+  padding: 26px 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: #fff;
+  box-shadow: var(--shadow-xs);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.why__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.why__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(13, 148, 136, 0.12);
+  color: var(--teal-600);
+  margin-bottom: 16px;
+}
+
+.why__card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.why__card p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.why__statement {
+  grid-column: span 4;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 34px 40px;
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(120deg, rgba(11, 37, 69, 0.97), rgba(11, 37, 69, 0.88) 55%, rgba(13, 148, 136, 0.82)),
+    radial-gradient(circle at 90% 20%, rgba(224, 184, 74, 0.25), transparent 40%);
+  color: #fff;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  position: relative;
+}
+
+.why__statement svg {
+  color: var(--gold-400);
+  flex-shrink: 0;
+  animation: floatY 5s ease-in-out infinite;
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.why__statement p {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 2.4vw, 1.7rem);
+  line-height: 1.4;
+  color: #fff;
+}
+
+@media (max-width: 1050px) {
+  .why__grid { grid-template-columns: repeat(3, 1fr); }
+  .why__statement { grid-column: span 3; }
+}
+
+@media (max-width: 760px) {
+  .why__grid { grid-template-columns: repeat(2, 1fr); }
+  .why__statement { grid-column: span 2; }
+}
+
+@media (max-width: 520px) {
+  .why__grid { grid-template-columns: 1fr; }
+  .why__statement { grid-column: span 1; flex-direction: column; text-align: center; padding: 28px 24px; }
+}

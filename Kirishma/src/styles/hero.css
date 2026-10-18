@@ -1,0 +1,271 @@
+/* ==========================================================================
+   Hero — full-bleed food photography with warm overlays + value strip
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 100svh;
+  padding-top: calc(var(--nav-height) + 3rem);
+  padding-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  overflow: hidden;
+  background: var(--primary-dark);
+}
+
+/* ------------------------------ media ---------------------------------- */
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 55%;
+  animation: heroImageIn 1.6s var(--ease-out) both;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(36, 28, 23, 0.82) 0%, rgba(36, 28, 23, 0.42) 32%, rgba(36, 28, 23, 0.55) 68%, rgba(36, 28, 23, 0.94) 100%),
+    linear-gradient(100deg, rgba(77, 39, 24, 0.85) 0%, rgba(77, 39, 24, 0.35) 52%, rgba(77, 39, 24, 0.1) 100%);
+}
+
+/* Subtle paper-like texture so large areas of colour do not feel flat. */
+.hero__grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.32;
+  mix-blend-mode: overlay;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(201, 154, 74, 0.35), transparent 45%),
+    radial-gradient(circle at 78% 68%, rgba(154, 91, 47, 0.4), transparent 48%);
+}
+
+/* ----------------------------- content --------------------------------- */
+
+.hero__inner {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.hero__content {
+  max-width: 44rem;
+  padding-bottom: clamp(1.5rem, 4vw, 3rem);
+}
+
+.hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1.15rem;
+  color: var(--accent-soft);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.hero__eyebrow-line {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.7;
+}
+
+.hero__title {
+  margin: 0;
+  color: var(--warm-white);
+  font-size: clamp(2.35rem, 7vw, 4.6rem);
+  line-height: 1.06;
+  letter-spacing: -0.022em;
+  text-shadow: 0 18px 40px rgba(36, 28, 23, 0.4);
+}
+
+.hero__title em {
+  display: inline-block;
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero__text {
+  max-width: 34rem;
+  margin: 1.5rem 0 0;
+  color: rgba(250, 245, 233, 0.88);
+  font-size: clamp(1rem, 1.6vw, 1.12rem);
+  line-height: 1.75;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2.1rem;
+}
+
+/* Text reveal, staggered */
+.hero__eyebrow,
+.hero__title,
+.hero__text,
+.hero__actions {
+  opacity: 0;
+  animation: heroTextIn 1s var(--ease-out) forwards;
+}
+
+.hero__eyebrow {
+  animation-delay: 0.25s;
+}
+.hero__title {
+  animation-delay: 0.4s;
+}
+.hero__text {
+  animation-delay: 0.6s;
+}
+.hero__actions {
+  animation-delay: 0.78s;
+}
+
+/* --------------------------- scroll hint ------------------------------- */
+
+.hero__scroll {
+  position: absolute;
+  right: var(--gutter);
+  bottom: clamp(1.5rem, 4vw, 2.5rem);
+  display: none;
+  align-items: center;
+  gap: 0.7rem;
+  color: rgba(250, 245, 233, 0.7);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+}
+
+.hero__scroll:hover {
+  color: var(--accent);
+}
+
+.hero__scroll-line {
+  display: block;
+  width: 1px;
+  height: 54px;
+  background: linear-gradient(180deg, var(--accent), transparent);
+  animation: scrollLine 2.4s var(--ease) infinite;
+  transform-origin: top center;
+}
+
+/* --------------------------- value strip -------------------------------- */
+
+.hero__highlights {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  padding: 0;
+  border-radius: var(--radius-lg);
+  background: rgba(250, 245, 233, 0.16);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+}
+
+.hero__highlight {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1.1rem 1.15rem;
+  background: rgba(36, 28, 23, 0.5);
+  transition: background-color var(--dur) var(--ease);
+}
+
+.hero__highlight:hover {
+  background: rgba(77, 39, 24, 0.66);
+}
+
+.hero__highlight-title {
+  color: var(--accent-soft);
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.hero__highlight-text {
+  color: rgba(250, 245, 233, 0.72);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+/* --------------------------- keyframes ---------------------------------- */
+
+@keyframes heroImageIn {
+  from {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes heroTextIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes scrollLine {
+  0% {
+    transform: scaleY(0);
+  }
+  45% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 0;
+  }
+}
+
+/* --------------------------- responsive -------------------------------- */
+
+@media (min-width: 640px) {
+  .hero__highlights {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero__scroll {
+    display: flex;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero {
+    min-height: 92svh;
+  }
+
+  .hero__highlights {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+  }
+}

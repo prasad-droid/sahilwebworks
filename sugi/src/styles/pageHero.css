@@ -1,0 +1,77 @@
+/* ==========================================================================
+   PAGE HERO — inner page banner
+   ========================================================================== */
+
+.page-hero {
+  position: relative;
+  padding: clamp(3rem, 8vw, 5.5rem) 0 clamp(2.5rem, 6vw, 4rem);
+  background: radial-gradient(circle at 15% 20%, var(--forest) 0%, var(--charcoal) 75%);
+  color: var(--white);
+  overflow: hidden;
+}
+
+.page-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(216, 199, 163, 0.11) 1px, transparent 1px);
+  background-size: 26px 26px;
+  mask-image: radial-gradient(circle at 25% 50%, #000 20%, transparent 72%);
+  -webkit-mask-image: radial-gradient(circle at 25% 50%, #000 20%, transparent 72%);
+  pointer-events: none;
+}
+
+.page-hero__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.page-hero__crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+  color: rgba(247, 244, 236, 0.6);
+}
+
+.page-hero__crumbs a {
+  color: rgba(247, 244, 236, 0.75);
+  transition: color 0.3s var(--ease);
+}
+
+.page-hero__crumbs a:hover {
+  color: var(--gold);
+}
+
+.page-hero__crumbs b {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.page-hero .eyebrow {
+  justify-content: center;
+}
+
+.page-hero__title {
+  color: var(--white);
+  font-size: clamp(2rem, 5.2vw, 3.4rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+
+.page-hero__intro {
+  margin: 1.2rem auto 0;
+  max-width: 68ch;
+  color: rgba(247, 244, 236, 0.8);
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  line-height: 1.75;
+}

@@ -1,0 +1,69 @@
+.market-strip {
+  position: relative;
+  background: var(--charcoal);
+  border-top: 1px solid rgba(184, 151, 91, 0.18);
+  border-bottom: 1px solid rgba(184, 151, 91, 0.18);
+  padding: 2.2rem 0;
+  overflow: hidden;
+}
+
+.market-strip::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(184, 151, 91, 0.5),
+    transparent
+  );
+}
+
+.market-strip__label {
+  text-align: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.6rem;
+  font-weight: 600;
+}
+
+.market-strip__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem 2.6rem;
+}
+
+.market-strip__item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.market-strip__name {
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(247, 244, 236, 0.92);
+}
+
+.market-strip__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.8;
+}
+
+@media (max-width: 640px) {
+  .market-strip__list {
+    gap: 0.9rem 1.6rem;
+  }
+}

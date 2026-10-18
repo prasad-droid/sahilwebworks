@@ -1,0 +1,246 @@
+.footer {
+  background: var(--primary-dark);
+  color: rgba(247, 245, 242, 0.78);
+  position: relative;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 44px;
+  padding: 72px 0 52px;
+}
+
+.footer-brand .logo-text .logo-name,
+.footer-brand .logo-text .logo-sub {
+  color: var(--white);
+}
+
+.footer-brand .logo-text .logo-sub {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-about {
+  font-size: 14.5px;
+  line-height: 1.8;
+  margin-top: 18px;
+  color: rgba(247, 245, 242, 0.68);
+}
+
+.footer-tagline {
+  margin-top: 16px;
+  font-family: var(--font-heading);
+  font-style: italic;
+  color: var(--accent);
+  font-size: 16px;
+}
+
+.footer h4 {
+  font-family: var(--font-heading);
+  font-size: 19px;
+  color: var(--white);
+  margin-bottom: 22px;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.footer h4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14.5px;
+  color: rgba(247, 245, 242, 0.72);
+  transition: color var(--transition), padding-left var(--transition);
+}
+
+.footer-links a svg {
+  font-size: 11px;
+  color: var(--accent);
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+  padding-left: 6px;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-contact li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14.5px;
+  color: rgba(247, 245, 242, 0.72);
+}
+
+.footer-contact svg {
+  color: var(--accent);
+  font-size: 16px;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.footer-socials a {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--accent);
+  font-size: 17px;
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+}
+
+.footer-socials a:hover {
+  background: var(--accent);
+  color: var(--primary-dark);
+  transform: translateY(-4px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 14px;
+  color: rgba(247, 245, 242, 0.55);
+}
+
+.footer-bottom strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.footer-bottom .made-with {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-bottom .made-with svg {
+  color: var(--accent);
+}
+
+.footer-bottom .made-with a {
+  color: var(--accent);
+  font-weight: 500;
+  transition: color var(--transition), text-decoration var(--transition);
+}
+
+.footer-bottom .made-with a:hover {
+  color: var(--accent-light);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.scroll-top {
+  position: fixed;
+  right: 26px;
+  bottom: 26px;
+  z-index: 900;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: var(--primary);
+  color: var(--accent);
+  font-size: 20px;
+  border: 1.5px solid var(--accent);
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity var(--transition), visibility var(--transition), transform var(--transition), background var(--transition);
+}
+
+.scroll-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top:hover {
+  background: var(--secondary);
+  color: var(--white);
+}
+
+.whatsapp-float {
+  position: fixed;
+  left: 26px;
+  bottom: 26px;
+  z-index: 900;
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  font-size: 27px;
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.45);
+  animation: pulse-ring 2.4s ease-out infinite;
+  transition: transform var(--transition);
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 991px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 575px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}

@@ -1,0 +1,79 @@
+/* ================= Why Choose Us ================= */
+.why {
+  background: var(--color-ink);
+  position: relative;
+  overflow: hidden;
+}
+.why::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(232, 100, 42, 0.22),
+    transparent 68%
+  );
+  pointer-events: none;
+}
+
+.why__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.why__card {
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  transition: background-color 0.4s var(--ease), transform 0.4s var(--ease),
+    border-color 0.4s var(--ease);
+}
+.why__card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(232, 100, 42, 0.5);
+  transform: translateY(-5px);
+}
+.why__ico {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  background: rgba(232, 100, 42, 0.16);
+  color: var(--color-accent);
+  margin-bottom: 20px;
+  transition: transform 0.4s var(--ease);
+}
+.why__card:hover .why__ico {
+  transform: scale(1.08) rotate(-4deg);
+}
+.why__ico svg {
+  width: 26px;
+  height: 26px;
+}
+.why__card h3 {
+  color: #fff;
+  font-size: 1.12rem;
+  margin-bottom: 10px;
+}
+.why__card p {
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.why__note {
+  position: relative;
+  margin-top: 34px;
+  text-align: center;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.45);
+  font-style: italic;
+}

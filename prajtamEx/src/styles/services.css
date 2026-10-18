@@ -1,0 +1,116 @@
+/* services (dark section) */
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  gap: 1.4rem;
+}
+
+.service-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(247, 243, 233, 0.14);
+  border-radius: var(--radius);
+  padding: 1.6rem 1.5rem 1.7rem;
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+  transition: transform 0.45s var(--ease), background 0.45s var(--ease),
+    border-color 0.45s var(--ease), box-shadow 0.45s var(--ease);
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, var(--accent), rgba(195, 154, 74, 0));
+  transition: width 0.55s var(--ease);
+}
+
+.service-card:hover {
+  transform: translateY(-7px);
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(195, 154, 74, 0.45);
+  box-shadow: 0 34px 60px -40px rgba(0, 0, 0, 0.9);
+}
+
+.service-card:hover::before {
+  width: 100%;
+}
+
+.service-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 1.15rem;
+}
+
+.service-card__icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  display: grid;
+  place-items: center;
+  background: rgba(195, 154, 74, 0.16);
+  color: var(--accent);
+  transition: transform 0.45s var(--ease);
+}
+
+.service-card:hover .service-card__icon {
+  transform: translateY(-3px) rotate(-4deg);
+}
+
+.service-card__image {
+  width: 96px;
+  height: 66px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid rgba(247, 243, 233, 0.22);
+}
+
+.service-card__title {
+  font-size: 1.14rem;
+  color: var(--cream);
+  margin-bottom: 0.55rem;
+}
+
+.service-card__text {
+  font-size: 0.9rem;
+  line-height: 1.72;
+  color: rgba(247, 243, 233, 0.72);
+}
+
+.service-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.3rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  transition: gap 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+.service-card__link:hover {
+  gap: 0.8rem;
+  color: #f0d9a5;
+}
+
+.services__footnote {
+  margin-top: 2.4rem;
+  max-width: 68ch;
+  margin-inline: auto;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(247, 243, 233, 0.72);
+}
+
+@media (max-width: 560px) {
+  .services__grid {
+    grid-template-columns: 1fr;
+  }
+}

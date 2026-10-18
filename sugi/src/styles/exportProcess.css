@@ -1,0 +1,114 @@
+/* ==========================================================================
+   EXPORT PROCESS — one horizontal row of navigation-style pointers
+   ========================================================================== */
+
+.process {
+  background: var(--white);
+}
+
+.process__head {
+  max-width: 640px;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.process__steps {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: clamp(0.5rem, 1.4vw, 1.25rem);
+}
+
+/* continuous rail behind every pointer */
+.process__steps::before {
+  content: "";
+  position: absolute;
+  top: 26px;
+  left: 3%;
+  right: 3%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(184, 151, 91, 0.55),
+    rgba(184, 151, 91, 0.55),
+    transparent
+  );
+}
+
+.process__step {
+  position: relative;
+  padding-top: 0;
+}
+
+.process__pointer {
+  display: block;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1rem;
+}
+
+.process__marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--gold);
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--forest);
+  box-shadow: 0 0 0 6px var(--white);
+  transition: background 0.35s var(--ease), color 0.35s var(--ease),
+    transform 0.35s var(--ease);
+}
+
+.process__step:hover .process__marker,
+.process__step.is-in .process__marker {
+  background: var(--forest);
+  color: var(--white);
+  transform: translateY(-3px);
+}
+
+.process__body {
+  text-align: center;
+}
+
+.process__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 0.35rem;
+  line-height: 1.25;
+}
+
+.process__text {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 1100px) {
+  .process__steps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem 1rem;
+  }
+  .process__steps::before {
+    display: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .process__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.75rem 1rem;
+  }
+  .process__marker {
+    width: 46px;
+    height: 46px;
+  }
+}

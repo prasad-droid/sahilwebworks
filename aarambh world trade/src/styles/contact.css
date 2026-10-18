@@ -1,0 +1,284 @@
+/* ==========================================================================
+   Contact - quote form + direct channels + real map.
+   ========================================================================== */
+
+.contact__grid {
+  display: grid;
+  gap: clamp(1.5rem, 0.8rem + 2.5vw, 3rem);
+  align-items: start;
+  margin-top: clamp(1.75rem, 1rem + 2.5vw, 3rem);
+}
+
+.contact__side {
+  display: grid;
+  gap: clamp(1.5rem, 0.8rem + 2.5vw, 2.25rem);
+  min-width: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Form column
+   -------------------------------------------------------------------------- */
+.contact__form-title {
+  font-size: var(--fs-h3);
+}
+
+.contact__form-text {
+  margin-top: 0.5rem;
+  margin-bottom: 1.1rem;
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  color: var(--text-soft);
+}
+
+.contact__form-text span {
+  color: var(--error);
+  font-weight: 800;
+}
+
+/* --------------------------------------------------------------------------
+   Channels
+   -------------------------------------------------------------------------- */
+.contact__side-title {
+  font-size: var(--fs-h3);
+  margin-bottom: 1rem;
+}
+
+.contact__list {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.contact__channel {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.95rem 1.05rem;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--white);
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--t-base) var(--ease-out), border-color var(--t-base) var(--ease-out),
+    box-shadow var(--t-base) var(--ease-out);
+}
+
+.contact__channel:hover {
+  transform: translateY(-3px);
+  border-color: rgba(31, 77, 53, 0.3);
+  box-shadow: var(--shadow-md);
+}
+
+.contact__channel--wa {
+  border-color: rgba(37, 211, 102, 0.42);
+  background: linear-gradient(120deg, rgba(37, 211, 102, 0.09), rgba(255, 255, 255, 0));
+}
+
+.contact__channel--wa:hover {
+  border-color: #25d366;
+}
+
+.contact__channel-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border-radius: 14px;
+  background: rgba(31, 77, 53, 0.08);
+  color: var(--primary);
+}
+
+.contact__channel--wa .contact__channel-icon {
+  background: rgba(37, 211, 102, 0.16);
+  color: #128c4b;
+}
+
+.contact__channel-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.contact__channel-label {
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.contact__channel-body strong {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  overflow-wrap: anywhere;
+}
+
+.contact__channel-note {
+  font-size: var(--fs-xs);
+  color: var(--text-soft);
+}
+
+.contact__channel-go {
+  flex: none;
+  color: var(--muted);
+  transition: transform var(--t-base) var(--ease-out), color var(--t-base) var(--ease-out);
+}
+
+.contact__channel:hover .contact__channel-go {
+  transform: translate(2px, -2px);
+  color: var(--primary);
+}
+
+/* --------------------------------------------------------------------------
+   Address
+   -------------------------------------------------------------------------- */
+.contact__address {
+  margin-top: 1.1rem;
+  padding: 1.15rem 1.25rem;
+  border-radius: var(--r-md);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.contact__address address {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-top: 0.55rem;
+  font-style: normal;
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--text-soft);
+}
+
+.contact__address address strong {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+.contact__address address span:first-of-type {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-bottom: 0.2rem;
+}
+
+.contact__map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.9rem;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--primary);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--t-fast) var(--ease-out);
+}
+
+.contact__map-link:hover {
+  border-color: currentColor;
+}
+
+/* --------------------------------------------------------------------------
+   Map
+   -------------------------------------------------------------------------- */
+.contact__map-wrap {
+  position: relative;
+}
+
+.contact__map {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+  box-shadow: var(--shadow-lg);
+}
+
+.contact__map iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: saturate(0.92) contrast(1.02);
+}
+
+.contact__map-card {
+  position: absolute;
+  left: 0.85rem;
+  right: 0.85rem;
+  bottom: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--r-md);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.contact__logo {
+  width: 48px;
+  height: 48px;
+  flex: none;
+  object-fit: contain;
+}
+
+.contact__map-card div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+  min-width: 0;
+}
+
+.contact__map-card strong {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+.contact__map-card span {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+.contact__map-card span:last-child {
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* --------------------------------------------------------------------------
+   Breakpoints
+   -------------------------------------------------------------------------- */
+@media (min-width: 900px) {
+  .contact__grid {
+    /* The form needs the wider column: it is the section's primary action. */
+    grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+  }
+
+  .contact__map {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+@media (min-width: 1200px) {
+  .contact__map {
+    aspect-ratio: 5 / 4;
+  }
+}

@@ -1,0 +1,335 @@
+/* ==========================================================================
+   Sections — tradition editorial, why choose us, audience, testimonials
+   ========================================================================== */
+
+/* ============================== TRADITION ============================== */
+
+.tradition {
+  padding: var(--section-pad) 0;
+  background:
+    linear-gradient(180deg, var(--warm-white), rgba(250, 245, 233, 0.6)),
+    var(--warm-white);
+  overflow: hidden;
+}
+
+.tradition__grid {
+  display: grid;
+  gap: clamp(2.5rem, 6vw, 4.5rem);
+  align-items: center;
+}
+
+.tradition__figure {
+  position: relative;
+  margin: 0;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--primary-soft);
+  box-shadow: var(--shadow);
+}
+
+.tradition__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease);
+}
+
+.tradition__figure:hover .tradition__image {
+  transform: scale(1.04);
+}
+
+.tradition__stamp {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(250, 245, 233, 0.35);
+  border-radius: var(--radius);
+  background: rgba(36, 28, 23, 0.68);
+  color: var(--accent-soft);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: center;
+  backdrop-filter: blur(6px);
+}
+
+.tradition__list {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.tradition__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--cream);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.tradition__item:hover {
+  transform: translateX(5px);
+  box-shadow: var(--shadow-sm);
+}
+
+.tradition__item-index {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.4;
+}
+
+.tradition__item-title {
+  margin-bottom: 0.2rem;
+  font-size: 1.05rem;
+  color: var(--primary-dark);
+}
+
+.tradition__item-text {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+/* ============================ WHY CHOOSE US ============================ */
+
+.why {
+  padding: var(--section-pad) 0;
+  background: var(--cream);
+  border-block: 1px solid var(--border);
+}
+
+.why__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.85rem, 2vw, 1.35rem);
+}
+
+.why__card {
+  padding: clamp(1.4rem, 3vw, 2rem);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--warm-white);
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+}
+
+.why__card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-soft);
+  box-shadow: var(--shadow);
+}
+
+.why__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 1rem;
+  border-radius: 16px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+
+.why__card:hover .why__icon {
+  background: var(--primary);
+  color: var(--accent-soft);
+  transform: rotate(-6deg);
+}
+
+.why__title {
+  margin-bottom: 0.45rem;
+  font-size: 1.12rem;
+  color: var(--primary-dark);
+}
+
+.why__text {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+/* ============================== AUDIENCE ============================== */
+
+.audience {
+  padding: var(--section-pad) 0;
+  background: var(--warm-white);
+}
+
+.audience__grid {
+  display: grid;
+  gap: clamp(0.9rem, 2.2vw, 1.4rem);
+}
+
+.audience__card {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(1.6rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-lg);
+  background: var(--cream);
+  border: 1px solid var(--border);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.audience__card::before {
+  content: '';
+  position: absolute;
+  inset: auto -30% -60% auto;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 154, 74, 0.16), transparent 70%);
+  transition: transform var(--dur-slow) var(--ease);
+}
+
+.audience__card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+}
+
+.audience__card:hover::before {
+  transform: scale(1.25);
+}
+
+.audience__card.tone-2 {
+  background: var(--sage-soft);
+  border-color: rgba(108, 118, 80, 0.22);
+}
+
+.audience__card.tone-3 {
+  background: var(--primary-soft);
+  border-color: rgba(111, 59, 32, 0.18);
+}
+
+.audience__index {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: rgba(111, 59, 32, 0.3);
+  line-height: 1;
+}
+
+.audience__title {
+  margin-bottom: 0.45rem;
+  font-size: 1.2rem;
+  color: var(--primary-dark);
+}
+
+.audience__text {
+  position: relative;
+  margin: 0;
+  color: var(--text);
+  font-size: 0.93rem;
+  line-height: 1.7;
+}
+
+/* =========================== TESTIMONIALS ============================= */
+
+.testimonials {
+  padding: var(--section-pad) 0;
+  background: var(--cream);
+  border-top: 1px solid var(--border);
+}
+
+.testimonials--placeholder {
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+}
+
+.testimonials__placeholder-note {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1.1rem 1.4rem;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  background: var(--warm-white);
+  color: var(--muted);
+  font-size: 0.86rem;
+  text-align: center;
+}
+
+.testimonials__placeholder-note code {
+  font-size: 0.82rem;
+  color: var(--secondary);
+}
+
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1rem, 2.2vw, 1.5rem);
+}
+
+.testimonial {
+  padding: clamp(1.4rem, 3vw, 1.9rem);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--warm-white);
+  box-shadow: var(--shadow-xs);
+}
+
+.testimonial__quote {
+  margin: 0 0 1rem;
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.testimonial__name {
+  margin: 0;
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+.testimonial__location {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+/* ============================ RESPONSIVE =============================== */
+
+@media (min-width: 640px) {
+  .why__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .testimonials__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .tradition__grid {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  }
+
+  .audience__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .why__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .testimonials__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

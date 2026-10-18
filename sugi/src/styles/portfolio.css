@@ -1,0 +1,20 @@
+.portfolio {
+  background: var(--white);
+}
+
+.portfolio__head {
+  max-width: 720px;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.portfolio__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1.5rem, 3.5vw, 2.5rem);
+}
+
+@media (max-width: 760px) {
+  .portfolio__grid {
+    grid-template-columns: 1fr;
+  }
+}

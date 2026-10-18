@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://viomglobalexim.com/sitemap.xml

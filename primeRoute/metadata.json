@@ -1,0 +1,8 @@
+{
+  "name": "Prime Route Web",
+  "description": "A highly aesthetic and professional corporate website for Prime Route Agencies, featuring a dynamic Navy and Gold theme, beautiful agricultural imagery, and elegant typography to build trust in global trade.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

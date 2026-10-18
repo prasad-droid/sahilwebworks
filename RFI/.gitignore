@@ -1,0 +1,23 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Sensitive / local config
+.ssh/
+.env
+.env.backup
+.env.production
+
+# Build / deploy
+node_modules/
+vendor/
+
+# Logs
+*.log
+*.txt

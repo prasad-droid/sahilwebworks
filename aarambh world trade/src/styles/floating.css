@@ -1,0 +1,108 @@
+/* ==========================================================================
+   Floating WhatsApp / call actions.
+   ========================================================================== */
+
+.floating {
+  position: fixed;
+  right: clamp(0.75rem, 0.3rem + 1.4vw, 1.35rem);
+  bottom: clamp(0.75rem, 0.3rem + 1.4vw, 1.35rem);
+  z-index: var(--z-float);
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  gap: 0.6rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px) scale(0.9);
+  transition: opacity var(--t-slow) var(--ease-out), transform var(--t-slow) var(--ease-spring),
+    visibility var(--t-slow);
+}
+
+.floating.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.floating__btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  height: 54px;
+  padding-inline: 1rem;
+  border-radius: var(--r-pill);
+  color: var(--white);
+  font-size: var(--fs-xs);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  box-shadow: 0 18px 34px -16px rgba(0, 0, 0, 0.7);
+  transition: transform var(--t-base) var(--ease-spring), box-shadow var(--t-base) var(--ease-out),
+    filter var(--t-base) var(--ease-out);
+}
+
+.floating__btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 24px 44px -18px rgba(0, 0, 0, 0.8);
+}
+
+.floating__btn--wa {
+  background: linear-gradient(135deg, #25d366 0%, #128c4b 100%);
+}
+
+.floating__btn--call {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  height: 48px;
+  padding-inline: 0.85rem;
+}
+
+/* Expanding ring behind the WhatsApp button. */
+.floating__pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid rgba(37, 211, 102, 0.55);
+  animation: floating-ring 2.4s var(--ease-out) infinite;
+  pointer-events: none;
+}
+
+@keyframes floating-ring {
+  0% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+}
+
+/* Labels are for wide pointers; icons carry the meaning otherwise. */
+.floating__label {
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .floating__label {
+    display: none;
+  }
+
+  .floating__btn {
+    width: 52px;
+    height: 52px;
+    padding-inline: 0;
+    justify-content: center;
+  }
+
+  .floating__btn--call {
+    width: 46px;
+    height: 46px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating__pulse {
+    animation: none;
+  }
+}

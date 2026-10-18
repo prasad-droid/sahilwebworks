@@ -1,0 +1,85 @@
+.buyers {
+  background: var(--cream);
+}
+
+.buyers__head {
+  max-width: 720px;
+  text-align: center;
+  margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+}
+
+.buyers__head .eyebrow {
+  justify-content: center;
+}
+
+.buyers__head .section-title,
+.buyers__head .section-sub {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.buyers__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.2rem, 3vw, 2rem);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.buyer-card {
+  background: var(--white);
+  border: 1px solid rgba(101, 113, 83, 0.16);
+  border-radius: 1.1rem;
+  padding: 2rem 1.7rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+
+.buyer-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+.buyer-card__mark {
+  display: block;
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 1.1rem;
+  border: 2px solid var(--gold);
+  transform: rotate(45deg);
+  border-radius: 8px;
+  position: relative;
+}
+
+.buyer-card__mark::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  background: rgba(184, 151, 91, 0.35);
+  border-radius: 4px;
+}
+
+.buyer-card__title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 0.6rem;
+}
+
+.buyer-card__text {
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
+.buyers__cta {
+  text-align: center;
+}
+
+@media (max-width: 820px) {
+  .buyers__grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 0 auto 2rem;
+  }
+}

@@ -1,0 +1,33 @@
+:root {
+  --primary: #214e3b;
+  --primary-dark: #183a2b;
+  --primary-light: #2d6249;
+  --secondary: #4f7a62;
+  --accent: #c9a45c;
+  --accent-dark: #b08c43;
+  --cream: #f7f4ec;
+  --white: #ffffff;
+  --dark: #18221d;
+  --text: #303631;
+  --muted: #6d756f;
+  --border: #dfe5df;
+
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-body: "Poppins", system-ui, sans-serif;
+
+  --shadow-sm: 0 2px 10px rgba(24, 34, 29, 0.06);
+  --shadow-md: 0 10px 30px rgba(24, 34, 29, 0.1);
+  --shadow-lg: 0 24px 60px rgba(24, 34, 29, 0.16);
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  --container: 1200px;
+  --gutter: 24px;
+
+  --nav-height: 76px;
+
+  --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}

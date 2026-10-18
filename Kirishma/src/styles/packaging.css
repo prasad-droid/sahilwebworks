@@ -1,0 +1,124 @@
+/* ==========================================================================
+   Packaging — CSS-only size visualisation (no fake pack artwork)
+   ========================================================================== */
+
+.packaging {
+  padding: var(--section-pad) 0;
+  background: var(--cream);
+  border-block: 1px solid var(--border);
+}
+
+.packaging__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.85rem, 2.4vw, 1.5rem);
+}
+
+.pack-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: clamp(1.1rem, 2.5vw, 1.6rem) 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--warm-white);
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+}
+
+.pack-visual:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-soft);
+  box-shadow: var(--shadow);
+}
+
+/* A stylised pouch silhouette, clearly a design placeholder. */
+.pack-visual__pouch {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: clamp(76px, 22%, 104px);
+  aspect-ratio: 3 / 4;
+  padding: 0.9rem 0.5rem;
+  border-radius: 6px 6px 12px 12px;
+  background: linear-gradient(165deg, var(--primary-soft) 0%, #fffaf0 55%, var(--cream) 100%);
+  border: 1px solid var(--border);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7), var(--shadow-sm);
+  transition: transform var(--dur) var(--ease);
+}
+
+.pack-visual:hover .pack-visual__pouch {
+  transform: translateY(-4px) rotate(-1.5deg);
+}
+
+.pack-visual__crimp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 12px;
+  border-radius: 5px 5px 0 0;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--primary) 0 4px,
+    rgba(77, 39, 24, 0.82) 4px 8px
+  );
+  opacity: 0.85;
+}
+
+.pack-visual__label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  text-align: center;
+}
+
+.pack-visual__brand {
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+.pack-visual__size {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2.6vw, 1.25rem);
+  font-weight: 700;
+  color: var(--primary-dark);
+  line-height: 1.1;
+}
+
+.pack-visual__size-text {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.pack-visual__categories {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* ============================ RESPONSIVE =============================== */
+
+@media (min-width: 560px) {
+  .packaging__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .packaging__grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}

@@ -1,0 +1,562 @@
+/* ==========================================================================
+   Products - grid, cards, filters, detail panel.
+   ========================================================================== */
+
+.products {
+  position: relative;
+}
+
+/* --------------------------------------------------------------------------
+   Filters
+   -------------------------------------------------------------------------- */
+.products__filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 1.9rem;
+}
+
+.products__filter {
+  padding: 0.5rem 1.05rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-pill);
+  background: var(--white);
+  color: var(--text-soft);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background-color var(--t-base) var(--ease-out),
+    color var(--t-base) var(--ease-out), border-color var(--t-base) var(--ease-out),
+    transform var(--t-base) var(--ease-out), box-shadow var(--t-base) var(--ease-out);
+}
+
+.products__filter:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.products__filter.is-active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+  box-shadow: 0 10px 24px -12px rgba(20, 55, 37, 0.8);
+}
+
+/* --------------------------------------------------------------------------
+   Grid
+   -------------------------------------------------------------------------- */
+.products__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 268px), 1fr));
+  gap: clamp(0.85rem, 0.5rem + 1.4vw, 1.5rem);
+}
+
+.products__cell {
+  display: flex;
+}
+
+/* --------------------------------------------------------------------------
+   Card
+   -------------------------------------------------------------------------- */
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--white);
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--t-base) var(--ease-out), box-shadow var(--t-base) var(--ease-out),
+    border-color var(--t-base) var(--ease-out);
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-lg);
+}
+
+.product-card.is-unavailable {
+  opacity: 0.62;
+}
+
+.product-card__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 0;
+  background: var(--surface-alt);
+}
+
+/*
+ * Scrim behind the index number.
+ *
+ * The number is white text sitting on top of a product photo, and these photos
+ * are mostly pale (powders on light backgrounds). Measured against the actual
+ * images, 24% white reached only 1.60:1 on beetroot and 2.05:1 on onion powder,
+ * and raising the alpha made it WORSE, not better, because the photos are
+ * lighter than the text: beetroot fell from 1.60:1 at 24% to 1.28:1 at 62%.
+ * Opacity is therefore the wrong lever. A permanent bottom gradient gives the
+ * glyphs a known dark backdrop, so contrast stops depending on the photo.
+ *
+ * What matters is a PLATEAU that covers the whole digit band, not the total
+ * height: the digits span bottom 0.5rem to 2.9rem, so the gradient is held
+ * near-flat through its first half and only then falls away. That keeps the
+ * worst case (beetroot, the palest photo) at 5.58:1, up from 1.60:1.
+ *
+ * Kept separate from .product-card__overlay because that one is hover-only and
+ * carries the peek button.
+ */
+.product-card__media::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 1;
+  height: 46%;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(12, 36, 24, 0.7) 0%,
+    rgba(12, 36, 24, 0.64) 52%,
+    rgba(12, 36, 24, 0.36) 80%,
+    rgba(12, 36, 24, 0.06) 100%
+  );
+}
+
+
+.product-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-card__num {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.5rem;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.94);
+  letter-spacing: -0.04em;
+  pointer-events: none;
+  /* Soft halo so the glyph edges hold up on the brightest highlights. */
+  text-shadow: 0 1px 2px rgba(8, 24, 16, 0.5);
+  transition: color var(--t-base) var(--ease-out);
+}
+
+.product-card:hover .product-card__num {
+  color: var(--white);
+}
+
+/* Hover peek button */
+.product-card__overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  padding: 0.75rem;
+  background: linear-gradient(to top, rgba(14, 42, 28, 0.62), transparent);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity var(--t-base) var(--ease-out), transform var(--t-base) var(--ease-out);
+}
+
+.product-card:hover .product-card__overlay,
+.product-card:focus-within .product-card__overlay {
+  opacity: 1;
+  transform: none;
+}
+
+.product-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1 0 auto;
+  padding: 1.1rem 1.15rem 0.9rem;
+}
+
+.product-card__category {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+.product-card__name {
+  font-size: 1.22rem;
+  line-height: 1.22;
+  color: var(--primary-dark);
+  transition: color var(--t-base) var(--ease-out);
+}
+
+.product-card:hover .product-card__name {
+  color: var(--primary);
+}
+
+.product-card__description {
+  font-size: var(--fs-sm);
+  line-height: 1.62;
+  color: var(--text-soft);
+}
+
+.product-card__specs {
+  display: grid;
+  gap: 0.3rem;
+  margin-top: 0.55rem;
+  padding-top: 0.7rem;
+  border-top: 1px dashed var(--border);
+}
+
+.product-card__spec {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: var(--fs-xs);
+  line-height: 1.5;
+}
+
+.product-card__spec dt {
+  flex: none;
+  width: 4.6rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.product-card__spec dd {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.product-card__bulk {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.75rem;
+  padding: 0.42rem 0.7rem;
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--primary);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.product-card__bulk svg {
+  flex: none;
+  color: var(--accent-deep);
+}
+
+.product-card__footer {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0 1.15rem 1.15rem;
+}
+
+.product-card__cta {
+  flex: 1 1 auto;
+}
+
+.product-card__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex: none;
+  padding: 0.5rem 0.3rem;
+  color: var(--text-soft);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  border-radius: var(--r-xs);
+  transition: color var(--t-fast) var(--ease-out);
+}
+
+.product-card__more:hover {
+  color: var(--primary);
+}
+
+/* --------------------------------------------------------------------------
+   Foot CTA
+   -------------------------------------------------------------------------- */
+.products__foot {
+  margin-top: clamp(2rem, 1.2rem + 2.4vw, 3.25rem);
+}
+
+.products__foot-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: clamp(1.4rem, 1rem + 1.6vw, 2.25rem);
+  border-radius: var(--r-lg);
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.products__foot-title {
+  font-size: var(--fs-h3);
+  color: var(--white);
+}
+
+.products__foot-text {
+  margin-top: 0.45rem;
+  max-width: 62ch;
+  font-size: var(--fs-sm);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+/* --------------------------------------------------------------------------
+   Product detail dialog
+   -------------------------------------------------------------------------- */
+.pd {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: grid;
+  place-items: center;
+  padding: clamp(0.75rem, 0.3rem + 2vw, 2rem);
+  background: rgba(9, 32, 21, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: awt-fade-in 260ms var(--ease-out);
+}
+
+.pd__panel {
+  position: relative;
+  display: grid;
+  width: min(940px, 100%);
+  max-height: min(88svh, 860px);
+  overflow: hidden auto;
+  overscroll-behavior: contain;
+  border-radius: var(--r-lg);
+  background: var(--white);
+  box-shadow: var(--shadow-xl);
+  animation: pd-in 420ms var(--ease-out);
+}
+
+@keyframes pd-in {
+  from {
+    opacity: 0;
+    transform: translateY(26px) scale(0.97);
+  }
+}
+
+.pd__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--primary-dark);
+  box-shadow: var(--shadow-sm);
+  transition: background-color var(--t-fast) var(--ease-out), transform var(--t-fast) var(--ease-out);
+}
+
+.pd__close:hover {
+  background: var(--white);
+  transform: rotate(90deg);
+}
+
+.pd__media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--surface-alt);
+}
+
+.pd__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pd__kind {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+}
+
+.pd__body {
+  padding: clamp(1.25rem, 0.8rem + 1.8vw, 2.25rem);
+}
+
+.pd__category {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+.pd__title {
+  margin-top: 0.35rem;
+  font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.3rem);
+}
+
+.pd__description {
+  margin-top: 0.85rem;
+  color: var(--text-soft);
+  line-height: 1.75;
+}
+
+.pd__rows {
+  display: grid;
+  gap: 0;
+  margin-top: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+
+.pd-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.2rem;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--white);
+}
+
+.pd-row:nth-child(even) {
+  background: var(--surface);
+}
+
+.pd-row:last-child {
+  border-bottom: 0;
+}
+
+.pd-row dt {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.pd-row dd {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--text);
+}
+
+.pd-onrequest {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.pd-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.pd-tags li {
+  padding: 0.24rem 0.6rem;
+  border-radius: var(--r-pill);
+  background: rgba(31, 77, 53, 0.08);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.pd__note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-top: 1.15rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--r-sm);
+  background: var(--cream);
+  font-size: var(--fs-xs);
+  line-height: 1.65;
+  color: var(--text-soft);
+}
+
+.pd__note svg {
+  flex: none;
+  margin-top: 0.1rem;
+  color: var(--accent-deep);
+}
+
+.pd__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Breakpoints
+   -------------------------------------------------------------------------- */
+@media (min-width: 560px) {
+  .pd__panel {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  }
+
+  .pd__media {
+    aspect-ratio: auto;
+    height: 100%;
+  }
+
+  .pd-row {
+    grid-template-columns: 10.5rem minmax(0, 1fr);
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .pd-row dt {
+    font-size: 0.66rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .products__grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  .products__foot-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .products__foot-actions {
+    flex: none;
+  }
+}
+
+@media (min-width: 900px) {
+  .products__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1200px) {
+  .products__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Touch devices: no hover state, so reveal the actions permanently. */
+@media (hover: none) {
+  .product-card__overlay {
+    opacity: 1;
+    transform: none;
+    background: none;
+    justify-content: flex-end;
+    padding: 0.6rem;
+  }
+}

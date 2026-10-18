@@ -1,0 +1,152 @@
+.about {
+  background: var(--white);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.about-image-wrap {
+  position: relative;
+}
+
+.about-image-wrap img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.about-badge {
+  position: absolute;
+  top: -18px;
+  right: -14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--white);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.about-badge strong {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  line-height: 1;
+}
+
+.about-badge span {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+.about-since {
+  position: absolute;
+  bottom: 26px;
+  left: -20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--white);
+  padding: 16px 22px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.about-since svg {
+  font-size: 30px;
+  color: var(--primary);
+}
+
+.about-since strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  color: var(--primary);
+  line-height: 1.2;
+}
+
+.about-since span {
+  font-size: 12.5px;
+  color: var(--gray);
+}
+
+.about-content > p {
+  color: var(--gray);
+  margin-bottom: 18px;
+  font-weight: 300;
+}
+
+.about-mission-vision {
+  display: grid;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.about-mv-card {
+  display: flex;
+  gap: 18px;
+  padding: 20px 22px;
+  border-radius: var(--radius-md);
+  background: var(--cream);
+  border: 1px solid var(--border);
+  transition: all var(--transition);
+}
+
+.about-mv-card:hover {
+  transform: translateX(6px);
+  border-color: var(--secondary);
+}
+
+.about-mv-icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: var(--white);
+  background: var(--primary);
+}
+
+.about-mv-card:last-child .about-mv-icon {
+  background: var(--secondary);
+}
+
+.about-mv-card h3 {
+  font-size: 18px;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.about-mv-card p {
+  font-size: 14px;
+  color: var(--gray);
+  font-weight: 300;
+}
+
+@media (max-width: 960px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  .about-badge {
+    right: 4px;
+  }
+
+  .about-since {
+    left: 4px;
+  }
+}

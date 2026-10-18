@@ -1,0 +1,36 @@
+{
+  "name": "aarambh-worldtrade",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "AARAMBH WORLDTRADE - From India to the World. Indian Merchant Exporter / Multi-Product Exporter website.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "check:images": "node scripts/check-image-refs.mjs",
+    "check:render": "node scripts/verify-render.mjs",
+    "check:map": "node scripts/fit-map-projection.mjs",
+    "check:map-contrast": "node scripts/measure-map-contrast.mjs",
+    "check:card-number": "node scripts/measure-card-number-contrast.mjs",
+    "check:logo": "node scripts/verify-logo.mjs",
+    "logo:transparent": "node scripts/make-logo-transparent.mjs",
+    "preview:map": "node scripts/render-map-preview.mjs",
+    "verify": "npm run lint && npm run check:images && npm run check:render && npm run check:map-contrast && npm run check:card-number && npm run check:logo && npm run build"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.39.5",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "globals": "^17.12.0",
+    "sharp": "^0.35.4",
+    "vite": "^6.0.7"
+  }
+}

@@ -1,0 +1,122 @@
+/* ==========================================================================
+   Making process — vertical timeline with staggered reveal
+   ========================================================================== */
+
+.process {
+  padding: var(--section-pad) 0;
+  background:
+    radial-gradient(circle at 90% 8%, rgba(201, 154, 74, 0.12), transparent 40%),
+    var(--warm-white);
+  overflow: hidden;
+}
+
+.process__timeline {
+  position: relative;
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  max-width: 56rem;
+  margin-inline: auto;
+}
+
+/* Connecting line behind the numbered markers. */
+.process__timeline::before {
+  content: '';
+  position: absolute;
+  top: 2.4rem;
+  bottom: 2.4rem;
+  left: 1.55rem;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent) 0%, rgba(201, 154, 74, 0.25) 50%, transparent 100%);
+}
+
+.process__step {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+  padding-left: 4.1rem;
+}
+
+.process__marker {
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  display: grid;
+  place-items: center;
+  width: 3.1rem;
+  height: 3.1rem;
+  border-radius: 50%;
+  background: var(--warm-white);
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 6px rgba(201, 154, 74, 0.12);
+  z-index: 1;
+}
+
+.process__number {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.process__title {
+  margin-bottom: 0.35rem;
+  font-size: clamp(1.15rem, 2.4vw, 1.42rem);
+  color: var(--primary-dark);
+}
+
+.process__text {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.94rem;
+  line-height: 1.75;
+}
+
+.process__media {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--primary-soft);
+  box-shadow: var(--shadow-xs);
+}
+
+.process__image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease);
+}
+
+.process__media:hover .process__image {
+  transform: scale(1.05);
+}
+
+/* ============================ RESPONSIVE =============================== */
+
+@media (min-width: 700px) {
+  .process__step {
+    grid-template-columns: minmax(0, 1fr) 200px;
+    gap: 1.75rem;
+    padding-left: 4.6rem;
+  }
+
+  .process__media {
+    order: 2;
+  }
+}
+
+@media (min-width: 1000px) {
+  .process__step {
+    grid-template-columns: minmax(0, 1fr) 260px;
+    gap: 2.5rem;
+  }
+
+  .process__marker {
+    width: 3.4rem;
+    height: 3.4rem;
+  }
+
+  .process__timeline::before {
+    left: 1.7rem;
+  }
+}

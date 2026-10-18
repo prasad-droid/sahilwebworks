@@ -1,0 +1,245 @@
+/* ============================================================
+   Enquiry Form
+   ============================================================ */
+
+.enquiry {
+  position: relative;
+  overflow: hidden;
+}
+
+.enquiry::before {
+  content: '';
+  position: absolute;
+  top: -140px;
+  left: -140px;
+  width: 460px;
+  height: 460px;
+  background: radial-gradient(circle, rgba(226, 112, 58, 0.16) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.enquiry__grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(36px, 5vw, 72px);
+  align-items: start;
+}
+
+.enquiry__benefits {
+  display: grid;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.enquiry__benefits li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.92rem;
+  color: var(--steel-200);
+}
+
+.enquiry__benefits svg {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.enquiry__direct {
+  display: grid;
+  gap: 12px;
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.enquiry__direct-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: var(--white);
+  width: fit-content;
+  max-width: 100%;
+  word-break: break-word;
+  transition: color 0.2s var(--ease), gap 0.2s var(--ease);
+}
+
+.enquiry__direct-link svg {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.enquiry__direct-link:hover {
+  color: #ffcfb4;
+  gap: 14px;
+}
+
+/* Card */
+.enquiry__card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: clamp(24px, 3.5vw, 40px);
+}
+
+.enquiry__form-head {
+  margin-bottom: 26px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.enquiry__form-head h3 {
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+}
+
+.enquiry__form-head p {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+}
+
+.enquiry__fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.field--full {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--navy-900);
+  font-family: var(--font-display);
+}
+
+.field__req {
+  color: var(--accent);
+  margin-left: 3px;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--steel-200);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  font-size: 0.92rem;
+  color: var(--text-body);
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--steel-400);
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--navy-600);
+  box-shadow: 0 0 0 3px rgba(28, 66, 114, 0.14);
+}
+
+.field--error input,
+.field--error textarea {
+  border-color: #d64545;
+  background: #fdf6f6;
+}
+
+.field--error input:focus,
+.field--error textarea:focus {
+  box-shadow: 0 0 0 3px rgba(214, 69, 69, 0.16);
+}
+
+.field__error {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #c0392b;
+}
+
+.enquiry__form-foot {
+  margin-top: 26px;
+}
+
+.enquiry__privacy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.enquiry__privacy svg {
+  color: var(--teal);
+  flex-shrink: 0;
+}
+
+/* Status */
+.enquiry__status {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin-top: 20px;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.enquiry__status svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.enquiry__status--success {
+  background: #e7f6ef;
+  border: 1px solid #b6e3ce;
+  color: #166b45;
+}
+
+.enquiry__status--error {
+  background: #fdecec;
+  border: 1px solid #f3c4c4;
+  color: #a82929;
+}
+
+.enquiry__status--unconfigured {
+  background: #fff5e8;
+  border: 1px solid #f6d6a8;
+  color: #8a5a12;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 940px) {
+  .enquiry__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .enquiry__fields {
+    grid-template-columns: 1fr;
+  }
+
+  .enquiry__card {
+    padding: 24px 20px;
+  }
+}

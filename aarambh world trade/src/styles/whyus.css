@@ -1,0 +1,180 @@
+/* ==========================================================================
+   WhyChooseUs - dark section, six feature cards.
+   ========================================================================== */
+
+.whyus {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Soft green light bleeding in from the corners. */
+.whyus::before,
+.whyus::after {
+  content: '';
+  position: absolute;
+  width: 46vw;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.whyus::before {
+  top: -18%;
+  left: -12%;
+  background: radial-gradient(circle, rgba(95, 127, 67, 0.4), transparent 70%);
+}
+
+.whyus::after {
+  bottom: -22%;
+  right: -10%;
+  background: radial-gradient(circle, rgba(201, 154, 66, 0.24), transparent 70%);
+}
+
+.whyus > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.whyus__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: clamp(0.75rem, 0.4rem + 1.3vw, 1.25rem);
+}
+
+.whyus__cell {
+  display: flex;
+}
+
+/* --------------------------------------------------------------------------
+   Card
+   -------------------------------------------------------------------------- */
+.why-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: clamp(1.3rem, 1rem + 1.1vw, 1.75rem);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--r-lg);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025));
+  overflow: hidden;
+  isolation: isolate;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: transform var(--t-base) var(--ease-out), border-color var(--t-base) var(--ease-out),
+    background-color var(--t-base) var(--ease-out), box-shadow var(--t-base) var(--ease-out);
+}
+
+.why-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(201, 154, 66, 0.5);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.7);
+}
+
+.why-card__glow {
+  position: absolute;
+  top: -40%;
+  left: -20%;
+  z-index: -1;
+  width: 70%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 154, 66, 0.34), transparent 70%);
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity var(--t-slow) var(--ease-out), transform var(--t-slow) var(--ease-out);
+}
+
+.why-card:hover .why-card__glow {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.why-card__icon {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  background: rgba(201, 154, 66, 0.16);
+  border: 1px solid rgba(224, 187, 112, 0.3);
+  color: var(--accent-light);
+  transition: transform var(--t-base) var(--ease-spring), background-color var(--t-base) var(--ease-out);
+}
+
+.why-card:hover .why-card__icon {
+  transform: translateY(-3px) rotate(-8deg);
+  background: rgba(201, 154, 66, 0.28);
+}
+
+.why-card__title {
+  margin-top: 1.05rem;
+  font-size: var(--fs-h4);
+  color: var(--white);
+}
+
+.why-card__text {
+  margin-top: 0.45rem;
+  font-size: var(--fs-sm);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* --------------------------------------------------------------------------
+   CTA
+   -------------------------------------------------------------------------- */
+.whyus__cta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  align-items: flex-start;
+  margin-top: clamp(2rem, 1.2rem + 2.5vw, 3.25rem);
+  padding: clamp(1.35rem, 1rem + 1.6vw, 2.15rem);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--r-lg);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.whyus__cta-text {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  line-height: 1.28;
+  color: var(--white);
+}
+
+.whyus__cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  width: 100%;
+}
+
+.whyus__cta-actions .btn {
+  flex: 1 1 auto;
+}
+
+@media (min-width: 768px) {
+  .whyus__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .whyus__cta {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .whyus__cta-actions {
+    width: auto;
+    flex: none;
+  }
+
+  .whyus__cta-actions .btn {
+    flex: none;
+  }
+}

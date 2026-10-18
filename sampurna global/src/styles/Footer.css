@@ -1,0 +1,221 @@
+/* ================= Footer ================= */
+.footer {
+  background: #14120f;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.footer__cta {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  background: linear-gradient(
+    120deg,
+    rgba(232, 100, 42, 0.14),
+    rgba(20, 18, 15, 0) 60%
+  );
+}
+.footer__cta-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-block: clamp(40px, 5vw, 64px);
+}
+.footer__cta h2 {
+  color: #fff;
+  margin-top: 12px;
+  font-size: clamp(1.7rem, 3.4vw, 2.6rem);
+  max-width: 640px;
+}
+
+.footer__main {
+  display: grid;
+  gap: 40px;
+  padding-block: clamp(48px, 6vw, 76px);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 720px) {
+  .footer__main {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+}
+@media (min-width: 1080px) {
+  .footer__main {
+    grid-template-columns: 1.5fr 0.8fr 1fr 1.2fr;
+  }
+}
+
+.footer__brand {
+  max-width: 340px;
+}
+.footer__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: #fff;
+}
+.footer__logo-mark {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 1.2rem;
+}
+.footer__tagline {
+  margin-top: 14px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-accent);
+  font-size: 0.92rem;
+}
+.footer__about {
+  margin-top: 12px;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.6);
+}
+.footer__wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 20px;
+  padding: 11px 20px;
+  border-radius: var(--radius-pill);
+  background: #25d366;
+  color: #08321c;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.88rem;
+  transition: transform 0.3s var(--ease);
+}
+.footer__wa:hover {
+  transform: translateY(-2px);
+}
+.footer__wa svg {
+  width: 19px;
+  height: 19px;
+}
+
+.footer__col h3 {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 18px;
+}
+.footer__col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+.footer__col a {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.3s var(--ease), padding-left 0.3s var(--ease);
+}
+.footer__col a:hover {
+  color: var(--color-accent);
+  padding-left: 4px;
+}
+
+.footer__contact li {
+  display: flex;
+  gap: 11px;
+  font-size: 0.86rem;
+  align-items: flex-start;
+  color: rgba(255, 255, 255, 0.6);
+}
+.footer__contact li > svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-accent);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.footer__contact address {
+  font-style: normal;
+}
+.footer__contact address span {
+  display: block;
+}
+.footer__pending {
+  color: rgba(255, 255, 255, 0.45);
+  font-style: italic;
+}
+.footer__contact-cta {
+  margin-top: 20px;
+}
+.footer__contact-cta .btn--outline {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+.footer__contact-cta .btn--outline:hover {
+  background: #fff;
+  color: var(--color-ink);
+}
+
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding-block: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+.footer__bottom p {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+.footer__legal {
+  display: flex;
+  gap: 22px;
+}
+.footer__legal button {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.3s var(--ease);
+}
+.footer__legal button:hover {
+  color: var(--color-accent);
+}
+
+.footer__notice {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: 1400;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 92vw;
+  padding: 14px 18px;
+  border-radius: var(--radius);
+  background: var(--color-ink);
+  color: #fff;
+  font-size: 0.85rem;
+  box-shadow: var(--shadow-lg);
+  animation: noticeIn 0.4s var(--ease);
+}
+.footer__notice button {
+  font-size: 1.3rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.7);
+}
+.footer__notice button:hover {
+  color: #fff;
+}
+@keyframes noticeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 14px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}

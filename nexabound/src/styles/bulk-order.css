@@ -1,0 +1,78 @@
+.bulk-order {
+  position: relative;
+  overflow: hidden;
+}
+
+.bulk-order-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url('/images/stock-bulk.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--primary-dark);
+}
+
+.bulk-order-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(11, 33, 42, 0.94) 0%,
+    rgba(18, 59, 74, 0.86) 55%,
+    rgba(29, 69, 57, 0.86) 100%
+  );
+}
+
+.bulk-order-inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.bulk-order .section-label {
+  color: var(--accent);
+}
+
+.bulk-order-heading {
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.bulk-order-text {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+}
+
+.bulk-order-points {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.bulk-order-point {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.bulk-order-point-icon {
+  color: var(--accent);
+  font-size: 0.8rem;
+}
+
+.bulk-order-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}

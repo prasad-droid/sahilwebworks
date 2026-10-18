@@ -1,0 +1,196 @@
+.quoteform__card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.quoteform__head {
+  padding: 34px 36px 24px;
+  background: linear-gradient(150deg, var(--navy-900), var(--navy-800));
+  color: #fff;
+}
+
+.quoteform__head h3 {
+  color: #fff;
+  margin-bottom: 8px;
+  font-size: 1.6rem;
+}
+
+.quoteform__head p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  max-width: 560px;
+}
+
+.quoteform__form {
+  padding: 28px 36px 34px;
+}
+
+.quoteform__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 22px;
+}
+
+.quoteform__field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.quoteform__field--wide { grid-column: 1 / -1; }
+
+.quoteform__field label {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.86rem;
+  color: var(--navy-800);
+}
+
+.quoteform__opt {
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.quoteform__input {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 0.94rem;
+  color: var(--charcoal);
+  background: var(--grey-50);
+  border: 1.5px solid var(--grey-300);
+  border-radius: 10px;
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease), background 0.2s;
+}
+
+.quoteform__input::placeholder { color: var(--muted); opacity: 0.7; }
+
+.quoteform__input:focus {
+  outline: none;
+  border-color: var(--teal-500);
+  box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.12);
+  background: #fff;
+}
+
+.quoteform__input--error {
+  border-color: #d64545;
+  background: #fff6f6;
+}
+
+.quoteform__error {
+  font-size: 0.8rem;
+  color: #c0392b;
+  line-height: 1.3;
+}
+
+.quoteform__consent {
+  margin: 22px 0 10px;
+}
+
+.quoteform__check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 0.86rem;
+  color: var(--body);
+}
+
+.quoteform__check input {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--teal-600);
+  flex-shrink: 0;
+}
+
+.quoteform__check.is-error span { color: #c0392b; }
+
+.quoteform__check a { text-decoration: underline; color: inherit; }
+
+.quoteform__check a:hover { color: var(--teal-600); }
+
+.quoteform__submit {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.quoteform__submit:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.quoteform__spin { animation: spin 1s linear infinite; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.quoteform__privacy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin: 16px 0 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* Status panels */
+.quoteform__status {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin: 24px 36px;
+  padding: 20px 24px;
+  border-radius: var(--radius);
+}
+
+.quoteform__status svg { flex-shrink: 0; margin-top: 2px; }
+
+.quoteform__status strong {
+  font-family: var(--font-heading);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.quoteform__status p { margin: 0; font-size: 0.9rem; }
+
+.quoteform__status--success {
+  background: #e9f8f0;
+  border: 1px solid #a8e0c0;
+  color: #1e6b45;
+}
+
+.quoteform__status--error {
+  background: #fdeceb;
+  border: 1px solid #f2b8b3;
+  color: #a03b2f;
+}
+
+.quoteform__status--info {
+  background: #eef4fb;
+  border: 1px solid #bcd3ea;
+  color: #244a70;
+  flex-direction: column;
+}
+
+.quoteform__status-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 720px) {
+  .quoteform__head { padding: 26px 22px 20px; }
+  .quoteform__form { padding: 24px 20px 28px; }
+  .quoteform__grid { grid-template-columns: 1fr; }
+  .quoteform__status { margin: 20px 20px; }
+}

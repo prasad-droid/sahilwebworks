@@ -1,0 +1,114 @@
+/* ==========================================================================
+   QUOTATION REQUEST PAGE
+   ========================================================================== */
+
+.quote-form {
+  background: var(--cream);
+}
+
+.quote-form__grid {
+  display: grid;
+  grid-template-columns: 1.5fr 0.9fr;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: start;
+}
+
+.quote-form__intro {
+  color: var(--muted);
+  margin: 0.9rem 0 1.6rem;
+  line-height: 1.7;
+}
+
+.quote-form__card {
+  background: var(--white);
+  border: 1px solid rgba(101, 113, 83, 0.16);
+  border-radius: var(--radius);
+  padding: clamp(1.3rem, 3vw, 2.2rem);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---------- aside ---------- */
+.quote-form__aside {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.quote-form__panel {
+  background: var(--white);
+  border: 1px solid rgba(101, 113, 83, 0.16);
+  border-radius: var(--radius);
+  padding: 1.6rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.quote-form__panel-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 1rem;
+}
+
+.quote-form__panel ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.quote-form__panel ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.94rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.quote-form__panel ul li > span {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.quote-form__contacts a {
+  color: var(--charcoal);
+  font-weight: 500;
+  transition: color 0.3s var(--ease);
+}
+
+.quote-form__contacts a:hover {
+  color: var(--gold);
+}
+
+.quote-form__hours {
+  margin-top: 1.2rem;
+  border-top: 1px solid rgba(101, 113, 83, 0.14);
+  padding-top: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quote-form__hours > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+}
+
+.quote-form__hours dt {
+  color: var(--muted);
+}
+
+.quote-form__hours dd {
+  color: var(--charcoal);
+  font-weight: 600;
+  text-align: right;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) {
+  .quote-form__grid {
+    grid-template-columns: 1fr;
+  }
+}

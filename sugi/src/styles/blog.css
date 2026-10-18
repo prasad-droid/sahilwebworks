@@ -1,0 +1,138 @@
+/* ==========================================================================
+   BLOG & NEWS
+   ========================================================================== */
+
+.blog {
+  background: var(--cream);
+}
+
+.blog__head {
+  max-width: 42rem;
+  margin-bottom: 2.5rem;
+}
+
+.blog__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.4rem;
+}
+
+.blog__card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.blog__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.blog__media {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.blog__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.blog__body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.blog__meta {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.blog__title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--charcoal);
+  line-height: 1.3;
+}
+
+.blog__excerpt {
+  color: var(--muted);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.blog__cta {
+  align-self: flex-start;
+  margin-top: 0.4rem;
+}
+
+/* reader modal */
+
+.blog__reader-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(24, 32, 29, 0.65);
+  z-index: 60;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 3rem 1.2rem;
+  overflow-y: auto;
+}
+
+.blog__reader {
+  position: relative;
+  background: var(--white);
+  border-radius: var(--radius);
+  max-width: 720px;
+  width: 100%;
+  padding: 2.4rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.blog__reader-image {
+  width: 100%;
+  border-radius: 0.75rem;
+  margin-bottom: 1.2rem;
+  display: block;
+}
+
+.blog__reader-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  color: var(--charcoal);
+  margin: 0.4rem 0 1rem;
+}
+
+.blog__reader p {
+  color: var(--text);
+  line-height: 1.85;
+  margin-bottom: 1rem;
+}
+
+.blog__reader-close {
+  position: absolute;
+  top: 0.8rem;
+  right: 1rem;
+  border: 0;
+  background: none;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .blog__reader {
+    padding: 1.6rem 1.2rem;
+  }
+}

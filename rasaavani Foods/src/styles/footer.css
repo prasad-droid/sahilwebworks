@@ -1,0 +1,208 @@
+/* ============================================================
+   Footer + floating WhatsApp button
+   ============================================================ */
+
+.footer {
+  background: var(--color-primary-dark);
+  color: rgba(250, 244, 232, 0.72);
+}
+
+.footer__grid {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  grid-template-columns: 1fr;
+  padding-block: clamp(3rem, 6vw, 5rem);
+}
+
+@media (min-width: 640px) {
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer__grid {
+    grid-template-columns: 1.6fr 1fr 1fr 1.1fr;
+  }
+}
+
+.footer__brand {
+  max-width: 360px;
+}
+
+.footer__tagline {
+  margin-top: 1.5rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+.footer__desc {
+  margin-top: 0.85rem;
+  font-size: 0.92rem;
+  color: rgba(250, 244, 232, 0.66);
+}
+
+.footer__social {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.footer__social a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: rgba(250, 244, 232, 0.82);
+  border: 1px solid rgba(250, 244, 232, 0.22);
+  border-radius: 50%;
+  transition: background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+.footer__social a:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-primary-dark);
+}
+
+.footer__social svg {
+  width: 20px;
+  height: 20px;
+}
+
+.footer__col h3 {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-cream);
+  margin-bottom: 1.25rem;
+}
+
+.footer__col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.footer__col a {
+  font-size: 0.92rem;
+  color: rgba(250, 244, 232, 0.72);
+  transition: color var(--dur-fast) var(--ease-out),
+    padding-left var(--dur-fast) var(--ease-out);
+}
+
+.footer__col a:hover {
+  color: var(--color-accent);
+  padding-left: 0.3rem;
+}
+
+.footer__contact li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.footer__contact svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-accent);
+  flex: 0 0 auto;
+}
+
+.footer__bar {
+  border-top: 1px solid rgba(250, 244, 232, 0.14);
+}
+
+.footer__bar-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-block: 1.5rem;
+  font-size: 0.82rem;
+  color: rgba(250, 244, 232, 0.6);
+}
+
+.footer__top {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: rgba(250, 244, 232, 0.72);
+}
+
+.footer__top:hover {
+  color: var(--color-accent);
+}
+
+/* --------------------------------------------------- WhatsApp FAB ---- */
+.whatsapp-fab {
+  position: fixed;
+  right: clamp(1rem, 3vw, 1.75rem);
+  bottom: clamp(1rem, 3vw, 1.75rem);
+  z-index: 1200;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.1rem 0.75rem 0.75rem;
+  background: #25d366;
+  color: #06331a;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-md);
+  animation: pulseRing 2.6s var(--ease-out) infinite;
+  transition: transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.whatsapp-fab:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+
+.whatsapp-fab__icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  color: #25d366;
+}
+
+.whatsapp-fab__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.whatsapp-fab__label {
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .whatsapp-fab {
+    padding: 0.6rem;
+  }
+  .whatsapp-fab__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+  .whatsapp-fab__icon {
+    width: 38px;
+    height: 38px;
+  }
+}

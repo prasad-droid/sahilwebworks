@@ -1,0 +1,122 @@
+/* ============================================================
+   Industries Served
+   ============================================================ */
+
+.industries__intro {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: clamp(30px, 5vw, 66px);
+  align-items: center;
+  margin-bottom: clamp(38px, 5vw, 60px);
+}
+
+.industries__intro .section-head {
+  margin-bottom: 0;
+}
+
+.industries__image {
+  position: relative;
+  margin: 0;
+}
+
+.industries__image img {
+  width: 100%;
+  height: clamp(300px, 40vw, 400px);
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.industries__image-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(150deg, rgba(11, 31, 58, 0.35) 0%, rgba(11, 31, 58, 0) 60%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+}
+
+.industries__list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+
+.industry-item {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 26px 22px;
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: transform 0.3s var(--ease), background-color 0.3s var(--ease),
+    border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.industry-item:hover {
+  transform: translateY(-5px);
+  background: var(--white);
+  border-color: var(--steel-200);
+  box-shadow: var(--shadow-md);
+}
+
+.industry-item__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: var(--navy-900);
+  color: var(--white);
+  transition: background-color 0.3s var(--ease);
+}
+
+.industry-item:hover .industry-item__icon {
+  background: var(--accent);
+}
+
+.industry-item__title {
+  font-size: 1rem;
+  margin-bottom: 7px;
+}
+
+.industry-item__text {
+  font-size: 0.83rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1040px) {
+  .industries__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 860px) {
+  .industries__intro {
+    grid-template-columns: 1fr;
+  }
+
+  .industries__image {
+    order: -1;
+  }
+
+  .industries__image img {
+    height: clamp(240px, 46vw, 340px);
+  }
+}
+
+@media (max-width: 640px) {
+  .industries__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 440px) {
+  .industries__list {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,33 @@
+.packaging-category .category-title {
+  color: var(--primary);
+}
+
+.packaging-badge {
+  background: rgba(18, 59, 74, 0.9);
+}
+
+.packaging-card .product-card-btn {
+  background: var(--primary);
+}
+
+.packaging-card .product-card-btn:hover {
+  background: var(--primary-light);
+  box-shadow: 0 4px 12px rgba(18, 59, 74, 0.25);
+}
+
+.packaging-card:hover {
+  border-color: rgba(18, 59, 74, 0.35);
+}
+
+.packaging-card .product-card-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(18, 59, 74, 0.2), transparent 60%);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.packaging-card:hover .product-card-image::after {
+  opacity: 1;
+}

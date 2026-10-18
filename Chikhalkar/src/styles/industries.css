@@ -1,0 +1,105 @@
+.industries {
+  padding: var(--section-pad) 0;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.industries__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.industry-card {
+  position: relative;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 36px 30px;
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.industry-card__bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  opacity: 0.12;
+  border-radius: 0 0 0 100%;
+  transition: var(--transition);
+  pointer-events: none;
+}
+
+.industry-card:hover .industry-card__bg {
+  opacity: 0.2;
+  transform: scale(1.1);
+}
+
+.industry-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.industry-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  background: var(--white);
+}
+
+.industry-card:hover::before {
+  transform: scaleX(1);
+}
+
+.industry-card__icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-light);
+  color: var(--primary);
+  margin-bottom: 20px;
+  transition: var(--transition);
+}
+
+.industry-card:hover .industry-card__icon {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: var(--white);
+  box-shadow: 0 12px 26px rgba(11, 61, 145, 0.3);
+}
+
+.industry-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.industry-card p {
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+@media (max-width: 991px) {
+  .industries__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .industries__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

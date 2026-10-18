@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1d4465"/>
+      <stop offset="0.5" stop-color="#2B5C84"/>
+      <stop offset="1" stop-color="#17354f"/>
+    </linearGradient>
+    <linearGradient id="towelA" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eef5fb"/>
+      <stop offset="1" stop-color="#cfe0ee"/>
+    </linearGradient>
+    <linearGradient id="towelB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dfebf5"/>
+      <stop offset="1" stop-color="#bcd3e6"/>
+    </linearGradient>
+    <linearGradient id="towelC" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5FA8D3"/>
+      <stop offset="1" stop-color="#3f8cbd"/>
+    </linearGradient>
+    <linearGradient id="towelD" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#C9A227"/>
+      <stop offset="1" stop-color="#a8861d"/>
+    </linearGradient>
+    <pattern id="terry" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <circle cx="3" cy="3" r="2.4" fill="rgba(255,255,255,0.5)"/>
+      <circle cx="10" cy="10" r="2.4" fill="rgba(255,255,255,0.5)"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1400" cy="120" r="340" fill="rgba(95,168,211,0.12)"/>
+  <circle cx="150" cy="820" r="420" fill="rgba(201,162,39,0.10)"/>
+
+  <g transform="translate(760,180)">
+    <rect x="-260" y="-60" width="520" height="420" rx="18" fill="url(#towelB)"/>
+    <rect x="-260" y="-60" width="520" height="420" rx="18" fill="url(#terry)" opacity="0.5"/>
+    <rect x="-290" y="-38" width="580" height="46" rx="14" fill="url(#towelC)"/>
+    <rect x="-290" y="-38" width="580" height="46" rx="14" fill="url(#terry)" opacity="0.25"/>
+    <rect x="-290" y="16" width="580" height="46" rx="14" fill="url(#towelC)"/>
+    <rect x="-290" y="16" width="580" height="46" rx="14" fill="url(#terry)" opacity="0.25"/>
+    <rect x="-290" y="70" width="580" height="46" rx="14" fill="url(#towelC)"/>
+    <rect x="-290" y="70" width="580" height="46" rx="14" fill="url(#terry)" opacity="0.25"/>
+
+    <rect x="-230" y="126" width="460" height="200" rx="14" fill="url(#towelA)"/>
+    <rect x="-230" y="126" width="460" height="200" rx="14" fill="url(#terry)" opacity="0.5"/>
+    <path d="M-230 326 L230 326 L200 340 L-200 340 Z" fill="#bcd3e6"/>
+    <rect x="-30" y="120" width="60" height="14" rx="7" fill="url(#towelD)"/>
+  </g>
+
+  <g transform="translate(240,470) rotate(-6)">
+    <rect x="0" y="0" width="420" height="120" rx="12" fill="rgba(255,255,255,0.10)"/>
+    <rect x="24" y="24" width="372" height="72" rx="8" fill="url(#towelA)" opacity="0.95"/>
+    <rect x="24" y="24" width="372" height="72" rx="8" fill="url(#terry)" opacity="0.5"/>
+  </g>
+  <g transform="translate(1080,560) rotate(5)">
+    <rect x="0" y="0" width="380" height="110" rx="12" fill="rgba(255,255,255,0.10)"/>
+    <rect x="20" y="20" width="340" height="70" rx="8" fill="url(#towelA)" opacity="0.95"/>
+    <rect x="20" y="20" width="340" height="70" rx="8" fill="url(#terry)" opacity="0.5"/>
+  </g>
+
+  <g transform="translate(1180,180)">
+    <ellipse cx="60" cy="140" rx="70" ry="110" fill="rgba(255,255,255,0.14)"/>
+    <rect x="0" y="30" width="120" height="170" rx="12" fill="rgba(255,255,255,0.92)"/>
+    <rect x="0" y="30" width="120" height="170" rx="12" fill="url(#terry)" opacity="0.5"/>
+    <rect x="0" y="18" width="120" height="16" rx="6" fill="url(#towelD)"/>
+  </g>
+</svg>

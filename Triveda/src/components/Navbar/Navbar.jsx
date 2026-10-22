@@ -50,9 +50,10 @@ const Navbar = () => {
         <div className="navbar-actions">
           <a
             className="btn btn-accent navbar-cta"
-            href="https://wa.me/919175809636?text=Hello%20TRIVEDA%20EXPORTS%2C%20please%20send%20me%20your%20product%20catalogue."
+            href="/TRIVEDA%20EXPORTS%20PROFILE-1.pdf"
             target="_blank"
             rel="noopener noreferrer"
+            download={true}
           >
             <FaWhatsapp /> Request Catalogue
           </a>

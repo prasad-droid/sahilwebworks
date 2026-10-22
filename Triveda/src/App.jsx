@@ -36,13 +36,8 @@ const CTA = () => (
           hours.
         </p>
         <div className="cta-banner-actions">
-          <a
-            className="btn btn-accent btn-lg"
-            href="https://wa.me/919175809636?text=Hello%20TRIVEDA%20EXPORTS%2C%20please%20send%20me%20your%20product%20catalogue."
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaWhatsapp /> Request Catalogue
+          <a className="btn btn-accent btn-lg" href="/Triveda%20Exports%20Catalogue.pdf" download>
+            Download Catalogue
           </a>
           <a className="btn btn-outline-light btn-lg" href="#contact">
             Get a Quote <FaArrowRight />

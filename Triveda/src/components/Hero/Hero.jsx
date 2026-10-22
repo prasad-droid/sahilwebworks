@@ -57,6 +57,16 @@ const Hero = () => (
             </a>
           </div>
         </Reveal>
+        <Reveal delay={540}>
+          <div className="hero-actions" style={{ marginTop: '1rem' }}>
+            <a href="/Triveda%20Exports%20Catalogue.pdf" download className="btn btn-outline-light btn-lg">
+              Triveda Exports Catalogue.pdf
+            </a>
+            <a href="/TRIVEDA%20EXPORTS%20PROFILE-1.pdf" download className="btn btn-outline-light btn-lg">
+              Triveda Export Company Profile.pdf
+            </a>
+          </div>
+        </Reveal>
         <Reveal delay={620}>
           <ul className="hero-badges" aria-label="Trust highlights">
             {TRUST_BADGES.map((badge) => (

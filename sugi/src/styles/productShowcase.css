@@ -24,22 +24,6 @@
   padding: 0.85rem 0.85rem 0;
 }
 
-.showcase-card__origin {
-  position: absolute;
-  top: 1.6rem;
-  left: 1.6rem;
-  z-index: 4;
-  background: rgba(23, 59, 47, 0.92);
-  color: var(--white);
-  font-size: 0.64rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 0.38rem 0.8rem;
-  border-radius: 50px;
-  border: 1px solid rgba(184, 151, 91, 0.45);
-}
-
 .showcase-card__body {
   padding: 1.35rem 1.5rem 1.6rem;
   display: flex;

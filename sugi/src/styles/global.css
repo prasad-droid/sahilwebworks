@@ -142,8 +142,8 @@ section {
 }
 
 .section-pad {
-  padding-top: clamp(4.5rem, 10vw, 7.5rem);
-  padding-bottom: clamp(4.5rem, 10vw, 7.5rem);
+  padding-top: clamp(3rem, 4.2vw, 4.75rem);
+  padding-bottom: clamp(3rem, 4.2vw, 4.75rem);
 }
 
 /* ==========================================================================

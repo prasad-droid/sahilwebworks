@@ -1,0 +1,192 @@
+[
+  {
+    "slug": "bananas",
+    "file": "src/assets/products/bananas/01.jpg",
+    "commonsTitle": "File:Bananas white background DS.jpg",
+    "author": "Augustus Binu : flickr",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Bananas_white_background_DS.jpg",
+    "description": "Bananas white background"
+  },
+  {
+    "slug": "pomegranates",
+    "file": "src/assets/products/pomegranates/01.jpg",
+    "commonsTitle": "File:Pomegranate on white.jpg",
+    "author": "Rhododendrites",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Pomegranate_on_white.jpg",
+    "description": "Pomegranate."
+  },
+  {
+    "slug": "mangoes",
+    "file": "src/assets/products/mangoes/01.jpg",
+    "commonsTitle": "File:Mango on white.jpg",
+    "author": "Rhododendrites",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mango_on_white.jpg",
+    "description": "Mango."
+  },
+  {
+    "slug": "grapes",
+    "file": "src/assets/products/grapes/01.jpg",
+    "commonsTitle": "File:A bunch of grapes on a vine.jpg",
+    "author": "Ian Schneider on Unsplash",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:A_bunch_of_grapes_on_a_vine.jpg",
+    "description": "a bunch of grapes on a vine"
+  },
+  {
+    "slug": "onions",
+    "file": "src/assets/products/onions/01.jpg",
+    "commonsTitle": "File:Onion on White.JPG",
+    "author": "Colin",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Onion_on_White.JPG",
+    "description": "An onion on a white background."
+  },
+  {
+    "slug": "ginger",
+    "file": "src/assets/products/ginger/01.jpg",
+    "commonsTitle": "File:Ginger Root.jpg",
+    "author": "Sanjay Acharya",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ginger_Root.jpg",
+    "description": "Macro photo of the Ginger ( Zingiber officinale ) Root."
+  },
+  {
+    "slug": "green-chilli",
+    "file": "src/assets/products/green-chilli/01.jpg",
+    "commonsTitle": "File:Green chillies Kerala.jpg",
+    "author": "Dr. Chinchu C.",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Green_chillies_Kerala.jpg",
+    "description": "Green chillies of different sizes in Kerala, India"
+  },
+  {
+    "slug": "tomatoes",
+    "file": "src/assets/products/tomatoes/01.jpg",
+    "commonsTitle": "File:Organic home-grown tomatoes - unripe to ripe.jpg",
+    "author": "Michal Klajban",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Organic_home-grown_tomatoes_-_unripe_to_ripe.jpg",
+    "description": "Organic home-grown tomatoes arranged in a circle. Christchurch, New Zealand."
+  },
+  {
+    "slug": "okra",
+    "file": "src/assets/products/okra/01.jpg",
+    "commonsTitle": "File:Oklahoma-grown okra.jpg",
+    "author": "Geo Lightspeed7",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Oklahoma-grown_okra.jpg",
+    "description": "I usually harvest this amount of okra every other day."
+  },
+  {
+    "slug": "green-cardamom",
+    "file": "src/assets/products/green-cardamom/01.jpg",
+    "commonsTitle": "File:Green Cardamom Pods.jpg",
+    "author": "Misterneedlemouse",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Green_Cardamom_Pods.jpg",
+    "description": "Whole, dried green cardamom pods from Tamil Nadu, India in a bowl."
+  },
+  {
+    "slug": "cloves",
+    "file": "src/assets/products/cloves/01.jpg",
+    "commonsTitle": "File:Cloves on wood surface.jpg",
+    "author": "FunkyMonkey MP",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Cloves_on_wood_surface.jpg",
+    "description": "Dried cloves on wooden surface"
+  },
+  {
+    "slug": "cinnamon",
+    "file": "src/assets/products/cinnamon/01.jpg",
+    "commonsTitle": "File:Cinnamon sticks (1).jpg",
+    "author": "Fumikas Sagisavas",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Cinnamon_sticks_(1).jpg",
+    "description": "Cinnamon sticks"
+  },
+  {
+    "slug": "turmeric",
+    "file": "src/assets/products/turmeric/01.jpg",
+    "commonsTitle": "File:Turmeric powder textures.jpg",
+    "author": "CNEcija12345",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Turmeric_powder_textures.jpg",
+    "description": "Culinary delicacies of Luzon Turmeric powder"
+  },
+  {
+    "slug": "black-pepper",
+    "file": "src/assets/products/black-pepper/01.jpg",
+    "commonsTitle": "File:Tellicherry Black Peppercorns.jpg",
+    "author": "Misterneedlemouse",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Tellicherry_Black_Peppercorns.jpg",
+    "description": "Whole, dried black peppercorns from Kerala, India in a bowl."
+  },
+  {
+    "slug": "red-chilli",
+    "file": "src/assets/products/red-chilli/01.jpg",
+    "commonsTitle": "File:Dried chillies 2.jpg",
+    "author": "Richard Mortel",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Dried_chillies_2.jpg",
+    "description": "Dried chillies"
+  },
+  {
+    "slug": "sweet-corn",
+    "file": "src/assets/products/sweet-corn/01.jpg",
+    "commonsTitle": "File:Corn on the cob (sweet corn).jpg",
+    "author": "Nutrition, Food Safety Health",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Corn_on_the_cob_(sweet_corn).jpg",
+    "description": "Photo by Carol Larvick, Dakota County Extension Educator, University of Nebraska-Lincoln"
+  },
+  {
+    "slug": "maize",
+    "file": "src/assets/products/maize/01.jpg",
+    "commonsTitle": "File:Corn kernels.jpg",
+    "author": "Danielgrad",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Corn_kernels.jpg",
+    "description": "Corn kernels"
+  },
+  {
+    "slug": "semi-husked-coconut",
+    "file": "src/assets/products/semi-husked-coconut/01.jpg",
+    "commonsTitle": "File:Coconuts - single and cracked open.jpg",
+    "author": "Ivar Leidus",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Coconuts_-_single_and_cracked_open.jpg",
+    "description": "Coconuts – single and cracked open. Grown in Dominican Republic"
+  },
+  {
+    "slug": "raisins",
+    "file": "src/assets/products/raisins/01.jpg",
+    "commonsTitle": "File:Raisins (20240207).jpg",
+    "author": "Fumikas Sagisavas",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Raisins_(20240207).jpg",
+    "description": "Raisins"
+  }
+]

@@ -15,7 +15,6 @@ export default function ProductCard({ product, layout = "card" }) {
     <article className={`showcase-card ${detailed ? "showcase-card--detail" : ""}`}>
       <div className="showcase-card__media">
         <ProductGallery images={product.images} name={product.name} />
-        <span className="showcase-card__origin">{product.origin}</span>
       </div>
 
       <div className="showcase-card__body">
@@ -24,10 +23,6 @@ export default function ProductCard({ product, layout = "card" }) {
 
         {detailed && (
           <dl className="showcase-card__meta">
-            <div>
-              <dt>Origin</dt>
-              <dd>{product.origin}</dd>
-            </div>
             <div>
               <dt>Packaging</dt>
               <dd>Customized export packaging as per buyer requirement</dd>

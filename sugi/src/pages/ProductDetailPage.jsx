@@ -41,7 +41,6 @@ export default function ProductDetailPage({ slug }) {
   return (
     <>
       <PageHero
-        eyebrow={product.origin}
         title={product.name}
         crumbs={[
           { label: "Products", to: "/products" },
@@ -57,7 +56,6 @@ export default function ProductDetailPage({ slug }) {
           </div>
 
           <div className="pdetail__info reveal">
-            <span className="pdetail__origin">{product.origin}</span>
             <h1 className="pdetail__title">{product.name}</h1>
             <p className="pdetail__group">{product.groupTitle}</p>
 

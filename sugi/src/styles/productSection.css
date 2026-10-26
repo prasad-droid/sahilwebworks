@@ -6,6 +6,17 @@
   background: var(--cream);
 }
 
+/* Two product blocks (Indian Origin + Imported) sit back to back on the
+   homepage. Remove the second top padding so they read as one section. */
+.product-section + .product-section {
+  padding-top: 0;
+}
+
+/* Why Choose Us also shares the cream background, so avoid a double gap. */
+.product-section + .why {
+  padding-top: 0;
+}
+
 .product-section__head {
   max-width: 780px;
   margin-bottom: clamp(2rem, 4vw, 3rem);
@@ -34,8 +45,25 @@
 
 .product-section__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  /* 240px minimum gives 4 even columns on desktop (was 3, which left large
+     empty cells for 4- and 5-product groups). */
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
   gap: clamp(1.25rem, 2.6vw, 2rem);
+}
+
+/* On desktop, fill every row for groups whose item count does not divide
+   evenly into the default 4 columns. Below 1100px the auto-fill grid above
+   takes over again so cards stay readable on tablets and phones. */
+@media (min-width: 1100px) {
+  .product-section__grid--five {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .product-section__grid--three {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 54rem;
+    margin-inline: auto;
+  }
 }
 
 .product-section__grid > div {

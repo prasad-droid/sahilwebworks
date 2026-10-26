@@ -1,0 +1,434 @@
+/* ==========================================================================
+   Export markets
+   ========================================================================== */
+
+.markets {
+  position: relative;
+  overflow: clip;
+  background: var(--cream);
+}
+
+.markets::before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(100%, 900px);
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  content: '';
+  transform: translateX(-50%);
+}
+
+.markets__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: clamp(34px, 4vw, 48px);
+}
+
+.markets__header-stat {
+  flex: 0 0 auto;
+  padding: 0 0 5px 24px;
+  border-left: 1px solid var(--line);
+}
+
+.markets__stat-number {
+  display: block;
+  color: var(--green-800);
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+}
+
+.markets__stat-label {
+  display: block;
+  margin-top: 5px;
+  color: var(--green-700);
+  font-size: 0.57rem;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.markets__header-stat p {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* Layout ---------------------------------------------------------------- */
+
+.markets__layout {
+  display: grid;
+  align-items: stretch;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  gap: 20px;
+}
+
+/* Map panel ------------------------------------------------------------- */
+
+.markets__map-panel {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: clamp(20px, 3vw, 30px);
+  border-radius: 9px;
+  background:
+    radial-gradient(circle at 78% 38%, rgba(216, 166, 64, 0.15), transparent 25%),
+    radial-gradient(circle at 10% 92%, rgba(20, 104, 77, 0.55), transparent 36%),
+    var(--green-950);
+  color: var(--white);
+}
+
+.markets__map-head {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.markets__map-icon {
+  display: inline-flex;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(216, 166, 64, 0.29);
+  border-radius: 50%;
+  color: var(--gold-light);
+}
+
+.markets__map-head p {
+  color: var(--white);
+  font-size: 0.79rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+.markets__map-head span {
+  display: block;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.markets__map {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 0;
+  min-height: 290px;
+}
+
+.markets__map img {
+  width: 100%;
+  height: 100%;
+  max-height: 390px;
+  object-fit: contain;
+  opacity: 0.32;
+}
+
+.markets__marker {
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+
+.markets__marker--me {
+  top: 40%;
+  left: 59%;
+}
+
+.markets__marker--sea {
+  top: 55%;
+  left: 78%;
+}
+
+.markets__marker-dot {
+  position: relative;
+  display: block;
+  width: 9px;
+  height: 9px;
+  flex: 0 0 auto;
+  border: 2px solid var(--green-950);
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 5px rgba(216, 166, 64, 0.15);
+}
+
+.markets__marker-dot::after {
+  position: absolute;
+  inset: -8px;
+  border: 1px solid rgba(216, 166, 64, 0.6);
+  border-radius: 50%;
+  animation: market-ping 2.8s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+  content: '';
+}
+
+.markets__marker--sea .markets__marker-dot::after {
+  animation-delay: 1.2s;
+}
+
+@keyframes market-ping {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.5);
+  }
+  75%,
+  100% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+.markets__marker-label {
+  padding: 4px 7px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 3px;
+  background: rgba(3, 23, 16, 0.85);
+  color: var(--white);
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  line-height: 1.4;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+}
+
+.markets__marker--me .markets__marker-label {
+  margin-right: 8px;
+  order: -1;
+}
+
+.markets__marker--sea .markets__marker-label {
+  margin-left: 8px;
+}
+
+.markets__map-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 17px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.markets__map-foot span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.56rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+}
+
+.markets__map-foot i {
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+/* Region cards ---------------------------------------------------------- */
+
+.markets__regions {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.market-card {
+  flex: 1;
+  padding: clamp(19px, 2.4vw, 25px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    transform 200ms ease;
+}
+
+.market-card:hover {
+  border-color: rgba(216, 166, 64, 0.55);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.market-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.market-card__icon {
+  display: inline-flex;
+  width: 35px;
+  height: 35px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--green-50);
+  color: var(--green-700);
+}
+
+.market-card__tag {
+  color: var(--muted-light);
+  font-size: 0.52rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.market-card h3 {
+  margin-top: 13px;
+  color: var(--green-900);
+  font-size: 1.28rem;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.3;
+}
+
+.market-card p {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.68;
+}
+
+.market-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  color: var(--green-700);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  transition: gap 180ms ease;
+}
+
+.market-card__link:hover {
+  gap: 9px;
+}
+
+.markets__destination {
+  padding: 3px 4px 0;
+}
+
+.markets__destination p {
+  color: var(--muted);
+  font-size: 0.66rem;
+  line-height: 1.6;
+}
+
+.markets__destination .text-link {
+  margin-top: 8px;
+  font-size: 0.68rem;
+  text-transform: none;
+}
+
+/* Responsive ------------------------------------------------------------ */
+
+@media (max-width: 980px) {
+  .markets__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .markets__regions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .markets__destination {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 760px) {
+  .markets__header {
+    display: block;
+  }
+
+  .markets__header-stat {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 10px;
+    margin-top: 22px;
+    padding: 16px 0 0;
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .markets__stat-number {
+    font-size: 2rem;
+  }
+
+  .markets__header-stat p {
+    flex-basis: 100%;
+    margin-top: 2px;
+  }
+
+  .markets__map {
+    min-height: 240px;
+  }
+
+  .markets__regions {
+    display: flex;
+  }
+
+  .markets__destination {
+    padding-top: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .markets__marker--me {
+    top: 39%;
+    left: 55%;
+  }
+
+  .markets__marker--sea {
+    top: 56%;
+    left: 71%;
+  }
+
+  .markets__marker-label {
+    padding: 3px 5px;
+    font-size: 0.48rem;
+  }
+
+  .markets__map-panel {
+    padding: 17px;
+  }
+
+  .markets__map-foot {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .markets__map-foot span:last-child {
+    display: none;
+  }
+}

@@ -1,0 +1,219 @@
+/* ==========================================================================
+   Product specifications
+   ========================================================================== */
+
+.specs {
+  position: relative;
+  background: var(--white);
+}
+
+.specs__inner {
+  display: grid;
+  align-items: center;
+  grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+  gap: clamp(44px, 7vw, 88px);
+}
+
+.specs__content {
+  max-width: 650px;
+}
+
+.specs__table {
+  margin: 34px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.specs__row {
+  display: grid;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  gap: 10px 24px;
+  grid-template-columns: 185px minmax(0, 1fr);
+}
+
+.specs__row dt {
+  color: var(--muted);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.specs__row dd {
+  margin: 0;
+  color: var(--green-900);
+  font-size: 0.87rem;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.specs__row--wide dd {
+  font-weight: 500;
+}
+
+.specs__note {
+  margin-top: 17px;
+  color: var(--muted-light);
+  font-size: 0.67rem;
+  line-height: 1.65;
+}
+
+.specs__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.specs__actions .btn {
+  min-height: 47px;
+  padding-inline: 16px;
+  font-size: 0.72rem;
+}
+
+/* Side media ------------------------------------------------------------ */
+
+.specs__side {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  margin-left: auto;
+}
+
+.specs__image {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  border-radius: 7px;
+  background: var(--cream-deep);
+  box-shadow: var(--shadow-md);
+  aspect-ratio: 4 / 3;
+}
+
+.specs__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.specs__image::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(6, 37, 28, 0.35), transparent 42%);
+  content: '';
+  pointer-events: none;
+}
+
+.specs__buyer-card {
+  position: relative;
+  z-index: 2;
+  width: calc(100% - 34px);
+  margin: -46px 0 0 auto;
+  padding: clamp(20px, 3vw, 28px);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 7px;
+  background:
+    radial-gradient(circle at 100% 0, rgba(20, 104, 77, 0.5), transparent 40%),
+    var(--green-900);
+  box-shadow: 0 24px 55px rgba(6, 37, 28, 0.2);
+  color: var(--white);
+}
+
+.specs__buyer-eyebrow {
+  color: var(--gold-light);
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.specs__buyer-list {
+  display: grid;
+  gap: 17px;
+  margin-top: 19px;
+}
+
+.specs__buyer-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+}
+
+.specs__buyer-list li > span {
+  display: inline-flex;
+  width: 31px;
+  height: 31px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(216, 166, 64, 0.27);
+  border-radius: 4px;
+  color: var(--gold-light);
+}
+
+.specs__buyer-list strong {
+  display: block;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.specs__buyer-list small {
+  display: block;
+  margin-top: 2px;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 0.66rem;
+  line-height: 1.55;
+}
+
+/* Responsive ------------------------------------------------------------ */
+
+@media (max-width: 940px) {
+  .specs__inner {
+    grid-template-columns: 1fr;
+    gap: 46px;
+  }
+
+  .specs__content {
+    max-width: 760px;
+  }
+
+  .specs__side {
+    max-width: 600px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .specs__row {
+    gap: 3px;
+    grid-template-columns: 1fr;
+  }
+
+  .specs__row dt {
+    font-size: 0.56rem;
+  }
+
+  .specs__row dd {
+    font-size: 0.82rem;
+  }
+
+  .specs__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .specs__buyer-card {
+    width: calc(100% - 20px);
+    margin-top: -26px;
+    padding: 18px;
+  }
+
+  .specs__image {
+    aspect-ratio: 1 / 1;
+  }
+}

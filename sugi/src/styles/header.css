@@ -26,10 +26,12 @@
 }
 
 .header__logo {
-  width: 46px;
-  height: 46px;
+  width: 52px;
+  height: 52px;
   flex-shrink: 0;
-  border-radius: 12px;
+  border-radius: 14px;
+  object-fit: cover;
+  background: #000;
 }
 
 .header__brand-text {
@@ -144,12 +146,18 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
+@media (max-width: 600px) {
+  .header__logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+  }
+}
+
 @media (max-width: 940px) {
   .header__cta {
     display: none;
-  }
-
-  .header__toggle {
+  }  .header__toggle {
     display: flex;
   }
 

@@ -1,0 +1,220 @@
+/* ==========================================================================
+   Commitment / testimonial area
+   ========================================================================== */
+
+.testimonials {
+  position: relative;
+  overflow: clip;
+  background: var(--cream);
+}
+
+.testimonials__mark {
+  position: absolute;
+  top: -50px;
+  right: 4%;
+  color: rgba(8, 53, 40, 0.055);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 28rem;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.testimonials__header {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: clamp(34px, 4vw, 48px);
+}
+
+.testimonials__badge {
+  display: flex;
+  width: 280px;
+  flex: 0 0 auto;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 18px;
+  border-radius: 7px;
+  background: var(--green-900);
+  color: var(--white);
+  box-shadow: var(--shadow-md);
+}
+
+.testimonials__badge-icon {
+  display: inline-flex;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(216, 166, 64, 0.34);
+  border-radius: 50%;
+  color: var(--gold-light);
+}
+
+.testimonials__badge small {
+  display: block;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.54rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.testimonials__badge strong {
+  display: block;
+  margin-top: 3px;
+  color: var(--white);
+  font-size: 0.77rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* Cards ----------------------------------------------------------------- */
+
+.testimonials__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.commitment-card {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(22px, 3vw, 30px);
+  border: 1px solid rgba(8, 53, 40, 0.1);
+  border-radius: 7px;
+  background: var(--white);
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+}
+
+.commitment-card::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 2px;
+  background: var(--gold);
+  content: '';
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 260ms ease;
+}
+
+.commitment-card:hover {
+  border-color: rgba(216, 166, 64, 0.48);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.commitment-card:hover::before {
+  transform: scaleX(1);
+}
+
+.commitment-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.commitment-card__icon {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--green-50);
+  color: var(--green-700);
+}
+
+.commitment-card__number {
+  color: var(--cream-deep);
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+
+.commitment-card h3 {
+  margin-top: 24px;
+  color: var(--green-900);
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.35;
+}
+
+.commitment-card p {
+  margin-top: 9px;
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.72;
+}
+
+/* Footer ---------------------------------------------------------------- */
+
+.testimonials__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+
+.testimonials__footer p {
+  max-width: 640px;
+  color: var(--muted-light);
+  font-size: 0.68rem;
+  line-height: 1.65;
+}
+
+.testimonials__footer .text-link {
+  flex: 0 0 auto;
+  font-size: 0.72rem;
+  text-transform: none;
+}
+
+/* Responsive ------------------------------------------------------------ */
+
+@media (max-width: 980px) {
+  .testimonials__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .testimonials__badge {
+    width: auto;
+    max-width: 360px;
+  }
+
+  .testimonials__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .commitment-card {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .testimonials__mark {
+    display: none;
+  }
+
+  .testimonials__footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}

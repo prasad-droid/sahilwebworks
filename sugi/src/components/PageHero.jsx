@@ -22,7 +22,7 @@ export default function PageHero({ eyebrow, title, intro, crumbs = [] }) {
           ))}
         </nav>
 
-        <p className="eyebrow">{eyebrow}</p>
+        {eyebrow && <p className="eyebrow">{eyebrow}</p>}
         <h1 className="page-hero__title">{title}</h1>
         {intro && <p className="page-hero__intro">{intro}</p>}
       </div>

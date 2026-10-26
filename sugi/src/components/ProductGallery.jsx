@@ -24,7 +24,8 @@ function Placeholder({ label }) {
 export default function ProductGallery({ images = [], name, compact = false }) {
   const trackRef = useRef(null);
   const [canPrev, setCanPrev] = useState(false);
-  const [canNext, setCanNext] = useState(true);
+  const [canNext, setCanNext] = useState(false);
+  const multiple = images.length > 1;
 
   const update = () => {
     const el = trackRef.current;
@@ -66,7 +67,7 @@ export default function ProductGallery({ images = [], name, compact = false }) {
         ))}
       </div>
 
-      {canPrev && (
+      {multiple && canPrev && (
         <button
           type="button"
           className="product-gallery__nav product-gallery__nav--prev"
@@ -76,7 +77,7 @@ export default function ProductGallery({ images = [], name, compact = false }) {
           <span aria-hidden="true">‹</span>
         </button>
       )}
-      {canNext && (
+      {multiple && canNext && (
         <button
           type="button"
           className="product-gallery__nav product-gallery__nav--next"
@@ -87,9 +88,11 @@ export default function ProductGallery({ images = [], name, compact = false }) {
         </button>
       )}
 
-      <span className="product-gallery__hint" aria-hidden="true">
-        Drag to view
-      </span>
+      {multiple && (
+        <span className="product-gallery__hint" aria-hidden="true">
+          Drag to view
+        </span>
+      )}
     </div>
   );
 }

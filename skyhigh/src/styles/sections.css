@@ -1,0 +1,266 @@
+.trust-highlights {
+  background-color: var(--soft-ivory);
+  padding: 3rem 0;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.trust-icon {
+  color: var(--emerald-green);
+  flex-shrink: 0;
+}
+
+.trust-text {
+  font-weight: 600;
+  color: var(--deep-navy);
+  font-size: 0.9375rem;
+}
+
+.about {
+  background-color: var(--white);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-image-container {
+  position: relative;
+}
+
+.about-image {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(16, 43, 70, 0.15);
+}
+
+.about-content h2 {
+  font-size: 2.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-content p {
+  color: var(--text-light);
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+}
+
+.why-choose {
+  background-color: var(--soft-ivory);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.why-card {
+  background-color: var(--white);
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(16, 43, 70, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 3px solid var(--warm-gold);
+}
+
+.why-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(16, 43, 70, 0.12);
+}
+
+.why-icon {
+  color: var(--emerald-green);
+  margin: 0 auto 1rem auto;
+}
+
+.why-card h3 {
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+  color: var(--deep-navy);
+}
+
+.why-card p {
+  color: var(--text-light);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.export-process {
+  background-color: var(--white);
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  position: relative;
+}
+
+.process-steps::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 60px;
+  right: 60px;
+  height: 2px;
+  background: linear-gradient(to right, var(--warm-gold), var(--emerald-green));
+  z-index: 0;
+}
+
+.process-step {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.process-number {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--warm-gold), #c99a42);
+  color: var(--deep-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  margin: 0 auto 1.25rem auto;
+  box-shadow: 0 4px 20px rgba(216, 172, 85, 0.4);
+}
+
+.process-step h3 {
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+  color: var(--deep-navy);
+}
+
+.process-step p {
+  color: var(--text-light);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.testimonials {
+  background-color: var(--soft-ivory);
+}
+
+.testimonial-placeholder {
+  background-color: var(--white);
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 4px 20px rgba(16, 43, 70, 0.08);
+  color: var(--text-light);
+  font-style: italic;
+}
+
+@media (max-width: 968px) {
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .about-image {
+    height: 350px;
+  }
+  
+  .about-content h2 {
+    font-size: 2rem;
+  }
+  
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .process-steps {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .process-steps::before {
+    display: none;
+  }
+  
+  .process-step {
+    display: flex;
+    text-align: left;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+  
+  .process-number {
+    width: 60px;
+    height: 60px;
+    font-size: 1.375rem;
+    flex-shrink: 0;
+    margin: 0;
+  }
+  
+  .process-content h3 {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .trust-item {
+    padding: 0.75rem;
+  }
+  
+  .about-image {
+    height: 280px;
+  }
+  
+  .about-content h2 {
+    font-size: 1.75rem;
+  }
+  
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .process-step {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .process-number {
+    margin: 0 auto;
+  }
+  
+  .testimonial-placeholder {
+    padding: 2rem 1.5rem;
+    margin: 0 1rem;
+  }
+}

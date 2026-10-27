@@ -2,6 +2,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import AboutUs from './components/AboutUs'
 import Products from './components/Products'
+import Turmeric from './components/Turmeric'
 import ProductSpecifications from './components/ProductSpecifications'
 import ProductCategories from './components/ProductCategories'
 import Services from './components/Services'
@@ -28,6 +29,7 @@ export default function App() {
         <Hero />
         <AboutUs />
         <Products />
+        <Turmeric />
         <ProductSpecifications />
         <ProductCategories />
         <Services />

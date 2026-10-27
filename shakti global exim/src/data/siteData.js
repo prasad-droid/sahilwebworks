@@ -9,12 +9,12 @@ export const company = {
   emailHref: 'mailto:shaktiglobalexim@gmail.com',
   address: {
     lines: [
-      'House No. 0863, Karave Village,',
+      '0863, Karave Village,',
       'Near Vitthal Mandir, Sector 36,',
       'Seawoods, Nerul, Navi Mumbai,',
       'Thane, Maharashtra - 400706, India.',
     ],
-    full: 'House No. 0863, Karave Village, Near Vitthal Mandir, Sector 36, Seawoods, Nerul, Navi Mumbai, Thane, Maharashtra - 400706, India.',
+    full: '0863, Karave Village, Near Vitthal Mandir, Sector 36, Seawoods, Nerul, Navi Mumbai, Thane, Maharashtra - 400706, India.',
   },
   videoDriveUrl: 'https://drive.google.com/open?id=1rT5wRE3Gy8ncXG320MHfEirNkVfYXyF0',
   videoEmbedUrl: 'https://drive.google.com/file/d/1rT5wRE3Gy8ncXG320MHfEirNkVfYXyF0/preview',
@@ -22,9 +22,9 @@ export const company = {
 
 export const whatsappMessages = {
   general:
-    'Hello Shakti Global Exim, I am interested in your frozen French fries and would like to know the product specifications, pricing, packaging, and export requirements.',
+    'Hello Shakti Global Exim, I am interested in your products (Frozen French Fries / Turmeric). Please share product specifications, pricing, packaging, and export requirements.',
   quote:
-    'Hello Shakti Global Exim, I would like to request a quotation for frozen French fries. Please share the product specifications, packaging details, and export requirements.',
+    'Hello Shakti Global Exim, I would like to request a quotation. Please share product specifications, packaging details, and export requirements for my requirement.',
 }
 
 export const navItems = [
@@ -36,6 +36,7 @@ export const navItems = [
     section: 'products',
     children: [
       { label: 'Frozen French Fries', href: '#products', section: 'products' },
+      { label: 'Turmeric', href: '#turmeric', section: 'turmeric' },
       { label: 'Product Categories', href: '#categories', section: 'products' },
       { label: 'Export Services', href: '#services', section: 'services' },
     ],
@@ -288,6 +289,7 @@ export const targetMarkets = [
 
 export const footerProductLinks = [
   { label: 'Frozen French Fries', href: '#products' },
+  { label: 'Turmeric', href: '#turmeric' },
   { label: 'Agricultural Products', href: '#categories' },
   { label: 'Processed Food', href: '#categories' },
   { label: 'Frozen Food', href: '#categories' },

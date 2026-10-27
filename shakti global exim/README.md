@@ -63,7 +63,7 @@ The buyer must send the message from their own email app or WhatsApp.
 
 - Phone / WhatsApp: `+91 96198 41882`
 - Email: `shaktiglobalexim@gmail.com`
-- Address: House No. 0863, Karave Village, Near Vitthal Mandir, Sector 36, Seawoods, Nerul, Navi Mumbai, Thane, Maharashtra - 400706, India.
+- Address: 0863, Karave Village, Near Vitthal Mandir, Sector 36, Seawoods, Nerul, Navi Mumbai, Thane, Maharashtra - 400706, India.
 
 These values live in `src/data/siteData.js`.
 

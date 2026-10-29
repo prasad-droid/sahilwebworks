@@ -36,7 +36,7 @@ export default function ProductSection() {
           <div className="product__featured">
             <div className="product__featured-media">
               <img
-                src="/images/products-collage.jpeg"
+                src="/images/slide-5.jpeg"
                 alt="Gir Cow Ghee and the GOURI GLOBAL TRADE product range"
                 className="product__featured-image"
                 loading="lazy"

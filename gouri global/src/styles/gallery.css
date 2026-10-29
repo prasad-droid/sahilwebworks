@@ -57,7 +57,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(36, 23, 15, 0.30);
+  background: rgba(58, 40, 24, 0.30);
   opacity: 0;
   transition: opacity 0.4s ease;
 }
@@ -74,7 +74,7 @@
   width: 52px;
   height: 52px;
   border-radius: var(--radius-full);
-  background: rgba(255, 253, 247, 0.95);
+  background: rgba(252, 247, 240, 0.95);
   color: var(--primary);
   font-size: 1.8rem;
   font-weight: 300;
@@ -93,7 +93,7 @@
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--white);
-  text-shadow: 0 1px 6px rgba(36, 23, 15, 0.6);
+  text-shadow: 0 1px 6px rgba(58, 40, 24, 0.6);
 }
 
 /* ---------- Lightbox ---------- */
@@ -101,7 +101,7 @@
   position: fixed;
   inset: 0;
   z-index: 2000;
-  background: rgba(20, 12, 6, 0.92);
+  background: rgba(41, 28, 17, 0.92);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -140,7 +140,7 @@
   width: 48px;
   height: 48px;
   border-radius: var(--radius-full);
-  border: 1px solid rgba(248, 242, 229, 0.4);
+  border: 1px solid rgba(244, 232, 217, 0.4);
   background: transparent;
   color: var(--cream);
   font-size: 1.7rem;

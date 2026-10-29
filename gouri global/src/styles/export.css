@@ -1,7 +1,7 @@
 .export {
   background:
-    radial-gradient(1000px 600px at 50% -10%, rgba(213, 168, 76, 0.12), transparent 60%),
-    var(--dark);
+    radial-gradient(1000px 600px at 50% -10%, rgba(215, 171, 126, 0.12), transparent 60%),
+    var(--cream);
   color: var(--cream);
   overflow: hidden;
   position: relative;
@@ -21,7 +21,7 @@
 }
 
 .export__title {
-  color: var(--cream);
+  color: var(--dark);
   font-size: clamp(2rem, 4vw, 2.9rem);
   margin-bottom: 12px;
 }
@@ -37,18 +37,18 @@
 .export__visual {
   max-width: 780px;
   margin: 0 auto 40px;
-  color: rgba(248, 242, 229, 0.55);
+  color: rgba(244, 232, 217, 0.55);
 }
 
 .world-map {
   position: relative;
   width: 100%;
   aspect-ratio: 95 / 62;
-  border: 1px solid rgba(248, 242, 229, 0.14);
+  border: 1px solid rgba(244, 232, 217, 0.14);
   border-radius: var(--radius-lg);
   background: radial-gradient(
     80% 80% at 50% 50%,
-    rgba(213, 168, 76, 0.08),
+    rgba(194, 100, 7, 0.08),
     transparent 80%
   );
   overflow: hidden;
@@ -72,14 +72,14 @@
 }
 
 .world-map__india {
-  fill: var(--accent);
+  fill: var(--dark);
   animation: indiaPulse 2.6s ease-in-out infinite;
   transform-origin: 678.9px 270.1px;
 }
 
 .world-map__india-halo {
   fill: none;
-  stroke: var(--accent);
+  stroke: var(--dark);
   stroke-width: 1.5;
   opacity: 0.5;
   animation: indiaHalo 2.6s ease-in-out infinite;
@@ -88,7 +88,7 @@
 
 .world-map__arc {
   fill: none;
-  stroke: var(--accent);
+  stroke: black;
   stroke-width: 2.1;
   stroke-dasharray: 23 23;
   opacity: 0.7;
@@ -103,7 +103,7 @@
 .world-map__label {
   font-family: var(--font-body);
   font-size: 13px;
-  fill: var(--dark);
+  fill: var(--cream);
   font-weight: 700;
   letter-spacing: 0.02em;
 }
@@ -130,7 +130,7 @@
 
 .export__copy p {
   font-size: 1.05rem;
-  color: rgba(248, 242, 229, 0.85);
+  color: rgba(244, 232, 217, 0.85);
   margin-bottom: 30px;
 }
 

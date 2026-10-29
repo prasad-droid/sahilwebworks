@@ -1,15 +1,15 @@
 .footer {
   background: var(--dark);
-  color: rgba(248, 242, 229, 0.75);
+  color: rgba(244, 232, 217, 0.75);
   padding: 84px 0 0;
 }
 
 .footer__grid {
   display: grid;
-  grid-template-columns: 1.4fr 0.8fr 1fr;
-  gap: 48px;
+  grid-template-columns: 1.35fr 0.65fr 0.85fr 1fr;
+  gap: 40px;
   padding-bottom: 56px;
-  border-bottom: 1px solid rgba(248, 242, 229, 0.12);
+  border-bottom: 1px solid rgba(244, 232, 217, 0.12);
 }
 
 .footer__brand-head {
@@ -66,13 +66,30 @@
 }
 
 .footer__link {
-  color: rgba(248, 242, 229, 0.75);
+  color: rgba(244, 232, 217, 0.75);
   transition: color 0.3s ease, padding-left 0.3s ease;
 }
 
 .footer__link:hover {
   color: var(--accent);
   padding-left: 4px;
+}
+
+.footer__link--external {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer__external {
+  font-size: 0.8em;
+  opacity: 0.7;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.footer__link--external:hover .footer__external {
+  opacity: 1;
+  transform: translate(2px, -2px);
 }
 
 .footer__address {
@@ -104,9 +121,9 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  color: rgba(248, 242, 229, 0.8);
-  background: rgba(248, 242, 229, 0.06);
-  border: 1px solid rgba(248, 242, 229, 0.16);
+  color: rgba(244, 232, 217, 0.8);
+  background: rgba(244, 232, 217, 0.06);
+  border: 1px solid rgba(244, 232, 217, 0.16);
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease,
     transform 0.3s ease;
 }
@@ -122,7 +139,7 @@
   padding: 28px 0;
   text-align: center;
   font-size: 0.85rem;
-  color: rgba(248, 242, 229, 0.5);
+  color: rgba(244, 232, 217, 0.5);
 }
 
 .footer__credit {

@@ -1,4 +1,4 @@
-import { business, socialLinks } from '../data/data';
+import { business, socialLinks, marketplaceLinks } from '../data/data';
 import { waLink } from '../utils/whatsapp';
 import SocialIcon from './SocialIcons';
 import '../styles/footer.css';
@@ -59,6 +59,25 @@ export default function Footer() {
               {footerLinks.map((link) => (
                 <li key={link.href}>
                   <a className="footer__link" href={link.href}>{link.label}</a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <nav className="footer__col">
+            <h3 className="footer__title">Buy Online</h3>
+            <ul className="footer__list">
+              {marketplaceLinks.map((link) => (
+                <li key={link.label}>
+                  <a
+                    className="footer__link footer__link--external"
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {link.label}
+                    <span className="footer__external" aria-hidden="true">↗</span>
+                  </a>
                 </li>
               ))}
             </ul>

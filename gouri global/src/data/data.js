@@ -40,7 +40,7 @@ export const products = [
     name: 'Gir Cow Ghee',
     description:
       'Premium Gir Cow Ghee crafted from traditional recipes, reflecting the richness of Indian heritage and a choice product for domestic and international markets.',
-    image: '/images/gir-cow-ghee.jpg',
+    image: '/images/slide-5.jpeg',
     imageAlt: 'Gir Cow Ghee in a premium jar',
     hsCode: '04059020',
     // Editable placeholders — add real data when available
@@ -124,7 +124,7 @@ export const whyChooseUs = [
 export const gallery = [
   {
     id: 'collage',
-    src: '/images/products-collage.jpeg',
+    src: '/images/slide-5.jpeg',
     alt: 'GOURI GLOBAL TRADE product range — Gir Cow Ghee, Dry Fruit Laddu, Groundnut Jaggery Laddu and Whole Wheat Biscuits',
     caption: 'Our product range',
   },
@@ -199,11 +199,15 @@ export const certifications = [
 
 // Social profile links — replace href="#" with the real profile URLs.
 export const socialLinks = [
-  { label: 'Facebook', icon: 'facebook', href: '#' },
-  { label: 'Instagram', icon: 'instagram', href: '#' },
-  { label: 'LinkedIn', icon: 'linkedin', href: '#' },
-  { label: 'YouTube', icon: 'youtube', href: '#' },
-  { label: 'X (Twitter)', icon: 'x', href: '#' },
+  { label: 'Facebook', icon: 'facebook', href: 'https://www.facebook.com/profile.php?id=61592938233368' },
+  { label: 'Instagram', icon: 'instagram', href: 'https://www.instagram.com/gouriglobaltrade/' },
+  { label: 'LinkedIn', icon: 'linkedin', href: 'https://www.linkedin.com/in/gouri-global-trade-undefined-58045b428' },
+];
+
+// Marketplace product links shown in the footer.
+export const marketplaceLinks = [
+  { label: 'Amazon', href: 'https://amzn.in/d/0cneZkBQ' },
+  { label: 'Flipkart', href: 'https://dl.flipkart.com/s/tGwoddNNNN' },
 ];
 
 export const targetCustomers = [

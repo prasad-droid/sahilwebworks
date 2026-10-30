@@ -1,83 +1,92 @@
 import './Hero.css'
 
+const buildSheet = [
+  { label: 'Trigger', value: 'Ad form, WhatsApp message or missed call.' },
+  { label: 'Steps', value: 'Reply → qualify → route → book → remind.' },
+  { label: 'Tools', value: 'n8n · Claude · WhatsApp API · Cal.com' },
+  { label: 'Guardrails', value: 'Human approval on pricing and refunds.' },
+  { label: 'Go-live', value: '6 working days, documented.' },
+]
+
 function Hero() {
   return (
     <section id="home" className="hero">
       <div className="container hero-grid">
         <div className="hero-content">
-          <div className="hero-kicker animate-fade-up">
-            <span className="hero-kicker-dot" />
-            <span>AI-Powered Business Automation</span>
-          </div>
-          <h1 className="animate-fade-up delay-1">
-            The Future Runs on <span className="hero-highlight">Automation</span>
+          <span className="hero-kicker">AI automation studio · built with n8n, Claude &amp; ChatGPT</span>
+          <h1>
+            We wire up the work
+            <br />
+            you keep <em>doing twice.</em>
           </h1>
-          <p className="animate-fade-up delay-2">
-            NextGen Automate helps businesses replace repetitive, manual work with intelligent AI workflows. Streamline operations, cut costs, and free up your team to focus on growth, strategy, and relationships.
+          <p className="hero-lede">
+            NextGen Automate is a small automation studio in India. We map the messy process, build it into a
+            working system, and hand it over with the documentation. Enquiries get a real reply in under 60
+            seconds — day or night.
           </p>
-          <div className="hero-actions animate-fade-up delay-3">
+          <div className="hero-actions">
             <a className="btn btn-primary" href="#inquiry">
-              Request a Quote
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              Book a free process audit
+              <svg width="17" height="17" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M3.75 9H14.25" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                 <path d="M9 3.75L14.25 9L9 14.25" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </a>
-            <a className="btn btn-ghost" href="#services">
-              Explore Services
+            <a className="btn btn-ghost" href="#workflows">
+              See the runbook library
             </a>
           </div>
-          <div className="hero-trust animate-fade-up delay-4">
-            <div className="trust-item">
-              <span className="trust-value">End-to-End</span>
-              <span className="trust-label">Workflow Automation</span>
+
+          <p className="hero-availability">
+            <span className="hero-availability-dot" />
+            Taking two builds this month
+          </p>
+
+          <dl className="hero-facts">
+            <div className="hero-fact">
+              <dt>First reply</dt>
+              <dd>under 60 seconds</dd>
             </div>
-            <div className="trust-divider" />
-            <div className="trust-item">
-              <span className="trust-value">Custom AI Agents</span>
-              <span className="trust-label">Built for Your Stack</span>
+            <div className="hero-fact">
+              <dt>Build time</dt>
+              <dd>days, not months</dd>
             </div>
-            <div className="trust-divider" />
-            <div className="trust-item">
-              <span className="trust-value">24/7 Scalable</span>
-              <span className="trust-label">Systems That Grow With You</span>
+            <div className="hero-fact">
+              <dt>Entry price</dt>
+              <dd>₹5,000 one-time</dd>
             </div>
-          </div>
+          </dl>
         </div>
-        <div className="hero-visual animate-scale-in delay-2">
-          <div className="hero-card">
-            <div className="hero-card-header">
-              <span className="hero-card-pill">Automation Blueprint</span>
-              <span className="hero-card-status">Live</span>
+
+        <div className="hero-visual">
+          <div className="build-sheet">
+            <div className="build-sheet-head">
+              <span>Build sheet / 004</span>
+              <span className="build-sheet-status">Lead → booked call</span>
             </div>
-            <div className="hero-card-grid">
-              <div className="hero-card-item">
-                <span className="card-label">Process Audit</span>
-                <span className="card-value">Identify Bottlenecks</span>
+
+            <dl className="build-rows">
+              {buildSheet.map((row) => (
+                <div className="build-row" key={row.label}>
+                  <dt>{row.label}</dt>
+                  <dd>{row.value}</dd>
+                </div>
+              ))}
+            </dl>
+
+            <div className="build-reply">
+              <div className="build-reply-label">
+                <span>Sample auto-reply</span>
+                <span className="reply-time">sent in 41s</span>
               </div>
-              <div className="hero-card-item">
-                <span className="card-label">AI Orchestration</span>
-                <span className="card-value">n8n + Claude</span>
-              </div>
-              <div className="hero-card-item">
-                <span className="card-label">Deployment</span>
-                <span className="card-value">Tested &amp; Supported</span>
-              </div>
-              <div className="hero-card-item">
-                <span className="card-label">Impact</span>
-                <span className="card-value">Faster • Accurate • Scalable</span>
-              </div>
+              <p>
+                “Hi Rahul, thanks for the enquiry. Are you looking at a 2BHK or 3BHK, and when would you like to
+                visit?”
+              </p>
             </div>
-            <div className="hero-card-footer">
-              <div>
-                <p className="footer-title">Turning Manual Work Into Measurable Efficiency</p>
-                <p className="footer-subtitle">From sales and support to operations and marketing</p>
-              </div>
-              <div className="footer-badge">NextGen Automate</div>
-            </div>
+
+            <span className="build-stamp">build 004 · ready to run</span>
           </div>
-          <div className="hero-orb hero-orb-one" />
-          <div className="hero-orb hero-orb-two" />
         </div>
       </div>
     </section>

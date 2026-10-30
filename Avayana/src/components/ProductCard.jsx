@@ -4,7 +4,23 @@ export default function ProductCard({ product, onEnquire }) {
   return (
     <article className="product-card">
       <div className="product-card__media">
-        <img src={product.image} alt={product.alt} loading="lazy" decoding="async" />
+        <img
+          className="product-card__img"
+          src={product.image}
+          alt={product.alt}
+          loading="lazy"
+          decoding="async"
+        />
+        {product.hoverImage && (
+          <img
+            className="product-card__img product-card__img--alt"
+            src={product.hoverImage}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            aria-hidden="true"
+          />
+        )}
         <span className="product-card__number" aria-hidden="true">
           {product.number}
         </span>

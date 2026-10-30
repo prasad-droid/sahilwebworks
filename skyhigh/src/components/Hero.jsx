@@ -18,12 +18,12 @@ const Hero = () => {
             Reliable Sourcing of Premium 100% Cotton Terry Towels
           </h1>
           <p className="hero-subtitle">
-            Reliable sourcing of premium 100% cotton terry towels from India for businesses across the UAE. 
+            Reliable sourcing of premium 100% cotton terry towels from India for businesses across the globe. 
             Customize your products in GSM range 350-700 as per requirement. Bath Towel, Bath Sheet, Bath Mat, Face Towel, Hand Towel & Kitchen Towel. 
             We help international buyers connect with Indian textile products through professional communication and export-focused service.
           </p>
           <p className="hero-trust">
-            Indian Sourcing | B2B Export Solutions | UAE-Focused Market
+            Indian Sourcing | B2B Export Solutions | Globally Focused Market
           </p>
           <div className="hero-actions">
             <button 

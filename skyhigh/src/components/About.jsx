@@ -17,16 +17,17 @@ const About = () => {
             />
           </div>
           <div className="about-content">
-            <h2>Connecting Indian Quality with Global Opportunities</h2>
+            <h2>Welcome to SkyHigh RP Global EXIM Enterprises</h2>
+            <p className="about-tagline">Connecting India to the World.</p>
             <p>
-              SkyHigh RP Global EXIM Enterprises is focused on supplying premium 100% cotton terry towels to international markets, 
-              with a particular focus on buyers in the United Arab Emirates. We offer customizable terry towel products in GSM range 350-700 as per requirement. 
-              Our approach emphasizes quality-focused sourcing, clear communication, buyer requirements, and dependable coordination throughout the export process.
+              SkyHigh RP Global EXIM Enterprises is an India-based export company committed to delivering quality products to global markets.
+              We specialise in premium terry towels and textile products, offering customisation in sizes, GSM, fabric composition and private labelling
+              to meet diverse buyer requirements with a focus on quality, transparent communication and reliable service.
             </p>
             <p>
-              We aim to make sourcing from India straightforward for importers, wholesalers, distributors, and businesses 
-              looking for long-term supply relationships.
+              We aim to build long-term partnerships with importers, wholesalers, hotels and distributors worldwide.
             </p>
+            <p className="about-closing">SkyHigh RP Global EXIM Enterprises — Connecting India to the World.</p>
           </div>
         </div>
       </div>

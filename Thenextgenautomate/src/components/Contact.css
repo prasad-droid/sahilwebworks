@@ -1,46 +1,74 @@
 .contact {
-  background: var(--white);
+  background: var(--paper);
 }
 
-.contact-grid {
+.contact-list {
+  border-top: 1px solid var(--border-strong);
+}
+
+.contact-row {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(18px, 4vw, 24px);
+  grid-template-columns: 150px minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: baseline;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
 }
 
-.contact-card {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 24px 28px;
-  border-radius: var(--radius-lg);
-  background: var(--white);
-  border: 1px solid rgba(16, 43, 70, 0.08);
-  box-shadow: var(--shadow-soft);
-  transition: var(--transition);
+.contact-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-2);
 }
 
-.contact-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-hover);
+.contact-label svg {
+  margin-right: 7px;
+  vertical-align: -2px;
+  color: var(--primary);
+  opacity: 0.8;
 }
 
-.contact-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: rgba(23, 107, 77, 0.14);
-  color: var(--emerald);
+.contact-row a {
+  font-family: var(--font-display);
+  font-size: clamp(19px, 2.1vw, 25px);
+  line-height: 1.2;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+  transition: color var(--transition);
 }
 
-.contact-card a {
-  color: var(--text-secondary);
+.contact-row a:hover {
+  color: var(--primary);
 }
 
-@media (max-width: 980px) {
-  .contact-grid {
+.contact-meta {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  text-align: right;
+}
+
+.contact-note {
+  max-width: 620px;
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+@media (max-width: 760px) {
+  .contact-row {
     grid-template-columns: 1fr;
+    gap: 5px;
+    padding: 16px 0;
+  }
+
+  .contact-meta {
+    text-align: left;
   }
 }

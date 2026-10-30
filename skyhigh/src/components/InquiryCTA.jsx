@@ -9,7 +9,7 @@ const InquiryCTA = () => {
     phone: '',
     productInterest: '',
     estimatedQuantity: '',
-    destinationCountry: 'United Arab Emirates',
+    destinationCountry: '',
     productSpecifications: '',
     preferredPackaging: '',
     additionalRequirements: ''
@@ -80,7 +80,7 @@ Additional: ${formData.additionalRequirements}`;
         <div className="section-header">
           <h2>Let's Discuss Your Export Requirements</h2>
           <p>
-            Looking to source premium terry towels for the UAE market? 
+            Looking to source premium terry towels for global markets? 
             Share your requirements and our team can discuss the next steps with you.
           </p>
         </div>
@@ -161,6 +161,7 @@ Additional: ${formData.additionalRequirements}`;
                 name="destinationCountry"
                 value={formData.destinationCountry}
                 onChange={handleChange}
+                placeholder="e.g., United Kingdom, USA, Australia"
               />
             </div>
             <div className="form-group full-width">

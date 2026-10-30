@@ -3,11 +3,11 @@ import './Navbar.css'
 
 const navLinks = [
   { label: 'Home', href: '#home' },
-  { label: 'About Us', href: '#about' },
+  { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },
+  { label: 'Workflows', href: '#workflows' },
   { label: 'Process', href: '#process' },
-  { label: 'Why Choose Us', href: '#why' },
-  { label: 'Testimonials', href: '#testimonials' },
+  { label: 'Our Promise', href: '#promise' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -35,31 +35,42 @@ function Navbar() {
     }
   }, [menuOpen])
 
+  useEffect(() => {
+    if (!menuOpen) return
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') setMenuOpen(false)
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [menuOpen])
+
   const closeMenu = () => setMenuOpen(false)
 
   return (
     <header className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="container navbar-inner">
         <a className="navbar-logo" href="#home" onClick={closeMenu}>
-          <div className="logo-mark">NG</div>
-          <div className="logo-text">
-            <span className="logo-title">Thenextgenautomate</span>
-            <span className="logo-subtitle">.co.in</span>
-          </div>
+          <img src="/Logo.jpeg" alt="The NextGen Automate logo" className="navbar-logo-img" />
+          <span className="logo-text">
+            <span className="logo-title">The NextGen Automate</span>
+            <span className="logo-subtitle">automation studio · India</span>
+          </span>
         </a>
-        <nav className={`navbar-links ${menuOpen ? 'open' : ''}`}>
+
+        <nav className={`navbar-links ${menuOpen ? 'open' : ''}`} aria-label="Primary">
           {navLinks.map((link) => (
             <a key={link.href} href={link.href} onClick={closeMenu}>
               {link.label}
             </a>
           ))}
-          <a className="navbar-cta-mobile" href="#inquiry" onClick={closeMenu}>
-            Request a Quote
+          <a className="navbar-cta-mobile btn btn-primary" href="#inquiry" onClick={closeMenu}>
+            Book a free audit
           </a>
         </nav>
+
         <div className="navbar-actions">
           <a className="btn btn-primary navbar-cta" href="#inquiry">
-            Request a Quote
+            Book a free audit
           </a>
           <button
             className={`navbar-toggle ${menuOpen ? 'open' : ''}`}

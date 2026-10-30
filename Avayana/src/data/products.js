@@ -22,6 +22,7 @@ export const products = [
       'A convenient dehydrated onion ingredient for food manufacturers, seasoning, soup, sauce and snack applications.',
     tags: ['Seasoning', 'Soups', 'Sauces', 'Snacks'],
     image: images.onion.src,
+    hoverImage: images.onion.hover,
     alt: images.onion.alt,
     cta: 'Enquire About Onion Powder',
   },

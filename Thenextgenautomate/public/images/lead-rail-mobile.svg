@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 700" width="360" height="700" role="img" aria-labelledby="railMobileTitle railMobileDesc">
+  <title id="railMobileTitle">Lead-to-booking automation map</title>
+  <desc id="railMobileDesc">A vertical six-stage rail from enquiry capture to review, with guardrails.</desc>
+  <defs>
+    <pattern id="railMobileDots" width="14" height="14" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#e5d7c7" opacity="0.5" />
+    </pattern>
+  </defs>
+
+  <rect width="360" height="700" fill="#fffdf9" />
+  <rect width="360" height="700" fill="url(#railMobileDots)" />
+
+  <text x="20" y="30" font-family="Consolas, 'Courier New', monospace" font-size="8.5" letter-spacing="1.2" fill="#8d7d6e">RUNBOOK 004 / LEAD-TO-BOOKING</text>
+  <text x="340" y="30" text-anchor="end" font-family="Consolas, 'Courier New', monospace" font-size="8" letter-spacing="1" fill="#2c5a43">BUILT IN 6 DAYS</text>
+
+  <text x="20" y="62" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#1d1611">One enquiry,</text>
+  <text x="20" y="86" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#1d1611">six moves, zero copy-paste.</text>
+  <text x="20" y="108" font-family="'Segoe UI', Arial, sans-serif" font-size="10.5" fill="#6b5c4f">Every box has an owner and a fallback.</text>
+  <line x1="20" y1="122" x2="340" y2="122" stroke="#e5d7c7" stroke-width="1" />
+
+  <line x1="24" y1="150" x2="24" y2="560" stroke="#cdb9a3" stroke-width="1" />
+
+  <!-- 01 -->
+  <circle cx="24" cy="150" r="4" fill="#fffdf9" stroke="#cdb9a3" />
+  <circle cx="24" cy="150" r="2" fill="#c9450b" />
+  <text x="44" y="146" font-family="Consolas, 'Courier New', monospace" font-size="8" letter-spacing="1" fill="#8d7d6e">01 / CAPTURE</text>
+  <text x="44" y="166" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#1d1611">Capture</text>
+  <text x="44" y="184" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#6b5c4f">Ad form, WhatsApp, missed call.</text>
+
+  <!-- 02 -->
+  <circle cx="24" cy="222" r="4" fill="#fff7ef" stroke="#c9450b" />
+  <circle cx="24" cy="222" r="2" fill="#c9450b" />
+  <text x="44" y="218" font-family="Consolas, 'Courier New', monospace" font-size="8" letter-spacing="1" fill="#8a2f05">02 / QUALIFY</text>
+  <text x="44" y="238" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#1d1611">Qualify</text>
+  <text x="44" y="256" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#6b5c4f">AI asks 2–3 questions and scores H/W/C.</text>
+
+  <!-- 03 -->
+  <circle cx="24" cy="294" r="4" fill="#fffdf9" stroke="#cdb9a3" />
+  <circle cx="24" cy="294" r="2" fill="#c9450b" />
+  <text x="44" y="290" font-family="Consolas, 'Courier New', monospace" font-size="8" letter-spacing="1" fill="#8d7d6e">03 / BRANCH</text>
+  <text x="44" y="310" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#1d1611">Branch</text>
+  <text x="44" y="328" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#6b5c4f">Hot books now. Warm gets a 5-day nurture.</text>
+
+  <!-- 04 -->
+  <circle cx="24" cy="366" r="4" fill="#fffdf9" stroke="#cdb9a3" />
+  <circle cx="24" cy="366" r="2" fill="#c9450b" />
+  <text x="44" y="362" font-family="Consolas, 'Courier New', monospace" font-size="8" letter-spacing="1" fill="#8d7d6e">04 / BOOK</text>
+  <text x="44" y="382" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#1d1611">Book</text>
+  <text x="44" y="400" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#6b5c4f">Cal.com slot. Confirmation sent.</text>
+
+  <!-- 05 -->
+  <circle cx="24" cy="438" r="4" fill="#fffdf9" stroke="#cdb9a3" />
+  <circle cx="24" cy="438" r="2" fill="#c9450b" />
+  <text x="44" y="434" font-family="Consolas, 'Courier New', monospace" font-size="8" letter-spacing="1" fill="#8d7d6e">05 / REMIND</text>
+  <text x="44" y="454" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#1d1611">Remind</text>
+  <text x="44" y="472" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#6b5c4f">24h + 2h reminders. No-show flag.</text>
+
+  <!-- 06 -->
+  <circle cx="24" cy="510" r="4" fill="#fffdf9" stroke="#cdb9a3" />
+  <circle cx="24" cy="510" r="2" fill="#c9450b" />
+  <text x="44" y="506" font-family="Consolas, 'Courier New', monospace" font-size="8" letter-spacing="1" fill="#8d7d6e">06 / REVIEW</text>
+  <text x="44" y="526" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#1d1611">Review</text>
+  <text x="44" y="544" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#6b5c4f">2h after service. Public or private path.</text>
+
+  <line x1="20" y1="584" x2="340" y2="584" stroke="#cdb9a3" stroke-width="1" stroke-dasharray="3 4" />
+
+  <text x="20" y="604" font-family="Consolas, 'Courier New', monospace" font-size="8" letter-spacing="1.3" fill="#8d7d6e">GUARDRAILS</text>
+  <text x="340" y="604" text-anchor="end" font-family="Consolas, 'Courier New', monospace" font-size="7.5" fill="#8d7d6e">n8n · Claude · WhatsApp API · Cal.com</text>
+
+  <rect x="20" y="616" width="5" height="5" fill="#c9450b" />
+  <text x="32" y="622" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#33281f">Human approval on pricing</text>
+  <rect x="20" y="630" width="5" height="5" fill="#c9450b" />
+  <text x="32" y="636" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#33281f">Retry on every API call</text>
+  <rect x="20" y="644" width="5" height="5" fill="#c9450b" />
+  <text x="32" y="650" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#33281f">Dead-letter queue for failures</text>
+
+  <text x="20" y="678" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#8a2f05">“If a lead can disappear quietly,</text>
+  <text x="20" y="694" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#8a2f05">the build is not finished.”</text>
+</svg>

@@ -1,29 +1,36 @@
+import Icon from './Icon'
 import './WhyChooseUs.css'
 
 const benefits = [
   {
-    title: 'Efficiency That Saves Time',
-    description: 'Automate repetitive processes so tasks that took hours now take minutes — without adding manual effort.',
+    icon: 'clock',
+    title: 'Answer first, win first',
+    description: 'Leads get a reply in under 60 seconds — before your competitor even opens the message.',
   },
   {
-    title: 'Cost Reduction',
-    description: 'Scale operations without proportionally increasing headcount. Automation grows with your business.',
+    icon: 'calendar',
+    title: 'Fewer no-shows',
+    description: 'Multi-stage reminders and explicit confirmations keep calendars full and front desks calm.',
   },
   {
-    title: 'Accuracy & Consistency',
-    description: 'Eliminate typos and human error. Your workflows run the same way, every time, around the clock.',
+    icon: 'star',
+    title: 'Reputation on autopilot',
+    description: 'Route happy clients to public reviews and unhappy ones into a private feedback loop.',
   },
   {
-    title: 'Speed & Availability',
-    description: 'Respond to leads, tickets, and requests instantly 24/7, even outside business hours.',
+    icon: 'inbox',
+    title: 'One inbox, zero lost threads',
+    description: 'WhatsApp, email and Instagram DMs in one place with context-aware AI-suggested replies.',
   },
   {
-    title: 'Scalable by Design',
-    description: 'Handle 10x the volume of leads, customers, or transactions without 10x the team.',
+    icon: 'shield',
+    title: 'Human where it matters',
+    description: 'Confidence thresholds, approval steps and escalations keep your team in control of sensitive moments.',
   },
   {
-    title: 'Human Potential Unlocked',
-    description: 'Free your team from routine work so they can focus on strategy, creativity, sales, and problem-solving.',
+    icon: 'key',
+    title: 'Yours to keep',
+    description: 'Documented workflows, clean handover and no vendor lock-in. Built in days, not months.',
   },
 ]
 
@@ -32,27 +39,37 @@ function WhyChooseUs() {
     <section id="why" className="why">
       <div className="container">
         <div className="section-header">
-          <span className="section-kicker">Why Choose Us</span>
-          <h2>Built To Deliver Measurable Business Value</h2>
+          <span className="section-kicker">07 / Straight answers</span>
+          <h2>What you can hold us to.</h2>
           <p className="section-subtitle">
-            Every solution we build is focused on outcomes that matter — efficiency, accuracy, speed, scalability, and cost savings.
+            No borrowed case studies, no imaginary logos. Here is how we work and what we will not pretend
+            about.
           </p>
         </div>
+
         <div className="why-grid">
-          {benefits.map((benefit) => (
-            <article key={benefit.title} className="why-card">
-              <div className="why-card-header">
-                <div className="why-icon">
-                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.16667 13.6583L7.14167 11.6333L6.05 12.7167L9.16667 15.8333L16.05 8.95L14.9667 7.86667L9.16667 13.6583Z" fill="currentColor" />
-                  </svg>
-                </div>
-                <h3>{benefit.title}</h3>
+          {benefits.map((benefit, index) => (
+            <article className="why-item" key={benefit.title}>
+              <span className="why-number">{String(index + 1).padStart(2, '0')}</span>
+              <div>
+                <h3>
+                  <Icon name={benefit.icon} size={17} className="why-icon" />
+                  <span>{benefit.title}</span>
+                </h3>
+                <p>{benefit.description}</p>
               </div>
-              <p>{benefit.description}</p>
             </article>
           ))}
         </div>
+
+        <div className="why-quote">
+          <p>“We automate the work. You keep the relationships.”</p>
+          <span>The NextGen promise</span>
+        </div>
+        <p className="why-footnote">
+          If a spreadsheet solves it, we will tell you to keep the spreadsheet. Automation should remove work,
+          not add a dashboard nobody opens.
+        </p>
       </div>
     </section>
   )

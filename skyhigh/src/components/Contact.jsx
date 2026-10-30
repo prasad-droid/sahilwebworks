@@ -38,8 +38,8 @@ const Contact = () => {
             <div className="contact-item">
               <MessageCircle className="contact-icon" size={24} />
               <div className="contact-details">
-                <h3>Target Export Market</h3>
-                <p>United Arab Emirates</p>
+                <h3>Global Export Markets</h3>
+                <p>Worldwide</p>
                 <a 
                   href="https://wa.me/918177974851" 
                   target="_blank" 

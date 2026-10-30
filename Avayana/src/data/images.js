@@ -1,6 +1,7 @@
-import garlicImg from '../images/garlic.jpeg'
-import onionImg from '../images/onion.jpeg'
-import moringaImg from '../images/moringa.jpeg'
+import garlicImg from '../images/garlic-powder.jpeg'
+import onionImg from '../images/onion-powder.jpeg'
+import onionAltImg from '../images/onion-powder-2.jpeg'
+import moringaImg from '../images/moringa-powder.jpeg'
 import logoImg from '../images/logo.jpeg'
 
 const px = (id, w) =>
@@ -16,8 +17,8 @@ export const images = {
     alt: 'Fresh garlic bulbs and cloves photographed up close against a dark background',
   },
   aboutMain: {
-    src: px(6105008, 1200),
-    alt: 'Purple and white garlic bulbs arranged overhead on an earthy wooden board',
+    src: px(12955789, 1200),
+    alt: 'High-angle view of fresh garlic bulbs piled in a basket at a market stall',
   },
   aboutSub: {
     src: px(35894304, 800),
@@ -25,15 +26,16 @@ export const images = {
   },
   garlic: {
     src: garlicImg,
-    alt: 'Rustic garlic bulbs with dried stalks resting on a wooden surface',
+    alt: 'Dehydrated garlic powder',
   },
   onion: {
     src: onionImg,
-    alt: 'Macro close-up of sliced red onion layers on a wooden background',
+    hover: onionAltImg,
+    alt: 'Red onion powder',
   },
   moringa: {
     src: moringaImg,
-    alt: 'Fresh vibrant moringa leaves bathed in natural sunlight',
+    alt: 'Moringa powder',
   },
   appFood: {
     src: px(36823725, 1000),

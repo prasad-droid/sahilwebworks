@@ -45,8 +45,21 @@
 
 .product-content h3 {
   font-size: 1.75rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   color: var(--deep-navy);
+}
+
+.product-size {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.25rem 0.75rem;
+  background-color: var(--soft-ivory);
+  border: 1px solid var(--border-light);
+  border-radius: 999px;
+  color: var(--deep-navy);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .product-description {

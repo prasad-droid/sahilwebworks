@@ -13,12 +13,12 @@ export const images = {
     alt: 'Aviyana Enterprises logo',
   },
   hero: {
-    src: px(8795641, 1920),
+    src: px(12955789, 1920),
     alt: 'Fresh garlic bulbs and cloves photographed up close against a dark background',
   },
   aboutMain: {
-    src: px(12955789, 1200),
-    alt: 'High-angle view of fresh garlic bulbs piled in a basket at a market stall',
+    src: '/About Image.jpg',
+    alt: 'Aviyana Enterprises — premium Indian dehydrated and natural ingredients',
   },
   aboutSub: {
     src: px(35894304, 800),

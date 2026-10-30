@@ -18,31 +18,37 @@ const Products = () => {
   const products = [
     {
       name: 'Bath Towel',
+      size: 'Bath 80×150',
       image: '/src/assets/Bath Towel.jpeg',
       fallback: '/src/assets/Bath Towels in different colors.jpeg'
     },
     {
       name: 'Bath Sheet',
+      size: 'Bath sheet 100×150',
       image: '/src/assets/Bath Sheet.jpeg',
       fallback: '/src/assets/Bath Towel.jpeg'
     },
     {
       name: 'Bath Mat',
+      size: 'Bath mat 50×70',
       image: '/src/assets/Bath mat.jpeg',
       fallback: '/src/assets/Bath Towel.jpeg'
     },
     {
       name: 'Face Towel',
+      size: 'Face 30×30',
       image: '/src/assets/Face Towel.jpeg',
       fallback: '/src/assets/Hand Towels.jpeg'
     },
     {
       name: 'Hand Towel',
+      size: 'Hand 40×60',
       image: '/src/assets/Hand Towels.jpeg',
       fallback: '/src/assets/Face Towel.jpeg'
     },
     {
       name: 'Kitchen Towel',
+      size: 'Custom sizes available',
       image: '/src/assets/Bath Towels in different colors 2.jpeg',
       fallback: '/src/assets/Bath Towel.jpeg'
     }
@@ -71,6 +77,7 @@ const Products = () => {
               </div>
               <div className="product-content">
                 <h3>{product.name}</h3>
+                <span className="product-size">{product.size}</span>
                 <p className="product-description">
                   Premium 100% cotton terry towel, fully customizable as per your requirements. 
                   Available in GSM range 350-700.
@@ -78,6 +85,7 @@ const Products = () => {
                 <div className="product-details">
                   <h4>Specifications:</h4>
                   <ul>
+                    <li>Size: {product.size}</li>
                     <li>Material: 100% Cotton</li>
                     <li>GSM: 350-700 GSM (as per requirement)</li>
                     <li>Fully customizable</li>
@@ -97,6 +105,9 @@ const Products = () => {
           <h3 style={{ marginBottom: '0.75rem', color: 'var(--deep-navy)' }}>All Products - Customization Available</h3>
           <p style={{ color: 'var(--text-light)', marginBottom: '1rem' }}>
             Material: 100% Cotton | GSM: 350-700 GSM (as per requirement) | Fully customizable products
+          </p>
+          <p style={{ color: 'var(--text-light)', marginBottom: '1rem' }}>
+            Sizes: Bath 80×150 | Hand 40×60 | Face 30×30 | Bath sheet 100×150 | Bath mat 50×70
           </p>
           <button 
             className="btn btn-primary" 

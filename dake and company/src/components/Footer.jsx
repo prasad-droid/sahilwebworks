@@ -27,6 +27,7 @@ export function Footer() {
                 <li><a className="footer__link" href="#about">About Us</a></li>
                 <li><a className="footer__link" href="#products">Products</a></li>
                 <li><a className="footer__link" href="#why-choose-us">Why Choose Us</a></li>
+                <li><a className="footer__link" href="#gallery">Gallery</a></li>
                 <li><a className="footer__link" href="#contact">Contact Us</a></li>
               </ul>
             </div>

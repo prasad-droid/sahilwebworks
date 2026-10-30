@@ -1,4 +1,4 @@
-import { getWhatsappLink } from '../data/business.js'
+import { getWhatsappLink, PHOTOS } from '../data/business.js'
 
 function scrollTo(id) {
   const el = document.getElementById(id)
@@ -55,6 +55,25 @@ export function Hero() {
             </article>
           </div>
         </div>
+        <figure className="hero__media">
+          <img
+            className="hero__media-main"
+            src={PHOTOS[1]}
+            alt="Packaging supplied by Dake and Company"
+            fetchPriority="high"
+          />
+          <img
+            className="hero__media-inset"
+            src={PHOTOS[13]}
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+          <figcaption className="hero__media-badge">
+            <span className="hero__media-badge-value">100%</span>
+            <span className="hero__media-badge-label">Recyclable kraft bags</span>
+          </figcaption>
+        </figure>
       </div>
     </section>
   )

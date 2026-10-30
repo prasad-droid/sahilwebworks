@@ -2,14 +2,17 @@ export const BUSINESS_NAME = 'Dake and Company'
 export const TAGLINE = 'Trade Beyond Boundaries'
 export const SLOGAN = 'Packaging That Builds Your Brand.'
 
-export const LOGO_PRIMARY = '/images/logo-temp.jpg'
-export const LOGO_SECONDARY = '/images/logo-temp.jpg'
+export const LOGO_PRIMARY = '/images/logo-brand.jpg'
+export const LOGO_SECONDARY = '/images/logo-brand.jpg'
 
-export const PHOTOS = [
-  'https://images.unsplash.com/photo-1553413077-190dd305871c?w=1200&q=80&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=1200&q=80&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&q=80&auto=format&fit=crop',
-]
+// All photos live in public/images/gallery. The originals were provided as
+// WhatsApp exports; optimized copies are used here with web-friendly names.
+export const GALLERY = Array.from({ length: 15 }, (_, index) => ({
+  src: `/images/gallery/packaging-${String(index + 1).padStart(2, '0')}.jpg`,
+  alt: `Packaging supplied by Dake and Company – photo ${index + 1}`,
+}))
+
+export const PHOTOS = GALLERY.map((photo) => photo.src)
 
 export const CONTACT = {
   phone: '+91 9075519135',

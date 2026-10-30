@@ -3,6 +3,7 @@ import { Hero } from './components/Hero.jsx'
 import { About } from './components/About.jsx'
 import { Products } from './components/Products.jsx'
 import { WhyChooseUs } from './components/WhyChooseUs.jsx'
+import { Gallery } from './components/Gallery.jsx'
 import { InquiryCTA } from './components/InquiryCTA.jsx'
 import { Contact } from './components/Contact.jsx'
 import { Footer } from './components/Footer.jsx'
@@ -21,6 +22,7 @@ export default function App() {
         <About />
         <Products />
         <WhyChooseUs />
+        <Gallery />
         <InquiryCTA />
         <Contact />
       </main>

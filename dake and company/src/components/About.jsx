@@ -43,7 +43,7 @@ export function About() {
             </ul>
           </div>
           <figure className="about__card">
-            <img src={PHOTOS[0]} alt="Dake and Company packaging solutions" loading="lazy" />
+            <img src={PHOTOS[12]} alt="Kraft paper and corrugated packaging supplied by Dake and Company" loading="lazy" />
           </figure>
         </div>
       </div>

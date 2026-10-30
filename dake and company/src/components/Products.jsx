@@ -36,7 +36,7 @@ export function Products() {
         <div className="products__grid">
           <article className="product-card">
             <div className="product-card__media">
-              <img src={PHOTOS[1]} alt="Kraft paper bags by Dake and Company" loading="lazy" />
+              <img src={PHOTOS[14]} alt="Kraft paper bags supplied by Dake and Company" loading="lazy" />
             </div>
             <div className="product-card__content">
               <header className="product-card__header">
@@ -72,7 +72,7 @@ export function Products() {
 
           <article className="product-card">
             <div className="product-card__media">
-              <img src={PHOTOS[2]} alt="Corrugated packaging boxes by Dake and Company" loading="lazy" />
+              <img src={PHOTOS[2]} alt="Corrugated packaging boxes supplied by Dake and Company" loading="lazy" />
             </div>
             <div className="product-card__content">
               <header className="product-card__header">

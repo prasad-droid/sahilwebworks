@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { id: 'about', label: 'About Us' },
   { id: 'products', label: 'Products' },
   { id: 'why-choose-us', label: 'Why Choose Us' },
+  { id: 'gallery', label: 'Gallery' },
   { id: 'contact', label: 'Contact Us' },
 ]
 

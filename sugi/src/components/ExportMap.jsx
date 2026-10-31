@@ -53,12 +53,12 @@ export default function ExportMap() {
           >
             <defs>
               <radialGradient id="oceanGlow" cx="50%" cy="45%" r="65%">
-                <stop offset="0%" stopColor="#1d4a3c" stopOpacity="0.9" />
-                <stop offset="100%" stopColor="#18201d" stopOpacity="0.95" />
+                <stop offset="0%" stopColor="#16382e" stopOpacity="1" />
+                <stop offset="100%" stopColor="#0e1613" stopOpacity="1" />
               </radialGradient>
               <linearGradient id="arcStroke" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="#b9975b" stopOpacity="0.85" />
-                <stop offset="100%" stopColor="#d8c7a3" stopOpacity="0.25" />
+                <stop offset="0%" stopColor="#d8c7a3" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#b9975b" stopOpacity="0.35" />
               </linearGradient>
             </defs>
 

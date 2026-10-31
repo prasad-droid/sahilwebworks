@@ -31,7 +31,7 @@ export default function QuoteCTA() {
             Get a Quote
             <span className="btn-arrow" aria-hidden="true">→</span>
           </Link>
-          <Link to="/products" className="btn btn-dark-outline">
+          <Link to="/products" className="btn btn-outline">
             Explore Products
           </Link>
         </div>

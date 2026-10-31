@@ -31,7 +31,6 @@ const MISSION = [
   "Delivering premium-quality fresh produce sourced directly from trusted Indian farms.",
   "Maintaining international standards in grading, sorting, packaging, and cold-chain logistics.",
   "Building long-term relationships based on trust, transparency, and dependable service.",
-  "Supporting Indian farmers by creating sustainable export opportunities and fair market access.",
   "Providing customized packaging and export solutions to meet the specific needs of global buyers.",
   "Ensuring timely deliveries through efficient supply chain management and reliable logistics.",
   "Continuously improving our processes through innovation, technology, and customer feedback.",
@@ -58,7 +57,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About Us"
         title="Sugi International Pvt. Ltd."
-        intro="A trusted Indian exporter and importer of premium fresh fruits, vegetables, spices and agricultural products, committed to delivering exceptional quality to customers across the globe."
+        intro="Our commitment to quality, integrity, and customer satisfaction has made us a preferred partner for buyers seeking reliable agricultural exports from India. We strive to deliver excellence in every shipment and build strong business relationships that grow for years to come."
         crumbs={[{ label: "About" }]}
       />
 
@@ -98,7 +97,7 @@ export default function AboutPage() {
       {/* ---------- export list ---------- */}
       <section className="about-range section-pad">
         <div className="container about-range__inner">
-          <h2 className="section-title reveal">
+          <h2 className="section-title reveal aboutpage-title">
             We proudly export a wide range of premium Indian agricultural
             products, including:
           </h2>

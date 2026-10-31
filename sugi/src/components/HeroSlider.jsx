@@ -61,6 +61,7 @@ export default function HeroSlider() {
             key={slide.src}
             className={`hero-slider__slide ${i === index ? "is-active" : ""}`}
             aria-hidden={i !== index}
+            style={{ backgroundImage: `url("${slide.src}")` }}
           >
             <img src={slide.src} alt={i === index ? slide.alt : ""} />
           </div>

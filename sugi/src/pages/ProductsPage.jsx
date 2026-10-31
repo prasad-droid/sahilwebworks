@@ -45,7 +45,7 @@ export default function ProductsPage() {
       <ProductSection
         id="indian-origin"
         eyebrow="Our Products"
-        title="Indian Origin"
+        title="Indian Origin Products"
         intro="Sourced directly from carefully selected farms and certified growers across India."
         groups={indianGroups}
         layout="detail"
@@ -55,8 +55,8 @@ export default function ProductsPage() {
       <ProductSection
         id="imported"
         eyebrow="Our Products"
-        title="Imported"
-        intro="Premium dry fruits imported from worldwide suppliers and processed in our world class processing units before being supplied across the PAN India market and exported to the global market."
+        title="Imported Products"
+        intro="We Import Dry Fruits and process it in our world class processing units, repack it and re-export to various destinations and distribute in PAN India domestic market as well. "
         groups={[importedGroup]}
         layout="detail"
       />
@@ -112,10 +112,6 @@ export default function ProductsPage() {
               Download Catalogue
               <span className="btn-arrow" aria-hidden="true">↓</span>
             </a>
-            <p className="pquality__hint">
-              PDF catalogue — replace <code>public/catalogue.pdf</code> with the
-              final file when it is ready.
-            </p>
           </div>
 
           <ol className="pquality__steps">
@@ -133,22 +129,6 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* ---------- bulk orders ---------- */}
-      <section className="pbulk section-pad">
-        <div className="container pbulk__inner reveal">
-          <div>
-            <p className="eyebrow">Bulk Orders</p>
-            <h2 className="section-title">Bulk Orders</h2>
-            <p>
-              We handle container-scale and repeat orders for wholesalers,
-              supermarket chains, food distributors, importers and retail
-              suppliers. Share your volume, packing and destination details and
-              our team will confirm availability, pricing and shipping
-              schedules.
-            </p>
-          </div>
-        </div>
-      </section>
 
       <QuoteCTA />
     </>

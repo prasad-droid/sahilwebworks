@@ -81,21 +81,93 @@
   margin-top: 1.1rem;
 }
 
-/* ---------- side-by-side (Products page) ---------- */
+/* ---------- specifications table (Products page) ---------- */
+.showcase-card__specs {
+  margin-top: 1rem;
+}
+
+.showcase-card__specs-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 0.6rem;
+}
+
+.showcase-card__spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid rgba(101, 113, 83, 0.3);
+  font-size: 0.88rem;
+}
+
+.showcase-card__spec-table th,
+.showcase-card__spec-table td {
+  border: 1px solid rgba(101, 113, 83, 0.24);
+  padding: 0.48rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.45;
+}
+
+.showcase-card__spec-table th {
+  width: 34%;
+  background: rgba(101, 113, 83, 0.07);
+  color: var(--charcoal);
+  font-weight: 600;
+}
+
+.showcase-card__spec-table td {
+  color: var(--muted);
+}
+
+.showcase-card__spec-table tbody tr:nth-child(even) td {
+  background: rgba(247, 244, 236, 0.6);
+}
+
+.showcase-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.35rem;
+}
+
+.showcase-card__actions .btn {
+  padding: 0.68rem 1.35rem;
+  font-size: 0.88rem;
+}
+
+.btn-inline{
+  display: inline;
+}
+
+/* ---------- centred image panel (Products page) ---------- */
 .showcase-card--detail {
-  flex-direction: row;
+  flex-direction: column;
   align-items: stretch;
 }
 
 .showcase-card--detail .showcase-card__media {
-  flex: 1 1 52%;
+  flex: none;
+  width: 100%;
   min-width: 0;
-  padding: 1rem 0 1rem 1rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cream);
 }
 
-.showcase-card--detail .showcase-card__body {
-  flex: 1 1 48%;
-  justify-content: center;
+.showcase-card--detail .showcase-card__media .product-gallery {
+  width: 100%;
+  margin-inline: auto;
+}
+
+/* Full-bleed gallery across the top of the card. */
+.showcase-card--detail .product-gallery__track,
+.showcase-card--detail .product-gallery__slide,
+.showcase-card--detail .product-gallery__placeholder {
+  border-radius: 0;
 }
 
 .showcase-card--detail .product-gallery__slide,
@@ -103,11 +175,74 @@
   aspect-ratio: 4 / 3;
 }
 
-@media (max-width: 860px) {
-  .showcase-card--detail {
-    flex-direction: column;
+.showcase-card--detail .product-gallery__slide img {
+  object-position: center;
+}
+
+.showcase-card--detail .showcase-card__body {
+  flex: 1;
+  justify-content: flex-start;
+  padding: clamp(1.35rem, 2.2vw, 1.85rem);
+}
+
+/* Keep the buttons aligned along the bottom of equal-height cards. */
+.showcase-card--detail .showcase-card__actions {
+  margin-top: auto;
+  padding-top: 1.35rem;
+}
+
+/* Four-up grid on wide screens: tighten the table and buttons to fit. */
+@media (min-width: 1280px) {
+  .showcase-card--detail .showcase-card__body {
+    padding: 1.15rem 1.1rem 1.35rem;
   }
-  .showcase-card--detail .showcase-card__media {
-    padding: 0.85rem 0.85rem 0;
+  .showcase-card--detail .showcase-card__specs-title {
+    font-size: 0.98rem;
+  }
+  .showcase-card--detail .showcase-card__spec-table {
+    font-size: 0.8rem;
+  }
+  .showcase-card--detail .showcase-card__spec-table th,
+  .showcase-card--detail .showcase-card__spec-table td {
+    padding: 0.4rem 0.5rem;
+  }
+  .showcase-card--detail .showcase-card__spec-table th {
+    width: 38%;
+  }
+  .showcase-card--detail .showcase-card__actions {
+    gap: 0.5rem;
+  }
+  .showcase-card--detail .showcase-card__actions .btn {
+    padding: 0.6rem 0.9rem;
+    font-size: 0.8rem;
   }
 }
+
+@media (max-width: 900px) {
+  .showcase-card--detail .showcase-card__body {
+    padding: 1.25rem 1.15rem 1.5rem;
+  }
+}
+
+/* Phones and tablets keep the image, name and actions only. */
+@media (max-width: 900px) {
+  .showcase-card--detail .showcase-card__specs {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .showcase-card__spec-table th {
+    width: 40%;
+  }
+  .showcase-card__spec-table th,
+  .showcase-card__spec-table td {
+    padding: 0.42rem 0.55rem;
+    font-size: 0.84rem;
+  }
+  .showcase-card__actions .btn {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+}
+

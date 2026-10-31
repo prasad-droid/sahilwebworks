@@ -1,5 +1,6 @@
 /* ==========================================================================
-   HEADER — static (not fixed) so it does not freeze during scroll.
+   HEADER — the brand bar stays in flow; the navigation row below is sticky,
+   so only the nav links stay pinned to the top while scrolling.
    ========================================================================== */
 
 .header {
@@ -43,19 +44,21 @@
 
 .header__brand-name {
   font-family: var(--font-heading);
-  font-size: clamp(1.05rem, 2.4vw, 1.5rem);
+  /* 25% larger than the previous clamp (1.05–1.5rem) */
+  font-size: clamp(1.3125rem, 3vw, 1.875rem);
   font-weight: 700;
   letter-spacing: 0.03em;
   color: var(--charcoal);
 }
 
 .header__brand-tag {
-  font-size: clamp(0.62rem, 1.4vw, 0.74rem);
-  font-weight: 600;
+  /* 25% larger than the previous clamp (0.62–0.74rem) */
+  font-size: clamp(0.775rem, 1.75vw, 0.925rem);
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--gold);
-  margin-top: 3px;
+  margin-top: 4px;
 }
 
 .header__cta {
@@ -65,6 +68,9 @@
 }
 
 .header__nav {
+  position: sticky;
+  top: 0;
+  z-index: 900;
   border-top: 1px solid rgba(101, 113, 83, 0.12);
   background: var(--cream);
 }
@@ -152,27 +158,45 @@
     height: 44px;
     border-radius: 12px;
   }
+
+  .header__inner {
+    gap: 0.75rem;
+  }
+
+  .header__brand {
+    gap: 0.6rem;
+  }
+}
+
+/* Keep the company name on a single line on phones. The font size scales with
+   the free space left by the logo and menu button, so it fills the row without
+   wrapping or overflowing down to 320px-wide screens. */
+@media (max-width: 560px) {
+  .header__brand-name {
+    font-size: clamp(0.66rem, calc(6.49vw - 9.71px), 1.15rem);
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+  }
 }
 
 @media (max-width: 940px) {
   .header__cta {
     display: none;
-  }  .header__toggle {
+  }
+
+  .header__toggle {
     display: flex;
   }
 
   .header__nav {
     display: none;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100%;
+    position: static;
     background: linear-gradient(160deg, var(--forest), var(--charcoal));
     border-top: none;
     box-shadow: var(--shadow-lg);
   }
 
-  .header--open .header__nav {
+  .header__nav--open {
     display: block;
     animation: menuFade 0.35s var(--ease);
   }

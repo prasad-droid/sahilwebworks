@@ -34,9 +34,11 @@ export default function ProductDetailPage({ slug }) {
     );
   }
 
-  const related = PRODUCTS.filter(
-    (p) => p.groupId === product.groupId && p.slug !== product.slug
-  ).slice(0, 4);
+  // Every product in the same category, minus the one being viewed.
+  const categoryProducts = PRODUCTS.filter(
+    (p) => p.groupId === product.groupId
+  );
+  const related = categoryProducts.filter((p) => p.slug !== product.slug);
 
   return (
     <>
@@ -49,7 +51,7 @@ export default function ProductDetailPage({ slug }) {
         ]}
       />
 
-      <section className="pdetail section-pad">
+      <section className="pdetail section-pad" key={slug}>
         <div className="container pdetail__grid">
           <div className="pdetail__gallery reveal">
             <ProductGallery images={product.images} name={product.name} />
@@ -115,10 +117,18 @@ export default function ProductDetailPage({ slug }) {
         <section className="pdetail-related section-pad">
           <div className="container">
             <div className="pdetail-related__head reveal">
-              <p className="eyebrow">Related</p>
-              <h2 className="section-title">
-                More in {product.groupTitle}
-              </h2>
+              <div>
+                <p className="eyebrow">Related</p>
+                <h2 className="section-title">
+                  More in {product.groupTitle}
+                </h2>
+                <p className="pdetail-related__sub">
+                  {related.length} more {related.length === 1 ? "product" : "products"} in this category
+                </p>
+              </div>
+              <Link to="/products" className="btn btn-dark-outline pdetail-related__all">
+                View All Products
+              </Link>
             </div>
 
             <ul className="pdetail-related__grid">

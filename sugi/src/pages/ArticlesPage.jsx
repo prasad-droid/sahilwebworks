@@ -1,40 +1,15 @@
 import PageHero from "../components/PageHero";
 import useReveal from "../components/useReveal";
 import { Link } from "../router";
+import { Section } from "../store/SiteContext";
+import QuoteCTA from "../components/QuoteCTA";
+import { ARTICLES } from "../data/articles";
 import "../styles/articles.css";
 
 // ==========================================================================
-// ARTICLES PAGE — placeholder.
-// No article content was supplied with the brief, so this page announces
-// that articles are on the way and shows the topics that will be covered.
+// ARTICLES PAGE — intro + "Topics we will cover" cards.
+// Each card links to its demo article at #/articles/<slug>.
 // ==========================================================================
-
-const TOPICS = [
-  {
-    title: "Indian Agro Export Market",
-    text: "How Indian fresh produce moves through global supply chains.",
-  },
-  {
-    title: "Fruits & Vegetables",
-    text: "Sourcing, grading and handling notes for bananas, pomegranates, mangoes, grapes and vegetables.",
-  },
-  {
-    title: "Spices",
-    text: "Origin, grades and export considerations for Indian spices.",
-  },
-  {
-    title: "Dry Fruits",
-    text: "Imported dry fruits, processing and PAN India distribution.",
-  },
-  {
-    title: "Export Packaging",
-    text: "Cartons, mesh bags, jute bags and private label options.",
-  },
-  {
-    title: "Quality & Food Safety",
-    text: "Inspection, grading and international food safety expectations.",
-  },
-];
 
 export default function ArticlesPage() {
   useReveal();
@@ -51,12 +26,11 @@ export default function ArticlesPage() {
       <section className="articles section-pad">
         <div className="container">
           <div className="articles__notice reveal">
-            <h2>Articles are on the way</h2>
+            <h2>Export notes from the field</h2>
             <p>
-              We are preparing a series of articles on agro commodities,
-              sourcing, packaging and export logistics. They will be published
-              here shortly. In the meantime, our team is happy to answer any
-              product or shipping questions directly.
+              A short series on how Indian agro commodities are sourced, packed
+              and shipped. Start with any topic below, or talk to our team
+              directly about a specific product, market or shipment.
             </p>
             <div className="articles__actions">
               <Link to="/contact" className="btn btn-primary">
@@ -72,23 +46,32 @@ export default function ArticlesPage() {
           <div className="articles__topics">
             <h3 className="articles__topics-title reveal">Topics we will cover</h3>
             <ul className="articles__grid">
-              {TOPICS.map((t, i) => (
+              {ARTICLES.map((a, i) => (
                 <li
                   className="articles__card reveal"
-                  key={t.title}
+                  key={a.slug}
                   style={{ transitionDelay: `${(i % 6) * 0.05}s` }}
                 >
                   <span className="articles__num" aria-hidden="true">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h4>{t.title}</h4>
-                  <p>{t.text}</p>
+                  <span className="articles__cat">{a.category}</span>
+                  <h4>{a.title}</h4>
+                  <p>{a.excerpt}</p>
+                  <Link
+                    to={`/articles/${a.slug}`}
+                    className="btn btn-dark-outline articles__card-btn"
+                  >
+                    Read Article
+                    <span className="btn-arrow" aria-hidden="true">→</span>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
         </div>
       </section>
+      <Section id="quoteCta"><QuoteCTA /></Section>
     </>
   );
 }

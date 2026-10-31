@@ -9,20 +9,23 @@
 
 .ppack__head {
   max-width: 720px;
-  margin-bottom: 2.5rem;
+  margin: 0 auto 2.5rem;
+  text-align: center;
 }
 
 .ppack__grid {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+  grid-template-columns: repeat(6, 1fr);
   gap: 1rem;
 }
 
 .ppack__item {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   gap: 0.9rem;
   padding: 1.4rem 1.3rem;
   background: var(--cream);

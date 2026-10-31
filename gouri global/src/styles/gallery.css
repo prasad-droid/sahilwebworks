@@ -13,7 +13,7 @@
 }
 
 .gallery__cell--collage {
-  grid-column: 1 / -1;
+  grid-column: 1 / 1;
   max-width: 860px;
 }
 

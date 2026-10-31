@@ -34,14 +34,21 @@ export default function ProductSection({
 
         {groups.map((group) => {
           const variant = variantFor(group.products.length);
+          const gridClass = [
+            "product-section__grid",
+            layout === "detail"
+              ? "product-section__grid--detail"
+              : variant
+                ? `product-section__grid--${variant}`
+                : "",
+          ]
+            .filter(Boolean)
+            .join(" ");
+
           return (
             <div className="product-section__group" key={group.id}>
               <h3 className="product-section__group-title reveal">{group.title}</h3>
-              <div
-                className={`product-section__grid${
-                  variant ? ` product-section__grid--${variant}` : ""
-                }`}
-              >
+              <div className={gridClass}>
                 {group.products.map((product, i) => (
                   <div
                     key={product.slug}

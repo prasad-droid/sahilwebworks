@@ -6,14 +6,11 @@ import {
   EMAIL,
   PHONE_DISPLAY,
   PHONE_TEL,
-  WHATSAPP_TEL,
   ADDRESS,
   ADDRESS_PENDING,
   BUSINESS_HOURS,
   SOCIAL_LINKS,
-  COMPANY,
 } from "../data/site";
-import { waLink } from "../data/site";
 import "../styles/contactPage.css";
 
 // ==========================================================================
@@ -44,10 +41,6 @@ const WHY_CONTACT = [
   },
 ];
 
-const mapQuery = encodeURIComponent(
-  `${COMPANY}, ${ADDRESS_PENDING ? "" : ADDRESS}`.trim()
-);
-
 export default function ContactPage() {
   useReveal();
 
@@ -66,7 +59,12 @@ export default function ContactPage() {
           <div className="contact-info__grid">
             <a className="contact-card reveal" href={`mailto:${EMAIL}`}>
               <span className="contact-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                >
                   <rect x="3" y="5" width="18" height="14" rx="2" />
                   <path d="m3 7 9 6 9-6" strokeLinejoin="round" />
                 </svg>
@@ -77,34 +75,59 @@ export default function ContactPage() {
 
             <a className="contact-card reveal" href={`tel:${PHONE_TEL}`}>
               <span className="contact-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-                  <path d="M4 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L16 12l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 6a2 2 0 0 1 2-2z" strokeLinejoin="round" />
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                >
+                  <path
+                    d="M4 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L16 12l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 6a2 2 0 0 1 2-2z"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </span>
               <span className="contact-card__label">Contact Number</span>
               <span className="contact-card__value">{PHONE_DISPLAY}</span>
             </a>
 
-            <a
-              className="contact-card reveal"
-              href={waLink()}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <div className="contact-card reveal">
               <span className="contact-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-                  <path d="M21 12a9 9 0 0 1-13.4 7.8L3 21l1.3-4.4A9 9 0 1 1 21 12z" strokeLinejoin="round" />
-                  <path d="M8.5 9.5c0 4 2 6 6 6" strokeLinecap="round" />
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                  <path
+                    d="M12 7.5V12l3 2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </span>
-              <span className="contact-card__label">WhatsApp</span>
-              <span className="contact-card__value">+{WHATSAPP_TEL}</span>
-            </a>
+              <span className="contact-card__label">Business Hours</span>
+              {BUSINESS_HOURS.map((h) => (
+                <span className="contact-card__value" key={h.days}>
+                  <span className="contact-card__value-days">{h.days}</span>
+                  {h.time}
+                </span>
+              ))}
+            </div>
 
             <div className="contact-card reveal">
               <span className="contact-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-                  <path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z" strokeLinejoin="round" />
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                >
+                  <path
+                    d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z"
+                    strokeLinejoin="round"
+                  />
                   <circle cx="12" cy="10" r="2.6" />
                 </svg>
               </span>
@@ -141,72 +164,40 @@ export default function ContactPage() {
               <ContactForm />
             </div>
           </div>
+          {/* ---------- why contact us ---------- */}
+          <section className="contact-why section-pad">
+            <div className="container">
+              <div className="contact-why__head reveal">
+                <p className="eyebrow">Why Contact Us?</p>
+                <h2 className="section-title">Why Contact Us?</h2>
+              </div>
 
-          <aside className="contact-aside">
-            <div className="contact-hours reveal">
-              <p className="eyebrow">Business Hours</p>
-              <h3 className="contact-hours__title">Business Hours</h3>
-              <dl>
-                {BUSINESS_HOURS.map((h) => (
-                  <div key={h.days}>
-                    <dt>{h.days}</dt>
-                    <dd>{h.time}</dd>
-                  </div>
+              <ul className="contact-why__grid">
+                {WHY_CONTACT.map((w, i) => (
+                  <li
+                    className="contact-why__item reveal"
+                    key={w.title}
+                    style={{ transitionDelay: `${(i % 5) * 0.05}s` }}
+                  >
+                    <span className="contact-why__tick" aria-hidden="true">
+                      ✓
+                    </span>
+                    <div>
+                      <h3>{w.title}</h3>
+                      <p>{w.text}</p>
+                    </div>
+                  </li>
                 ))}
-              </dl>
-              <a
-                href={waLink()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary contact-hours__cta"
-              >
-                Chat on WhatsApp
-              </a>
+              </ul>
             </div>
-
-            <div className="contact-map reveal">
-              <iframe
-                title="Map showing our location"
-                src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      {/* ---------- why contact us ---------- */}
-      <section className="contact-why section-pad">
-        <div className="container">
-          <div className="contact-why__head reveal">
-            <p className="eyebrow">Why Contact Us?</p>
-            <h2 className="section-title">Why Contact Us?</h2>
-          </div>
-
-          <ul className="contact-why__grid">
-            {WHY_CONTACT.map((w, i) => (
-              <li
-                className="contact-why__item reveal"
-                key={w.title}
-                style={{ transitionDelay: `${(i % 5) * 0.05}s` }}
-              >
-                <span className="contact-why__tick" aria-hidden="true">✓</span>
-                <div>
-                  <h3>{w.title}</h3>
-                  <p>{w.text}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
+          </section>
         </div>
       </section>
 
       {/* ---------- supplier partner CTA ---------- */}
       <section className="contact-partner">
         <div className="container contact-partner__inner reveal">
-          <div>
+          <div className="contact-partner__copy">
             <p className="eyebrow">Become a Partner</p>
             <h2 className="contact-partner__title">
               Are you a farmer, grower or supplier looking for a trusted export
@@ -218,11 +209,13 @@ export default function ContactPage() {
             </p>
           </div>
           <div className="contact-partner__actions">
-            <Link to="/quote" className="btn btn-gold">
+            <Link to="/quote" className="btn btn-primary">
               Partner With Us
-              <span className="btn-arrow" aria-hidden="true">→</span>
+              <span className="btn-arrow" aria-hidden="true">
+                →
+              </span>
             </Link>
-            <a href={`mailto:${EMAIL}`} className="btn btn-outline">
+            <a href={`mailto:${EMAIL}`} className="btn btn-dark-outline">
               Email Us
             </a>
           </div>

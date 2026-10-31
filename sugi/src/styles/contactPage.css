@@ -65,6 +65,16 @@ a.contact-card:hover {
   word-break: break-word;
 }
 
+.contact-card__value-days {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.1rem;
+}
+
 /* ---------- social ---------- */
 .contact-social {
   list-style: none;
@@ -191,6 +201,8 @@ a.contact-card:hover {
 /* ---------- why contact us ---------- */
 .contact-why {
   background: var(--white);
+  padding: 20px !important;
+  margin-top: 15%;
 }
 
 .contact-why__head {
@@ -247,47 +259,69 @@ a.contact-card:hover {
 
 /* ---------- partner CTA ---------- */
 .contact-partner {
-  background: radial-gradient(circle at 15% 20%, var(--forest) 0%, var(--charcoal) 75%);
-  color: var(--white);
+  /* Warm, light backdrop keeps this block clearly distinct from the dark
+     charcoal footer that follows it. */
+  background:
+    radial-gradient(circle at 18% 15%, rgba(185, 151, 91, 0.24), transparent 55%),
+    linear-gradient(120deg, #f7f3e8 0%, #ece2cd 55%, #f7f4ec 100%);
+  border-top: 1px solid rgba(185, 151, 91, 0.4);
+  color: var(--charcoal);
   padding: clamp(3.5rem, 8vw, 5.5rem) 0;
 }
 
 .contact-partner__inner {
-  display: grid;
-  grid-template-columns: 1.4fr auto;
-  gap: clamp(1.5rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+}
+
+.contact-partner__copy {
+  width: 100%;
+  text-align: center;
 }
 
 .contact-partner__title {
-  color: var(--white);
-  font-size: clamp(1.5rem, 3.2vw, 2.2rem);
+  color: var(--charcoal);
+  font-size: clamp(1.1rem, 1.75vw, 1.6rem);
   font-weight: 600;
-  line-height: 1.2;
-  margin: 0.4rem 0 0.9rem;
-  max-width: 26ch;
+  line-height: 1.25;
+  letter-spacing: 0.005em;
+  margin: 0 0 0.9rem;
+}
+
+/* The full question fits on one line on tablet and above; small phones
+   are allowed to wrap rather than shrink the text further. */
+@media (min-width: 768px) {
+  .contact-partner__title {
+    white-space: nowrap;
+  }
 }
 
 .contact-partner__text {
-  color: rgba(247, 244, 236, 0.8);
-  font-size: 1.02rem;
+  color: #5a625b;
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
   line-height: 1.75;
-  max-width: 60ch;
+  max-width: 68ch;
+  margin: 0 auto;
 }
 
+/* Buttons sit below the centred copy, aligned to the centre. */
 .contact-partner__actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.85rem;
+  width: 100%;
+  margin-top: clamp(1.5rem, 3vw, 2rem);
 }
 
 /* ---------- responsive ---------- */
 @media (max-width: 900px) {
-  .contact-body__grid,
-  .contact-partner__inner {
+  .contact-body__grid {
     grid-template-columns: 1fr;
   }
   .contact-partner__actions {
-    justify-content: flex-start;
+    justify-content: center;
   }
 }

@@ -6,7 +6,8 @@ import logoMark from "../assets/brand/logo-mark.webp";
 import "../styles/header.css";
 
 // ==========================================================================
-// HEADER — static bar (never follows the user while scrolling, per brief).
+// HEADER — brand bar stays in flow; only the navigation row is sticky so the
+// links stay pinned while scrolling.
 // Layout: logo + company name | nav | "Get a Quote" button.
 // ==========================================================================
 
@@ -19,40 +20,45 @@ export default function Header() {
   const siteTagline = settings?.tagline || TAGLINE;
 
   return (
-    <header className={`header ${open ? "header--open" : ""}`}>
-      <div className="container header__inner">
-        <Link to="/" className="header__brand" onClick={() => setOpen(false)}>
-          <img
-            src={logoMark}
-            alt=""
-            className="header__logo"
-            width="52"
-            height="52"
-          />
-          <span className="header__brand-text">
-            <span className="header__brand-name">{siteName}</span>
-            <span className="header__brand-tag">{siteTagline}</span>
-          </span>
-        </Link>
+    <>
+      <header className={`header ${open ? "header--open" : ""}`}>
+        <div className="container header__inner">
+          <Link to="/" className="header__brand" onClick={() => setOpen(false)}>
+            <img
+              src={logoMark}
+              alt=""
+              className="header__logo"
+              width="52"
+              height="52"
+            />
+            <span className="header__brand-text">
+              <span className="header__brand-name">{siteName}</span>
+              <span className="header__brand-tag">{siteTagline}</span>
+            </span>
+          </Link>
 
-        <Link to="/quote" className="btn btn-primary header__cta">
-          Get a Quote
-        </Link>
+          <Link to="/quote" className="btn btn-primary header__cta">
+            Get a Quote
+          </Link>
 
-        <button
-          type="button"
-          className="header__toggle"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
-      </div>
+          <button
+            type="button"
+            className="header__toggle"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
+      </header>
 
-      <nav className="header__nav" aria-label="Primary">
+      <nav
+        className={`header__nav ${open ? "header__nav--open" : ""}`}
+        aria-label="Primary"
+      >
         <ul className="container header__links">
           {NAV_LINKS.map((link) => {
             const active = activePath === link.to;
@@ -76,6 +82,6 @@ export default function Header() {
           </li>
         </ul>
       </nav>
-    </header>
+    </>
   );
 }

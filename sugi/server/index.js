@@ -44,7 +44,8 @@ const SEED = {
       phone: "+91 9405000111",
       whatsapp: "919405000111",
       email: "rohanparicharak111@gmail.com",
-      address: "",
+      address:
+        "Flat No-B-13 Suvarna Park, LB S- No.18/1 Bavdhan K, Bavdhan, Haveli, Pune- 411021, Maharashtra",
       city: "",
       country: "India",
       hours: "Monday - Saturday · 9:00 AM - 6:00 PM (IST)",

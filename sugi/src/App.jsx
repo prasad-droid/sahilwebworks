@@ -12,6 +12,7 @@ import ProductsPage from "./pages/ProductsPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import CertificationsPage from "./pages/CertificationsPage";
 import ArticlesPage from "./pages/ArticlesPage";
+import ArticleDetailPage from "./pages/ArticleDetailPage";
 import ContactPage from "./pages/ContactPage";
 import QuotePage from "./pages/QuotePage";
 import PrivacyPage from "./pages/PrivacyPage";
@@ -80,6 +81,9 @@ function renderRoute(path) {
   }
   if (path === "/certifications") return <CertificationsPage />;
   if (path === "/articles") return <ArticlesPage />;
+  if (path.startsWith("/articles/")) {
+    return <ArticleDetailPage slug={path.slice("/articles/".length)} />;
+  }
   if (path === "/contact") return <ContactPage />;
   if (path === "/quote") return <QuotePage />;
   if (path === "/privacy") return <PrivacyPage />;

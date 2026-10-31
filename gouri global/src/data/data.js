@@ -11,7 +11,7 @@ export const business = {
   phone: '9156334101',
   phoneDisplay: '+91 9156334101',
   whatsappNumber: '+91 9156334101',
-  email: 'Gouriglobaltrade@gmail.com',
+  email: 'connect@gouriglobaltrade.com',
   office: 'D304, Aswani Galaxy, Pink City Road, Wakad, Pune 411 057',
   copyrightYear: '2026',
 };

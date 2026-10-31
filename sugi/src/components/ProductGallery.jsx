@@ -21,11 +21,13 @@ function Placeholder({ label }) {
   );
 }
 
-export default function ProductGallery({ images = [], name, compact = false }) {
+export default function ProductGallery({ images = [], name, compact = false, limit }) {
   const trackRef = useRef(null);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(false);
-  const multiple = images.length > 1;
+  // The Products page cards are designed for up to 10 photos per product.
+  const slides = typeof limit === "number" ? images.slice(0, limit) : images;
+  const multiple = slides.length > 1;
 
   const update = () => {
     const el = trackRef.current;
@@ -40,7 +42,7 @@ export default function ProductGallery({ images = [], name, compact = false }) {
     if (!el) return;
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
-  }, [images.length]);
+  }, [slides.length]);
 
   const scrollBy = (dir) => {
     const el = trackRef.current;
@@ -49,7 +51,7 @@ export default function ProductGallery({ images = [], name, compact = false }) {
     el.scrollBy({ left: dir * amount, behavior: "smooth" });
   };
 
-  if (!images.length) {
+  if (!slides.length) {
     return (
       <div className={`product-gallery product-gallery--empty ${compact ? "is-compact" : ""}`}>
         <Placeholder label={name} />
@@ -60,7 +62,7 @@ export default function ProductGallery({ images = [], name, compact = false }) {
   return (
     <div className={`product-gallery ${compact ? "is-compact" : ""}`}>
       <div className="product-gallery__track" ref={trackRef} onScroll={update}>
-        {images.map((src, i) => (
+        {slides.map((src, i) => (
           <figure className="product-gallery__slide" key={`${src}-${i}`}>
             <img src={src} alt={`${name} — image ${i + 1}`} loading="lazy" />
           </figure>

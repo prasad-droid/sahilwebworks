@@ -19,7 +19,15 @@
 
 .product-section__head {
   max-width: 780px;
-  margin-bottom: clamp(2rem, 4vw, 3rem);
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+}
+
+/* Centre the heading block, title and intro for "Indian Origin" / "Imported". */
+.product-section__head .section-title,
+.product-section__head .section-sub {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .product-section__group + .product-section__group {
@@ -70,9 +78,31 @@
   min-width: 0;
 }
 
-/* detail layout on the Products page: one card per row */
+/* detail layout on the Products page: four cards per row, equal heights */
 .product-section__grid--detail {
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  /* Every row shares the height of the tallest card, so the whole grid is
+     uniform rather than one tall row followed by shorter ones. */
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+}
+
+@media (max-width: 1279px) {
+  .product-section__grid--detail {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 980px) {
+  .product-section__grid--detail {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .product-section__grid--detail {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 760px) {

@@ -35,14 +35,16 @@ export function useRoute() {
   return path;
 }
 
-// Scrolls to the top whenever the top-level page changes (not for
-// same-page sub-route changes such as /products -> /products/x).
+// Scrolls to the top whenever the route changes. This includes sub-routes
+// such as /products/a -> /products/b, so opening another product always
+// starts at its hero instead of leaving the viewport at the previous page's
+// footer or "More in …" grid.
 export function useScrollTop(path) {
-  const segment = path.split("/").slice(0, 2).join("/");
-
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-  }, [segment]);
+    // "instant" bypasses the global `scroll-behavior: smooth`, so a new page
+    // opens at its hero immediately instead of animating up from the footer.
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [path]);
 }
 
 export function Link({ to, children, onClick, ...rest }) {

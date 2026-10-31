@@ -9,7 +9,8 @@
 
 .certs__head {
   max-width: 720px;
-  margin-bottom: clamp(2rem, 4vw, 3rem);
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
 }
 
 .certs__mask {

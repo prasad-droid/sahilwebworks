@@ -20,6 +20,23 @@
   inset: 0;
   opacity: 0;
   transition: opacity 1.1s var(--ease);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--charcoal);
+}
+
+/* Blurred copy of the banner fills the letterbox area, so the full image can
+   be shown without crop and without empty side bars. */
+.hero-slider__slide::before {
+  content: "";
+  position: absolute;
+  inset: -1.5rem;
+  background-image: inherit;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(28px) brightness(0.55);
 }
 
 .hero-slider__slide.is-active {
@@ -28,9 +45,13 @@
 }
 
 .hero-slider__slide img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  /* Show the whole banner; any leftover space is filled by the blurred
+     background above. */
+  object-fit: contain;
   object-position: center;
 }
 
@@ -110,10 +131,14 @@
 }
 
 @media (max-width: 700px) {
+  /* Keep the banner's full width visible on phones. A 4:3 crop cut off a large
+     part of the sides of the wide banners, so use a 16:9 frame; the contain
+     rule above fits the whole image inside it. */
   .hero-slider__viewport {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9;
     max-height: none;
   }
+
   .hero-slider__arrow {
     width: 38px;
     height: 38px;

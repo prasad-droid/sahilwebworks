@@ -45,13 +45,13 @@
 }
 
 .export-map__graticule {
-  stroke: rgba(216, 199, 163, 0.1);
+  stroke: rgba(216, 199, 163, 0.14);
   stroke-width: 0.6;
 }
 
 .export-map__land {
-  fill: rgba(216, 199, 163, 0.16);
-  stroke: rgba(184, 151, 91, 0.45);
+  fill: rgba(185, 151, 91, 0.48);
+  stroke: rgba(216, 199, 163, 0.7);
   stroke-width: 0.5;
   stroke-linejoin: round;
 }
@@ -70,13 +70,13 @@
 
 /* ---------- origin ---------- */
 .export-map__origin-dot {
-  fill: var(--sand);
-  stroke: var(--white);
-  stroke-width: 1.5;
+  fill: var(--white);
+  stroke: var(--gold);
+  stroke-width: 2;
 }
 
 .export-map__pulse {
-  fill: rgba(184, 151, 91, 0.35);
+  fill: rgba(216, 199, 163, 0.38);
   transform-box: fill-box;
   transform-origin: center;
   animation: mapPulse 2.6s ease-out infinite;
@@ -99,8 +99,8 @@
 
 /* ---------- destinations ---------- */
 .export-map__dot {
-  fill: var(--gold);
-  stroke: rgba(24, 32, 29, 0.9);
+  fill: var(--white);
+  stroke: rgba(24, 32, 29, 0.7);
   stroke-width: 1;
 }
 
@@ -111,7 +111,8 @@
 }
 
 .export-map__point:hover .export-map__dot {
-  fill: var(--white);
+  fill: var(--gold);
+  stroke: var(--white);
 }
 
 @keyframes mapBlink {

@@ -58,7 +58,7 @@ export const INDIAN_GROUPS = [
 
 export const IMPORTED_GROUP = {
   id: "imported-dry-fruits",
-  title: "Imported Dry Fruits",
+  title: "Dry Fruits",
   items: [
     "cashew-in-shell",
     "cashew-kernels",
@@ -110,6 +110,51 @@ const NAMES = {
   saffron: "Saffron",
 };
 
+// --------------------------------------------------------------------------
+// Specifications shown on the Products page cards.
+// Add an entry per product as its specification sheet is confirmed.
+// --------------------------------------------------------------------------
+
+const SPECS = {
+  bananas: [
+    { label: "Variety", value: "G9 Cavendish" },
+    { label: "Grade", value: "Super Premium" },
+    { label: "Maturity", value: "70-80% Mature Green" },
+    { label: "Colour", value: "Green/Dark Green" },
+    { label: "Fruit Length", value: "18-25 cm" },
+    { label: "Hands", value: "4, 5, 6, 7" },
+    { label: "Box", value: "5 Ply Box-3 Ply Lid, All around 5 Ply" },
+    { label: "Box Dimensions", value: "500 x 300 x 200 mm" },
+    { label: "Sachets", value: "Ethylene Absorbent Small Packets" },
+    { label: "Brand", value: "Brand Sticker" },
+    { label: "Rubber Band", value: "To seal liner bags" },
+    { label: "Air Remove", value: "Vacuum/Manual" },
+  ],
+};
+
+// Products without a confirmed spec sheet still show the same table shape,
+// using catalogue-level information instead of empty rows.
+export function specsFor(product) {
+  const specs = product?.specs;
+  if (specs?.length) return specs;
+
+  return [
+    { label: "Origin", value: product?.origin || "India" },
+    { label: "Category", value: product?.groupTitle || "Agro Commodities" },
+    {
+      label: "Packaging",
+      value:
+        product?.packaging ||
+        "Customized export packaging as per buyer requirement",
+    },
+    {
+      label: "Quality",
+      value: "Farm inspection, grading, cleaning & hygienic packing",
+    },
+    { label: "MOQ / Lead Time", value: "Available on request" },
+  ];
+}
+
 function build(slug, origin, groupTitle, groupId) {
   return {
     slug,
@@ -118,6 +163,7 @@ function build(slug, origin, groupTitle, groupId) {
     groupTitle,
     groupId,
     images: imagesFor(slug),
+    specs: SPECS[slug] || [],
   };
 }
 

@@ -1,0 +1,23 @@
+{
+  "name": "dvk-enterprises",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Premium single-page export website for DVK Enterprises",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "optimize:images": "node scripts/optimize-images.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "^1.66.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.2.1",
+    "sharp": "^0.35.5",
+    "vite": "^8.3.5"
+  }
+}

@@ -1,0 +1,10 @@
+<!-- PLACEHOLDER favicon — replace with client logo: https://drive.google.com/open?id=10ok_vRxgzFPOCCwHYfaYc-fRyRrmr1fc -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="16" fill="#0B3B2E" />
+  <path
+    d="M32 46c-7-4-12-10-13-18 8 1 14 6 16 13 2-9 7-15 15-17-1 9-6 16-14 20-1.5.8-3 .8-4 2z"
+    fill="#2F8F5B"
+  />
+  <path d="M32 46c-7-4-12-10-13-18 8 1 14 6 16 13" fill="none" stroke="#C8A24B" stroke-width="1.6" stroke-linecap="round" />
+  <text x="32" y="26" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" letter-spacing="1" fill="#F8F5EE">DVK</text>
+</svg>

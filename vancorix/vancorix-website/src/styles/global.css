@@ -1,0 +1,89 @@
+/* ==========================================
+   Global CSS - Vancorix International
+   ========================================== */
+
+/* Color Palette */
+:root {
+  /* Primary brand colors - premium international trading aesthetic */
+  --primary-dark: #2c3e50;      /* Deep navy - trust, professionalism, stability */
+  --primary: #34495e;           /* Primary text/accents */
+  --secondary: #d4a843;         /* Gold/amber - premium, quality, prosperity */
+  --accent: #f0c05a;            /* Light gold - highlights, warmth */
+  --background: #f8f9fa;        /* Warm off-white - clean, modern */
+  --light-bg: #ffffff;          /* Pure white */
+  --dark-text: #2d3a48;         /* Dark charcoal - readability */
+  --medium-text: #5d6d7e;       /* Medium gray-text */
+  --light-text: #aab7c2;        /* Light gray-text */
+  --border-color: #e0e0e0;      /* Light borders */
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+
+  /* Typography */
+  --font-primary: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  --font-display: 'Manrope', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+
+  /* Base styles */
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--dark-text);
+  background: var(--background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--medium-text);
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  background: var(--background);
+  color: var(--dark-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus outlines for accessibility */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Prevent text selection on interactive elements */
+select,
+option {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}

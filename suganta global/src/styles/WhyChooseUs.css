@@ -1,0 +1,125 @@
+/* WHY CHOOSE US SECTION */
+.why-choose-us {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(4.5rem, 8vw, 6.5rem);
+}
+
+.why-choose-us::before {
+  position: absolute;
+  top: -35%;
+  left: 50%;
+  width: min(900px, 100vw);
+  height: 600px;
+  background: radial-gradient(circle, rgba(198, 166, 100, 0.11) 0%, transparent 68%);
+  content: '';
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.why-choose-us .container {
+  position: relative;
+  z-index: 1;
+}
+
+.why-choose-us__grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: clamp(2rem, 3.5vw, 2.75rem);
+}
+
+@media (min-width: 560px) {
+  .why-choose-us__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 980px) {
+  .why-choose-us__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.why-choose-us__card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: clamp(1.4rem, 2.5vw, 1.8rem);
+  border: 1px solid rgba(248, 246, 239, 0.14);
+  border-radius: var(--radius-lg);
+  background: rgba(248, 246, 239, 0.055);
+  transition:
+    border-color 0.3s var(--ease),
+    background 0.3s var(--ease),
+    box-shadow 0.3s var(--ease),
+    translate 0.3s var(--ease);
+}
+
+.why-choose-us__card:hover,
+.why-choose-us__card:focus-within {
+  border-color: rgba(198, 166, 100, 0.42);
+  background: rgba(248, 246, 239, 0.09);
+  box-shadow: 0 22px 50px rgba(9, 24, 16, 0.2);
+  translate: 0 -4px;
+}
+
+.why-choose-us__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.6rem;
+}
+
+.why-choose-us__icon {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid rgba(198, 166, 100, 0.32);
+  border-radius: 50%;
+  background: rgba(198, 166, 100, 0.09);
+  color: var(--gold);
+}
+
+.why-choose-us__number {
+  color: rgba(248, 246, 239, 0.32);
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.why-choose-us__title {
+  margin-bottom: 0.7rem;
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-size: 1.14rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.why-choose-us__description {
+  color: rgba(248, 246, 239, 0.68);
+  font-size: 0.86rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 560px) {
+  .why-choose-us__description {
+    font-size: 0.84rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .why-choose-us__card {
+    transition: none;
+  }
+
+  .why-choose-us__card:hover,
+  .why-choose-us__card:focus-within {
+    translate: none;
+  }
+}

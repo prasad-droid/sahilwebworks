@@ -3,39 +3,56 @@ import SectionHeading from "./SectionHeading";
 import { testimonials } from "../data/testimonials";
 
 /**
- * The section renders only when genuine testimonials exist in
- * src/data/testimonials.js — nothing is ever invented here.
+ * Renders genuine testimonials when they exist in src/data/testimonials.js.
+ * Nothing is ever invented here — the empty state is intentionally explicit.
  */
 export default function Testimonials() {
-  if (!testimonials || testimonials.length === 0) return null;
+  const hasTestimonials = Array.isArray(testimonials) && testimonials.length > 0;
 
   return (
-    <section className="testimonials section section--surface" aria-labelledby="testimonials-title">
+    <section
+      id="testimonials"
+      className="testimonials section section--surface"
+      aria-labelledby="testimonials-heading-title"
+    >
       <div className="container">
         <SectionHeading
-          id="testimonials"
+          id="testimonials-heading"
           label="TESTIMONIALS"
           title="What Our Partners Say"
+          subtitle="Genuine feedback from clients and partners will be published here as relationships grow."
         />
 
-        <div className="testimonials__grid">
-          {testimonials.map((item) => (
-            <figure className="testimonial-card" key={item.id} data-reveal>
-              <span className="testimonial-card__quote" aria-hidden="true">
-                <Icon name="quote" size={26} />
-              </span>
-              <blockquote>
-                <p>{item.quote}</p>
-              </blockquote>
-              <figcaption>
-                <span className="testimonial-card__name">{item.name}</span>
-                <span className="testimonial-card__role">
-                  {[item.role, item.country].filter(Boolean).join(" • ")}
+        {hasTestimonials ? (
+          <div className="testimonials__grid">
+            {testimonials.map((item) => (
+              <figure className="testimonial-card" key={item.id} data-reveal>
+                <span className="testimonial-card__quote" aria-hidden="true">
+                  <Icon name="quote" size={26} />
                 </span>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
+                <blockquote>
+                  <p>{item.quote}</p>
+                </blockquote>
+                <figcaption>
+                  <strong>{item.name}</strong>
+                  {(item.role || item.country) && (
+                    <span>{[item.role, item.country].filter(Boolean).join(" · ")}</span>
+                  )}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        ) : (
+          <div className="testimonials__empty" data-reveal>
+            <span className="testimonials__empty-icon" aria-hidden="true">
+              <Icon name="quote" size={30} />
+            </span>
+            <p className="testimonials__empty-text">Client feedback will be featured here.</p>
+            <p className="testimonials__empty-note">
+              We only publish feedback shared directly by our clients and partners.
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );

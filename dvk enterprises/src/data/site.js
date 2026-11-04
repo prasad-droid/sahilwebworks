@@ -20,6 +20,11 @@ export const LINKS = {
   waIndia: "https://wa.me/919930439581",
   waIndiaAlt: "https://wa.me/918655871571",
   waUae: "https://wa.me/971503879581",
+  directions:
+    "https://www.google.com/maps/search/?api=1&query=" +
+    encodeURIComponent(
+      "J 104, Tulsi Aarambh, Raj Group, Tulsi City, Badlapur East, Maharashtra 421503, India",
+    ),
 };
 
 export const waLink = (number, message = SITE.whatsappMessage) =>
@@ -58,3 +63,17 @@ export const CATEGORY_IDS = {
   hair: "hair-accessories",
   rubber: "rubber-bands",
 };
+
+/**
+ * Optional form backend. Set VITE_INQUIRY_ENDPOINT in a local .env file to a
+ * POST endpoint that accepts JSON. When it is empty the form falls back to a
+ * pre-filled WhatsApp message instead of pretending a submission succeeded.
+ */
+export const INQUIRY_ENDPOINT = import.meta.env.VITE_INQUIRY_ENDPOINT || "";
+
+/**
+ * Add genuine, client-approved testimonials here when they are available.
+ * Shape: { quote, name, role, company }
+ * The section displays a trust placeholder while this list is empty.
+ */
+export const TESTIMONIALS = [];

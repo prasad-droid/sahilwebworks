@@ -9,10 +9,7 @@ export default function Products({ onRequestQuote }) {
   const [filter, setFilter] = useState("All");
   const [selected, setSelected] = useState(null);
 
-  const catalogue = useMemo(
-    () => products.filter((product) => product.available !== false || product.id),
-    []
-  );
+  const catalogue = products;
 
   const categories = useMemo(() => {
     const set = new Set();
@@ -29,9 +26,9 @@ export default function Products({ onRequestQuote }) {
     <section id="products" className="products section">
       <div className="container">
         <SectionHeading
-          label="PRODUCT PORTFOLIO"
-          title="OUR PRODUCTS"
-          subtitle="Explore Our Product Portfolio"
+          label="PRODUCTS & PORTFOLIO"
+          title="Explore Our Products & Portfolio"
+          subtitle="A growing portfolio across agriculture and recycling industry categories. Product details, packaging and availability can be confirmed on enquiry."
         />
 
         {showFilters && (

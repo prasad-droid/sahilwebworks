@@ -1,0 +1,17 @@
+{
+  "name": "SUGANTA GLOBAL",
+  "short_name": "SUGANTA",
+  "description": "Agricultural products exporter from India, focused on rice, tea and flowers for the UAE and Iraq.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F8F6EF",
+  "theme_color": "#234B35",
+  "icons": [
+    {
+      "src": "/images/logo-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

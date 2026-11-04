@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" role="img" aria-label="SUGANTA GLOBAL emblem">
+  <circle cx="36" cy="36" r="35" fill="#234B35"/>
+  <circle cx="36" cy="36" r="31.2" fill="none" stroke="#C6A664" stroke-width="0.9" opacity="0.7"/>
+  <g fill="none" stroke="#F8F6EF" stroke-width="1.2" opacity="0.9">
+    <circle cx="36" cy="32.5" r="14.8"/>
+    <ellipse cx="36" cy="32.5" rx="6.1" ry="14.8"/>
+    <path d="M21.2 32.5h29.6"/>
+    <path d="M23.4 25.1h25.2M23.4 39.9h25.2"/>
+  </g>
+  <path d="M28.4 46.7c2.5-9.9 10.2-16.7 22.1-18 .7 10.6-5.9 19.1-17.1 21.3-2.3.4-4.2.1-5.1-1.1-.7-.9-.6-1.8.1-2.2z" fill="#A8B88F"/>
+  <path d="M30.7 45.8c5.7-6 11-10.3 18.1-14.4" fill="none" stroke="#234B35" stroke-width="0.95" opacity="0.55" stroke-linecap="round"/>
+  <circle cx="50.6" cy="28.6" r="1.4" fill="#C6A664"/>
+</svg>

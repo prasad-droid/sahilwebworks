@@ -1,0 +1,311 @@
+/* NAVIGATION BAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 1px 0 rgba(35, 75, 53, 0.03);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1rem, 3vw, 2rem);
+  height: 100%;
+  max-width: calc(var(--container) + 2 * clamp(1.25rem, 4vw, 2.5rem));
+}
+
+.navbar__logo {
+  flex: 0 0 auto;
+  min-width: 176px;
+  color: var(--charcoal);
+}
+
+.navbar__logo .logo__mark {
+  width: 40px;
+  height: 40px;
+}
+
+.navbar__logo .logo__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.18rem, 2.5vw, 1.42rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+.navbar__logo .logo__name-accent {
+  color: var(--forest);
+}
+
+.navbar__logo .logo__tagline {
+  margin-top: 0.24rem;
+  color: var(--muted);
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  line-height: 1.3;
+}
+
+.navbar__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.25rem;
+  margin-inline-start: auto;
+}
+
+.navbar__nav-list {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.15rem, 2.2vw, 2.1rem);
+}
+
+.navbar__nav-link {
+  position: relative;
+  display: inline-block;
+  padding-block: 0.6rem;
+  color: var(--charcoal);
+  font-size: clamp(0.82rem, 1vw, 0.9rem);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  transition: color 0.25s var(--ease);
+}
+
+.navbar__nav-link::after {
+  position: absolute;
+  right: 0;
+  bottom: 0.18rem;
+  left: 0;
+  height: 1px;
+  background: var(--gold);
+  content: '';
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s var(--ease);
+}
+
+.navbar__nav-link:hover,
+.navbar__nav-link:focus-visible,
+.navbar__nav-link--active {
+  color: var(--forest);
+}
+
+.navbar__nav-link:hover::after,
+.navbar__nav-link:focus-visible::after,
+.navbar__nav-link--active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.navbar__actions {
+  flex: 0 0 auto;
+}
+
+.navbar__inquiry {
+  min-height: 44px;
+  padding-inline: 1.25rem;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.navbar__mobile-inquiry {
+  display: none;
+}
+
+.navbar__menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(35, 75, 53, 0.2);
+  border-radius: 50%;
+  background: var(--cream);
+  color: var(--forest-deep);
+  cursor: pointer;
+  transition:
+    background 0.25s var(--ease),
+    border-color 0.25s var(--ease),
+    color 0.25s var(--ease);
+}
+
+.navbar__menu-toggle:hover,
+.navbar__menu-toggle:focus-visible,
+.navbar__menu-toggle.is-open {
+  border-color: var(--forest);
+  background: var(--forest);
+  color: var(--cream);
+}
+
+.navbar__menu-toggle-icon {
+  position: relative;
+  display: grid;
+  width: 18px;
+  gap: 5px;
+}
+
+.navbar__menu-toggle-icon span {
+  display: block;
+  width: 18px;
+  height: 1.5px;
+  border-radius: 99px;
+  background: currentColor;
+  transition:
+    transform 0.25s var(--ease),
+    opacity 0.25s var(--ease);
+}
+
+.navbar__menu-toggle-icon span:first-child {
+  transform-origin: center;
+}
+
+.navbar__menu-toggle.is-open .navbar__menu-toggle-icon span:first-child {
+  transform: translateY(3.25px) rotate(45deg);
+}
+
+.navbar__menu-toggle.is-open .navbar__menu-toggle-icon span:last-child {
+  transform: translateY(-3.25px) rotate(-45deg);
+}
+
+.navbar__backdrop {
+  display: none;
+}
+
+@media (max-width: 980px) {
+  .navbar__logo {
+    min-width: 150px;
+  }
+
+  .navbar__nav {
+    gap: 1.3rem;
+  }
+
+  .navbar__nav-list {
+    gap: 1rem;
+  }
+
+  .navbar__inquiry {
+    padding-inline: 1rem;
+  }
+
+  .navbar__inquiry svg {
+    display: none;
+  }
+}
+
+@media (max-width: 980px) {
+  .navbar__menu-toggle {
+    display: inline-flex;
+  }
+
+  .navbar__actions {
+    display: none;
+  }
+
+  .navbar__nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 95;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: min(360px, 88vw);
+    height: 100svh;
+    margin: 0;
+    padding: calc(var(--nav-height) + 2.25rem) clamp(1.5rem, 6vw, 2.25rem) 2rem;
+    background: var(--cream);
+    box-shadow: -24px 0 60px rgba(16, 35, 25, 0);
+    pointer-events: none;
+    transform: translateX(102%);
+    visibility: hidden;
+    transition:
+      transform 0.4s var(--ease),
+      visibility 0.4s var(--ease),
+      box-shadow 0.4s var(--ease);
+  }
+
+  .navbar__nav--open {
+    box-shadow: -24px 0 60px rgba(16, 35, 25, 0.2);
+    pointer-events: auto;
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .navbar__nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .navbar__nav-item {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .navbar__nav-link {
+    display: block;
+    padding-block: 1.05rem;
+    color: var(--forest-deep);
+    font-family: var(--font-display);
+    font-size: 1.32rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+
+  .navbar__nav-link::after {
+    display: none;
+  }
+
+  .navbar__mobile-inquiry {
+    display: inline-flex;
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  .navbar__backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    display: block;
+    border: 0;
+    background: rgba(16, 35, 25, 0.5);
+    cursor: pointer;
+    animation: fade-in 0.25s var(--ease) both;
+  }
+}
+
+@media (max-width: 420px) {
+  .navbar__logo {
+    min-width: 0;
+  }
+
+  .navbar__logo .logo__mark {
+    width: 36px;
+    height: 36px;
+  }
+
+  .navbar__logo .logo__tagline {
+    max-width: 128px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar__nav,
+  .navbar__nav-link::after,
+  .navbar__menu-toggle-icon span {
+    transition: none;
+  }
+}

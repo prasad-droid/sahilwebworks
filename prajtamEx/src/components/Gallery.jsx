@@ -1,29 +1,18 @@
 import { useEffect, useMemo, useState } from "react";
 import Icon from "./Icon";
 import SectionHeading from "./SectionHeading";
-import AssetImage from "./AssetImage";
 import { galleryItems, galleryCategories } from "../data/gallery";
 import { lockScroll } from "../lib/scroll";
-
-function Media({ item, large = false }) {
-  const props = {
-    loading: large ? "eager" : "lazy",
-    decoding: "async",
-    alt: item.alt,
-  };
-  return item.stock ? (
-    <img src={item.src} {...props} />
-  ) : (
-    <AssetImage src={item.src} driveId={item.driveId} label="PrajtamEx" {...props} />
-  );
-}
 
 export default function Gallery() {
   const [category, setCategory] = useState("All");
   const [activeIndex, setActiveIndex] = useState(null);
 
   const visible = useMemo(
-    () => (category === "All" ? galleryItems : galleryItems.filter((item) => item.category === category)),
+    () =>
+      category === "All"
+        ? galleryItems
+        : galleryItems.filter((item) => item.category === category),
     [category]
   );
 
@@ -53,9 +42,9 @@ export default function Gallery() {
       <div className="container">
         <SectionHeading
           id="gallery"
-          label="GALLERY"
-          title="Products, Markets & Trade"
-          subtitle="Visuals from the agriculture, recycling, product and international trade sectors PrajtamEx works with."
+          label="BUSINESS SHOWCASE"
+          title="A Closer Look at Our Business"
+          subtitle="Product photographs supplied by PrajtamEx alongside representative imagery from the agriculture and trade sectors."
         />
 
         <div className="gallery__filters" role="group" aria-label="Filter gallery by category">
@@ -85,10 +74,20 @@ export default function Gallery() {
                 aria-label={`Open image: ${item.alt}`}
               >
                 <span className="gallery__media">
-                  <Media item={item} />
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    loading={index < 3 ? "eager" : "lazy"}
+                    decoding="async"
+                  />
                 </span>
                 <span className="gallery__overlay">
-                  <span className="gallery__category">{item.category}</span>
+                  <span className="gallery__meta">
+                    <span className="gallery__category">{item.category}</span>
+                    <span className="gallery__source">
+                      {item.stock ? "Representative imagery" : "Supplied by PrajtamEx"}
+                    </span>
+                  </span>
                   <span className="gallery__expand" aria-hidden="true">
                     <Icon name="expand" size={18} />
                   </span>
@@ -99,7 +98,7 @@ export default function Gallery() {
         </div>
 
         <p className="gallery__note" data-reveal>
-          PrajtamEx labelled images are supplied company photographs. Other visuals are
+          Images labelled as supplied are company product photographs. Other visuals are
           representative industry imagery and are not PrajtamEx products or facilities.
         </p>
       </div>
@@ -112,26 +111,45 @@ export default function Gallery() {
           aria-label="Image viewer"
           onMouseDown={(event) => event.target === event.currentTarget && close()}
         >
-          <button type="button" className="lightbox__close" onClick={close} aria-label="Close image viewer" autoFocus>
+          <button
+            type="button"
+            className="lightbox__close"
+            onClick={close}
+            aria-label="Close image viewer"
+            autoFocus
+          >
             <Icon name="close" size={22} />
           </button>
 
-          <button type="button" className="lightbox__nav lightbox__nav--prev" onClick={prev} aria-label="Previous image">
+          <button
+            type="button"
+            className="lightbox__nav lightbox__nav--prev"
+            onClick={prev}
+            aria-label="Previous image"
+          >
             <Icon name="arrowRight" size={22} />
           </button>
 
           <figure className="lightbox__figure">
-            <Media item={active} large />
+            <img src={active.src} alt={active.alt} loading="eager" decoding="async" />
             <figcaption>
               <span className="lightbox__category">{active.category}</span>
               <span className="lightbox__caption">{active.alt}</span>
+              <span className="lightbox__source">
+                {active.stock ? "Representative industry imagery" : "Photograph supplied by PrajtamEx"}
+              </span>
               <span className="lightbox__count">
                 {activeIndex + 1} / {visible.length}
               </span>
             </figcaption>
           </figure>
 
-          <button type="button" className="lightbox__nav lightbox__nav--next" onClick={next} aria-label="Next image">
+          <button
+            type="button"
+            className="lightbox__nav lightbox__nav--next"
+            onClick={next}
+            aria-label="Next image"
+          >
             <Icon name="arrowRight" size={22} />
           </button>
         </div>

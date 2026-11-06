@@ -16,7 +16,7 @@ export default function Contact() {
         <div className="section-head">
           <Reveal>
             <span className="section-eyebrow">Get in Touch</span>
-            <h2 className="section-title">Let's Connect With Your Business</h2>
+            <h2 className="section-title">Let's Connect Businesses</h2>
             <p className="section-subtitle">
               Interested in Gir Cow Ghee or looking to connect with an Indian merchant
               exporter? Send us your requirement.

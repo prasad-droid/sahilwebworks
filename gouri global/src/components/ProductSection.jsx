@@ -89,7 +89,7 @@ export default function ProductSection() {
         {/* Product portfolio */}
         <div className="product__grid">
           {products.slice(1).map((product, i) => (
-            <Reveal key={product.id} delay={i * 90}>
+            <Reveal key={product.id} delay={i * 50}>
               <ProductCard product={product} onEnquire={scrollToEnquiry} />
             </Reveal>
           ))}

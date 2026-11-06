@@ -20,7 +20,7 @@ export const about = {
   heading: 'Connecting Indian Excellence With Global Markets',
   paragraphs: [
     'Gouri Global Trade is an India-based trading and export business focused on delivering quality Made-in-India food products to domestic and international markets.',
-    'Our portfolio includes Gir Cow Ghee, Dry Fruit Laddu, Groundnut Jaggery Laddu, and Whole Wheat Biscuits, reflecting India\u2019s rich food heritage and authentic flavours.',
+    'Our portfolio includes Gir Cow Ghee, Dry Fruit Laddu, Groundnut Jaggery Laddu, and Whole Wheat Biscuits, reflecting India\'s rich food heritage and authentic flavours.',
     'Backed by knowledge in Food Technology and Dairy Technology, we focus on quality, food safety, reliable sourcing, and professional business practices.',
     'We aim to build long-term partnerships with importers, distributors, wholesalers, retailers, and global buyers, connecting trusted Indian products with markets worldwide.',
   ],
@@ -39,62 +39,61 @@ export const products = [
     id: 'gir-cow-ghee',
     name: 'Gir Cow Ghee',
     description:
-      'Premium Gir Cow Ghee crafted from traditional recipes, reflecting the richness of Indian heritage and a choice product for domestic and international markets.',
+      'GOURISH Premium Gir Cow Ghee is crafted from carefully selected Gir cow milk and processed with a focus on purity, quality and authentic Indian tradition. Our ghee is suitable for domestic and international markets and is offered in convenient retail and bulk packaging options.',
     image: '/images/slide-5.jpeg',
     imageAlt: 'Gir Cow Ghee in a premium jar',
     hsCode: '04059020',
-    // Editable placeholders — add real data when available
-    sizes: 'Add available pack sizes',
-    packaging: 'Add packaging information',
-    moq: 'Add minimum order quantity',
+    sizes: '250 ml, 500 ml, 1000 ml',
+    packaging: 'Hygienically packed in Glass Jar containers designed to help maintain product quality during storage and transportation. Export and bulk packaging options are available based on buyer requirements.',
+    moq: 'Retail & bulk orders available – MOQ depends on packaging and destination.',
   },
   {
     id: 'dry-fruit-laddu',
     name: 'Dry Fruit Laddu',
     description:
-      'A handcrafted Indian sweet made with select dry fruits, offering authentic taste rooted in India\u2019s rich food tradition.',
+      'A traditional Indian sweet prepared with a delicious blend of selected dry fruits and quality ingredients, offering a rich taste inspired by authentic Indian food traditions.',
     image: '/images/dry-fruit-laddu.jpeg',
-    imageAlt: 'Dry Fruit Laddu sweet',
+    imageAlt: 'Dry Fruit Laddu in a premium jar',
     hsCode: '21069099',
-    sizes: 'Add available pack sizes',
-    packaging: 'Add packaging information',
-    moq: 'Add minimum order quantity',
+    sizes: 'Available in retail and bulk packaging options on request',
+    packaging: 'Hygienically packed in food-grade packaging suitable for domestic and export requirements.',
+    moq: 'MOQ: Available on request',
   },
   {
     id: 'groundnut-jaggery-laddu',
     name: 'Groundnut Jaggery Laddu',
     description:
-      'A traditional Indian sweet combining roasted groundnuts and natural jaggery for an authentic, wholesome flavour.',
+      'A traditional Indian sweet made with roasted groundnuts and jaggery, offering a naturally rich, crunchy and wholesome taste.',
     image: '/images/groundnut-jaggery-laddu.jpeg',
-    imageAlt: 'Groundnut Jaggery Laddu sweet',
+    imageAlt: 'Groundnut Jaggery Laddu in a premium jar',
     hsCode: '17049090',
-    sizes: 'Add available pack sizes',
-    packaging: 'Add packaging information',
-    moq: 'Add minimum order quantity',
+    sizes: '500 g & 1000 g packs',
+    packaging: 'Hygienically packed in suitable food-grade retail packaging.',
+    moq: 'MOQ: Available on request',
   },
   {
     id: 'whole-wheat-biscuits',
     name: 'Whole Wheat Biscuits',
     description:
-      'Wholesome whole wheat biscuits made with quality ingredients, capturing authentic Indian baking traditions.',
+      'Delicious whole wheat biscuits prepared with Desi Cow Ghee & quality ingredients, offering a wholesome snack inspired by traditional Indian baking.',
     image: '/images/whole-wheat-biscuits.jpeg',
-    imageAlt: 'Whole Wheat Biscuits',
+    imageAlt: 'Whole Wheat Biscuits in a premium jar',
     hsCode: '19503100',
-    sizes: 'Add available pack sizes',
-    packaging: 'Add packaging information',
-    moq: 'Add minimum order quantity',
+    sizes: '250 g, 500 g & 1000 g retail packs',
+    packaging: 'Hygienically packed in food-grade packaging to help maintain product quality and freshness.',
+    moq: 'Available on request',
   },
   {
     id: 'wheat-flour',
     name: 'Wheat Flour',
     description:
-      'Quality wheat flour milled from selected wheat grains, supplied in consistent grades for food manufacturing and bulk buyers.',
+      'Premium quality wheat flour milled from carefully selected wheat grains, suitable for food manufacturing, wholesale and bulk supply.',
     image: '/images/wheat-flour.jpg',
-    imageAlt: 'Wheat Flour',
+    imageAlt: 'Wheat Flour in a premium jar',
     hsCode: '11010000',
-    sizes: 'Add available pack sizes',
-    packaging: 'Add packaging information',
-    moq: 'Add minimum order quantity',
+    sizes: '1 kg | 5 kg | 10 kg | 25 kg | 50 kg',
+    packaging: 'Available in food-grade retail and bulk packaging. Customized packaging options available for bulk orders.',
+    moq: '500 kg',
   },
 ];
 
@@ -102,31 +101,31 @@ export const whyChooseUs = [
   {
     icon: 'leaf',
     title: 'Local Sourcing',
-    description: 'Connecting buyers with authentic Indian products, sourced through reliable local channels.',
+    description: 'Reliable Sourcing - Carefully sourcing quality Indian products through verified and reliable supply partners.',
   },
   {
     icon: 'globe',
-    title: 'Global Vision',
+    title: 'Global Reach',
     description: 'Focused on building lasting connections with international buyers and markets worldwide.',
   },
   {
     icon: 'package',
     title: 'Product Focus',
-    description: 'Specialized presentation around Gir Cow Ghee and other traditional Indian food products.',
+    description: 'Quality Product Portfolio - Focused on quality Indian food products, including Gir Cow Ghee and carefully selected traditional products.',
   },
   {
     icon: 'message',
     title: 'Direct Enquiry',
-    description: 'Easy communication for buyers interested in our products, with a straightforward enquiry process.',
+    description: 'Simple and responsive communication for buyers seeking product information, quotations and business enquiries.',
   },
 ];
 
 export const gallery = [
   {
-    id: 'collage',
+    id: 'gir-cow-ghee',
     src: '/images/slide-5.jpeg',
-    alt: 'GOURI GLOBAL TRADE product range — Gir Cow Ghee, Dry Fruit Laddu, Groundnut Jaggery Laddu and Whole Wheat Biscuits',
-    caption: 'Our product range',
+    alt: 'GOURISH PREMIUM GIR COW GHEE - Two glass jars of ghee on woven mat against rural green landscape background with Gir cow. Background: blurred outdoor scene of rolling green fields, blue skies, distant mountains, and a brown Gir cow with large horns standing on the right. Foreground: rough brown wooden table with woven jute/burlap mat. Left: Large 1000ml glass jar with white and gold paper label, small sprig of green leaves bottom left. Center: Smaller 500ml glass jar matching label. Right: Small dark brown wooden bowl with yellow ghee and wooden spoon. Left Jar: Shiny gold metallic screw-top lid, white background label with gold/black/red accents, G/G logo in green box, GOLDEN GOURESS FARMS text, GOURISH in bold dark green serif font with leaf graphic above I and S, PREMIUM in all-caps with decorative lines, GIR COW GHEE in dark brown font, AZ•PURE•NATURAL•NUTRITIOUS in orange banner, illustrated rural scene with two cows, copper pot and spoon, LAB TESTED and 100% NATURAL circular badges, From Gir Cow Milk badge, Net Contain: 1000 ml (912.5 g at 40°C). Center Jar: Visually identical design scaled down, Net Contain: 500 ml (456.25 g at 40°C). Right Wooden Bowl: Carved wooden bowl with mound of bright yellow ghee, small wooden spoon partially submerged pointing right.',
+    caption: 'GOURISH Premium Gir Cow Ghee',
   },
   {
     id: 'dry-fruit-laddu',
@@ -197,7 +196,7 @@ export const certifications = [
   },
 ];
 
-// Social profile links — replace href="#" with the real profile URLs.
+// Social profile links — replace href=\"#\" with the real profile URLs.
 export const socialLinks = [
   { label: 'Facebook', icon: 'facebook', href: 'https://www.facebook.com/profile.php?id=61592938233368' },
   { label: 'Instagram', icon: 'instagram', href: 'https://www.instagram.com/gouriglobaltrade/' },
@@ -241,4 +240,4 @@ export const targetCustomers = [
     title: 'International Buyers',
     description: 'For buyers looking to source Indian products.',
   },
-];
+]

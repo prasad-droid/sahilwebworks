@@ -187,9 +187,12 @@ export default function QuoteForm() {
                 aria-invalid={!!errors.product}
                 aria-describedby={errors.product ? 'product-error' : undefined}
               >
-                {products.map((p) => (
-                  <option key={p.id} value={p.name}>{p.name}</option>
-                ))}
+                <option value=''>Select a product</option>
+              <option value='gir-cow-ghee'>Gir Cow Ghee</option>
+              <option value='wheat-flour'>Wheat Flour</option>
+              <option value='spices'>Spices</option>
+              <option value='peanut-jaggery-laddu'>Peanut Jaggery Ladoo</option>
+              <option value='other'>Other Products</option>
               </select>
               {errors.product && (
                 <span id="product-error" className="quote-form__error">{errors.product}</span>

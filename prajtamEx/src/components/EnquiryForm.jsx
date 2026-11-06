@@ -5,6 +5,13 @@ import { services } from "../data/services";
 import { requirementTypes } from "../data/site";
 import { contact, whatsappLink, mailtoLink } from "../data/assets";
 
+/**
+ * Set VITE_FORM_ENDPOINT in a local .env file to connect this form to a working
+ * backend. Without it the form deliberately prepares the enquiry and clearly
+ * hands it off to WhatsApp or email instead of pretending a submission worked.
+ */
+const FORM_ENDPOINT = import.meta.env.VITE_FORM_ENDPOINT || "";
+
 const initialValues = {
   fullName: "",
   companyName: "",
@@ -13,40 +20,60 @@ const initialValues = {
   country: "",
   requirement: "",
   productService: "",
-  quantity: "",
   message: "",
 };
 
 function validate(values) {
   const errors = {};
   if (!values.fullName.trim()) errors.fullName = "Please enter your full name.";
-  if (!values.email.trim()) errors.email = "Please enter your email address.";
-  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(values.email.trim()))
+
+  if (!values.email.trim()) {
+    errors.email = "Please enter your email address.";
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(values.email.trim())) {
     errors.email = "Please enter a valid email address.";
-  if (!values.requirement) errors.requirement = "Please select a requirement type.";
-  if (values.phone.trim() && !/^[+\d][\d\s\-()]{6,}$/.test(values.phone.trim()))
-    errors.phone = "Please enter a valid phone number.";
+  }
+
+  if (!values.phone.trim()) {
+    errors.phone = "Please enter your phone number.";
+  } else {
+    const digits = values.phone.replace(/\D/g, "");
+    if (digits.length < 7 || digits.length > 15) {
+      errors.phone = "Please enter a valid phone number (7–15 digits).";
+    }
+  }
+
+  if (!values.requirement) errors.requirement = "Please select what you are interested in.";
+  if (!values.productService.trim()) {
+    errors.productService = "Please tell us what product or service you need.";
+  }
+
   return errors;
 }
 
 export default function EnquiryForm({ seed }) {
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState({});
+  const [status, setStatus] = useState("idle");
+  const [feedback, setFeedback] = useState("");
   const [prepared, setPrepared] = useState(null);
   const [copied, setCopied] = useState(false);
 
-  const options = useMemo(() => {
-    const productNames = products.map((product) => product.name).filter(Boolean);
-    const serviceNames = services.map((service) => service.title).filter(Boolean);
-    return [
-      { group: "Products", items: productNames },
-      { group: "Services", items: serviceNames },
-    ].filter((entry) => entry.items.length);
-  }, []);
+  const suggestions = useMemo(
+    () =>
+      Array.from(
+        new Set([
+          ...products.map((product) => product.name).filter(Boolean),
+          ...services.map((service) => service.title).filter(Boolean),
+        ])
+      ),
+    []
+  );
 
   useEffect(() => {
     if (!seed) return;
     setPrepared(null);
+    setStatus("idle");
+    setFeedback("");
     setValues((current) => ({
       ...current,
       requirement: seed.requirement || current.requirement,
@@ -69,27 +96,53 @@ export default function EnquiryForm({ seed }) {
       `Enquiry from ${data.fullName}`,
       data.companyName ? `Company: ${data.companyName}` : "",
       `Email: ${data.email}`,
-      data.phone ? `Phone: ${data.phone}` : "",
+      `Phone: ${data.phone}`,
       data.country ? `Country: ${data.country}` : "",
-      `Requirement type: ${data.requirement}`,
-      data.productService ? `Product / Service: ${data.productService}` : "",
-      data.quantity ? `Quantity / Requirement: ${data.quantity}` : "",
+      `Interested in: ${data.requirement}`,
+      `Product / service requirement: ${data.productService}`,
     ].filter(Boolean);
     lines.push("", data.message || "(No additional message)");
     return lines.join("\n");
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const found = validate(values);
     setErrors(found);
+
     if (Object.keys(found).length) {
       const firstField = Object.keys(found)[0];
       document.getElementById(firstField)?.focus();
       return;
     }
-    setPrepared({ text: compose(values), subject: `PrajtamEx enquiry – ${values.requirement}` });
+
+    const text = compose(values);
+    const subject = `PrajtamEx enquiry – ${values.requirement}`;
     setCopied(false);
+    setFeedback("");
+
+    if (!FORM_ENDPOINT) {
+      setPrepared({ text, subject });
+      return;
+    }
+
+    setStatus("submitting");
+    try {
+      const response = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ ...values, subject, source: "prajtamex-website" }),
+      });
+      if (!response.ok) throw new Error(`Request failed with status ${response.status}`);
+      setPrepared(null);
+      setStatus("success");
+    } catch {
+      setFeedback(
+        "We couldn’t send your enquiry right now. You can still send it directly using WhatsApp or email below."
+      );
+      setPrepared({ text, subject });
+      setStatus("error");
+    }
   };
 
   const copy = async () => {
@@ -117,16 +170,46 @@ export default function EnquiryForm({ seed }) {
       </span>
     ) : null;
 
+  if (status === "success") {
+    return (
+      <div className="form form--prepared" role="status">
+        <span className="form__prepared-icon" aria-hidden="true">
+          <Icon name="check" size={24} />
+        </span>
+        <h3>Enquiry sent</h3>
+        <p>
+          Thank you, {values.fullName}. Your enquiry has been sent to PrajtamEx using the contact
+          details you provided.
+        </p>
+        <button
+          type="button"
+          className="btn btn--primary"
+          onClick={() => {
+            setValues(initialValues);
+            setErrors({});
+            setPrepared(null);
+            setFeedback("");
+            setCopied(false);
+            setStatus("idle");
+          }}
+        >
+          Send another enquiry
+        </button>
+      </div>
+    );
+  }
+
   if (prepared) {
     return (
       <div className="form form--prepared" role="status">
         <span className="form__prepared-icon" aria-hidden="true">
           <Icon name="check" size={24} />
         </span>
-        <h3>Your enquiry is ready</h3>
+        <h3>{status === "error" ? "Couldn’t send your enquiry" : "Your enquiry is ready"}</h3>
         <p>
-          Review the details below and choose how you would like to send them to PrajtamEx. Nothing
-          has been transmitted yet.
+          {status === "error"
+            ? feedback
+            : "Online submission is not connected yet. Review your details and send them directly to PrajtamEx using WhatsApp or email. Nothing has been transmitted yet."}
         </p>
         <pre className="form__preview">{prepared.text}</pre>
         <div className="form__send">
@@ -139,7 +222,10 @@ export default function EnquiryForm({ seed }) {
             <Icon name="chat" size={17} />
             Send via WhatsApp
           </a>
-          <a className="btn btn--primary" href={mailtoLink({ subject: prepared.subject, body: prepared.text })}>
+          <a
+            className="btn btn--primary"
+            href={mailtoLink({ subject: prepared.subject, body: prepared.text })}
+          >
             <Icon name="mail" size={17} />
             Send via Email
           </a>
@@ -148,7 +234,15 @@ export default function EnquiryForm({ seed }) {
             {copied ? "Copied" : "Copy enquiry"}
           </button>
         </div>
-        <button type="button" className="form__reset" onClick={() => setPrepared(null)}>
+        <button
+          type="button"
+          className="form__reset"
+          onClick={() => {
+            setPrepared(null);
+            setStatus("idle");
+            setFeedback("");
+          }}
+        >
           Edit enquiry
         </button>
       </div>
@@ -162,12 +256,23 @@ export default function EnquiryForm({ seed }) {
           <label htmlFor="fullName">
             Full Name <span aria-hidden="true">*</span>
           </label>
-          <input type="text" autoComplete="name" placeholder="Your full name" {...fieldProps("fullName")} />
+          <input
+            type="text"
+            autoComplete="name"
+            placeholder="Your full name"
+            required
+            {...fieldProps("fullName")}
+          />
           {errorText("fullName")}
         </div>
         <div className="form__field">
           <label htmlFor="companyName">Company Name</label>
-          <input type="text" autoComplete="organization" placeholder="Company / organisation" {...fieldProps("companyName")} />
+          <input
+            type="text"
+            autoComplete="organization"
+            placeholder="Company / organisation"
+            {...fieldProps("companyName")}
+          />
         </div>
       </div>
 
@@ -176,12 +281,27 @@ export default function EnquiryForm({ seed }) {
           <label htmlFor="email">
             Email <span aria-hidden="true">*</span>
           </label>
-          <input type="email" autoComplete="email" placeholder="name@company.com" {...fieldProps("email")} />
+          <input
+            type="email"
+            autoComplete="email"
+            placeholder="name@company.com"
+            required
+            {...fieldProps("email")}
+          />
           {errorText("email")}
         </div>
         <div className="form__field">
-          <label htmlFor="phone">Phone</label>
-          <input type="tel" autoComplete="tel" placeholder="+91 00000 00000" {...fieldProps("phone")} />
+          <label htmlFor="phone">
+            Phone <span aria-hidden="true">*</span>
+          </label>
+          <input
+            type="tel"
+            inputMode="tel"
+            autoComplete="tel"
+            placeholder="+91 00000 00000"
+            required
+            {...fieldProps("phone")}
+          />
           {errorText("phone")}
         </div>
       </div>
@@ -189,14 +309,19 @@ export default function EnquiryForm({ seed }) {
       <div className="form__row">
         <div className="form__field">
           <label htmlFor="country">Country</label>
-          <input type="text" autoComplete="country-name" placeholder="Your country" {...fieldProps("country")} />
+          <input
+            type="text"
+            autoComplete="country-name"
+            placeholder="Your country"
+            {...fieldProps("country")}
+          />
         </div>
         <div className="form__field">
           <label htmlFor="requirement">
-            Requirement Type <span aria-hidden="true">*</span>
+            Interested In <span aria-hidden="true">*</span>
           </label>
-          <select {...fieldProps("requirement")}>
-            <option value="">Select requirement</option>
+          <select required {...fieldProps("requirement")}>
+            <option value="">Select an option</option>
             {requirementTypes.map((type) => (
               <option key={type} value={type}>
                 {type}
@@ -207,27 +332,23 @@ export default function EnquiryForm({ seed }) {
         </div>
       </div>
 
-      <div className="form__row">
-        <div className="form__field">
-          <label htmlFor="productService">Product / Service</label>
-          <select {...fieldProps("productService")}>
-            <option value="">Select or type below</option>
-            {options.map((group) => (
-              <optgroup label={group.group} key={group.group}>
-                {group.items.map((item) => (
-                  <option key={item} value={item}>
-                    {item}
-                  </option>
-                ))}
-              </optgroup>
-            ))}
-            <option value="Other">Other</option>
-          </select>
-        </div>
-        <div className="form__field">
-          <label htmlFor="quantity">Quantity / Requirement</label>
-          <input type="text" placeholder="e.g. volume, frequency, timeline" {...fieldProps("quantity")} />
-        </div>
+      <div className="form__field">
+        <label htmlFor="productService">
+          Product / Service Requirement <span aria-hidden="true">*</span>
+        </label>
+        <input
+          type="text"
+          list="enquiry-suggestions"
+          placeholder="e.g. Coco pith, fertilizer, import support"
+          required
+          {...fieldProps("productService")}
+        />
+        <datalist id="enquiry-suggestions">
+          {suggestions.map((item) => (
+            <option key={item} value={item} />
+          ))}
+        </datalist>
+        {errorText("productService")}
       </div>
 
       <div className="form__field">
@@ -239,14 +360,24 @@ export default function EnquiryForm({ seed }) {
         />
       </div>
 
-      <button type="submit" className="btn btn--accent btn--block">
-        Send Enquiry
+      <button
+        type="submit"
+        className="btn btn--accent btn--block"
+        disabled={status === "submitting"}
+      >
+        {status === "submitting"
+          ? "Sending..."
+          : FORM_ENDPOINT
+          ? "Send Enquiry"
+          : "Prepare Enquiry"}
         <Icon name="arrowRight" size={16} />
       </button>
 
       <p className="form__hint">
-        This form prepares your enquiry — send it directly to PrajtamEx on WhatsApp
-        {" "}({contact.whatsappLabel}) or by email ({contact.email}).
+        <Icon name="info" size={15} />
+        {FORM_ENDPOINT
+          ? "Your enquiry will be sent directly to PrajtamEx using the contact details you provide."
+          : `Online submission is not connected yet. The next step lets you send your enquiry directly on WhatsApp (${contact.whatsappLabel}) or by email (${contact.email}).`}
       </p>
     </form>
   );

@@ -11,8 +11,8 @@ export default function Services({ onRequestQuote }) {
         <SectionHeading
           light
           label="OUR SERVICES"
-          title="Import Export and Services"
-          subtitle="Broad service categories that can grow with the company's product and business portfolio."
+          title="Our Services"
+          subtitle="Broad service categories built around import-export, agriculture and recycling industry requirements."
         />
 
         <div className="services__grid">
@@ -23,7 +23,13 @@ export default function Services({ onRequestQuote }) {
                   <Icon name={service.icon || "business"} size={24} />
                 </span>
                 {service.image && (
-                  <img className="service-card__image" src={service.image} alt="" loading="lazy" />
+                  <img
+                    className="service-card__image"
+                    src={service.image}
+                    alt={service.imageAlt || ""}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 )}
               </div>
               <h3 className="service-card__title">{service.title}</h3>
@@ -31,7 +37,9 @@ export default function Services({ onRequestQuote }) {
               <button
                 type="button"
                 className="service-card__link"
-                onClick={() => onRequestQuote({ requirement: "Business Service", product: service.title })}
+                onClick={() =>
+                  onRequestQuote({ requirement: "Business Support", product: service.title })
+                }
               >
                 Discuss this service
                 <Icon name="arrowRight" size={15} />
@@ -41,8 +49,8 @@ export default function Services({ onRequestQuote }) {
         </div>
 
         <p className="services__footnote" data-reveal>
-          Additional services can be added as the company's portfolio grows. Share your requirement
-          and we will respond with the relevant details.
+          Service details can be tailored to the requirement. Share what you are looking for and we
+          will respond with the relevant next steps.
         </p>
       </div>
     </section>

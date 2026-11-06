@@ -1,6 +1,6 @@
 import Logo from "./Logo";
 import Icon from "./Icon";
-import { navLinks, trustStrip } from "../data/site";
+import { navLinks } from "../data/site";
 import { company, contact, whatsappLink, whatsappMessages, mailtoLink } from "../data/assets";
 import { scrollToSection } from "../lib/scroll";
 
@@ -81,7 +81,8 @@ export default function Footer() {
             <li>
               <Icon name="users" size={16} />
               <span>
-                <strong>{contact.person}</strong>
+                <strong>{company.name}</strong>
+                <span className="footer__sub">{company.type}</span>
               </span>
             </li>
             <li>
@@ -108,12 +109,8 @@ export default function Footer() {
 
       <div className="footer__bottom">
         <div className="container footer__bottom-inner">
+          <p className="footer__line">{company.footerLine}</p>
           <p>{company.copyright}</p>
-          <ul className="footer__mini" aria-label="Areas of focus">
-            {trustStrip.slice(0, 4).map((item) => (
-              <li key={item.id}>{item.label}</li>
-            ))}
-          </ul>
         </div>
       </div>
     </footer>

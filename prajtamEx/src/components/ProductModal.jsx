@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import Icon from "./Icon";
 import AssetImage from "./AssetImage";
 import { lockScroll } from "../lib/scroll";
-import { whatsappLink, whatsappMessages } from "../data/assets";
+import { whatsappLink } from "../data/assets";
 
 function DetailList({ title, items, fallback = "Details available on request" }) {
   const hasItems = Array.isArray(items) && items.length > 0;
@@ -83,7 +83,11 @@ export default function ProductModal({ product, onClose, onRequestQuote }) {
 
         <div className="modal__media">
           {product.image ? (
-            <AssetImage src={product.image} alt={product.name || "Product image"} label="PrajtamEx" />
+            <AssetImage
+              src={product.image}
+              alt={product.imageAlt || product.name || "Product image"}
+              label="PrajtamEx"
+            />
           ) : (
             <div className="modal__placeholder" aria-hidden="true">
               <Icon name="image" size={38} />
@@ -112,12 +116,14 @@ export default function ProductModal({ product, onClose, onRequestQuote }) {
               className="btn btn--primary"
               onClick={() => onRequestQuote(product)}
             >
-              Send Enquiry
+              Enquire Now
               <Icon name="arrowRight" size={16} />
             </button>
             <a
               className="btn btn--whatsapp"
-              href={whatsappLink(whatsappMessages.product)}
+              href={whatsappLink(
+                `Hello PrajtamEx, I am interested in ${product.name}. Please share more details.`
+              )}
               target="_blank"
               rel="noopener noreferrer"
             >

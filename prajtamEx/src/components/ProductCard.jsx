@@ -1,5 +1,4 @@
 import Icon from "./Icon";
-import AssetImage from "./AssetImage";
 
 function hasList(value) {
   return Array.isArray(value) && value.length > 0;
@@ -18,7 +17,12 @@ export default function ProductCard({ product, onView, onRequestQuote }) {
     <article className="product-card" data-reveal>
       <div className="product-card__media">
         {product.image ? (
-          <AssetImage src={product.image} alt={product.name || "Product image"} label="PrajtamEx" />
+          <img
+            src={product.image}
+            alt={product.imageAlt || product.name || "Product image"}
+            loading="lazy"
+            decoding="async"
+          />
         ) : (
           <div className="product-card__placeholder" aria-hidden="true">
             <Icon name="image" size={30} />
@@ -49,10 +53,10 @@ export default function ProductCard({ product, onView, onRequestQuote }) {
 
         <div className="product-card__actions">
           <button type="button" className="btn btn--outline btn--sm" onClick={onView}>
-            View Details
+            Details
           </button>
           <button type="button" className="btn btn--primary btn--sm" onClick={onRequestQuote}>
-            Request Quote
+            Enquire Now
           </button>
         </div>
       </div>

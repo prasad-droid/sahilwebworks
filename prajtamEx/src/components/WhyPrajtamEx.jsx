@@ -9,7 +9,7 @@ export default function WhyPrajtamEx() {
         <SectionHeading
           id="why"
           label="WHY PRAJTAMEX"
-          title="Why Connect With PrajtamEx?"
+          title="Why Work With PrajtamEx?"
           subtitle="Clear areas of focus for buyers, sellers and business partners looking for the right connection."
         />
 

@@ -28,7 +28,7 @@ export default function Contact({ seed }) {
                 </span>
                 <span>
                   <strong>{company.name}</strong>
-                  <span className="contact__sub">Contact Person: {contact.person}</span>
+                  <span className="contact__sub">{company.type}</span>
                 </span>
               </li>
               <li>
@@ -46,7 +46,11 @@ export default function Contact({ seed }) {
                 </span>
                 <span>
                   <span className="contact__sub">WhatsApp</span>
-                  <a href={whatsappLink(whatsappMessages.general)} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={whatsappLink(whatsappMessages.general)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {contact.whatsappLabel}
                   </a>
                 </span>

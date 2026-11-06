@@ -3,8 +3,8 @@
 .footer {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(180deg, #0b241b 0%, #07160f 100%);
-  color: rgba(247, 243, 233, 0.72);
+  background: linear-gradient(180deg, #0B241C 0%, #07160F 100%);
+  color: rgba(247, 248, 242, 0.72);
   padding-top: clamp(3.5rem, 6vw, 5rem);
 }
 
@@ -15,7 +15,7 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(195, 154, 74, 0.65), transparent);
+  background: linear-gradient(90deg, transparent, rgba(108, 155, 85, 0.65), transparent);
 }
 
 .footer__grid {
@@ -48,7 +48,7 @@
   margin-top: 0.75rem;
   font-size: 0.9rem;
   line-height: 1.75;
-  color: rgba(247, 243, 233, 0.6);
+  color: rgba(247, 248, 242, 0.6);
   max-width: 42ch;
 }
 
@@ -66,7 +66,7 @@
   place-items: center;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.16);
-  color: rgba(247, 243, 233, 0.85);
+  color: rgba(247, 248, 242, 0.85);
   transition: background 0.35s var(--ease), color 0.35s var(--ease),
     transform 0.35s var(--ease), border-color 0.35s var(--ease);
 }
@@ -75,7 +75,7 @@
   transform: translateY(-3px);
   background: var(--accent);
   border-color: transparent;
-  color: #241a06;
+  color: #14251D;
 }
 
 .footer__social-btn--wa:hover {
@@ -104,14 +104,14 @@
   align-items: flex-start;
   gap: 0.55rem;
   font-size: 0.9rem;
-  color: rgba(247, 243, 233, 0.68);
+  color: rgba(247, 248, 242, 0.68);
 }
 
 .footer__col li a {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: rgba(247, 243, 233, 0.72);
+  color: rgba(247, 248, 242, 0.72);
   transition: color 0.3s var(--ease), transform 0.3s var(--ease);
   word-break: break-word;
 }
@@ -150,7 +150,7 @@
   justify-content: space-between;
   gap: 0.9rem;
   font-size: 0.84rem;
-  color: rgba(247, 243, 233, 0.62);
+  color: rgba(247, 248, 242, 0.62);
 }
 
 @media (min-width: 641px) {
@@ -167,7 +167,7 @@
   font-weight: 600;
   letter-spacing: 0.11em;
   text-transform: uppercase;
-  color: rgba(247, 243, 233, 0.62);
+  color: rgba(247, 248, 242, 0.62);
 }
 
 /* ---------- responsive ---------- */

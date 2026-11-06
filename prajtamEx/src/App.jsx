@@ -3,9 +3,8 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import TrustStrip from "./components/TrustStrip";
 import About from "./components/About";
-import BusinessFocus from "./components/BusinessFocus";
-import Products from "./components/Products";
 import Services from "./components/Services";
+import Products from "./components/Products";
 import GlobalMarkets from "./components/GlobalMarkets";
 import Portfolio from "./components/Portfolio";
 import Process from "./components/Process";
@@ -23,15 +22,18 @@ export default function App() {
   const [seed, setSeed] = useState(null);
 
   useEffect(() => {
-    const ids = navLinks.map((link) => link.id);
+    const targets = navLinks.flatMap((link) =>
+      (link.match || [link.id]).map((id) => ({ id, activeId: link.id }))
+    );
+
     const onScroll = () => {
       const marker = window.scrollY + 160;
-      let current = ids[0];
-      ids.forEach((id) => {
+      let current = targets[0]?.activeId || "home";
+      targets.forEach(({ id, activeId }) => {
         const el = document.getElementById(id);
         if (!el) return;
         const top = el.getBoundingClientRect().top + window.scrollY;
-        if (top <= marker) current = id;
+        if (top <= marker) current = activeId;
       });
       setActive(current);
     };
@@ -79,7 +81,7 @@ export default function App() {
 
     document.querySelectorAll("[data-reveal]").forEach(attach);
 
-    // reveal elements added later (filter changes, dynamic states)
+    // Reveal elements added later (filter changes, dynamic states).
     const mutations = new MutationObserver((records) => {
       records.forEach((record) => {
         record.addedNodes.forEach(attachTree);
@@ -110,11 +112,10 @@ export default function App() {
         <Hero />
         <TrustStrip />
         <About />
-        <BusinessFocus />
-        <Products onRequestQuote={openEnquiry} />
         <Services onRequestQuote={openEnquiry} />
+        <Products onRequestQuote={openEnquiry} />
         <GlobalMarkets />
-        <Portfolio />
+        <Portfolio onRequestQuote={openEnquiry} />
         <Process />
         <WhyPrajtamEx />
         <Testimonials />

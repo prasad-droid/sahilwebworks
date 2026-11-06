@@ -13,8 +13,8 @@ export default function Hero() {
       <div className="hero__media">
         <img
           className="hero__image"
-          src="/images/agriculture/fields-aerial.jpg"
-          alt="Aerial view of lush green agricultural fields — representative industry imagery"
+          src="/images/agriculture/farmland-panorama.jpg"
+          alt="Aerial view of green farmland and agricultural fields"
           fetchPriority="high"
           decoding="async"
         />
@@ -34,32 +34,26 @@ export default function Hero() {
           {heroEyebrow}
         </p>
         <h1 className="hero__title" data-reveal>
-          CONNECTING MARKET WORLWIDE
+          Connecting Markets Worldwide
         </h1>
-        <p className="hero__subtitle" data-reveal>
-          Connecting Products, Businesses and Opportunities Across Markets
-        </p>
         <p className="hero__text" data-reveal>
-          PrajtamEx operates in import, export and services, with a focus on agriculture-related
-          markets and recycling companies.
+          Your trusted partner in import, export and business services, connecting opportunities
+          across agriculture and recycling industries.
         </p>
         <div className="hero__actions" data-reveal>
           <a className="btn btn--accent" href="#products" onClick={go("products")}>
-            Explore Products
+            Explore Our Products
             <Icon name="arrowRight" size={17} />
           </a>
-          <a className="btn btn--ghost-light" href="#services" onClick={go("services")}>
-            View Our Services
-          </a>
           <a className="btn btn--ghost-light" href="#contact" onClick={go("contact")}>
-            Contact Us
+            Get in Touch
           </a>
         </div>
       </div>
 
       <ul className="hero__cards" aria-label="Core focus areas">
-        {heroHighlights.map((item) => (
-          <li className="hero__card" key={item.id}>
+        {heroHighlights.map((item, index) => (
+          <li className="hero__card" key={item.id} style={{ "--i": index }}>
             <img src={item.image} alt="" aria-hidden="true" loading="lazy" decoding="async" />
             <span className="hero__card-body">
               <span className="hero__card-icon">

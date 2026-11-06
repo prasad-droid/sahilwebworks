@@ -1,26 +1,25 @@
 import { useState } from "react";
-import { company, driveThumbUrl, suppliedAssets } from "../data/assets";
+import { company, suppliedAssets } from "../data/assets";
 
 /**
- * Supplied PrajtamEx logo with graceful degradation:
- * local file -> public Google Drive file -> typographic wordmark.
+ * Local PrajtamEx logo with a typographic fallback so the brand never breaks.
+ * Replace /public/images/logo.svg with the final supplied logo when available.
  */
 export default function Logo({ light = false, withTagline = false }) {
-  const [stage, setStage] = useState(0);
+  const [failed, setFailed] = useState(false);
   const asset = suppliedAssets.logo;
-  const sources = [asset.local, driveThumbUrl(asset.driveId, 600)];
 
   return (
     <span className={`logo ${light ? "logo--light" : ""}`}>
-      {stage < sources.length ? (
+      {!failed ? (
         <img
           className="logo__image"
-          src={sources[stage]}
+          src={asset.local}
           alt={asset.alt}
-          width="140"
+          width="180"
           height="44"
           decoding="async"
-          onError={() => setStage((s) => s + 1)}
+          onError={() => setFailed(true)}
         />
       ) : (
         <span className="logo__wordmark" aria-label={company.name}>

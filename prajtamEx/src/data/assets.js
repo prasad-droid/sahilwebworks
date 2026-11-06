@@ -1,38 +1,31 @@
 /**
- * Single source of truth for supplied company assets and contact details.
+ * Single source of truth for company details, contact links and local imagery.
  *
- * Supplied Google Drive files are referenced twice:
- *   1. `local`  -> production source (drop the downloaded file at this path in /public)
- *   2. `driveId`-> fallback used automatically when the local file is missing AND the
- *                 Drive file has been shared as "anyone with the link".
- *
- * Download links (supplied by the client):
- *   Logo    https://drive.google.com/open?id=1wrodWrHGCxtR6xhQ1YRnSiPNY7mXktFH
- *   Image 1 https://drive.google.com/open?id=1kUui75rchazq7z0f-R7kPXI1dSYU4Bim
- *   Image 2 https://drive.google.com/open?id=1bjox_nmobRxKB3gYiaGfMCOCeApKl2oS
- *   Image 3 https://drive.google.com/open?id=1aJMx9scJBuEmf7Zk-mS29MRUEbdpIw7a
- *   Image 4 https://drive.google.com/open?id=1yS_jNb4He3_9bRWVhoJ0NeRtbSHjULt7
+ * Every photograph on the site is served from /public/images so the page has no
+ * runtime dependency on third-party image hosts. Replace the logo placeholder at
+ * /public/images/logo.svg with the supplied business logo when it is available.
  */
 
 export const company = {
   name: "PrajtamEx",
-  tagline: "CONNECTING MARKET WORLWIDE",
-  taglineShort: "Connecting Market Worldwide",
-  type: "Import Export and Services",
+  tagline: "Connecting Markets Worldwide",
+  type: "Import, Export and Services",
   description:
-    "Import Export and Services focused primarily on agriculture-related markets and recycling companies.",
+    "PrajtamEx is an import-export and services business focused on agriculture-related industries and recycling companies.",
   position:
-    "PrajtamEx is an Import Export and Services company focused primarily on agriculture-related markets and recycling companies.",
+    "PrajtamEx is an import-export and services business focused primarily on agriculture-related industries and recycling companies.",
+  footerLine: "PrajtamEx – Connecting Markets Worldwide.",
   copyright: "© 2026 PrajtamEx. All Rights Reserved.",
 };
 
 export const contact = {
-  person: "Prajakta Palaskar",
-  phoneLabel: "+91 7620429527",
+  // Country code +91 is assumed from the supplied Indian mobile numbers.
+  // Confirm both numbers with the business owner before launch.
+  phoneLabel: "+91 76204 29527",
   phoneDial: "+917620429527",
-  whatsappLabel: "+91 9763941221",
+  whatsappLabel: "+91 97639 41221",
   whatsappDigits: "919763941221",
-  email: "praujpalaskar1997@gmail.com",
+  email: "prajupalaskar1997@gmail.com",
 };
 
 export const whatsappMessages = {
@@ -52,44 +45,34 @@ export function mailtoLink({ subject = "Enquiry – PrajtamEx", body = "" } = {}
   return `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
+/**
+ * The four photographs supplied for the business are the coco pith and
+ * fertilizer images. They are kept under /public/images so they can be swapped
+ * for final product photography without touching component code.
+ */
 export const suppliedAssets = {
   logo: {
-    id: "logo",
-    local: "/images/logo.png",
-    driveId: "1wrodWrHGCxtR6xhQ1YRnSiPNY7mXktFH",
-    link: "https://drive.google.com/open?id=1wrodWrHGCxtR6xhQ1YRnSiPNY7mXktFH",
-    alt: "PrajtamEx company logo",
+    local: "/images/logo.svg",
+    alt: "PrajtamEx — Connecting Markets Worldwide",
   },
   image1: {
     id: "image-1",
-    local: "/images/gallery/prajtamex-1.jpg",
-    driveId: "1kUui75rchazq7z0f-R7kPXI1dSYU4Bim",
-    link: "https://drive.google.com/open?id=1kUui75rchazq7z0f-R7kPXI1dSYU4Bim",
-    alt: "PrajtamEx supplied business image",
+    local: "/images/agriculture/coco-pith-1.jpg",
+    alt: "Coco pith product image supplied by PrajtamEx",
   },
   image2: {
     id: "image-2",
-    local: "/images/gallery/prajtamex-2.jpg",
-    driveId: "1bjox_nmobRxKB3gYiaGfMCOCeApKl2oS",
-    link: "https://drive.google.com/open?id=1bjox_nmobRxKB3gYiaGfMCOCeApKl2oS",
-    alt: "PrajtamEx supplied business image",
+    local: "/images/agriculture/coco-pith-2.jpg",
+    alt: "Coco pith product image supplied by PrajtamEx",
   },
   image3: {
     id: "image-3",
-    local: "/images/gallery/prajtamex-3.jpg",
-    driveId: "1aJMx9scJBuEmf7Zk-mS29MRUEbdpIw7a",
-    link: "https://drive.google.com/open?id=1aJMx9scJBuEmf7Zk-mS29MRUEbdpIw7a",
-    alt: "PrajtamEx supplied business image",
+    local: "/images/fertilizer/fertilizer-1.jpg",
+    alt: "Fertilizer product image supplied by PrajtamEx",
   },
   image4: {
     id: "image-4",
-    local: "/images/gallery/prajtamex-4.jpg",
-    driveId: "1yS_jNb4He3_9bRWVhoJ0NeRtbSHjULt7",
-    link: "https://drive.google.com/open?id=1yS_jNb4He3_9bRWVhoJ0NeRtbSHjULt7",
-    alt: "PrajtamEx supplied business image",
+    local: "/images/fertilizer/fertilizer-process.jpg",
+    alt: "Fertilizer process image supplied by PrajtamEx",
   },
 };
-
-export function driveThumbUrl(driveId, width = 1400) {
-  return `https://drive.google.com/thumbnail?id=${driveId}&sz=w${width}`;
-}

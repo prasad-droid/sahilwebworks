@@ -5,73 +5,65 @@
 
 export const navLinks = [
   { id: "home", label: "Home" },
-  { id: "about", label: "About" },
-  { id: "products", label: "Products" },
-  { id: "services", label: "Services" },
-  { id: "global-markets", label: "Global Markets" },
-  { id: "portfolio", label: "Portfolio" },
-  { id: "contact", label: "Contact" },
+  { id: "about", label: "About Us" },
+  { id: "services", label: "Services / Products", match: ["services", "products"] },
+  {
+    id: "portfolio",
+    label: "Portfolio",
+    match: ["portfolio", "global-markets", "process", "gallery"],
+  },
+  { id: "testimonials", label: "Testimonials" },
+  { id: "contact", label: "Contact Us" },
 ];
 
 export const heroEyebrow = "IMPORT • EXPORT • AGRICULTURE • RECYCLING";
 
 export const heroHighlights = [
-  { id: "hero-agri", icon: "leaf", label: "Agriculture", image: "/images/agriculture/spice-bazaar.jpg" },
-  { id: "hero-recycle", icon: "recycle", label: "Recycling", image: "/images/recycling/metal-cubes.jpg" },
-  { id: "hero-trade", icon: "ship", label: "Import & Export", image: "/images/trade/container-port.jpg" },
+  {
+    id: "hero-trade",
+    icon: "ship",
+    label: "Global Trade",
+    image: "/images/trade/container-ship.jpg",
+  },
+  {
+    id: "hero-agri",
+    icon: "leaf",
+    label: "Agriculture",
+    image: "/images/agriculture/harvester.jpg",
+  },
+  {
+    id: "hero-recycle",
+    icon: "recycle",
+    label: "Recycling & Sustainability",
+    image: "/images/recycling/metal-cubes.jpg",
+  },
 ];
 
 export const trustStrip = [
   { id: "trust-1", icon: "ship", label: "Import & Export" },
   { id: "trust-2", icon: "leaf", label: "Agriculture Focus" },
   { id: "trust-3", icon: "recycle", label: "Recycling Sector" },
-  { id: "trust-4", icon: "package", label: "Product Portfolio" },
-  { id: "trust-5", icon: "globe", label: "Global Markets" },
+  { id: "trust-4", icon: "globe", label: "Global Markets" },
+  { id: "trust-5", icon: "package", label: "Product Portfolio" },
   { id: "trust-6", icon: "briefcase", label: "Business Services" },
-];
-
-export const focusPillars = [
-  {
-    id: "focus-agriculture",
-    number: "01",
-    title: "Agriculture",
-    description:
-      "Focused on opportunities related to the agriculture sector and agricultural products.",
-    image: "/images/agriculture/grain-spice-market.jpg",
-    imageAlt:
-      "Wholesale market stall stacked with sacks of grains and spices — representative industry imagery",
-    points: ["Agricultural products", "Agri-related markets", "Buyer & supplier connections"],
-    stock: true,
-  },
-  {
-    id: "focus-recycling",
-    number: "02",
-    title: "Recycling",
-    description:
-      "Focused on business opportunities and products related to recycling companies and the recycling sector.",
-    image: "/images/recycling/scrap-crane.jpg",
-    imageAlt:
-      "Magnet crane handling scrap metal inside an industrial recycling yard — representative industry imagery",
-    points: ["Recycling companies", "Recovered materials", "Circular economy trade"],
-    stock: true,
-  },
 ];
 
 export const portfolioAreas = [
   {
     id: "portfolio-agriculture",
     title: "Agriculture",
-    description: "Agriculture-related products and opportunities.",
-    image: "/images/agriculture/fields-aerial.jpg",
-    imageAlt: "Aerial view of green agricultural fields — representative industry imagery",
-    stock: true,
+    description: "Agriculture-related products and business opportunities.",
+    image: "/images/agriculture/coco-pith-3.jpg",
+    imageAlt: "Coco pith product imagery supplied by PrajtamEx",
+    stock: false,
   },
   {
     id: "portfolio-recycling",
     title: "Recycling",
-    description: "Recycling-sector related business opportunities.",
-    image: "/images/recycling/recyclable-stacks.jpg",
-    imageAlt: "Aerial view of sorted recyclable material stacks — representative industry imagery",
+    description: "Business connections and trade opportunities for recycling companies.",
+    image: "/images/recycling/scrap-crane.jpg",
+    imageAlt:
+      "Magnet crane handling scrap metal inside a recycling yard — representative industry imagery",
     stock: true,
   },
   {
@@ -79,7 +71,7 @@ export const portfolioAreas = [
     title: "Import & Export",
     description: "International and domestic trading opportunities.",
     image: "/images/trade/port-cranes.jpg",
-    imageAlt: "Cranes loading a container ship at a commercial port — representative industry imagery",
+    imageAlt: "Container cranes at a commercial port — representative industry imagery",
     stock: true,
   },
 ];
@@ -101,7 +93,7 @@ export const processSteps = [
     id: "process-coordinate",
     number: "03",
     title: "Coordinate",
-    description: "Coordinate the relevant business/trading process.",
+    description: "Coordinate the relevant business or trading process.",
   },
   {
     id: "process-grow",
@@ -113,50 +105,42 @@ export const processSteps = [
 
 export const whyItems = [
   {
-    id: "why-connectivity",
-    icon: "link",
-    title: "Market Connectivity",
-    description: "Focused on connecting businesses and markets.",
-  },
-  {
-    id: "why-agriculture",
-    icon: "leaf",
-    title: "Agriculture Focus",
-    description: "Focused on opportunities within agriculture-related markets.",
-  },
-  {
-    id: "why-recycling",
-    icon: "recycle",
-    title: "Recycling Sector",
-    description: "Focused on opportunities related to recycling companies.",
-  },
-  {
-    id: "why-import-export",
+    id: "why-connections",
     icon: "globe",
-    title: "Import & Export",
-    description: "Built around international and domestic trading opportunities.",
+    title: "Global Business Connections",
+    description:
+      "Focused on connecting buyers, suppliers and business partners across domestic and international markets.",
   },
   {
-    id: "why-portfolio",
-    icon: "layers",
-    title: "Growing Portfolio",
-    description: "Designed to support an expanding range of products and services.",
+    id: "why-focus",
+    icon: "leaf",
+    title: "Agriculture & Recycling Focus",
+    description:
+      "Built around opportunities in agriculture-related industries and the recycling sector.",
   },
   {
-    id: "why-enquiry",
+    id: "why-customer",
     icon: "chat",
-    title: "Direct Enquiry",
-    description: "Easy access through phone, WhatsApp and email.",
+    title: "Customer-Focused Approach",
+    description:
+      "Every enquiry starts with understanding the requirement and responding with relevant next steps.",
+  },
+  {
+    id: "why-long-term",
+    icon: "link",
+    title: "Long-Term Business Relationships",
+    description:
+      "A relationship-led approach that supports repeat business and lasting market connections.",
   },
 ];
 
 export const requirementTypes = [
   "Product Enquiry",
-  "Import",
-  "Export",
-  "Agriculture",
-  "Recycling",
-  "Business Service",
+  "Import Services",
+  "Export Services",
+  "Agriculture Trade",
+  "Recycling Industry",
+  "Business Support",
   "Other",
 ];
 

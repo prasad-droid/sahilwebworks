@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { submitEnquiry } from "../api";
 import { useSite } from "../store/SiteContext";
+import { WHATSAPP_TEL } from "../data/site";
 import "../styles/enquiryForm.css";
 import "../styles/forms.css";
 
@@ -32,14 +33,14 @@ const FIELDS = [
   },
 ];
 
-const WHATSAPP_NUMBER = "919405000111";
+const FALLBACK_WHATSAPP = WHATSAPP_TEL;
 
 export default function EnquiryForm() {
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
   const { settings } = useSite();
-  const whatsappNumber = settings?.contact?.whatsapp || WHATSAPP_NUMBER;
+  const whatsappNumber = settings?.contact?.whatsapp || FALLBACK_WHATSAPP;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -50,9 +51,10 @@ export default function EnquiryForm() {
   };
 
   const buildWhatsAppUrl = () => {
-    const parts = [
-      "Hello SUGI INTERNATIONAL PRIVATE LIMITED, I would like to discuss an agro commodity sourcing requirement.",
-    ];
+    const intro =
+      settings?.whatsappIntro ||
+      `Hello ${settings?.siteName || "SUGI INTERNATIONAL PRIVATE LIMITED"}, I would like to discuss an agro commodity sourcing requirement.`;
+    const parts = [intro];
     if (values.fullName) parts.push(`Name: ${values.fullName}`);
     if (values.company) parts.push(`Company: ${values.company}`);
     if (values.commodity) parts.push(`Product/Commodity: ${values.commodity}`);

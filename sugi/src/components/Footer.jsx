@@ -1,11 +1,11 @@
 import { Link } from "../router";
 import { useSite } from "../store/SiteContext";
+import { socialLinks as socialFromSettings } from "../store/social";
 import {
   NAV_LINKS,
   EMAIL,
   PHONE_DISPLAY,
   ADDRESS,
-  SOCIAL_LINKS,
   COMPANY,
 } from "../data/site";
 import "../styles/footer.css";
@@ -25,22 +25,13 @@ function SocialIcon({ label }) {
   return <svg {...common}><path d="M17.5 3h3.2l-7 8 8.3 10h-6.5l-5-6.1L4.6 21H1.4l7.5-8.6L1 3h6.7l4.6 5.6zm-1.1 16.1h1.8L7.7 4.8H5.8z" /></svg>;
 }
 
-function socialFromSettings(settingsSocial, fallback) {
-  const map = {
-    LinkedIn: settingsSocial?.linkedin,
-    Facebook: settingsSocial?.facebook,
-    Instagram: settingsSocial?.instagram,
-    X: settingsSocial?.twitter,
-  };
-  const configured = fallback
-    .map((s) => (map[s.label] ? { label: s.label, href: map[s.label] } : s))
-    .filter((s) => s.href);
-  return configured;
-}
-
 export default function Footer() {
-  const { settings } = useSite();
+  const { settings, content } = useSite();
   const contact = settings?.contact || {};
+  const footer = content?.footer || {};
+  const navLinks = (content?.header?.nav?.length ? content.header.nav : NAV_LINKS).filter(
+    (link) => link && link.to
+  );
   const companyName = settings?.siteName || COMPANY;
   const phoneDisplay = contact.phone || PHONE_DISPLAY;
   const phoneTel = `tel:${String(phoneDisplay).replace(/[^\d+]/g, "")}`;
@@ -48,9 +39,14 @@ export default function Footer() {
   const address = contact.address || contact.city
     ? [contact.address, contact.city, contact.country].filter(Boolean).join(", ")
     : ADDRESS;
-  const socialLinks = socialFromSettings(settings?.social, SOCIAL_LINKS);
+  const socialLinks = socialFromSettings(settings?.social);
+  const description = footer.description || settings?.footerNote || "";
 
   const mapQuery = encodeURIComponent(`${companyName}, ${address === "India" ? "" : address}`.trim());
+
+  const copyright = (footer.copyright || "© {year} {company}. All rights reserved.")
+    .replaceAll("{year}", String(new Date().getFullYear()))
+    .replaceAll("{company}", companyName);
 
   return (
     <footer className="footer">
@@ -58,11 +54,10 @@ export default function Footer() {
         <div className="footer__grid">
           <div className="footer__brand">
             <span className="footer__brand-name">{companyName}</span>
-            <span className="footer__brand-sub">EXPORT · IMPORT · DISTRIBUTION</span>
+            <span className="footer__brand-sub">{footer.brandSub || "EXPORT · IMPORT · DISTRIBUTION"}</span>
             <p className="footer__desc">
-              Exporter of Indian origin fresh fruits, vegetables, spices and
-              agricultural products, and importer of premium dry fruits
-              processed and distributed across India and worldwide.
+              {description ||
+                "Exporter of Indian origin fresh fruits, vegetables, spices and agricultural products, and importer of premium dry fruits processed and distributed across India and worldwide."}
             </p>
 
             <ul className="footer__social" aria-label="Social media">
@@ -77,21 +72,21 @@ export default function Footer() {
           </div>
 
           <nav className="footer__col" aria-label="Footer">
-            <h3 className="footer__heading">Navigation</h3>
+            <h3 className="footer__heading">{footer.navigationHeading || "Navigation"}</h3>
             <ul>
-              {NAV_LINKS.map((l) => (
+              {navLinks.map((l) => (
                 <li key={l.to}>
                   <Link to={l.to} className="footer__link">{l.label}</Link>
                 </li>
               ))}
               <li>
-                <Link to="/privacy" className="footer__link">Privacy Policy</Link>
+                <Link to="/privacy" className="footer__link">{footer.privacyLabel || "Privacy Policy"}</Link>
               </li>
             </ul>
           </nav>
 
           <div className="footer__col">
-            <h3 className="footer__heading">Contact</h3>
+            <h3 className="footer__heading">{footer.contactHeading || "Contact"}</h3>
             <ul className="footer__contact">
               <li>
                 <a href={`mailto:${email}`} className="footer__link">{email}</a>
@@ -106,7 +101,7 @@ export default function Footer() {
           </div>
 
           <div className="footer__col footer__col--map">
-            <h3 className="footer__heading">Find Us</h3>
+            <h3 className="footer__heading">{footer.findUsHeading || "Find Us"}</h3>
             <div className="footer__map">
               <iframe
                 title="Map showing our location"
@@ -120,7 +115,7 @@ export default function Footer() {
         </div>
 
         <div className="footer__bottom">
-          <p>© 2026 {companyName}. All rights reserved.</p>
+          <p>{copyright}</p>
         </div>
       </div>
     </footer>

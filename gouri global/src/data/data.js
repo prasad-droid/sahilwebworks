@@ -203,8 +203,12 @@ export const socialLinks = [
   { label: 'LinkedIn', icon: 'linkedin', href: 'https://www.linkedin.com/in/gouri-global-trade-undefined-58045b428' },
 ];
 
+// Online store link — used by the "Buy Online" buttons.
+export const onlineStoreLink = 'https://dealdosti.co.in/store/gouri-global-trade-146';
+
 // Marketplace product links shown in the footer.
 export const marketplaceLinks = [
+  { label: 'DealDosti', href: onlineStoreLink },
   { label: 'Amazon', href: 'https://amzn.in/d/0cneZkBQ' },
   { label: 'Flipkart', href: 'https://dl.flipkart.com/s/tGwoddNNNN' },
 ];

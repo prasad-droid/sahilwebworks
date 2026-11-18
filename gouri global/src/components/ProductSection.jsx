@@ -1,4 +1,4 @@
-import { products } from '../data/data';
+import { onlineStoreLink, products } from '../data/data';
 import { waLink } from '../utils/whatsapp';
 import Reveal from './Reveal';
 import ProductCard from './ProductCard';
@@ -81,6 +81,14 @@ export default function ProductSection() {
                 <button className="btn btn--accent" onClick={handleWhatsAppGhee}>
                   Enquire via WhatsApp
                 </button>
+                <a
+                  className="btn btn--outline"
+                  href={onlineStoreLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Buy Online
+                </a>
               </div>
             </div>
           </div>

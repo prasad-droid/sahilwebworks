@@ -15,9 +15,16 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const route = useRoute();
   const activePath = route.startsWith("/products") ? "/products" : route;
-  const { settings } = useSite();
+  const { settings, content } = useSite();
   const siteName = settings?.siteName || COMPANY;
   const siteTagline = settings?.tagline || TAGLINE;
+  const header = content?.header || {};
+  const logo = header.logo || logoMark;
+  const navLinks = (header.nav?.length ? header.nav : NAV_LINKS).filter(
+    (link) => link && link.to
+  );
+  const ctaLabel = header.ctaLabel || "Get a Quote";
+  const ctaHref = header.ctaHref || "/quote";
 
   return (
     <>
@@ -25,7 +32,7 @@ export default function Header() {
         <div className="container header__inner">
           <Link to="/" className="header__brand" onClick={() => setOpen(false)}>
             <img
-              src={logoMark}
+              src={logo}
               alt=""
               className="header__logo"
               width="52"
@@ -37,8 +44,8 @@ export default function Header() {
             </span>
           </Link>
 
-          <Link to="/quote" className="btn btn-primary header__cta">
-            Get a Quote
+          <Link to={ctaHref} className="btn btn-primary header__cta">
+            {ctaLabel}
           </Link>
 
           <button
@@ -60,7 +67,7 @@ export default function Header() {
         aria-label="Primary"
       >
         <ul className="container header__links">
-          {NAV_LINKS.map((link) => {
+          {navLinks.map((link) => {
             const active = activePath === link.to;
             return (
               <li key={link.to}>
@@ -76,8 +83,8 @@ export default function Header() {
             );
           })}
           <li className="header__link-cta">
-            <Link to="/quote" className="btn btn-primary" onClick={() => setOpen(false)}>
-              Get a Quote
+            <Link to={ctaHref} className="btn btn-primary" onClick={() => setOpen(false)}>
+              {ctaLabel}
             </Link>
           </li>
         </ul>

@@ -1,32 +1,29 @@
+import { useSite } from "../store/SiteContext";
 import "../styles/whyChooseUs.css";
 
-// Why Choose Sugi International — 10 points, one dedicated box each (brief).
-const REASONS = [
-  { title: "Premium Export Quality Products", text: "Carefully selected, graded and packed produce built for international markets." },
-  { title: "Direct Farm Sourcing", text: "Sourced directly from experienced farmers and carefully selected growers." },
-  { title: "International Food Safety Standards", text: "Handled and documented in line with international food safety expectations." },
-  { title: "Fresh & Hygienic Packing", text: "Hygienic packing practices that protect freshness from farm to destination." },
-  { title: "Competitive Prices", text: "Straightforward, competitive pricing for long-term B2B relationships." },
-  { title: "Fast Worldwide Shipping", text: "Efficient logistics and dependable worldwide shipping coordination." },
-  { title: "Customized Packaging", text: "Packaging tailored to your brand, market and buyer requirements." },
-  { title: "Export Documentation Support", text: "Full support with export documentation for smooth customs clearance." },
-  { title: "Timely Delivery", text: "Planned shipments and reliable schedules to keep your supply on time." },
-  { title: "Professional Customer Service", text: "A responsive, professional team that stays with you through every order." },
-];
+// ==========================================================================
+// WHY CHOOSE SUGI INTERNATIONAL — editable in Admin Panel > Website Content.
+// ==========================================================================
 
 export default function WhyChooseUs() {
+  const { content } = useSite();
+  const section = content?.home?.whyChooseUs || {};
+  const items = section.items || [];
+
+  if (!items.length) return null;
+
   return (
     <section id="why-us" className="why section-pad">
       <div className="container">
         <header className="why__head reveal">
-          <p className="eyebrow">Why Choose Us</p>
-          <h2 className="section-title">Why Choose Sugi International?</h2>
+          <p className="eyebrow">{section.eyebrow}</p>
+          <h2 className="section-title">{section.title}</h2>
         </header>
 
         <div className="why__grid">
-          {REASONS.map((r, i) => (
+          {items.map((r, i) => (
             <div
-              key={r.title}
+              key={`${r.title}-${i}`}
               className="why-card reveal"
               style={{ transitionDelay: `${(i % 5) * 0.05}s` }}
             >

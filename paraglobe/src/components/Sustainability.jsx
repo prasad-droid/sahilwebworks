@@ -24,7 +24,7 @@ export default function Sustainability() {
           <div className="sustainability__visual" aria-hidden="true">
             <div className="sustainability__orbit sustainability__orbit--one">
               <img
-                src="/images/product-2.png"
+                src="/images/product-2.jpg"
                 alt=""
                 className="sustainability__leaf"
                 loading="lazy"

@@ -15,8 +15,18 @@ Built with React (functional components), custom CSS only, and Vite.
 trans aura/
 ├── index.html                     # SEO / Open Graph metadata, fonts
 ├── public/
-│   ├── favicon.svg
-│   └── og-image.svg
+│   ├── logo.jpeg                  # Supplied brand logo (navbar / footer)
+│   ├── logo-icon-192.png          # Logo icon for browser / SEO metadata
+│   ├── logo-icon-512.png
+│   ├── apple-touch-icon.png
+│   ├── favicon.svg                # Logo-based SVG favicon
+│   ├── favicon.ico                # 32x32 ICO fallback
+│   ├── favicon-16.png
+│   ├── favicon-32.png
+│   ├── favicon-128.png
+│   ├── og-image.svg
+│   ├── og-image.png               # Raster social preview image
+│   └── robots.txt
 ├── src/
 │   ├── main.jsx                   # App entry
 │   ├── App.jsx                    # Section composition + shared enquiry state
@@ -37,7 +47,7 @@ trans aura/
 │   │   ├── MarketReach.jsx
 │   │   ├── TradeProcess.jsx
 │   │   ├── Affirmations.jsx
-│   │   ├── Testimonials.jsx       # Honest placeholders (no fake reviews)
+│   │   ├── Testimonials.jsx       # Sample feedback — replace before launch
 │   │   ├── QuoteSection.jsx       # Prominent "Request a Quote" section
 │   │   ├── QuoteForm.jsx          # Validated enquiry form
 │   │   ├── Contact.jsx
@@ -160,13 +170,14 @@ ever fails to load.
 
 | Item | Status |
 | --- | --- |
-| **Testimonials section** | Placeholders only — clearly marked, **not** real endorsements. Replace with genuine, approved client feedback. |
+| **Testimonials section** | Sample testimonial copy is in place for layout purposes. Replace it with genuine, approved client feedback before launch. |
 | **Privacy Policy & Terms pages** | Links exist in the footer and are labelled “(coming soon)” — create `/privacy.html` and `/terms.html`. |
 | **Google Drive assets (4 files)** | Not accessible (sign-in required). Contents unverified — swap in once available. |
 | **Enquiry form endpoint** | Not configured — see “Connecting the Enquiry Form” above. |
 | **Product catalogue details** | Product cards describe **sourcing capabilities** only. Add verified grades/specifications later. |
 | **Google Maps link** | Opens a Google Maps search for the supplied address (no inaccurate pin committed). |
-| **Domain / canonical URL** | No domain supplied, so canonical/OG URLs were intentionally omitted — add them to `index.html` when a domain is confirmed. |
+| **Domain / canonical URL** | A relative canonical is set in `index.html`. Once the domain is confirmed, replace it with an absolute canonical URL and make the Open Graph/Twitter image URLs absolute. |
+| **Logo assets** | `public/logo.jpeg` is used in the navbar and footer. The PNG icon files and `og-image.png` were generated from the supplied logo and social artwork. |
 | **Direct email for form submissions** | Update `src/config/form.js` and README if you connect a serverless email handler. |
 
 ## Design & Behaviour Notes

@@ -5,6 +5,10 @@
 // Data file:  server/db.json         (created automatically, human-editable)
 // Uploads:    server/uploads/        (images uploaded from the admin panel)
 //
+// Hosting: set DATA_DIR to a persistent disk path (for example /var/data on
+// Render). The database and uploads then live on that disk instead of inside
+// the deployment, which is read-only on most hosts.
+//
 // Public endpoints
 //   GET  /api/content          site content (safe subset, no private records)
 //   POST /api/enquiries        submit the website enquiry form
@@ -27,8 +31,21 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = process.env.PORT || 4000;
-const DB_FILE = path.join(__dirname, "db.json");
-const UPLOAD_DIR = path.join(__dirname, "uploads");
+
+// DATA_DIR lets a host mount persistent storage outside the code directory.
+// Locally it defaults to server/ so nothing changes for npm run dev.
+const DATA_DIR = process.env.DATA_DIR ? path.resolve(process.env.DATA_DIR) : __dirname;
+const DB_FILE = path.join(DATA_DIR, "db.json");
+const UPLOAD_DIR = path.join(DATA_DIR, "uploads");
+const BUNDLED_DB = path.join(__dirname, "db.json");
+
+// First boot on a fresh persistent disk: seed it from the database committed
+// with the project so existing content and the admin password carry over.
+if (DB_FILE !== BUNDLED_DB && !fs.existsSync(DB_FILE) && fs.existsSync(BUNDLED_DB)) {
+  fs.mkdirSync(DATA_DIR, { recursive: true });
+  fs.copyFileSync(BUNDLED_DB, DB_FILE);
+}
+
 const TOKEN_TTL_MS = 12 * 60 * 60 * 1000; // 12 hours
 
 // --------------------------------------------------------------------------
@@ -98,6 +115,8 @@ const SEED = {
       { id: "about", label: "About Us (homepage)", visible: true },
       { id: "productsIndian", label: "Products — Indian Origin", visible: true },
       { id: "productsImported", label: "Products — Imported", visible: true },
+      { id: "services", label: "Services", visible: true },
+      { id: "categories", label: "Categories", visible: true },
       { id: "gallery", label: "Gallery", visible: true },
       { id: "whyChooseUs", label: "Why Choose Us", visible: true },
       { id: "exportProcess", label: "Export Process", visible: true },
@@ -126,15 +145,44 @@ const ARRAY_COLLECTIONS = ["products", "categories", "services", "reviews", "med
 let db = null;
 
 function loadDb() {
+  let saved = null;
   if (fs.existsSync(DB_FILE)) {
     try {
-      db = { ...structuredClone(SEED), ...JSON.parse(fs.readFileSync(DB_FILE, "utf8")) };
+      saved = JSON.parse(fs.readFileSync(DB_FILE, "utf8"));
     } catch {
-      db = structuredClone(SEED);
+      saved = null;
     }
-  } else {
-    db = structuredClone(SEED);
   }
+
+  db = structuredClone(SEED);
+  if (saved) {
+    // Deep-merge settings/content so new admin fields and new homepage
+    // section toggles appear automatically in existing databases, while
+    // keeping the values the user has already edited.
+    db.settings = {
+      ...SEED.settings,
+      ...saved.settings,
+      contact: { ...SEED.settings.contact, ...(saved.settings?.contact || {}) },
+      social: { ...SEED.settings.social, ...(saved.settings?.social || {}) },
+      features: { ...SEED.settings.features, ...(saved.settings?.features || {}) },
+      seo: { ...SEED.settings.seo, ...(saved.settings?.seo || {}) },
+    };
+    db.content = {
+      ...SEED.content,
+      ...saved.content,
+      sections: SEED.content.sections.map((seedSection) => {
+        const existing = (saved.content?.sections || []).find(
+          (s) => s.id === seedSection.id
+        );
+        return existing ? { ...seedSection, visible: existing.visible } : seedSection;
+      }),
+    };
+    for (const key of ARRAY_COLLECTIONS) {
+      if (Array.isArray(saved[key])) db[key] = saved[key];
+    }
+    if (saved.auth?.salt && saved.auth?.hash) db.auth = saved.auth;
+  }
+
   if (!db.auth) {
     // First run: create the admin password (change it from Settings after login).
     const salt = crypto.randomBytes(16).toString("hex");

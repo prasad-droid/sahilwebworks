@@ -24,7 +24,7 @@ export const products = [
     short: "Eco-friendly takeaway packaging",
     description:
       "Biodegradable packaging solutions built for takeaway and food-service businesses.",
-    image: "/images/product-2.png",
+    image: "/images/product-2.jpg",
     sizes: "Clamshell Boxes: 500ml, 650ml, 750ml; Compartment 3CP–8CP; Meal Trays 3CP–8CP",
     material: "Bagasse / Sugarcane Fiber (Compostable)",
     packaging: "Master Carton / As per SKU",
@@ -38,7 +38,7 @@ export const products = [
     short: "Reusable hot-serve containers",
     description:
       "Natural, compostable containers for serving and packing hot and cold meals.",
-    image: "/images/product-3.png",
+    image: "/images/product-3.jpg",
     sizes: "500ml, 650ml, 750ml; Compartment 3CP–8CP; Meal Trays 3CP–8CP",
     material: "Bagasse / Sugarcane Fiber (Compostable)",
     packaging: "Master Carton / As per SKU",

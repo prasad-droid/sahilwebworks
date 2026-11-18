@@ -1,9 +1,11 @@
 import useReveal from "../components/useReveal";
-import { Section } from "../store/SiteContext";
+import { Section, useSite } from "../store/SiteContext";
 import HeroSlider from "../components/HeroSlider";
 import HomeIntro from "../components/HomeIntro";
 import AboutSection from "../components/AboutSection";
 import ProductSection from "../components/ProductSection";
+import ServicesSection from "../components/ServicesSection";
+import CategoriesSection from "../components/CategoriesSection";
 import Gallery from "../components/Gallery";
 import WhyChooseUs from "../components/WhyChooseUs";
 import ExportProcess from "../components/ExportProcess";
@@ -20,6 +22,9 @@ import "../styles/home.css";
 export default function HomePage() {
   useReveal();
   const { indianGroups, importedGroup } = useProductsByGroup();
+  const { content } = useSite();
+  const indian = content?.home?.productsIndian || {};
+  const imported = content?.home?.productsImported || {};
 
   return (
     <>
@@ -30,9 +35,9 @@ export default function HomePage() {
       <Section id="productsIndian">
         <ProductSection
           id="products-indian"
-          eyebrow="Our Products"
-          title="Indian Origin"
-          intro="We export a wide variety of premium Indian origin agricultural products."
+          eyebrow={indian.eyebrow}
+          title={indian.title}
+          intro={indian.intro}
           groups={indianGroups}
         />
       </Section>
@@ -40,13 +45,15 @@ export default function HomePage() {
       <Section id="productsImported">
         <ProductSection
           id="products-imported"
-          eyebrow="Our Products"
-          title="Imported"
-          intro="We also import premium dry fruits from worldwide suppliers and process them in our world class processing units and export to the global market."
+          eyebrow={imported.eyebrow}
+          title={imported.title}
+          intro={imported.intro}
           groups={[importedGroup]}
         />
       </Section>
 
+      <Section id="services"><ServicesSection /></Section>
+      <Section id="categories"><CategoriesSection /></Section>
       <Section id="gallery"><Gallery /></Section>
       <Section id="whyChooseUs"><WhyChooseUs /></Section>
       <Section id="exportProcess"><ExportProcess /></Section>

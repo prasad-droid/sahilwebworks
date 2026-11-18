@@ -6,6 +6,7 @@ export const company = {
   whatsappHref: 'https://wa.me/918830617450',
   email: 'sandeep.pawar@tagl.co.in',
   emailHref: 'mailto:sandeep.pawar@tagl.co.in',
+  logo: '/logo.jpeg',
   addressLines: [
     '9/503, Agarwal Nagri Complex,',
     'Vasai Nalasopara Link Road,',
@@ -15,14 +16,23 @@ export const company = {
     'Trans-Aura International is an India-based import, export, and trading company focused on connecting international buyers with quality products and reliable Indian supply sources.'
 }
 
+export const productCategories = [
+  'Dyes & Dyes Intermediates',
+  'Organic Chemicals & Inorganic Chemicals',
+  'Agro Chemicals',
+  'Cosmetics and Toiletries',
+  'Essential Oils',
+  'Castor Oil'
+]
+
 export const navLinks = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About Us' },
   { id: 'products', label: 'Services / Products' },
-  { id: 'industries', label: 'Industries We Serve' },
+  // { id: 'industries', label: 'Industries We Serve' w},
   { id: 'why-us', label: 'Why Choose Us' },
-  { id: 'market-reach', label: 'Market Reach' },
-  { id: 'process', label: 'Import–Export Process' },
+  // { id: 'market-reach', label: 'Market Reach' },
+  // { id: 'process', label: 'Import–Export Process' },
   { id: 'testimonials', label: 'Testimonials' },
   { id: 'contact', label: 'Contact Us' }
 ]

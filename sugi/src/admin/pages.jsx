@@ -3,6 +3,7 @@ import { useAdmin, useCollection } from "./adminStore";
 import { changePassword } from "../api";
 import { PageHead, Field, TextInput, TextArea, CheckInput, Empty } from "./ui";
 import CollectionManager from "./CollectionManager";
+import ContentEditor from "./ContentEditor";
 import { INDIAN_GROUPS, IMPORTED_GROUP } from "../data/catalog";
 
 // ==========================================================================
@@ -67,86 +68,11 @@ export function Dashboard({ onNavigate }) {
 }
 
 // ==========================================================================
-// WEBSITE CONTENT (hero / about / portfolio heading / final CTA / sections)
+// WEBSITE CONTENT
 // ==========================================================================
 
 export function ContentPage() {
-  const { db, saveCollection } = useAdmin();
-  const [content, setContent] = useState(null);
-  const ready = content || db?.content;
-  if (!db || !ready) return <div className="ad-page">Loading…</div>;
-
-  const c = content || db.content;
-  const setSection = (key, patch) => setContent({ ...c, [key]: { ...c[key], ...patch } });
-
-  const toggleSection = (id) =>
-    setContent({
-      ...c,
-      sections: (c.sections || []).map((s) => (s.id === id ? { ...s, visible: !s.visible } : s)),
-    });
-
-  const paragraphs = (c.about?.paragraphs || []).join("\n");
-
-  return (
-    <div className="ad-page">
-      <PageHead
-        title="Website Content"
-        subtitle="Edit the text, headings and images shown across the website"
-        action={
-          <button className="ad-btn ad-btn--primary" onClick={() => saveCollection("content", c)}>
-            Save changes
-          </button>
-        }
-      />
-
-      <section className="ad-card">
-        <h3 className="ad-section-title">Home Intro (headline below the slider)</h3>
-        <div className="ad-form-grid">
-          <Field label="Main heading"><TextInput value={c.homeIntro?.title} onChange={(v) => setSection("homeIntro", { title: v })} /></Field>
-          <Field label="Heading highlight (italic part)"><TextInput value={c.homeIntro?.titleAccent} onChange={(v) => setSection("homeIntro", { titleAccent: v })} /></Field>
-          <Field label="Paragraph" wide><TextArea value={c.homeIntro?.text} onChange={(v) => setSection("homeIntro", { text: v })} rows={3} /></Field>
-        </div>
-      </section>
-
-      <section className="ad-card">
-        <h3 className="ad-section-title">About Us (homepage)</h3>
-        <div className="ad-form-grid">
-          <Field label="Section eyebrow"><TextInput value={c.about?.eyebrow} onChange={(v) => setSection("about", { eyebrow: v })} /></Field>
-          <Field label="Section heading"><TextInput value={c.about?.title} onChange={(v) => setSection("about", { title: v })} /></Field>
-          <Field label="About paragraphs" hint="One paragraph per line. Leave empty to keep the default text." wide>
-            <TextArea rows={6} value={paragraphs} onChange={(v) => setSection("about", { paragraphs: v.split("\n") })} />
-          </Field>
-          <Field label="Image" wide>
-            <div className="ad-image-input">
-              {c.about?.image ? <img className="ad-image-input__preview" src={c.about.image} alt="" /> : <div className="ad-image-input__empty">No image</div>}
-              <input className="ad-input ad-image-input__url" value={c.about?.image || ""} onChange={(e) => setSection("about", { image: e.target.value })} placeholder="Image URL" />
-            </div>
-          </Field>
-          <Field label="Badge top text"><TextInput value={c.about?.badgeTop} onChange={(v) => setSection("about", { badgeTop: v })} /></Field>
-          <Field label="Badge bottom text"><TextInput value={c.about?.badgeBottom} onChange={(v) => setSection("about", { badgeBottom: v })} /></Field>
-        </div>
-      </section>
-
-      <section className="ad-card">
-        <h3 className="ad-section-title">Get a Quote CTA</h3>
-        <div className="ad-form-grid">
-          <Field label="Eyebrow"><TextInput value={c.quoteCta?.eyebrow} onChange={(v) => setSection("quoteCta", { eyebrow: v })} /></Field>
-          <Field label="Heading" wide><TextInput value={c.quoteCta?.title} onChange={(v) => setSection("quoteCta", { title: v })} /></Field>
-          <Field label="Text" wide><TextArea value={c.quoteCta?.text} onChange={(v) => setSection("quoteCta", { text: v })} rows={2} /></Field>
-        </div>
-      </section>
-
-      <section className="ad-card">
-        <h3 className="ad-section-title">Sections on Homepage</h3>
-        <p className="ad-hint">Turn sections on or off — hidden sections disappear from the website immediately after saving.</p>
-        <div className="ad-sections">
-          {(c.sections || []).map((s) => (
-            <CheckInput key={s.id} value={s.visible} onChange={() => toggleSection(s.id)} label={s.label} />
-          ))}
-        </div>
-      </section>
-    </div>
-  );
+  return <ContentEditor />;
 }
 
 // ==========================================================================
@@ -527,10 +453,12 @@ export const collectionPages = {
     ],
   },
   blog: {
-    title: "Blog & News", subtitle: "Articles and company updates",
+    title: "Blog & News", subtitle: "Articles and company updates — shown on the homepage and the Articles page",
     collection: "blog",
     fields: [
       { key: "title", label: "Post title", required: true },
+      { key: "slug", label: "Slug (URL)", hint: "Letters, numbers and dashes — e.g. cashew-export-update" },
+      { key: "category", label: "Category", placeholder: "e.g. Company Update" },
       { key: "excerpt", label: "Short summary", type: "textarea", rows: 3 },
       { key: "body", label: "Full content", type: "textarea", rows: 10 },
       { key: "author", label: "Author" },

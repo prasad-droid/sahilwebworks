@@ -1,0 +1,67 @@
+# Hostinger (Apache / LiteSpeed) configuration for paraglobeexims.com
+
+# Serve index.html by default
+DirectoryIndex index.html
+
+# Don't expose directory listings (e.g. /images/)
+Options -Indexes
+
+# Canonical host: force https://paraglobeexims.com
+# (SSL certificate currently covers the apex only, so www redirects to it.)
+# /.well-known/ is skipped so Let's Encrypt / Hostinger SSL renewal still works.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Skip ACME challenges and other dot-dirs
+  RewriteRule ^\.well-known/ - [L]
+
+  # 1) www -> apex (also upgrades the scheme, so http://www is a single hop)
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^(.*)$ https://paraglobeexims.com/$1 [R=301,L]
+
+  # 2) http -> https for the remaining hosts.
+  # Both conditions must pass (AND), so a proxy that sets X-Forwarded-Proto
+  # while HTTPS is off cannot cause a redirect loop.
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+</IfModule>
+
+# Correct MIME types (some servers miss these)
+<IfModule mod_mime.c>
+  AddType video/mp4 .mp4
+  AddType application/pdf .pdf
+  AddType image/svg+xml .svg
+  AddType font/woff2 .woff2
+</IfModule>
+
+# Gzip / Brotli compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml application/xml
+</IfModule>
+
+# Caching: hashed build assets and media can be cached aggressively,
+# index.html must always be revalidated so new deploys show up immediately.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType video/mp4 "access plus 1 month"
+  ExpiresByType application/pdf "access plus 1 month"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+  Header set X-Content-Type-Options "nosniff"
+</IfModule>

@@ -17,18 +17,20 @@ function Stars({ rating }) {
 }
 
 export default function Testimonials() {
-  const { reviews = [], settings } = useSite();
+  const { reviews = [], settings, content } = useSite();
   if (!settings?.features?.enableReviews) return null;
 
   const approved = (reviews || []).filter((r) => r.approved);
   if (approved.length === 0) return null;
 
+  const section = content?.home?.testimonials || {};
+
   return (
     <section className="testimonials section-pad">
       <div className="container">
         <header className="testimonials__head reveal">
-          <p className="eyebrow">Testimonials</p>
-          <h2 className="section-title">What Our Customers Say</h2>
+          <p className="eyebrow">{section.eyebrow}</p>
+          <h2 className="section-title">{section.title}</h2>
         </header>
 
         <div className="testimonials__grid">

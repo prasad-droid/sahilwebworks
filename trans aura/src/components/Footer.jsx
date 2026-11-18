@@ -1,15 +1,17 @@
 ﻿import { ArrowRight, Mail, MapPin, MessageCircle, Phone } from 'lucide-react'
-import { company, navLinks } from '../data/siteData'
+import { company, navLinks, productCategories } from '../data/siteData'
 import '../styles/Footer.css'
 
-const productLinks = [
+const serviceLinks = [
   'Industrial Chemicals',
   'Specialty Chemical Sourcing',
   'Bulk Product Sourcing',
-  'Selected Commercial Products',
+  'All Commercial Products',
   'Customized B2B Procurement',
   'Export Supply Coordination'
 ]
+
+const productLinks = [...productCategories, ...serviceLinks]
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -39,14 +41,17 @@ export default function Footer() {
         <div className="footer__grid">
           <div className="footer__brand">
             <div className="footer__logo">
-              <svg viewBox="0 0 48 48" width="40" height="40" fill="none" aria-hidden="true">
-                <circle cx="24" cy="24" r="13" stroke="currentColor" strokeWidth="2.4" />
-                <ellipse cx="24" cy="24" rx="6" ry="13" stroke="currentColor" strokeWidth="2" />
-                <path d="M11 24h26M24 11v26" stroke="currentColor" strokeWidth="2.2" />
-                <circle cx="24" cy="24" r="2.6" fill="currentColor" />
-              </svg>
+              <img
+                src={company.logo}
+                alt={`${company.name} logo`}
+                className="footer__logo-img"
+                width="282"
+                height="377"
+                loading="lazy"
+                decoding="async"
+              />
               <div>
-                <strong>Trans-Aura International</strong>
+                <strong>{company.name}</strong>
                 <span>{company.tagline}</span>
               </div>
             </div>

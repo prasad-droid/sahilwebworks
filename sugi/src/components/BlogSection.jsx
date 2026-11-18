@@ -9,11 +9,12 @@ import "../styles/blog.css";
 // ==========================================================================
 
 export default function BlogSection() {
-  const { blog = [], settings } = useSite();
+  const { blog = [], settings, content } = useSite();
   const [open, setOpen] = useState(null);
 
   if (!settings?.features?.enableBlog) return null;
 
+  const section = content?.home?.blog || {};
   const posts = (blog || [])
     .filter((p) => p.published)
     .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
@@ -24,8 +25,8 @@ export default function BlogSection() {
     <section className="blog section-pad">
       <div className="container">
         <header className="blog__head reveal">
-          <p className="eyebrow">Blog &amp; News</p>
-          <h2 className="section-title">Latest Updates</h2>
+          <p className="eyebrow">{section.eyebrow}</p>
+          <h2 className="section-title">{section.title}</h2>
         </header>
 
         <div className="blog__grid">

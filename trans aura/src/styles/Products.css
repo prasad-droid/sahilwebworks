@@ -1,3 +1,51 @@
+.products__categories {
+  margin: 0 0 34px;
+  padding: 24px 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at 92% 10%, rgba(224, 184, 74, 0.12), transparent 42%),
+    #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.products__categories-label {
+  margin: 0 0 14px;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal-600);
+}
+
+.products__chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.products__chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border: 1px solid rgba(13, 148, 136, 0.22);
+  border-radius: var(--radius-pill);
+  background: rgba(13, 148, 136, 0.07);
+  color: var(--navy-800);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.products__chips li svg {
+  flex-shrink: 0;
+  color: var(--teal-600);
+}
+
 .products__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -109,4 +157,6 @@
 
 @media (max-width: 620px) {
   .products__grid { grid-template-columns: 1fr; }
+  .products__categories { padding: 20px; }
+  .products__chips li { font-size: 0.88rem; }
 }

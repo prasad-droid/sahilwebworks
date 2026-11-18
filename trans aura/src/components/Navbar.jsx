@@ -6,13 +6,8 @@ import '../styles/Navbar.css'
 function Logo() {
   return (
     <a href="#home" className="navbar__brand" aria-label="Trans-Aura International — home">
-      <span className="navbar__logo" aria-hidden="true">
-        <svg viewBox="0 0 48 48" width="34" height="34" fill="none">
-          <circle cx="24" cy="24" r="13" stroke="currentColor" strokeWidth="2.4" />
-          <ellipse cx="24" cy="24" rx="6" ry="13" stroke="currentColor" strokeWidth="2" />
-          <path d="M11 24h26M24 11v26" stroke="currentColor" strokeWidth="2.2" />
-          <circle cx="24" cy="24" r="2.6" fill="currentColor" />
-        </svg>
+      <span className="navbar__logo">
+        <img src={company.logo} alt="" width="282" height="377" decoding="async" />
       </span>
       <span className="navbar__namewrap">
         <span className="navbar__name">Trans-Aura</span>

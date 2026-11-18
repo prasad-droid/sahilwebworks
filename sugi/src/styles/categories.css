@@ -1,0 +1,44 @@
+/* ==========================================================================
+   CATEGORIES
+   ========================================================================== */
+
+.categories {
+  background: var(--white);
+}
+
+.categories__head {
+  max-width: 42rem;
+  margin-bottom: 2.5rem;
+}
+
+.categories__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+
+.categories__card {
+  border: 1px solid var(--cream);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  background: var(--white);
+  transition: border-color 0.2s var(--ease), transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.categories__card:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+}
+
+.categories__name {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  color: var(--forest);
+}
+
+.categories__desc {
+  color: var(--muted);
+  line-height: 1.7;
+  margin-top: 0.4rem;
+}

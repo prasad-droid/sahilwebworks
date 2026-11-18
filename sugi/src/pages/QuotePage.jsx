@@ -1,41 +1,44 @@
 import PageHero from "../components/PageHero";
 import EnquiryForm from "../components/EnquiryForm";
 import useReveal from "../components/useReveal";
-import { BUSINESS_HOURS, PHONE_DISPLAY, PHONE_TEL, EMAIL } from "../data/site";
+import { useSite } from "../store/SiteContext";
+import { PHONE_DISPLAY, EMAIL } from "../data/site";
 import "../styles/quotePage.css";
 
 // ==========================================================================
 // QUOTATION REQUEST FORM — target of every "Get a Quote" button.
+// Contact details come from Admin Panel > Contact & Social Media; page copy
+// comes from Admin Panel > Website Content > Quote Page.
 // ==========================================================================
-
-const POINTS = [
-  "Product, grade and quantity",
-  "Preferred packing and private label requirements",
-  "Destination port and expected timeline",
-  "Any inspection or documentation requirements",
-];
 
 export default function QuotePage() {
   useReveal();
+  const { settings, content } = useSite();
+  const contact = settings?.contact || {};
+  const page = content?.pages?.quote || {};
+  const hero = page.hero || {};
+  const form = page.form || {};
+  const panel = page.panel || {};
+
+  const phoneDisplay = contact.phone || PHONE_DISPLAY;
+  const phoneTel = `tel:${String(phoneDisplay).replace(/[^\d+]/g, "")}`;
+  const email = contact.email || EMAIL;
 
   return (
     <>
       <PageHero
-        eyebrow="Get a Quote"
-        title="Request a Quotation"
-        intro="Tell us what you need, in which quantity and for which destination, and our export team will respond with pricing, packing options and shipping schedules."
+        eyebrow={hero.eyebrow}
+        title={hero.title}
+        intro={hero.intro}
         crumbs={[{ label: "Get a Quote" }]}
       />
 
       <section className="quote-form section-pad">
         <div className="container quote-form__grid">
           <div className="quote-form__main reveal">
-            <p className="eyebrow">Quotation Request</p>
-            <h2 className="section-title">Tell us your requirement</h2>
-            <p className="quote-form__intro">
-              The more detail you share, the faster we can come back with an
-              accurate quotation.
-            </p>
+            <p className="eyebrow">{form.eyebrow}</p>
+            <h2 className="section-title">{form.title}</h2>
+            <p className="quote-form__intro">{form.text}</p>
             <div className="quote-form__card">
               <EnquiryForm />
             </div>
@@ -43,10 +46,10 @@ export default function QuotePage() {
 
           <aside className="quote-form__aside">
             <div className="quote-form__panel reveal">
-              <h3 className="quote-form__panel-title">Helpful to include</h3>
+              <h3 className="quote-form__panel-title">{panel.title}</h3>
               <ul>
-                {POINTS.map((p) => (
-                  <li key={p}>
+                {(panel.items || []).map((p, i) => (
+                  <li key={`${p}-${i}`}>
                     <span aria-hidden="true">✓</span>
                     {p}
                   </li>
@@ -55,23 +58,23 @@ export default function QuotePage() {
             </div>
 
             <div className="quote-form__panel reveal">
-              <h3 className="quote-form__panel-title">Prefer to talk?</h3>
+              <h3 className="quote-form__panel-title">{panel.contactTitle}</h3>
               <ul className="quote-form__contacts">
                 <li>
-                  <a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a>
+                  <a href={phoneTel}>{phoneDisplay}</a>
                 </li>
                 <li>
-                  <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+                  <a href={`mailto:${email}`}>{email}</a>
                 </li>
               </ul>
-              <dl className="quote-form__hours">
-                {BUSINESS_HOURS.map((h) => (
-                  <div key={h.days}>
-                    <dt>{h.days}</dt>
-                    <dd>{h.time}</dd>
+              {contact.hours && (
+                <dl className="quote-form__hours">
+                  <div>
+                    <dt>Business hours</dt>
+                    <dd>{contact.hours}</dd>
                   </div>
-                ))}
-              </dl>
+                </dl>
+              )}
             </div>
           </aside>
         </div>

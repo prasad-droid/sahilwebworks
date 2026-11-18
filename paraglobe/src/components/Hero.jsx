@@ -5,8 +5,11 @@ export default function Hero() {
         <img
           src="/images/product-1.jpg"
           alt=""
+          width="1920"
+          height="1030"
           className="hero__bg"
           fetchpriority="high"
+          decoding="async"
         />
         <div className="hero__overlay" />
       </div>

@@ -1,17 +1,17 @@
+import { useSite } from "../store/SiteContext";
 import "../styles/commitment.css";
 
-// Our Commitment (Homepage.docx)
+// Our Commitment — editable in Admin Panel > Website Content.
 export default function Commitment() {
+  const { content } = useSite();
+  const section = content?.home?.commitment || {};
+
   return (
     <section className="commitment section-pad">
       <div className="container commitment__inner reveal">
-        <p className="eyebrow">Our Commitment</p>
-        <h2 className="commitment__title">Our Commitment</h2>
-        <p className="commitment__text">
-          Our mission is simple — deliver the freshest agricultural products
-          from Indian farms to international markets while maintaining the
-          highest standards of quality, safety, and customer satisfaction.
-        </p>
+        <p className="eyebrow">{section.eyebrow}</p>
+        <h2 className="commitment__title">{section.title}</h2>
+        <p className="commitment__text">{section.text}</p>
       </div>
     </section>
   );

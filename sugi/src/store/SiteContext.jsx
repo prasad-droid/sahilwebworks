@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { fetchSiteContent } from "../api";
+import { DEFAULT_CONTENT, mergeContent } from "../content/defaults";
 import {
   COMPANY,
   TAGLINE,
@@ -44,16 +45,7 @@ const DEFAULT = {
       enableOrders: false,
     },
   },
-  content: {
-    homeIntro: {
-      title: "Connecting Indian & Globally Sourced Agro Commodities",
-      titleAccent: "with Global Markets",
-      text: "Delivering farm-fresh fruits, vegetables, spices, dry fruits and other agricultural products from India to customers worldwide. We provide premium quality produce sourced directly from certified farms with international export standards, competitive pricing, and timely global delivery.",
-    },
-    about: {},
-    quoteCta: {},
-    sections: [],
-  },
+  content: DEFAULT_CONTENT,
   products: [],
   reviews: [],
   media: [],
@@ -82,7 +74,7 @@ export function SiteProvider({ children }) {
             social: { ...DEFAULT.settings.social, ...(remote.settings?.social || {}) },
             features: { ...DEFAULT.settings.features, ...(remote.settings?.features || {}) },
           },
-          content: { ...DEFAULT.content, ...(remote.content || {}) },
+          content: mergeContent(DEFAULT_CONTENT, remote.content || {}),
         });
         setStatus("ready");
       })

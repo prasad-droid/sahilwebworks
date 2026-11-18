@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="pl-loading">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,14 +10,246 @@
     />
     <meta name="theme-color" content="#1f4d3a" />
 
+    <!-- Inline loader styles: must paint before the CSS/JS bundle arrives -->
+    <style>
+      html.pl-loading,
+      html.pl-loading body {
+        overflow: hidden;
+        background: #142c22;
+      }
+
+      #app-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        background:
+          radial-gradient(120% 85% at 50% -10%, #2a6350 0%, #1f4d3a 42%, #142c22 100%);
+        transition: opacity 0.65s cubic-bezier(0.22, 0.61, 0.36, 1),
+          visibility 0.65s;
+      }
+
+      #app-loader.is-done {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .pl-glow {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(70px);
+        pointer-events: none;
+      }
+
+      .pl-glow--gold {
+        width: 46vmin;
+        height: 46vmin;
+        top: -8vmin;
+        right: -6vmin;
+        background: rgba(201, 168, 106, 0.28);
+        animation: pl-drift 9s ease-in-out infinite;
+      }
+
+      .pl-glow--green {
+        width: 52vmin;
+        height: 52vmin;
+        bottom: -14vmin;
+        left: -10vmin;
+        background: rgba(109, 154, 122, 0.26);
+        animation: pl-drift 11s ease-in-out infinite reverse;
+      }
+
+      .pl-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 24px;
+        text-align: center;
+        animation: pl-rise 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+      }
+
+      .pl-mark {
+        position: relative;
+        display: grid;
+        place-items: center;
+        width: 92px;
+        height: 92px;
+        margin-bottom: 26px;
+      }
+
+      .pl-halo {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        animation: pl-pulse 2.6s ease-in-out infinite;
+      }
+
+      .pl-arc {
+        position: absolute;
+        inset: -3px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        border-top-color: #c9a86a;
+        border-right-color: rgba(201, 168, 106, 0.32);
+        animation: pl-spin 1.15s linear infinite;
+      }
+
+      .pl-arc--slow {
+        inset: 6px;
+        border-top-color: rgba(255, 255, 255, 0.22);
+        border-right-color: transparent;
+        border-bottom-color: rgba(201, 168, 106, 0.5);
+        animation-duration: 2.4s;
+        animation-direction: reverse;
+      }
+
+      .pl-monogram {
+        font-family: "Fraunces", Georgia, "Times New Roman", serif;
+        font-size: 34px;
+        font-weight: 600;
+        line-height: 1;
+        letter-spacing: 0.02em;
+        background: linear-gradient(155deg, #f6e8c9 0%, #c9a86a 55%, #a9863f 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .pl-wordmark {
+        margin: 0;
+        font-family: "Fraunces", Georgia, "Times New Roman", serif;
+        font-size: clamp(20px, 4.4vw, 27px);
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #f7f5ed;
+      }
+
+      .pl-wordmark em {
+        font-style: normal;
+        color: #c9a86a;
+      }
+
+      .pl-tagline {
+        margin: 12px 0 0;
+        font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: rgba(247, 245, 237, 0.5);
+      }
+
+      .pl-progress {
+        position: relative;
+        width: 168px;
+        height: 2px;
+        margin-top: 30px;
+        overflow: hidden;
+        border-radius: 2px;
+        background: rgba(255, 255, 255, 0.14);
+      }
+
+      .pl-progress span {
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 42%;
+        border-radius: 2px;
+        background: linear-gradient(90deg, rgba(201, 168, 106, 0) 0%, #e3c98f 45%, #c9a86a 100%);
+        animation: pl-sweep 1.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+      }
+
+      .pl-sr {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+      }
+
+      @keyframes pl-spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes pl-pulse {
+        0%,
+        100% {
+          opacity: 0.45;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.05);
+        }
+      }
+
+      @keyframes pl-sweep {
+        0% {
+          transform: translateX(-115%);
+        }
+        100% {
+          transform: translateX(285%);
+        }
+      }
+
+      @keyframes pl-drift {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+        50% {
+          transform: translate3d(26px, -20px, 0) scale(1.1);
+        }
+      }
+
+      @keyframes pl-rise {
+        from {
+          opacity: 0;
+          transform: translateY(16px) scale(0.985);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .pl-glow,
+        .pl-halo,
+        .pl-arc,
+        .pl-progress span {
+          animation: none !important;
+        }
+        .pl-arc {
+          border-top-color: #c9a86a;
+          border-right-color: rgba(201, 168, 106, 0.32);
+        }
+        .pl-progress span {
+          width: 100%;
+          opacity: 0.75;
+        }
+        .pl-content {
+          animation-duration: 0.01ms;
+        }
+      }
+    </style>
+
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Paraglobe Exims | Biodegradable Tableware & Food Packaging Exporter" />
     <meta
       property="og:description"
       content="Sustainable biodegradable tableware and takeaway food packaging solutions from India, for businesses across the globe."
     />
-    <meta property="og:image" content="/images/hero-product.jpg" />
-    <meta property="og:url" content="https://www.paraglobeexims.com" />
+    <meta property="og:image" content="https://paraglobeexims.com/images/product-1.jpg" />
+    <meta property="og:url" content="https://paraglobeexims.com/" />
     <meta property="og:site_name" content="Paraglobe Exims" />
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -26,12 +258,21 @@
       name="twitter:description"
       content="Sustainable biodegradable tableware and takeaway food packaging solutions from India, for businesses across the globe."
     />
-    <meta name="twitter:image" content="/images/hero-product.jpg" />
+    <meta name="twitter:image" content="https://paraglobeexims.com/images/product-1.jpg" />
+
+    <link rel="canonical" href="https://paraglobeexims.com/" />
 
     <link
       rel="icon"
       type="image/jpeg"
       href="/images/logo.jpg"
+    />
+
+    <link
+      rel="preload"
+      as="image"
+      href="/images/product-1.jpg"
+      fetchpriority="high"
     />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,6 +283,56 @@
     />
   </head>
   <body>
+    <div id="app-loader" role="status" aria-live="polite">
+      <div class="pl-glow pl-glow--gold" aria-hidden="true"></div>
+      <div class="pl-glow pl-glow--green" aria-hidden="true"></div>
+
+      <div class="pl-content">
+        <div class="pl-mark" aria-hidden="true">
+          <span class="pl-halo"></span>
+          <span class="pl-arc"></span>
+          <span class="pl-arc pl-arc--slow"></span>
+          <span class="pl-monogram">P</span>
+        </div>
+
+        <p class="pl-wordmark">Paraglobe <em>Exims</em></p>
+        <p class="pl-tagline">Inspiring Solutions With Excellence</p>
+        <div class="pl-progress" aria-hidden="true"><span></span></div>
+
+        <span class="pl-sr">Page is loading, please wait.</span>
+      </div>
+    </div>
+
+    <noscript>
+      <style>
+        #app-loader {
+          display: none !important;
+        }
+        html.pl-loading,
+        html.pl-loading body {
+          overflow: auto !important;
+        }
+      </style>
+    </noscript>
+
+    <script>
+      /* Failsafe: never let the loader trap the page if the bundle fails. */
+      (function () {
+        var MAX_MS = 7000;
+        function release() {
+          var el = document.getElementById("app-loader");
+          document.documentElement.classList.remove("pl-loading");
+          if (!el) return;
+          el.classList.add("is-done");
+          setTimeout(function () {
+            if (el.parentNode) el.parentNode.removeChild(el);
+          }, 900);
+        }
+        window.__plReleaseLoader = release;
+        setTimeout(release, MAX_MS);
+      })();
+    </script>
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

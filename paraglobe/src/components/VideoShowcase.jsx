@@ -37,7 +37,7 @@ function VideoCard({ video, index }) {
           ref={videoRef}
           controls
           playsInline
-          preload="metadata"
+          preload="none"
           poster={video.poster}
           className="video-card__video"
           aria-label={video.title}

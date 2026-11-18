@@ -25,32 +25,24 @@ export default function AboutSection() {
             loading="lazy"
           />
           <div className="about-section__badge float-badge" aria-hidden="true">
-            <span className="about-section__badge-top">GLOBAL</span>
+            <span className="about-section__badge-top">{about.badgeTop}</span>
             <span className="about-section__badge-arrow">→</span>
-            <span className="about-section__badge-bottom">WORLD</span>
+            <span className="about-section__badge-bottom">{about.badgeBottom}</span>
           </div>
         </div>
 
         <div className="about-section__content reveal">
-          <p className="eyebrow">{about.eyebrow || "About Us"}</p>
-          <h2 className="section-title">{about.title || "Welcome to Sugi International"}</h2>
+          <p className="eyebrow">{about.eyebrow}</p>
+          <h2 className="section-title">{about.title}</h2>
 
-          {(about.paragraphs?.length
-            ? about.paragraphs
-            : [
-                "Sugi International Pvt. Ltd. is a leading exporter of Indian origin fresh fruits, vegetables, spices, Sweet Corn, Maize, Semi Husked Coconuts & Raisins and other agricultural products from India.",
-                "We also import premium dry fruits from worldwide suppliers and process them in our world class processing units and export to the global market.",
-                "We specialize in supplying premium-quality products to wholesalers, supermarkets, distributors, retailers, and importers across the world. We distribute our imported dry fruits in the PAN India market.",
-                "With a strong network of experienced farmers, modern packing facilities, and efficient logistics, we ensure every shipment meets international quality and food safety standards. Our commitment to freshness, reliability, and customer satisfaction has made us a trusted export partner in the global agricultural industry.",
-              ]
-            ).map((para, i) => (
-              <p className="about-section__text" key={i}>
-                {para}
-              </p>
-            ))}
+          {(about.paragraphs || []).map((para, i) => (
+            <p className="about-section__text" key={i}>
+              {para}
+            </p>
+          ))}
 
           <Link to="/about" className="btn btn-dark-outline about-section__cta">
-            Discover More About Us
+            {about.ctaLabel}
             <span className="btn-arrow" aria-hidden="true">→</span>
           </Link>
         </div>

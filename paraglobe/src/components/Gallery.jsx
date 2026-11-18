@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
 
 const images = [
-  { src: "/images/product-1.jpg", alt: "Biodegradable tableware product range", ratio: "a" },
-  { src: "/images/product-2.png", alt: "Takeaway biodegradable food packaging", ratio: "b" },
-  { src: "/images/product-5.jpg", alt: "Eco-friendly party and event tableware", ratio: "c" },
-  { src: "/images/product-3.png", alt: "Biodegradable food containers", ratio: "b" },
-  { src: "/images/product-4.jpg", alt: "Eco bowls and cups collection", ratio: "a" },
+  { src: "/images/product-1.jpg", alt: "Biodegradable tableware product range", ratio: "a", w: 1920, h: 1030 },
+  { src: "/images/product-2.jpg", alt: "Takeaway biodegradable food packaging", ratio: "b", w: 1200, h: 654 },
+  { src: "/images/product-5.jpg", alt: "Eco-friendly party and event tableware", ratio: "c", w: 1230, h: 1640 },
+  { src: "/images/product-3.jpg", alt: "Biodegradable food containers", ratio: "b", w: 1200, h: 654 },
+  { src: "/images/product-4.jpg", alt: "Eco bowls and cups collection", ratio: "a", w: 1024, h: 560 },
 ];
 
 export default function Gallery() {
@@ -46,7 +46,14 @@ export default function Gallery() {
               onClick={() => setActive(img)}
               aria-label={`Open image: ${img.alt}`}
             >
-              <img src={img.src} alt={img.alt} loading="lazy" decoding="async" />
+              <img
+                src={img.src}
+                alt={img.alt}
+                width={img.w}
+                height={img.h}
+                loading="lazy"
+                decoding="async"
+              />
             </button>
           ))}
         </div>

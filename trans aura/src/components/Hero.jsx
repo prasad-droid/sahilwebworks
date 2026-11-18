@@ -37,7 +37,7 @@ export default function Hero() {
           <p className="hero__lead hero-anim" style={{ '--d': '0.28s' }}>
             Trans-Aura International connects international buyers with reliable Indian suppliers,
             offering quality-focused sourcing, competitive pricing, and dependable export
-            coordination for industrial chemicals and selected commercial products.
+            coordination for industrial chemicals and all commercial products.
           </p>
 
           <div className="hero__cta hero-anim" style={{ '--d': '0.4s' }}>

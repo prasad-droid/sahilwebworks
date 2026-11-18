@@ -19,7 +19,7 @@ export default function About() {
               seeking dependable sourcing solutions and competitive pricing.
             </p>
             <p>
-              Our core focus is on the B2B export of industrial chemicals and selected commercial
+              Our core focus is on the B2B export of industrial chemicals and all commercial
               products, supported by reliable Indian sourcing, quality coordination, export
               documentation, and shipment management.
             </p>

@@ -16,12 +16,13 @@ module through a JSON-file database (no external services needed).
 
 ```bash
 npm install
-npm run dev:server    # API on http://localhost:4000  (terminal 1)
-npm run dev           # website on http://localhost:5173 (terminal 2)
+npm run dev      # API (http://localhost:4000) + website (http://localhost:5173) together
 ```
 
 Open **http://localhost:5173/#/admin** and sign in.
 
+- `npm run dev` runs both servers in one terminal (`Ctrl+C` stops both). If you
+  prefer separate terminals, use `npm run dev:server` and `npm run dev:web`.
 - First-run password: `sugi@2026` — **change it immediately** from
   *Settings > Security* after your first login.
 - In production, run `npm run build` once, then `npm start`; the server serves
@@ -32,14 +33,14 @@ Open **http://localhost:5173/#/admin** and sign in.
 | Admin page | What it manages | Where it appears |
 |---|---|---|
 | Dashboard | Overview + latest enquiries | — |
-| Website Content | Home intro headline, About Us text/image, Quote CTA, per-section show/hide switches | Home page |
+| Website Content | Everything shown on the public site, in collapsible groups: all homepage section text/lists/images, page copy for About / Products / Certifications / Articles / Contact / Quote / Privacy, header navigation, footer text and copyright, certification logos, and the section show/hide switches. Lists can be added to, removed and reordered. Images upload straight from the panel. Blank text fields keep the current bundled text | Entire website |
 | Products | Products (name, group, price, description, packaging, image). Use an existing catalogue **slug** (e.g. `bananas`, `cashew-kernels`) to update that product; a new slug adds a new one | Home + Products pages |
-| Categories | Product/service categories | — |
-| Services | Services & descriptions | — |
+| Categories | Product/service categories | Home page (Categories section) |
+| Services | Services & descriptions | Home page (Services section) |
 | Images & Gallery | Upload banners (**Homepage banner / slider** group replaces the hero slider) and gallery photos (**Gallery** group shows the Gallery section) | Home page |
 | Reviews | Customer reviews & testimonials, customer photos, before/after images. Reviews are **hidden until approved** | Home page (Testimonials) |
 | Offers | Promotional banners/offers with optional start/end dates | Home page (Offers) |
-| Blog & News | Articles — hidden until **Published** is ticked | Home page (Blog) |
+| Blog & News | Articles — hidden until **Published** is ticked. Appear on the homepage Blog section **and** the Articles page (`#/articles`) | Home + Articles pages |
 | Enquiries | Every form submission from the Quote form and Contact page, with status tracking (New / Contacted / Converted / Closed) and one-click email/call/WhatsApp reply | — |
 | Orders | Order list with statuses — ready for when e-commerce is enabled | — |
 | Contact & Social | Phone, WhatsApp, email, address, hours, social links (empty links are hidden) | Header, Footer, WhatsApp button |

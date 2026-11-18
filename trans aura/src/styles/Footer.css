@@ -38,11 +38,20 @@
 .footer__logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   margin-bottom: 18px;
 }
 
-.footer__logo svg { color: var(--gold-400); }
+.footer__logo-img {
+  flex-shrink: 0;
+  width: auto;
+  height: 88px;
+  padding: 8px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+}
 
 .footer__logo strong {
   display: block;

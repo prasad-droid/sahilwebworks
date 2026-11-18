@@ -28,11 +28,11 @@ export default function QuoteCTA() {
 
         <div className="quote-cta__actions">
           <Link to="/quote" className="btn btn-gold">
-            Get a Quote
+            {cta.primaryLabel}
             <span className="btn-arrow" aria-hidden="true">→</span>
           </Link>
           <Link to="/products" className="btn btn-outline">
-            Explore Products
+            {cta.secondaryLabel}
           </Link>
         </div>
       </div>

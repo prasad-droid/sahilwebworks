@@ -5,7 +5,7 @@ export default function About() {
         <div className="about__visual">
           <div className="about__blob" aria-hidden="true" />
           <img
-            src="/images/product-3.png"
+            src="/images/product-3.jpg"
             alt="Paraglobe Exims biodegradable tableware"
             className="about__img-main"
             loading="lazy"

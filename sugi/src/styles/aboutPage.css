@@ -55,7 +55,8 @@
 
 .about-range__list li {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  /* justify-content: center; */
   gap: 0.7rem;
   font-size: 0.98rem;
   color: var(--charcoal);
@@ -105,7 +106,8 @@
 }
 .aboutpage-title {
   max-width: none !important;
-  white-space: nowrap;
+  text-align: center !important;
+  white-space: wrap;
   font-size: clamp(0.5rem, 2.55vw, 1.8rem) !important;
 }
 .about-vision__inner p {

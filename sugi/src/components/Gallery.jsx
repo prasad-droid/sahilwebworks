@@ -7,21 +7,21 @@ import "../styles/gallery.css";
 // ==========================================================================
 
 export default function Gallery() {
-  const { media = [], settings } = useSite();
+  const { media = [], settings, content } = useSite();
   if (!settings?.features?.enableGallery) return null;
 
   const images = media.filter((m) => m.group === "gallery" && m.image);
   if (images.length === 0) return null;
 
+  const section = content?.home?.gallery || {};
+
   return (
     <section className="gallery section-pad">
       <div className="container">
         <header className="gallery__head reveal">
-          <p className="eyebrow">Gallery</p>
-          <h2 className="section-title">From Our Operations</h2>
-          <p className="section-sub">
-            Sourcing, processing, packing and shipping — a look at how we work.
-          </p>
+          <p className="eyebrow">{section.eyebrow}</p>
+          <h2 className="section-title">{section.title}</h2>
+          {section.intro && <p className="section-sub">{section.intro}</p>}
         </header>
 
         <div className="gallery__grid">

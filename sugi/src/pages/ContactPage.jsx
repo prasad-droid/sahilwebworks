@@ -2,54 +2,41 @@ import PageHero from "../components/PageHero";
 import ContactForm from "../components/ContactForm";
 import useReveal from "../components/useReveal";
 import { Link } from "../router";
-import {
-  EMAIL,
-  PHONE_DISPLAY,
-  PHONE_TEL,
-  ADDRESS,
-  ADDRESS_PENDING,
-  BUSINESS_HOURS,
-  SOCIAL_LINKS,
-} from "../data/site";
+import { useSite } from "../store/SiteContext";
+import { socialLinks } from "../store/social";
+import { EMAIL, PHONE_DISPLAY, ADDRESS } from "../data/site";
 import "../styles/contactPage.css";
 
 // ==========================================================================
-// CONTACT PAGE — contact info, social buttons, contact form, business hours,
-// "Why Contact Us?" list and the supplier-partner CTA.
+// CONTACT PAGE — contact details come from Admin Panel > Contact & Social
+// Media; page copy and the "Why Contact Us?" list come from
+// Admin Panel > Website Content > Contact Page.
 // ==========================================================================
-
-const WHY_CONTACT = [
-  {
-    title: "Quick & Transparent Response",
-    text: "Our team replies to genuine business enquiries with clear information.",
-  },
-  {
-    title: "Export Documentation Support",
-    text: "Help with the paperwork your shipment needs to clear customs.",
-  },
-  {
-    title: "Customized Packaging Solutions",
-    text: "Packaging tailored to your brand, market and buyer requirements.",
-  },
-  {
-    title: "Bulk Supply Capability",
-    text: "Container-scale and repeat orders planned around your schedule.",
-  },
-  {
-    title: "Worldwide Shipping Assistance",
-    text: "Coordination with freight partners for deliveries across the globe.",
-  },
-];
 
 export default function ContactPage() {
   useReveal();
+  const { settings, content } = useSite();
+  const contact = settings?.contact || {};
+  const page = content?.pages?.contact || {};
+  const hero = page.hero || {};
+  const form = page.form || {};
+  const why = page.why || {};
+  const partner = page.partner || {};
+
+  const email = contact.email || EMAIL;
+  const phoneDisplay = contact.phone || PHONE_DISPLAY;
+  const phoneTel = `tel:${String(phoneDisplay).replace(/[^\d+]/g, "")}`;
+  const address =
+    [contact.address, contact.city, contact.country].filter(Boolean).join(", ") ||
+    ADDRESS;
+  const socials = socialLinks(settings?.social);
 
   return (
     <>
       <PageHero
-        eyebrow="Contact Us"
-        title="Let's Talk About Your Requirement"
-        intro="Our export experts are ready to assist you with product information, pricing, packaging options, shipping schedules and documentation."
+        eyebrow={hero.eyebrow}
+        title={hero.title}
+        intro={hero.intro}
         crumbs={[{ label: "Contact Us" }]}
       />
 
@@ -57,7 +44,7 @@ export default function ContactPage() {
       <section className="contact-info section-pad">
         <div className="container">
           <div className="contact-info__grid">
-            <a className="contact-card reveal" href={`mailto:${EMAIL}`}>
+            <a className="contact-card reveal" href={`mailto:${email}`}>
               <span className="contact-card__icon" aria-hidden="true">
                 <svg
                   viewBox="0 0 24 24"
@@ -70,10 +57,10 @@ export default function ContactPage() {
                 </svg>
               </span>
               <span className="contact-card__label">Email</span>
-              <span className="contact-card__value">{EMAIL}</span>
+              <span className="contact-card__value">{email}</span>
             </a>
 
-            <a className="contact-card reveal" href={`tel:${PHONE_TEL}`}>
+            <a className="contact-card reveal" href={phoneTel}>
               <span className="contact-card__icon" aria-hidden="true">
                 <svg
                   viewBox="0 0 24 24"
@@ -88,7 +75,7 @@ export default function ContactPage() {
                 </svg>
               </span>
               <span className="contact-card__label">Contact Number</span>
-              <span className="contact-card__value">{PHONE_DISPLAY}</span>
+              <span className="contact-card__value">{phoneDisplay}</span>
             </a>
 
             <div className="contact-card reveal">
@@ -108,12 +95,9 @@ export default function ContactPage() {
                 </svg>
               </span>
               <span className="contact-card__label">Business Hours</span>
-              {BUSINESS_HOURS.map((h) => (
-                <span className="contact-card__value" key={h.days}>
-                  <span className="contact-card__value-days">{h.days}</span>
-                  {h.time}
-                </span>
-              ))}
+              {contact.hours && (
+                <span className="contact-card__value">{contact.hours}</span>
+              )}
             </div>
 
             <div className="contact-card reveal">
@@ -132,14 +116,12 @@ export default function ContactPage() {
                 </svg>
               </span>
               <span className="contact-card__label">Address</span>
-              <span className="contact-card__value">
-                {ADDRESS_PENDING ? "Full address — to be provided" : ADDRESS}
-              </span>
+              <span className="contact-card__value">{address}</span>
             </div>
           </div>
 
           <ul className="contact-social reveal" aria-label="Social media">
-            {SOCIAL_LINKS.map((s) => (
+            {socials.map((s) => (
               <li key={s.label}>
                 <a href={s.href} target="_blank" rel="noopener noreferrer">
                   {s.label}
@@ -154,11 +136,10 @@ export default function ContactPage() {
       <section className="contact-body section-pad">
         <div className="container contact-body__grid">
           <div className="contact-body__form reveal">
-            <p className="eyebrow">Send Us Your Requirement</p>
-            <h2 className="section-title">Contact Us Form</h2>
+            <p className="eyebrow">{form.eyebrow}</p>
+            <h2 className="section-title">{form.title}</h2>
             <p className="contact-body__intro">
-              Our concerned team will definitely respond to you. Fields marked
-              with <span className="req">*</span> are required.
+              {form.text}
             </p>
             <div className="contact-body__formcard">
               <ContactForm />
@@ -168,15 +149,15 @@ export default function ContactPage() {
           <section className="contact-why section-pad">
             <div className="container">
               <div className="contact-why__head reveal">
-                <p className="eyebrow">Why Contact Us?</p>
-                <h2 className="section-title">Why Contact Us?</h2>
+                <p className="eyebrow">{why.eyebrow}</p>
+                <h2 className="section-title">{why.title}</h2>
               </div>
 
               <ul className="contact-why__grid">
-                {WHY_CONTACT.map((w, i) => (
+                {(why.items || []).map((w, i) => (
                   <li
                     className="contact-why__item reveal"
-                    key={w.title}
+                    key={`${w.title}-${i}`}
                     style={{ transitionDelay: `${(i % 5) * 0.05}s` }}
                   >
                     <span className="contact-why__tick" aria-hidden="true">
@@ -198,25 +179,19 @@ export default function ContactPage() {
       <section className="contact-partner">
         <div className="container contact-partner__inner reveal">
           <div className="contact-partner__copy">
-            <p className="eyebrow">Become a Partner</p>
-            <h2 className="contact-partner__title">
-              Are you a farmer, grower or supplier looking for a trusted export
-              partner?
-            </h2>
-            <p className="contact-partner__text">
-              If you supply quality agricultural produce and want access to
-              international markets, we would like to hear from you.
-            </p>
+            <p className="eyebrow">{partner.eyebrow}</p>
+            <h2 className="contact-partner__title">{partner.title}</h2>
+            <p className="contact-partner__text">{partner.text}</p>
           </div>
           <div className="contact-partner__actions">
             <Link to="/quote" className="btn btn-primary">
-              Partner With Us
+              {partner.primaryLabel}
               <span className="btn-arrow" aria-hidden="true">
                 →
               </span>
             </Link>
-            <a href={`mailto:${EMAIL}`} className="btn btn-dark-outline">
-              Email Us
+            <a href={`mailto:${email}`} className="btn btn-dark-outline">
+              {partner.secondaryLabel}
             </a>
           </div>
         </div>

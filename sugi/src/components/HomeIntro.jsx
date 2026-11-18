@@ -26,11 +26,11 @@ export default function HomeIntro() {
 
         <div className="home-intro__actions reveal">
           <Link to="/quote" className="btn btn-primary">
-            Get a Quote
+            {intro.primaryLabel}
             <span className="btn-arrow" aria-hidden="true">→</span>
           </Link>
           <Link to="/products" className="btn btn-dark-outline">
-            Explore Products
+            {intro.secondaryLabel}
           </Link>
         </div>
       </div>

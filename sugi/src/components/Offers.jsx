@@ -7,18 +7,20 @@ import "../styles/offers.css";
 // ==========================================================================
 
 export default function Offers() {
-  const { offers = [], settings } = useSite();
+  const { offers = [], settings, content } = useSite();
   if (!settings?.features?.enableOffers) return null;
 
   const active = (offers || []).filter((o) => o.active !== false);
   if (active.length === 0) return null;
 
+  const section = content?.home?.offers || {};
+
   return (
     <section className="offers section-pad">
       <div className="container">
         <header className="offers__head reveal">
-          <p className="eyebrow">Special Offers</p>
-          <h2 className="section-title">Current Promotions</h2>
+          <p className="eyebrow">{section.eyebrow}</p>
+          <h2 className="section-title">{section.title}</h2>
         </header>
 
         <div className="offers__grid">

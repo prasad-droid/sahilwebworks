@@ -1,5 +1,6 @@
-﻿import { ArrowRight, Boxes, FlaskConical, FlaskRound, Package, Ship, SlidersHorizontal } from 'lucide-react'
+﻿import { ArrowRight, Boxes, CheckCircle2, FlaskConical, FlaskRound, Package, Ship, SlidersHorizontal } from 'lucide-react'
 import { productImages } from '../data/images'
+import { productCategories } from '../data/siteData'
 import SmartImage from './SmartImage'
 import '../styles/Products.css'
 
@@ -26,9 +27,9 @@ const products = [
     image: productImages.bulkSourcing
   },
   {
-    title: 'Selected Commercial Products',
+    title: 'All Commercial Products',
     blurb:
-      'Sourcing coordination for selected commercial products for distribution, wholesale and B2B trade — discussed on a requirement basis.',
+      'Sourcing coordination for all commercial products for distribution, wholesale and B2B trade — discussed on a requirement basis.',
     icon: Boxes,
     image: productImages.commercialProducts
   },
@@ -58,6 +59,18 @@ export default function Products({ onEnquire }) {
           <p className="section-sub">
             Quality-focused sourcing and export coordination for international B2B buyers.
           </p>
+        </div>
+
+        <div className="products__categories reveal">
+          <p className="products__categories-label">Product Categories We Source</p>
+          <ul className="products__chips">
+            {productCategories.map((category) => (
+              <li key={category}>
+                <CheckCircle2 size={17} aria-hidden="true" />
+                {category}
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="products__grid">

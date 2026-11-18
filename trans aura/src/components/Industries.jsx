@@ -30,7 +30,7 @@ const industries = [
   {
     icon: Truck,
     title: 'Commercial Supply',
-    text: 'Businesses requiring selected commercial products with consistent communication, requirement-based quotations and dependable sourcing support.'
+    text: 'Businesses requiring all commercial products with consistent communication, requirement-based quotations and dependable sourcing support.'
   }
 ]
 

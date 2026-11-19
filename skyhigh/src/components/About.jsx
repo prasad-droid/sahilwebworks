@@ -1,3 +1,5 @@
+import bathTowel from '../assets/Bath Towel.jpeg';
+import bathTowelsColors from '../assets/Bath Towels in different colors.jpeg';
 import '../styles/sections.css';
 
 const About = () => {
@@ -7,12 +9,12 @@ const About = () => {
         <div className="about-grid">
           <div className="about-image-container">
             <img 
-              src="/src/assets/Bath Towel.jpeg" 
+              src={bathTowel} 
               alt="Indian textile manufacturing and terry towels" 
               className="about-image"
               loading="lazy"
               onError={(e) => {
-                e.target.src = '/src/assets/Bath Towels in different colors.jpeg';
+                e.target.src = bathTowelsColors;
               }}
             />
           </div>

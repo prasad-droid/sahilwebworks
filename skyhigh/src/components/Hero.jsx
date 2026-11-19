@@ -1,4 +1,8 @@
 import { ArrowRight, ChevronDown } from 'lucide-react';
+import bathTowelsColors from '../assets/Bath Towels in different colors.jpeg';
+import bathTowel from '../assets/Bath Towel.jpeg';
+import bathSheet from '../assets/Bath Sheet.jpeg';
+import handTowels from '../assets/Hand Towels.jpeg';
 import '../styles/hero.css';
 
 const Hero = () => {
@@ -47,21 +51,21 @@ const Hero = () => {
         </div>
         <div className="hero-images">
           <img 
-            src="/src/assets/Bath Towels in different colors.jpeg" 
+            src={bathTowelsColors} 
             alt="Premium terry towels in different colors" 
             className="hero-image-main"
             loading="eager"
             onError={(e) => {
-              e.target.src = '/src/assets/Bath Towel.jpeg';
+              e.target.src = bathTowel;
             }}
           />
           <img 
-            src="/src/assets/Bath Sheet.jpeg" 
+            src={bathSheet} 
             alt="Premium bath sheet towels" 
             className="hero-image-secondary"
             loading="eager"
             onError={(e) => {
-              e.target.src = '/src/assets/Hand Towels.jpeg';
+              e.target.src = handTowels;
             }}
           />
         </div>

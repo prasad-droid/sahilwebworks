@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin } from 'lucide-react';
+import logo from '../assets/logo.jpeg';
 import '../styles/footer.css';
 
 const Footer = () => {
@@ -19,12 +20,9 @@ const Footer = () => {
           <div className="footer-brand">
             <div className="footer-logo">
               <img 
-                src="/src/assets/logo.png" 
+                src={logo} 
                 alt="SkyHigh RP Global EXIM Enterprises Logo" 
                 className="footer-logo-img"
-                onError={(e) => {
-                  e.target.src = '/src/assets/logo.jpeg';
-                }}
               />
               <div className="footer-logo-text">
                 <span className="footer-logo-name">SkyHigh RP Global</span>

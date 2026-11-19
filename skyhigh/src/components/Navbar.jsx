@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import logo from '../assets/logo.jpeg';
 import '../styles/navbar.css';
 
 const Navbar = () => {
@@ -37,12 +38,9 @@ const Navbar = () => {
       <div className="navbar-container">
         <a href="#home" className="navbar-logo" onClick={(e) => handleNavClick(e, '#home')}>
           <img 
-            src="/src/assets/logo.png" 
+            src={logo} 
             alt="SkyHigh RP Global EXIM Enterprises Logo" 
             className="navbar-logo-img"
-            onError={(e) => {
-              e.target.src = '/src/assets/logo.jpeg';
-            }}
           />
           <div className="navbar-logo-text">
             <span>SkyHigh RP Global</span>

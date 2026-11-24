@@ -35,13 +35,14 @@ export default function QuotePage() {
 
       <section className="quote-form section-pad">
         <div className="container quote-form__grid">
-          <div className="quote-form__main reveal">
+          <div className="quote-form__intro-block reveal">
             <p className="eyebrow">{form.eyebrow}</p>
             <h2 className="section-title">{form.title}</h2>
             <p className="quote-form__intro">{form.text}</p>
-            <div className="quote-form__card">
-              <EnquiryForm />
-            </div>
+          </div>
+
+          <div className="quote-form__card reveal">
+            <EnquiryForm />
           </div>
 
           <aside className="quote-form__aside">

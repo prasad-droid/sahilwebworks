@@ -86,7 +86,9 @@ a.contact-card:hover {
 }
 
 .contact-social a {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   padding: 0.6rem 1.3rem;
   border-radius: 50px;
   border: 1px solid rgba(101, 113, 83, 0.25);
@@ -95,14 +97,20 @@ a.contact-card:hover {
   font-weight: 500;
   color: var(--charcoal);
   transition: background 0.3s var(--ease), color 0.3s var(--ease),
-    border-color 0.3s var(--ease);
+    border-color 0.3s var(--ease), transform 0.3s var(--ease);
 }
 
 .contact-social a:hover {
   background: var(--forest);
   color: var(--white);
   border-color: var(--forest);
+  transform: translateY(-2px);
 }
+
+.contact-social a:hover .social-icon {
+  color: var(--white);
+}
+
 
 /* ---------- form + aside ---------- */
 .contact-body {
@@ -209,6 +217,19 @@ a.contact-card:hover {
   margin-bottom: 2.25rem;
 }
 
+/* "Why Contact Us?" must stay on a single line at desktop widths. */
+.contact-why__head .section-title {
+  max-width: none;
+  white-space: nowrap;
+  font-size: clamp(1.25rem, 2.2vw, 1.9rem);
+}
+
+@media (max-width: 640px) {
+  .contact-why__head .section-title {
+    white-space: normal;
+  }
+}
+
 .contact-why__grid {
   list-style: none;
   display: grid;
@@ -283,28 +304,30 @@ a.contact-card:hover {
 
 .contact-partner__title {
   color: var(--charcoal);
-  font-size: clamp(1.1rem, 1.75vw, 1.6rem);
+  font-size: clamp(1.4rem, 2.4vw, 2.15rem);
   font-weight: 600;
-  line-height: 1.25;
-  letter-spacing: 0.005em;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
   margin: 0 0 0.9rem;
 }
 
-/* The full question fits on one line on tablet and above; small phones
-   are allowed to wrap rather than shrink the text further. */
-@media (min-width: 768px) {
-  .contact-partner__title {
+/* The full question and the line below it stay on one line on desktop.
+   Small screens wrap instead of shrinking the text to an unreadable size. */
+@media (min-width: 900px) {
+  .contact-partner__title,
+  .contact-partner__text {
     white-space: nowrap;
   }
 }
 
 .contact-partner__text {
   color: #5a625b;
-  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  font-size: clamp(0.95rem, 1.15vw, 1.1rem);
   line-height: 1.75;
-  max-width: 68ch;
+  max-width: none;
   margin: 0 auto;
 }
+
 
 /* Buttons sit below the centred copy, aligned to the centre. */
 .contact-partner__actions {

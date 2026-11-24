@@ -75,3 +75,22 @@
   font-size: clamp(1rem, 1.5vw, 1.1rem);
   line-height: 1.75;
 }
+
+/* Optional line-count variants used by pages whose copy is edited to fit. */
+.page-hero__title--one-line {
+  max-width: none;
+  white-space: nowrap;
+  font-size: clamp(1.65rem, 3.8vw, 3rem);
+}
+
+.page-hero__intro--two-lines {
+  max-width: 100ch;
+}
+
+@media (max-width: 720px) {
+  .page-hero__title--one-line {
+    white-space: normal;
+    font-size: clamp(1.75rem, 7vw, 2.4rem);
+  }
+}
+

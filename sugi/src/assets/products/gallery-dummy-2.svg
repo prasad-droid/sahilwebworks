@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Sample product photo placeholder">
+  <rect width="800" height="600" fill="#d4ddc4" />
+  <circle cx="400" cy="275" r="200" fill="#f4f0e4" opacity="0.8" />
+  <ellipse cx="310" cy="330" rx="105" ry="80" fill="#b9975b" />
+  <ellipse cx="490" cy="330" rx="105" ry="80" fill="#c9a568" />
+  <path d="M310 250c-8-42 12-76 48-92 22 34 18 72-8 94z" fill="#6f8d55" />
+  <path d="M490 250c10-42-10-76-46-92-22 34-18 72 8 94z" fill="#829b62" />
+  <circle cx="400" cy="380" r="58" fill="#d6a14f" />
+  <circle cx="400" cy="380" r="30" fill="#e6c37c" opacity="0.7" />
+  <text x="400" y="535" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" letter-spacing="6" fill="#4f5945">SAMPLE PRODUCT PHOTO</text>
+  <text x="400" y="568" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" letter-spacing="2" fill="#707962">More views coming soon</text>
+</svg>

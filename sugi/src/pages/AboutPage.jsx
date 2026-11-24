@@ -27,6 +27,7 @@ export default function AboutPage() {
         eyebrow={hero.eyebrow}
         title={hero.title}
         intro={hero.intro}
+        introClassName="page-hero__intro--two-lines"
         crumbs={[{ label: "About" }]}
       />
 
@@ -55,18 +56,37 @@ export default function AboutPage() {
       <section className="about-range section-pad">
         <div className="container about-range__inner">
           <h2 className="section-title reveal aboutpage-title">{range.title}</h2>
-          <ul className="about-range__list">
-            {(range.items || []).map((item, i) => (
-              <li
-                className="reveal"
-                key={`${item}-${i}`}
-                style={{ transitionDelay: `${(i % 8) * 0.04}s` }}
-              >
-                <span className="about-range__tick" aria-hidden="true">✓</span>
-                {item}
-              </li>
-            ))}
-          </ul>
+
+          {range.groups?.length ? (
+            <div className="about-range__groups">
+              {range.groups.map((group, gi) => (
+                <div className="about-range__group reveal" key={`${group.title}-${gi}`}>
+                  <h3 className="about-range__group-title">{group.title}</h3>
+                  <ul className="about-range__points">
+                    {(group.items || []).map((item, i) => (
+                      <li key={`${item}-${i}`}>
+                        <span className="about-range__tick" aria-hidden="true">✓</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <ul className="about-range__list">
+              {(range.items || []).map((item, i) => (
+                <li
+                  className="reveal"
+                  key={`${item}-${i}`}
+                  style={{ transitionDelay: `${(i % 8) * 0.04}s` }}
+                >
+                  <span className="about-range__tick" aria-hidden="true">✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          )}
 
           <div className="about-range__note reveal">
             {(range.notes || []).map((note, i) => (

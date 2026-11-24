@@ -29,6 +29,8 @@ export default function ProductsPage() {
         eyebrow={hero.eyebrow}
         title={hero.title}
         intro={hero.intro}
+        titleClassName="page-hero__title--one-line"
+        introClassName="page-hero__intro--two-lines"
         crumbs={[{ label: "Products" }]}
       />
 
@@ -40,6 +42,7 @@ export default function ProductsPage() {
         intro={indian.intro}
         groups={indianGroups}
         layout="detail"
+        introOneLine
       />
 
       {/* ---------- imported ---------- */}

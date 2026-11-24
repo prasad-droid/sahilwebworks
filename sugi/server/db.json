@@ -34,9 +34,106 @@
     "footerNote": "An Indian agro-commodity export company focused on connecting agricultural products with international B2B markets."
   },
   "content": {
+    "homeIntro": {
+      "title": "Connecting Indian & Globally Sourced Agro Commodities",
+      "titleAccent": "with Global Markets",
+      "text": "Delivering farm-fresh fruits, vegetables, spices, dry fruits and other agricultural products from India to customers worldwide. We provide premium quality produce sourced directly from certified farms with international export standards, competitive pricing, and timely global delivery."
+    },
     "about": {
       "paragraphs": []
-    }
+    },
+    "quoteCta": {
+      "eyebrow": "Get a Quote",
+      "title": "Looking for a reliable fruit and vegetable exporter from India?",
+      "text": "Tell us what you need, in which quantity and for which destination market, and our export team will come back to you with pricing, packing options and shipping schedules."
+    },
+    "sections": [
+      {
+        "id": "heroSlider",
+        "label": "Hero Slider",
+        "visible": true
+      },
+      {
+        "id": "homeIntro",
+        "label": "Home Intro (headline)",
+        "visible": true
+      },
+      {
+        "id": "about",
+        "label": "About Us (homepage)",
+        "visible": true
+      },
+      {
+        "id": "productsIndian",
+        "label": "Products — Indian Origin",
+        "visible": true
+      },
+      {
+        "id": "productsImported",
+        "label": "Products — Imported",
+        "visible": true
+      },
+      {
+        "id": "services",
+        "label": "Services",
+        "visible": true
+      },
+      {
+        "id": "categories",
+        "label": "Categories",
+        "visible": true
+      },
+      {
+        "id": "gallery",
+        "label": "Gallery",
+        "visible": true
+      },
+      {
+        "id": "whyChooseUs",
+        "label": "Why Choose Us",
+        "visible": true
+      },
+      {
+        "id": "exportProcess",
+        "label": "Export Process",
+        "visible": true
+      },
+      {
+        "id": "exportMap",
+        "label": "Export Map",
+        "visible": true
+      },
+      {
+        "id": "commitment",
+        "label": "Our Commitment",
+        "visible": true
+      },
+      {
+        "id": "testimonials",
+        "label": "Customer Reviews",
+        "visible": true
+      },
+      {
+        "id": "offers",
+        "label": "Offers & Promotions",
+        "visible": true
+      },
+      {
+        "id": "quoteCta",
+        "label": "Get a Quote CTA",
+        "visible": true
+      },
+      {
+        "id": "blog",
+        "label": "Blog & News",
+        "visible": true
+      },
+      {
+        "id": "certifications",
+        "label": "Certifications",
+        "visible": true
+      }
+    ]
   },
   "categories": [],
   "services": [],

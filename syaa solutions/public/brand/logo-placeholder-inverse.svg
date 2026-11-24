@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 64" role="img" aria-label="SYAA SOLUTION logo">
+  <!-- REPLACE THIS FILE with the supplied SYAA SOLUTION logo (dark-background / inverse version). -->
+  <rect x="2" y="6" width="52" height="52" rx="13" fill="#F8F7F2"/>
+  <path d="M39 21.4c-2.4-2.2-5.5-3.3-9-3.3-5.2 0-8.8 2.6-8.8 6.4 0 3.5 2.5 5.2 7.9 6.4l2.9.6c3.4.7 4.9 1.7 4.9 3.7 0 2.5-2.7 4.1-6.8 4.1-3.8 0-7.1-1.3-9.4-3.6v6.8c2.4 1.8 5.8 2.8 9.4 2.8 5.8 0 9.7-2.8 9.7-7.4 0-3.8-2.5-5.7-8.1-6.8l-2.7-.6c-3.1-.7-4.5-1.5-4.5-3.2 0-2 2.1-3.4 5.3-3.4 3 0 5.6.9 7.7 2.7z" fill="#183447"/>
+  <text x="68" y="32" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="1.5" fill="#FFFFFF">SYAA</text>
+  <text x="69" y="49" font-family="DM Sans, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="5.2" fill="#D8C5A5">SOLUTION</text>
+</svg>

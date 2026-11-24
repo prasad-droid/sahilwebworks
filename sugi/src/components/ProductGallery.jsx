@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import dummyOne from "../assets/products/gallery-dummy-1.svg";
+import dummyTwo from "../assets/products/gallery-dummy-2.svg";
 import "../styles/productGallery.css";
 
 // ==========================================================================
@@ -26,7 +28,15 @@ export default function ProductGallery({ images = [], name, compact = false, lim
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(false);
   // The Products page cards are designed for up to 10 photos per product.
-  const slides = typeof limit === "number" ? images.slice(0, limit) : images;
+  // Products that only have one photo (or none yet) still get the same
+  // slidable gallery, using neutral sample images as filler.
+  const supplied = typeof limit === "number" ? images.slice(0, limit) : images;
+  const slides =
+    supplied.length >= 2
+      ? supplied
+      : supplied.length === 1
+        ? [...supplied, dummyOne, dummyTwo]
+        : [dummyOne, dummyTwo];
   const multiple = slides.length > 1;
 
   const update = () => {

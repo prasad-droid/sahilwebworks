@@ -2,6 +2,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TrustHighlights from './components/TrustHighlights';
 import About from './components/About';
+import CompanyValues from './components/CompanyValues';
 import Products from './components/Products';
 import ExportProcess from './components/ExportProcess';
 import WhyChooseUs from './components/WhyChooseUs';
@@ -15,6 +16,7 @@ import './styles/global.css';
 import './styles/navbar.css';
 import './styles/hero.css';
 import './styles/sections.css';
+import './styles/company.css';
 import './styles/products.css';
 import './styles/inquiry.css';
 import './styles/contact.css';
@@ -27,6 +29,7 @@ function App() {
       <Hero />
       <TrustHighlights />
       <About />
+      <CompanyValues />
       <Products />
       <ExportProcess />
       <WhyChooseUs />

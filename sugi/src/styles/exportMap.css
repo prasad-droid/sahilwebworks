@@ -10,7 +10,7 @@
 
 .export-map__head {
   text-align: center;
-  max-width: 720px;
+  max-width: 980px;
   margin: 0 auto clamp(2rem, 4vw, 3rem);
 }
 
@@ -26,6 +26,8 @@
 .export-map__head .section-sub {
   color: rgba(247, 244, 236, 0.72);
   margin: 1.1rem auto 0;
+  /* Keep the intro to two balanced lines on desktop. */
+  max-width: 620px;
 }
 
 .export-map__viz {
@@ -69,14 +71,16 @@
 }
 
 /* ---------- origin ---------- */
+/* Markers use a warm coral that contrasts with both the dark ocean and the
+   pale land, so the pointers stay visible against the map. */
 .export-map__origin-dot {
-  fill: var(--white);
-  stroke: var(--gold);
-  stroke-width: 2;
+  fill: #ff6b4a;
+  stroke: var(--white);
+  stroke-width: 2.4;
 }
 
 .export-map__pulse {
-  fill: rgba(216, 199, 163, 0.38);
+  fill: rgba(255, 107, 74, 0.45);
   transform-box: fill-box;
   transform-origin: center;
   animation: mapPulse 2.6s ease-out infinite;
@@ -99,9 +103,10 @@
 
 /* ---------- destinations ---------- */
 .export-map__dot {
-  fill: var(--white);
-  stroke: rgba(24, 32, 29, 0.7);
-  stroke-width: 1;
+  fill: #ff6b4a;
+  stroke: var(--white);
+  stroke-width: 1.8;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.55));
 }
 
 .export-map__point {
@@ -111,8 +116,9 @@
 }
 
 .export-map__point:hover .export-map__dot {
-  fill: var(--gold);
+  fill: #ffd166;
   stroke: var(--white);
+  stroke-width: 2.2;
 }
 
 @keyframes mapBlink {

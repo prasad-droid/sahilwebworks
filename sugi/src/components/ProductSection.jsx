@@ -13,6 +13,7 @@ export default function ProductSection({
   groups,
   layout = "card",
   id,
+  introOneLine = false,
 }) {
   // Groups of 5 or 6 products would leave empty trailing cells in the default
   // 4-column grid, which reads as a large blank area. Give those groups their
@@ -29,7 +30,11 @@ export default function ProductSection({
         <header className="product-section__head reveal">
           {eyebrow && <p className="eyebrow">{eyebrow}</p>}
           <h2 className="section-title">{title}</h2>
-          {intro && <p className="section-sub">{intro}</p>}
+          {intro && (
+            <p className={`section-sub${introOneLine ? " section-sub--one-line" : ""}`}>
+              {intro}
+            </p>
+          )}
         </header>
 
         {groups.map((group) => {

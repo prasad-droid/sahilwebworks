@@ -37,10 +37,17 @@ function setAt(obj, keys, value) {
 }
 
 const joinParagraphs = (list) => (Array.isArray(list) ? list.join("\n\n") : "");
+const joinLines = (list) => (Array.isArray(list) ? list.join("\n") : "");
 
 const splitParagraphs = (value) =>
   value
     .split(/\n\s*\n/)
+    .map((part) => part.trim())
+    .filter(Boolean);
+
+const splitLines = (value) =>
+  String(value || "")
+    .split("\n")
     .map((part) => part.trim())
     .filter(Boolean);
 
@@ -81,6 +88,21 @@ function ListItemField({ field, value, onChange }) {
           rows={field.rows || 2}
           value={value}
           onChange={onChange}
+        />
+      </Field>
+    );
+  }
+
+  if (field.type === "lines") {
+    return (
+      <Field label={field.label} hint={field.hint || "One item per line."} wide>
+        <TextArea
+          rows={field.rows || 4}
+          value={joinLines(value)}
+          onChange={(v) => {
+            const parts = splitLines(v);
+            onChange(parts.length ? parts : []);
+          }}
         />
       </Field>
     );
@@ -140,7 +162,7 @@ function ListField({ field, value, onChange }) {
   const addItem = () => {
     const item = {};
     (field.itemFields || []).forEach((f) => {
-      item[f.key] = f.default ?? "";
+      item[f.key] = f.default ?? (f.type === "lines" ? [] : "");
     });
     onChange([...items, item]);
   };

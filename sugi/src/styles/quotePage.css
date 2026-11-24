@@ -9,17 +9,27 @@
 .quote-form__grid {
   display: grid;
   grid-template-columns: 1.5fr 0.9fr;
-  gap: clamp(2rem, 5vw, 3.5rem);
+  grid-template-areas:
+    "intro ."
+    "card aside";
+  column-gap: clamp(2rem, 5vw, 3.5rem);
+  row-gap: 0;
   align-items: start;
+}
+
+.quote-form__intro-block {
+  grid-area: intro;
+  padding-bottom: 1.6rem;
 }
 
 .quote-form__intro {
   color: var(--muted);
-  margin: 0.9rem 0 1.6rem;
+  margin: 0.9rem 0 0;
   line-height: 1.7;
 }
 
 .quote-form__card {
+  grid-area: card;
   background: var(--white);
   border: 1px solid rgba(101, 113, 83, 0.16);
   border-radius: var(--radius);
@@ -29,6 +39,7 @@
 
 /* ---------- aside ---------- */
 .quote-form__aside {
+  grid-area: aside;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -110,5 +121,14 @@
 @media (max-width: 900px) {
   .quote-form__grid {
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "intro"
+      "card"
+      "aside";
+    row-gap: 1.5rem;
+  }
+
+  .quote-form__intro-block {
+    padding-bottom: 0;
   }
 }

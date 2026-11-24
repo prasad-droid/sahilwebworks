@@ -30,6 +30,17 @@
   margin-right: auto;
 }
 
+.section-sub--one-line {
+  max-width: none;
+  white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+  .section-sub--one-line {
+    white-space: normal;
+  }
+}
+
 .product-section__group + .product-section__group {
   margin-top: clamp(2.5rem, 5vw, 4rem);
 }

@@ -1,4 +1,6 @@
 import { Phone, Mail, MapPin } from 'lucide-react';
+import logo from '../assets/logo.png';
+import logoFallback from '../assets/logo.jpeg';
 import '../styles/footer.css';
 
 const Footer = () => {
@@ -19,11 +21,11 @@ const Footer = () => {
           <div className="footer-brand">
             <div className="footer-logo">
               <img 
-                src="/src/assets/logo.png" 
+                src={logo} 
                 alt="SkyHigh RP Global EXIM Enterprises Logo" 
                 className="footer-logo-img"
                 onError={(e) => {
-                  e.target.src = '/src/assets/logo.jpeg';
+                  e.target.src = logoFallback;
                 }}
               />
               <div className="footer-logo-text">
@@ -43,6 +45,7 @@ const Footer = () => {
             <ul className="footer-links">
               <li><a href="#home" onClick={(e) => handleNavClick(e, '#home')}>Home</a></li>
               <li><a href="#about" onClick={(e) => handleNavClick(e, '#about')}>About Us</a></li>
+              <li><a href="#company" onClick={(e) => handleNavClick(e, '#company')}>Our Vision &amp; Mission</a></li>
               <li><a href="#products" onClick={(e) => handleNavClick(e, '#products')}>Products</a></li>
               <li><a href="#process" onClick={(e) => handleNavClick(e, '#process')}>Export Process</a></li>
               <li><a href="#testimonials" onClick={(e) => handleNavClick(e, '#testimonials')}>Testimonials</a></li>

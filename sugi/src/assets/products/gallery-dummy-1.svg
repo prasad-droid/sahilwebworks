@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Sample product photo placeholder">
+  <rect width="800" height="600" fill="#ded2b8" />
+  <circle cx="400" cy="270" r="190" fill="#f3ecdc" opacity="0.75" />
+  <path d="M250 330h300l-34 150H284z" fill="#b08b4f" />
+  <path d="M250 330h300l-16 48H266z" fill="#c8a46a" />
+  <path d="M330 330c-18-52 3-98 46-118 34 28 40 77 12 118z" fill="#6f8d55" />
+  <path d="M470 330c22-48 4-94-36-116-30 30-33 77-8 116z" fill="#829b62" />
+  <circle cx="352" cy="290" r="34" fill="#cf8f4a" />
+  <circle cx="418" cy="276" r="38" fill="#d9a24f" />
+  <circle cx="474" cy="300" r="30" fill="#c9833f" />
+  <text x="400" y="535" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" letter-spacing="6" fill="#5b6249">SAMPLE PRODUCT PHOTO</text>
+  <text x="400" y="568" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" letter-spacing="2" fill="#7b8067">More views coming soon</text>
+</svg>

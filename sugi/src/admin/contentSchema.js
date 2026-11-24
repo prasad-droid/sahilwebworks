@@ -8,6 +8,7 @@
 // Field types:
 //   text | textarea | image | paragraphs (list of paragraphs)
 //   strings (list of plain text lines) | list (repeatable object cards)
+//   list item fields also accept `lines` (array of single-line strings)
 // ==========================================================================
 
 const text = (path, label, extra = {}) => ({ type: "text", path, label, ...extra });
@@ -217,8 +218,9 @@ export const CONTENT_GROUPS = [
   },
   {
     id: "cert-logos",
-    label: "Certification logos & list",
-    description: "Shared by the homepage strip and the Certifications page.",
+    label: "Home — Certification logos",
+    description:
+      "Logos shown in the homepage strip only. The Certifications page has its own document list below.",
     fields: [
       list(
         "certifications.items",
@@ -259,9 +261,28 @@ export const CONTENT_GROUPS = [
     label: "About Page — products we export",
     fields: [
       text("pages.about.range.title", "Heading", { wide: true }),
-      strings("pages.about.range.items", "Exported products", {
+      strings("pages.about.range.items", "Legacy product list", {
         itemLabel: "Product",
+        hint: "Only used when the category groups below are empty.",
       }),
+      list(
+        "pages.about.range.groups",
+        "Product category groups",
+        [
+          { key: "title", label: "Category title", type: "text" },
+          {
+            key: "items",
+            label: "Category points",
+            type: "lines",
+            rows: 5,
+            hint: "One point per line, shown as a bullet on the About page.",
+          },
+        ],
+        {
+          itemLabel: "Group",
+          hint: "Example: Indian origin / Imported Products.",
+        }
+      ),
       paragraphs("pages.about.range.notes", "Closing paragraphs", 5, {
         wide: true,
       }),
@@ -324,7 +345,43 @@ export const CONTENT_GROUPS = [
       ...SECTION_HEADING("pages.certifications.hero", "Hero"),
       area("pages.certifications.hero.intro", "Hero intro", 3, { wide: true }),
       area("pages.certifications.intro", "Intro paragraph", 4, { wide: true }),
-      text("pages.certifications.downloadLabel", "Download button label"),
+      text("pages.certifications.downloadLabel", "Default download button label"),
+      list(
+        "pages.certifications.documents",
+        "Certificate / licence documents",
+        [
+          { key: "name", label: "Document heading", type: "text" },
+          {
+            key: "description",
+            label: "Text below heading",
+            type: "textarea",
+            rows: 2,
+          },
+          {
+            key: "image",
+            label: "A4 document image",
+            type: "image",
+            hint: "Upload a photo or scan of the full A4 certificate / licence / registration.",
+          },
+          {
+            key: "file",
+            label: "Download file path",
+            type: "text",
+            hint: "e.g. certificates/fssai.pdf (relative to /public).",
+          },
+          { key: "downloadName", label: "Downloaded file name", type: "text" },
+          {
+            key: "downloadLabel",
+            label: "Download button label",
+            type: "text",
+            hint: "Leave blank to use the default label above.",
+          },
+        ],
+        {
+          itemLabel: "Document",
+          hint: "These documents are shown only on the Certifications page.",
+        }
+      ),
       text("pages.certifications.quality.title", "Quality card heading"),
       text("pages.certifications.quality.lead", "Quality card lead line", { wide: true }),
       strings("pages.certifications.quality.items", "Quality checks", {

@@ -1,0 +1,6 @@
+node_modules/
+dist/
+data/inquiries.json
+.env
+.DS_Store
+*.log

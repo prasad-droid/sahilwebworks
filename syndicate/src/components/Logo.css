@@ -1,0 +1,72 @@
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex: none;
+}
+
+.brand__image {
+  width: auto;
+  max-width: 62px;
+  height: 52px;
+  object-fit: contain;
+}
+
+.brand__mark {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--forest);
+  color: var(--cream);
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  transition: background-color 250ms var(--ease);
+}
+
+.brand__wordmark {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.08;
+  white-space: nowrap;
+}
+
+.brand__wordmark strong {
+  color: var(--forest);
+  font-family: var(--font-heading);
+  font-size: 1.08rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.brand__wordmark span {
+  color: var(--olive);
+  font-size: 0.63rem;
+  font-weight: 800;
+  letter-spacing: 0.32em;
+}
+
+.brand--compact .brand__mark {
+  width: 42px;
+  height: 42px;
+}
+
+@media (max-width: 560px) {
+  .brand__image {
+    max-width: 52px;
+    height: 44px;
+  }
+
+  .brand__mark {
+    width: 42px;
+    height: 42px;
+    font-size: 1.05rem;
+  }
+
+  .brand__wordmark strong {
+    font-size: 0.98rem;
+  }
+}

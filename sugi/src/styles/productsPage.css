@@ -73,11 +73,22 @@
   align-items: start;
 }
 
+/* The Quality Assurance heading is centred; the supporting copy is allowed
+   a wider measure so it reads as two lines on desktop. */
+.pquality__head .eyebrow,
+.pquality__head .section-title {
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
 .pquality__head p {
   color: var(--muted);
   font-size: 1.02rem;
   line-height: 1.8;
   margin-top: 1.1rem;
+  /* Narrow enough to keep the supporting copy to two lines on desktop. */
   max-width: 46ch;
 }
 

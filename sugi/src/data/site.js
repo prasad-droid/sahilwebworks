@@ -30,6 +30,7 @@ export const SOCIAL_LINKS = [
   { label: "Facebook", href: "https://www.facebook.com/" },
   { label: "Instagram", href: "https://www.instagram.com/" },
   { label: "X", href: "https://x.com/" },
+  { label: "YouTube", href: "https://www.youtube.com/" },
 ];
 
 export function waLink(msg) {

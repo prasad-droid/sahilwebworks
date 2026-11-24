@@ -1,3 +1,10 @@
+import bathTowel from '../assets/Bath Towel.jpeg';
+import bathSheet from '../assets/Bath Sheet.jpeg';
+import bathMat from '../assets/Bath mat.jpeg';
+import faceTowel from '../assets/Face Towel.jpeg';
+import handTowel from '../assets/Hand Towels.jpeg';
+import towelsColors from '../assets/Bath Towels in different colors.jpeg';
+import towelsColors2 from '../assets/Bath Towels in different colors 2.jpeg';
 import '../styles/products.css';
 
 const Products = () => {
@@ -19,38 +26,38 @@ const Products = () => {
     {
       name: 'Bath Towel',
       size: 'Bath 80×150',
-      image: '/src/assets/Bath Towel.jpeg',
-      fallback: '/src/assets/Bath Towels in different colors.jpeg'
+      image: bathTowel,
+      fallback: towelsColors
     },
     {
       name: 'Bath Sheet',
       size: 'Bath sheet 100×150',
-      image: '/src/assets/Bath Sheet.jpeg',
-      fallback: '/src/assets/Bath Towel.jpeg'
+      image: bathSheet,
+      fallback: bathTowel
     },
     {
       name: 'Bath Mat',
       size: 'Bath mat 50×70',
-      image: '/src/assets/Bath mat.jpeg',
-      fallback: '/src/assets/Bath Towel.jpeg'
+      image: bathMat,
+      fallback: bathTowel
     },
     {
       name: 'Face Towel',
       size: 'Face 30×30',
-      image: '/src/assets/Face Towel.jpeg',
-      fallback: '/src/assets/Hand Towels.jpeg'
+      image: faceTowel,
+      fallback: handTowel
     },
     {
       name: 'Hand Towel',
       size: 'Hand 40×60',
-      image: '/src/assets/Hand Towels.jpeg',
-      fallback: '/src/assets/Face Towel.jpeg'
+      image: handTowel,
+      fallback: faceTowel
     },
     {
       name: 'Kitchen Towel',
       size: 'Custom sizes available',
-      image: '/src/assets/Bath Towels in different colors 2.jpeg',
-      fallback: '/src/assets/Bath Towel.jpeg'
+      image: towelsColors2,
+      fallback: bathTowel
     }
   ];
 

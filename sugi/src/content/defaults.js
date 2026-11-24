@@ -62,6 +62,25 @@ const EXPORT_LIST = [
   "Customized Agricultural Products",
 ];
 
+// Compact, category-wise product points used on the About page. Each group is
+// editable in Admin Panel > Website Content > About Page — products we export.
+const EXPORT_GROUPS = [
+  {
+    title: "Indian origin",
+    items: [
+      "Fresh Vegetables — Onions, Ginger, Green Chilli, Tomatoes, Okra",
+      "Fresh Fruits — Bananas, Pomegranates, Mangoes, Grapes",
+      "Other Products — Green Cardamom, Cloves, Cinnamon, Turmeric, Black Pepper, Red Chilli, Sweet Corn, Maize, Semi Husked Coconut, Raisins",
+    ],
+  },
+  {
+    title: "Imported Products",
+    items: [
+      "Dry Fruits & Nuts — Cashew, Almonds, Pistachios, Walnuts, Dried Figs, Dates, Dry Dates, Saffron",
+    ],
+  },
+];
+
 const MISSION_POINTS = [
   "Delivering premium-quality fresh produce sourced directly from trusted Indian farms.",
   "Maintaining international standards in grading, sorting, packaging, and cold-chain logistics.",
@@ -310,14 +329,14 @@ export const DEFAULT_CONTENT = {
       eyebrow: "Global Reach",
       title: "Countries We Export To",
       intro:
-        "Shipping from India to major markets across the Middle East, Africa, Asia, Europe, North America and Oceania — and many other international destinations.",
+        "Shipping from India to major markets across the Middle East, Africa, Asia, Europe, North America and Oceania.",
       footNote: "…and many other international destinations.",
       destinations: DESTINATIONS.map((d) => ({ ...d })),
     },
     commitment: {
       eyebrow: "Our Commitment",
       title: "Our Commitment",
-      text: "Our mission is simple — deliver the freshest agricultural products from Indian farms to international markets while maintaining the highest standards of quality, safety, and customer satisfaction.",
+      text: "Our mission is simple — deliver the freshest agricultural products from Indian farms to international markets with uncompromising quality, safety and service.",
     },
     testimonials: {
       eyebrow: "Testimonials",
@@ -347,7 +366,7 @@ export const DEFAULT_CONTENT = {
         eyebrow: "About Us",
         title: "Sugi International Pvt. Ltd.",
         intro:
-          "Our commitment to quality, integrity, and customer satisfaction has made us a preferred partner for buyers seeking reliable agricultural exports from India. We strive to deliver excellence in every shipment and build strong business relationships that grow for years to come.",
+          "A preferred partner for buyers seeking reliable agricultural exports from India, delivering excellence in every shipment and building strong relationships that last.",
       },
       intro: {
         image: operationsImage,
@@ -360,6 +379,7 @@ export const DEFAULT_CONTENT = {
         title:
           "We proudly export a wide range of premium Indian agricultural products, including:",
         items: EXPORT_LIST,
+        groups: EXPORT_GROUPS,
         notes: [
           "Every shipment undergoes strict quality inspection, grading, sorting, hygienic packing, and careful container loading to ensure that our customers receive products in excellent condition.",
           "Whether you are a wholesaler, supermarket chain, food distributor, importer, or retail supplier, Sugi International Pvt. Ltd. is dedicated to building long-term partnerships through reliability, transparency, competitive pricing, and consistent product quality.",
@@ -396,7 +416,7 @@ export const DEFAULT_CONTENT = {
         eyebrow: "Our Products",
         title: "Premium Agro Commodities from India",
         intro:
-          "We export a wide variety of premium Indian origin agricultural products, and import premium dry fruits that are processed in our world class processing units and supplied across India and worldwide.",
+          "We export premium Indian agricultural products and import dry fruits processed in world-class facilities for markets across India and worldwide.",
       },
       indian: {
         eyebrow: "Our Products",
@@ -408,7 +428,7 @@ export const DEFAULT_CONTENT = {
         eyebrow: "Our Products",
         title: "Imported Products",
         intro:
-          "We Import Dry Fruits and process it in our world class processing units, repack it and re-export to various destinations and distribute in PAN India domestic market as well. ",
+          "We import dry fruits, process them in world-class facilities, then repack and re-export them worldwide while distributing across India.",
       },
       packaging: {
         eyebrow: "Export Packaging",
@@ -420,7 +440,7 @@ export const DEFAULT_CONTENT = {
       quality: {
         eyebrow: "Quality Assurance",
         title: "Quality Assurance",
-        text: "Every shipment passes through a defined set of checks before it is released for export, so that the product that arrives at your port matches the product that left ours.",
+        text: "Every shipment is inspected, graded and packed to international standards before it leaves our facility.",
         items: QUALITY_STEPS,
         ctaLabel: "Download Catalogue",
       },
@@ -436,6 +456,9 @@ export const DEFAULT_CONTENT = {
       intro:
         "At Sugi International Pvt. Ltd., quality is our highest priority. Every shipment is prepared following international food safety standards and export regulations. We work closely with certified growers and government-authorized agencies to ensure our products meet the requirements of global markets.",
       downloadLabel: "Download Certificate",
+      // Kept separate from the homepage certification logo strip so editing
+      // either section never changes the other.
+      documents: CERTIFICATIONS.map((cert) => ({ ...cert })),
       quality: {
         title: "Quality Control",
         lead: "Every shipment passes through:",
@@ -460,7 +483,7 @@ export const DEFAULT_CONTENT = {
       },
       notice: {
         title: "Export notes from the field",
-        text: "A short series on how Indian agro commodities are sourced, packed and shipped. Start with any topic below, or talk to our team directly about a specific product, market or shipment.",
+        text: "A short series on how Indian agro commodities are sourced, packed and shipped — with topic guides and direct support from our export team.",
         primaryLabel: "Contact Us",
         primaryHref: "/contact",
         secondaryLabel: "Explore Products",

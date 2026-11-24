@@ -80,6 +80,16 @@
   transform: translateY(-3px);
 }
 
+.social-icon--linkedin { color: #0a66c2; }
+.social-icon--facebook { color: #1877f2; }
+.social-icon--instagram { color: #e4405f; }
+.social-icon--x { color: var(--sand); }
+.social-icon--youtube { color: #ff0033; }
+
+.footer__social a:hover .social-icon {
+  color: var(--charcoal);
+}
+
 /* ---------- columns ---------- */
 .footer__heading {
   font-family: var(--font-body);

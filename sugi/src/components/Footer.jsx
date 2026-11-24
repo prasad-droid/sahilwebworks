@@ -1,6 +1,7 @@
 import { Link } from "../router";
 import { useSite } from "../store/SiteContext";
 import { socialLinks as socialFromSettings } from "../store/social";
+import SocialIcon from "./SocialIcon";
 import {
   NAV_LINKS,
   EMAIL,
@@ -13,17 +14,6 @@ import "../styles/footer.css";
 // ==========================================================================
 // FOOTER — navigation, contact details, social links, Google Map, legal.
 // ==========================================================================
-
-function SocialIcon({ label }) {
-  const common = { width: 18, height: 18, viewBox: "0 0 24 24", fill: "currentColor", "aria-hidden": true };
-  if (label === "LinkedIn")
-    return <svg {...common}><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3-.02-2.96-1.8-2.96-1.8 0-2.08 1.4-2.08 2.86V21H9z" /></svg>;
-  if (label === "Facebook")
-    return <svg {...common}><path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.87.24-1.46 1.5-1.46H17V3.96c-.3-.04-1.3-.13-2.47-.13-2.45 0-4.13 1.5-4.13 4.24V10H7.7v3h2.7v8z" /></svg>;
-  if (label === "Instagram")
-    return <svg {...common}><path d="M12 7.4A4.6 4.6 0 1 0 16.6 12 4.6 4.6 0 0 0 12 7.4zm0 7.6A3 3 0 1 1 15 12a3 3 0 0 1-3 3zm5.8-7.8a1.07 1.07 0 1 1-1.07-1.07A1.07 1.07 0 0 1 17.8 7.2zM21.4 8.3a5.3 5.3 0 0 0-1.45-3.75A5.34 5.34 0 0 0 16.2 3.1c-1.48-.08-5.92-.08-7.4 0a5.33 5.33 0 0 0-3.75 1.44A5.32 5.32 0 0 0 3.6 8.3c-.08 1.48-.08 5.92 0 7.4a5.3 5.3 0 0 0 1.45 3.75 5.35 5.35 0 0 0 3.75 1.45c1.48.08 5.92.08 7.4 0a5.3 5.3 0 0 0 3.75-1.45 5.34 5.34 0 0 0 1.45-3.75c.08-1.48.08-5.91 0-7.4zm-1.93 8.97a3.04 3.04 0 0 1-1.71 1.71c-1.18.47-3.99.36-5.3.36s-4.13.1-5.3-.36a3.04 3.04 0 0 1-1.71-1.71c-.47-1.18-.36-3.99-.36-5.3s-.1-4.13.36-5.3A3.04 3.04 0 0 1 7.16 4.9c1.18-.47 3.99-.36 5.3-.36s4.13-.1 5.3.36a3.04 3.04 0 0 1 1.71 1.71c.47 1.18.36 3.99.36 5.3s.11 4.13-.36 5.3z" /></svg>;
-  return <svg {...common}><path d="M17.5 3h3.2l-7 8 8.3 10h-6.5l-5-6.1L4.6 21H1.4l7.5-8.6L1 3h6.7l4.6 5.6zm-1.1 16.1h1.8L7.7 4.8H5.8z" /></svg>;
-}
 
 export default function Footer() {
   const { settings, content } = useSite();

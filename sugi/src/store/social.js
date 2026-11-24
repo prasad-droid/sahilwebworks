@@ -16,6 +16,7 @@ export function socialLinks(settingsSocial) {
     Facebook: settingsSocial.facebook,
     Instagram: settingsSocial.instagram,
     X: settingsSocial.twitter,
+    YouTube: settingsSocial.youtube,
   };
 
   return SOCIAL_LINKS.map((s) =>

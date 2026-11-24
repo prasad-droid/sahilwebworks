@@ -1,3 +1,5 @@
+import bathTowel from '../assets/Bath Towel.jpeg';
+import towelsColors from '../assets/Bath Towels in different colors.jpeg';
 import '../styles/sections.css';
 
 const About = () => {
@@ -7,12 +9,12 @@ const About = () => {
         <div className="about-grid">
           <div className="about-image-container">
             <img 
-              src="/src/assets/Bath Towel.jpeg" 
+              src={bathTowel} 
               alt="Indian textile manufacturing and terry towels" 
               className="about-image"
               loading="lazy"
               onError={(e) => {
-                e.target.src = '/src/assets/Bath Towels in different colors.jpeg';
+                e.target.src = towelsColors;
               }}
             />
           </div>
@@ -28,6 +30,16 @@ const About = () => {
               We aim to build long-term partnerships with importers, wholesalers, hotels and distributors worldwide.
             </p>
             <p className="about-closing">SkyHigh RP Global EXIM Enterprises — Connecting India to the World.</p>
+            <a
+              href="#company"
+              className="about-link"
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('#company')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Explore our goals, vision, mission and core values &rarr;
+            </a>
           </div>
         </div>
       </div>

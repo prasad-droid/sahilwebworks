@@ -73,7 +73,21 @@
 .about-closing {
   font-weight: 600;
   color: var(--deep-navy) !important;
-  margin-bottom: 0 !important;
+  margin-bottom: 1rem !important;
+}
+
+.about-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--emerald-green);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  transition: color 0.2s ease;
+}
+
+.about-link:hover {
+  color: #a67c2e;
 }
 
 .why-choose {

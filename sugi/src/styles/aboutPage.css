@@ -104,11 +104,63 @@
 .about-vision__inner .section-title {
   justify-content: center;
 }
+/* The exported-products heading is intentionally kept on one line. */
 .aboutpage-title {
   max-width: none !important;
   text-align: center !important;
-  white-space: wrap;
-  font-size: clamp(0.5rem, 2.55vw, 1.8rem) !important;
+  white-space: nowrap;
+  font-size: clamp(1rem, 2.2vw, 1.8rem) !important;
+}
+
+@media (max-width: 640px) {
+  .aboutpage-title {
+    white-space: normal;
+  }
+}
+
+/* ---------- category-wise product points ---------- */
+.about-range__groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 3rem);
+  margin-top: 2rem;
+}
+
+.about-range__group-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(184, 151, 91, 0.45);
+}
+
+.about-range__points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.about-range__points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.96rem;
+  line-height: 1.6;
+  color: var(--charcoal);
+}
+
+.about-range__points .about-range__tick {
+  flex-shrink: 0;
+  padding-top: 0.05rem;
+}
+
+@media (max-width: 760px) {
+  .about-range__groups {
+    grid-template-columns: 1fr;
+  }
 }
 .about-vision__inner p {
   color: var(--muted);

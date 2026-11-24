@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import logo from '../assets/logo.png';
+import logoFallback from '../assets/logo.jpeg';
 import '../styles/navbar.css';
 
 const Navbar = () => {
@@ -17,6 +19,7 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'About Us', href: '#about' },
+    { name: 'Company', href: '#company' },
     { name: 'Products', href: '#products' },
     { name: 'Export Process', href: '#process' },
     { name: 'Testimonials', href: '#testimonials' },
@@ -37,11 +40,11 @@ const Navbar = () => {
       <div className="navbar-container">
         <a href="#home" className="navbar-logo" onClick={(e) => handleNavClick(e, '#home')}>
           <img 
-            src="/src/assets/logo.png" 
+            src={logo} 
             alt="SkyHigh RP Global EXIM Enterprises Logo" 
             className="navbar-logo-img"
             onError={(e) => {
-              e.target.src = '/src/assets/logo.jpeg';
+              e.target.src = logoFallback;
             }}
           />
           <div className="navbar-logo-text">

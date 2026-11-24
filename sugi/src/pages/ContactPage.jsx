@@ -4,6 +4,7 @@ import useReveal from "../components/useReveal";
 import { Link } from "../router";
 import { useSite } from "../store/SiteContext";
 import { socialLinks } from "../store/social";
+import SocialIcon from "../components/SocialIcon";
 import { EMAIL, PHONE_DISPLAY, ADDRESS } from "../data/site";
 import "../styles/contactPage.css";
 
@@ -123,8 +124,14 @@ export default function ContactPage() {
           <ul className="contact-social reveal" aria-label="Social media">
             {socials.map((s) => (
               <li key={s.label}>
-                <a href={s.href} target="_blank" rel="noopener noreferrer">
-                  {s.label}
+                <a
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                >
+                  <SocialIcon label={s.label} />
+                  <span>{s.label}</span>
                 </a>
               </li>
             ))}

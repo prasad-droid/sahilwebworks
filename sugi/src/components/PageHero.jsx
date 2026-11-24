@@ -6,7 +6,14 @@ import "../styles/pageHero.css";
 // PAGE HERO — shared banner for the inner pages (static, not fixed).
 // ==========================================================================
 
-export default function PageHero({ eyebrow, title, intro, crumbs = [] }) {
+export default function PageHero({
+  eyebrow,
+  title,
+  intro,
+  crumbs = [],
+  titleClassName = "",
+  introClassName = "",
+}) {
   useReveal();
 
   return (
@@ -23,8 +30,10 @@ export default function PageHero({ eyebrow, title, intro, crumbs = [] }) {
         </nav>
 
         {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-        <h1 className="page-hero__title">{title}</h1>
-        {intro && <p className="page-hero__intro">{intro}</p>}
+        <h1 className={`page-hero__title ${titleClassName}`.trim()}>{title}</h1>
+        {intro && (
+          <p className={`page-hero__intro ${introClassName}`.trim()}>{intro}</p>
+        )}
       </div>
     </section>
   );

@@ -2,7 +2,6 @@ import PageHero from "../components/PageHero";
 import useReveal from "../components/useReveal";
 import { Section, useSite } from "../store/SiteContext";
 import QuoteCTA from "../components/QuoteCTA";
-import { CERTIFICATIONS } from "../data/certifications";
 import "../styles/certificationsPage.css";
 
 // ==========================================================================
@@ -15,8 +14,11 @@ import "../styles/certificationsPage.css";
 // Only the first group of cards is exposed to assistive tech and the tab
 // order; the repeated copies are visual duplicates.
 //
-// Copy and the certification list are editable in Admin Panel > Website
-// Content. Download documents live in public/certificates/.
+// This page uses its own admin-controlled document list
+// (pages.certifications.documents) and is deliberately NOT linked to the
+// homepage logo strip. Heading, text, images and download buttons are all
+// editable in Admin Panel > Website Content > Certifications Page.
+// Download documents live in public/certificates/ or can be a full URL.
 // ==========================================================================
 
 const COPIES = 6;
@@ -29,10 +31,9 @@ export default function CertificationsPage() {
   const quality = page.quality || {};
   const safety = page.safety || {};
 
-  const certs = content?.certifications?.items?.length
-    ? content.certifications.items
-    : CERTIFICATIONS;
-  const base = certs.filter((cert) => cert.name || cert.image);
+  // Independent from content.certifications.items (homepage logo slider).
+  const documents = page.documents || [];
+  const base = documents.filter((cert) => cert.name || cert.image);
   const loop = Array.from({ length: COPIES }, () => base)
     .flat()
     .map((cert, i) => ({
@@ -40,6 +41,14 @@ export default function CertificationsPage() {
       key: `${cert.name}-${i}`,
       isClone: i >= base.length,
     }));
+
+  const fileHref = (file) => {
+    const value = String(file || "").trim();
+    if (!value) return "";
+    return /^(https?:|\/|data:|#)/i.test(value)
+      ? value
+      : `${import.meta.env.BASE_URL}${value}`;
+  };
 
   return (
     <>
@@ -55,45 +64,49 @@ export default function CertificationsPage() {
           <p className="certs-page__intro">{page.intro}</p>
         </div>
 
-        <div className="certs-page__marquee">
-          <ul className="certs-page__track">
-            {loop.map((cert) => (
-              <li
-                key={cert.key}
-                className={`certs-page__item${cert.isClone ? " certs-page__item--clone" : ""}`}
-                aria-hidden={cert.isClone || undefined}
-              >
-                <div className="certs-page__logo">
-                  {cert.image && <img src={cert.image} alt={cert.name} loading="lazy" />}
-                </div>
-                <h2 className="certs-page__name">{cert.name}</h2>
-                <p className="certs-page__desc">{cert.description}</p>
-                {cert.file && (
-                  <a
-                    className="certs-page__download"
-                    href={`${import.meta.env.BASE_URL}${cert.file}`}
-                    download={cert.downloadName}
-                    tabIndex={cert.isClone ? -1 : undefined}
-                  >
-                    {page.downloadLabel || "Download Certificate"}
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
+        {base.length > 0 && (
+          <div className="certs-page__marquee">
+            <ul className="certs-page__track">
+              {loop.map((cert) => (
+                <li
+                  key={cert.key}
+                  className={`certs-page__item${cert.isClone ? " certs-page__item--clone" : ""}`}
+                  aria-hidden={cert.isClone || undefined}
+                >
+                  <div className="certs-page__sheet">
+                    {cert.image && (
+                      <img src={cert.image} alt={`${cert.name} document`} loading="lazy" />
+                    )}
+                  </div>
+                  <h2 className="certs-page__name">{cert.name}</h2>
+                  <p className="certs-page__desc">{cert.description}</p>
+                  {cert.file && (
+                    <a
+                      className="certs-page__download"
+                      href={fileHref(cert.file)}
+                      download={cert.downloadName}
+                      tabIndex={cert.isClone ? -1 : undefined}
                     >
-                      <path d="M12 3v12m0 0 4-4m-4 4-4-4" />
-                      <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
-                    </svg>
-                  </a>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
+                      {cert.downloadLabel || page.downloadLabel || "Download Certificate"}
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M12 3v12m0 0 4-4m-4 4-4-4" />
+                        <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
+                      </svg>
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </section>
 
       <section className="cert-quality section-pad">

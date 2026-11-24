@@ -1,6 +1,10 @@
 import { Phone, Mail, MapPin } from 'lucide-react';
+<<<<<<< HEAD
 import logo from '../assets/logo.png';
 import logoFallback from '../assets/logo.jpeg';
+=======
+import logo from '../assets/logo.jpeg';
+>>>>>>> 095db21ae4a094ca066145fe1626c870859c6cb3
 import '../styles/footer.css';
 
 const Footer = () => {
@@ -24,9 +28,12 @@ const Footer = () => {
                 src={logo} 
                 alt="SkyHigh RP Global EXIM Enterprises Logo" 
                 className="footer-logo-img"
+<<<<<<< HEAD
                 onError={(e) => {
                   e.target.src = logoFallback;
                 }}
+=======
+>>>>>>> 095db21ae4a094ca066145fe1626c870859c6cb3
               />
               <div className="footer-logo-text">
                 <span className="footer-logo-name">SkyHigh RP Global</span>

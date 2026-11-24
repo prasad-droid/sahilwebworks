@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+<<<<<<< HEAD
 import logo from '../assets/logo.png';
 import logoFallback from '../assets/logo.jpeg';
+=======
+import logo from '../assets/logo.jpeg';
+>>>>>>> 095db21ae4a094ca066145fe1626c870859c6cb3
 import '../styles/navbar.css';
 
 const Navbar = () => {
@@ -43,9 +47,12 @@ const Navbar = () => {
             src={logo} 
             alt="SkyHigh RP Global EXIM Enterprises Logo" 
             className="navbar-logo-img"
+<<<<<<< HEAD
             onError={(e) => {
               e.target.src = logoFallback;
             }}
+=======
+>>>>>>> 095db21ae4a094ca066145fe1626c870859c6cb3
           />
           <div className="navbar-logo-text">
             <span>SkyHigh RP Global</span>

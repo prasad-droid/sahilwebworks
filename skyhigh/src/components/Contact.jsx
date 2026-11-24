@@ -39,7 +39,7 @@ const Contact = () => {
               <MessageCircle className="contact-icon" size={24} />
               <div className="contact-details">
                 <h3>Global Export Markets</h3>
-                <p>Worldwide</p>
+                <p>Worldwide, Mauritius</p>
                 <a 
                   href="https://wa.me/918177974851" 
                   target="_blank" 
@@ -56,11 +56,13 @@ const Contact = () => {
             </div>
           </div>
           <div className="contact-map">
-            <div className="contact-map-placeholder">
-              <MapPin className="contact-map-placeholder-icon" size={48} />
-              <p><strong>Pune, Maharashtra, India</strong></p>
-              <p>Office Location</p>
-            </div>
+            <iframe
+              src="https://www.google.com/maps?q=G1204%2C%20Gulmohar%20Society%2C%20Dabhade%20Chowk%2C%20Charholi%20BK%2C%20Pune%20412105%2C%20Maharashtra%2C%20India&output=embed"
+              title="SkyHigh RP Global EXIM Enterprises Office Location - Pune, Maharashtra, India"
+              loading="lazy"
+              allowFullScreen=""
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
       </div>

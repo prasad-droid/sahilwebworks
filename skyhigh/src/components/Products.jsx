@@ -1,10 +1,19 @@
 import bathTowel from '../assets/Bath Towel.jpeg';
+<<<<<<< HEAD
 import bathSheet from '../assets/Bath Sheet.jpeg';
 import bathMat from '../assets/Bath mat.jpeg';
 import faceTowel from '../assets/Face Towel.jpeg';
 import handTowel from '../assets/Hand Towels.jpeg';
 import towelsColors from '../assets/Bath Towels in different colors.jpeg';
 import towelsColors2 from '../assets/Bath Towels in different colors 2.jpeg';
+=======
+import bathTowelsColors from '../assets/Bath Towels in different colors.jpeg';
+import bathSheet from '../assets/Bath Sheet.jpeg';
+import bathMat from '../assets/Bath mat.jpeg';
+import faceTowel from '../assets/Face Towel.jpeg';
+import handTowels from '../assets/Hand Towels.jpeg';
+import bathTowelsColors2 from '../assets/Bath Towels in different colors 2.jpeg';
+>>>>>>> 095db21ae4a094ca066145fe1626c870859c6cb3
 import '../styles/products.css';
 
 const Products = () => {
@@ -27,7 +36,11 @@ const Products = () => {
       name: 'Bath Towel',
       size: 'Bath 80×150',
       image: bathTowel,
+<<<<<<< HEAD
       fallback: towelsColors
+=======
+      fallback: bathTowelsColors
+>>>>>>> 095db21ae4a094ca066145fe1626c870859c6cb3
     },
     {
       name: 'Bath Sheet',
@@ -45,18 +58,30 @@ const Products = () => {
       name: 'Face Towel',
       size: 'Face 30×30',
       image: faceTowel,
+<<<<<<< HEAD
       fallback: handTowel
+=======
+      fallback: handTowels
+>>>>>>> 095db21ae4a094ca066145fe1626c870859c6cb3
     },
     {
       name: 'Hand Towel',
       size: 'Hand 40×60',
+<<<<<<< HEAD
       image: handTowel,
+=======
+      image: handTowels,
+>>>>>>> 095db21ae4a094ca066145fe1626c870859c6cb3
       fallback: faceTowel
     },
     {
       name: 'Kitchen Towel',
       size: 'Custom sizes available',
+<<<<<<< HEAD
       image: towelsColors2,
+=======
+      image: bathTowelsColors2,
+>>>>>>> 095db21ae4a094ca066145fe1626c870859c6cb3
       fallback: bathTowel
     }
   ];

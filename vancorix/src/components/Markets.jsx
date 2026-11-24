@@ -1,5 +1,5 @@
 import { ArrowUpRight } from 'lucide-react';
-import { COUNTRIES } from '../data/site';
+import { COUNTRIES, quoteMessage, whatsappLink } from '../data/site';
 
 const Markets = () => {
   return (
@@ -14,7 +14,12 @@ const Markets = () => {
               emerging markets.
             </p>
           </div>
-          <a className="text-link text-link-light" href="#quote">
+          <a
+            className="text-link text-link-light"
+            href={whatsappLink(quoteMessage())}
+            target="_blank"
+            rel="noreferrer"
+          >
             Start a conversation <ArrowUpRight size={17} strokeWidth={2} />
           </a>
         </div>

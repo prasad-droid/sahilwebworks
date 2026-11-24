@@ -1,9 +1,5 @@
 import bathTowel from '../assets/Bath Towel.jpeg';
-<<<<<<< HEAD
-import towelsColors from '../assets/Bath Towels in different colors.jpeg';
-=======
 import bathTowelsColors from '../assets/Bath Towels in different colors.jpeg';
->>>>>>> 095db21ae4a094ca066145fe1626c870859c6cb3
 import '../styles/sections.css';
 
 const About = () => {
@@ -18,11 +14,7 @@ const About = () => {
               className="about-image"
               loading="lazy"
               onError={(e) => {
-<<<<<<< HEAD
-                e.target.src = towelsColors;
-=======
                 e.target.src = bathTowelsColors;
->>>>>>> 095db21ae4a094ca066145fe1626c870859c6cb3
               }}
             />
           </div>

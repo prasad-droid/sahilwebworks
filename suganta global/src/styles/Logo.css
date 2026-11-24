@@ -2,35 +2,19 @@
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  flex: 0 0 auto;
+  line-height: 0;
 }
 
-.logo__mark {
-  width: 36px;
-  height: 36px;
+.logo__image {
+  width: auto;
+  height: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
-.logo__text {
-  display: flex;
-  flex-direction: column;
-}
-
-.logo__name {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  font-weight: 400;
-  letter-spacing: -0.02em;
-}
-
-.logo__name-accent {
-  color: var(--forest);
-}
-
-.logo__tagline {
-  display: block;
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
+/* The supplied artwork is a stacked lockup, so the header uses its height
+   rather than its width to keep the wordmark legible. */
+.logo--dark .logo__image {
+  filter: drop-shadow(0 1px 2px rgba(16, 35, 25, 0.06));
 }

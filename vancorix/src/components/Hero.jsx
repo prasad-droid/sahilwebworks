@@ -1,6 +1,6 @@
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import heroPouch from '../assets/images/hero-pouch.jpg';
-import { whatsappLink } from '../data/site';
+import { quoteMessage, whatsappLink } from '../data/site';
 
 const Hero = () => {
   return (
@@ -21,7 +21,12 @@ const Hero = () => {
             batch-traceable, vacuum-sealed and shipped to 19 markets across four continents.
           </p>
           <div className="hero-actions">
-            <a className="btn btn-gold" href="#quote">
+            <a
+              className="btn btn-gold"
+              href={whatsappLink(quoteMessage())}
+              target="_blank"
+              rel="noreferrer"
+            >
               Request a Quote <ArrowRight size={17} strokeWidth={2} />
             </a>
             <a

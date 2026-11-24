@@ -39,7 +39,7 @@ const Contact = () => {
               <MessageCircle className="contact-icon" size={24} />
               <div className="contact-details">
                 <h3>Global Export Markets</h3>
-                <p>Worldwide, Mauritius</p>
+                <p>Worldwide (Mauritius)</p>
                 <a 
                   href="https://wa.me/918177974851" 
                   target="_blank" 

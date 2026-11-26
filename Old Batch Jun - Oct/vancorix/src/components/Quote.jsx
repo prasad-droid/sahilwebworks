@@ -109,8 +109,9 @@ const Quote = () => {
                 <textarea name="notes" rows="3" value={form.notes} onChange={handleChange} placeholder="Packaging, certifications, timeline…" />
               </label>
               <button className="btn btn-gold form-submit" type="submit">
-                Send inquiry <ArrowRight size={17} strokeWidth={2} />
+                Send on WhatsApp <ArrowRight size={17} strokeWidth={2} />
               </button>
+              <p className="form-note">Opens WhatsApp with your details filled in. Send the message there to complete your request.</p>
             </form>
           )}
         </div>

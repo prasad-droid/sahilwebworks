@@ -40,7 +40,7 @@ export const products = [
     name: 'Gir Cow Ghee',
     description:
       'GOURISH Premium Gir Cow Ghee is crafted from carefully selected Gir cow milk and processed with a focus on purity, quality and authentic Indian tradition. Our ghee is suitable for domestic and international markets and is offered in convenient retail and bulk packaging options.',
-    image: '/images/slide-5.jpeg',
+    image: '/images/gir-cow-ghee-featured.jpeg',
     imageAlt: 'Gir Cow Ghee in a premium jar',
     hsCode: '04059020',
     sizes: '250 ml, 500 ml, 1000 ml',
@@ -123,8 +123,8 @@ export const whyChooseUs = [
 export const gallery = [
   {
     id: 'gir-cow-ghee',
-    src: '/images/slide-5.jpeg',
-    alt: 'GOURISH PREMIUM GIR COW GHEE - Two glass jars of ghee on woven mat against rural green landscape background with Gir cow. Background: blurred outdoor scene of rolling green fields, blue skies, distant mountains, and a brown Gir cow with large horns standing on the right. Foreground: rough brown wooden table with woven jute/burlap mat. Left: Large 1000ml glass jar with white and gold paper label, small sprig of green leaves bottom left. Center: Smaller 500ml glass jar matching label. Right: Small dark brown wooden bowl with yellow ghee and wooden spoon. Left Jar: Shiny gold metallic screw-top lid, white background label with gold/black/red accents, G/G logo in green box, GOLDEN GOURESS FARMS text, GOURISH in bold dark green serif font with leaf graphic above I and S, PREMIUM in all-caps with decorative lines, GIR COW GHEE in dark brown font, AZ•PURE•NATURAL•NUTRITIOUS in orange banner, illustrated rural scene with two cows, copper pot and spoon, LAB TESTED and 100% NATURAL circular badges, From Gir Cow Milk badge, Net Contain: 1000 ml (912.5 g at 40°C). Center Jar: Visually identical design scaled down, Net Contain: 500 ml (456.25 g at 40°C). Right Wooden Bowl: Carved wooden bowl with mound of bright yellow ghee, small wooden spoon partially submerged pointing right.',
+    src: '/images/gir-cow-ghee-gallery.jpeg',
+    alt: 'GOURISH Premium Gir Cow Ghee',
     caption: 'GOURISH Premium Gir Cow Ghee',
   },
   {

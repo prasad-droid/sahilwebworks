@@ -26,7 +26,7 @@ The production output is written to `dist/`.
 
 ```text
 public/
-  images/                 Local images, logo mark and Open Graph cover
+  images/                 Local images, logo assets, favicons and Open Graph cover
   manifest.json           Web app manifest
 src/
   components/             Page sections and shared UI
@@ -138,16 +138,25 @@ Add only genuine, approved customer feedback to `src/data/testimonials.js`. Do n
 
 ## Images and placeholders
 
-The Google Drive logo and business image could not be accessed without a Google sign-in, so the current files are **replaceable placeholders**:
+The supplied `logo.jpeg` is used for the site logo and favicons. It was converted into these ready-to-use assets in `public/images/`:
+
+| Asset | Path | Used for |
+| --- | --- | --- |
+| Horizontal logo | `logo-horizontal.webp` | Header on light backgrounds |
+| Horizontal logo (light) | `logo-horizontal-light.webp` | Footer on the dark green background |
+| Full stacked logo | `logo.webp` | Structured data and other brand uses |
+| Favicon | `favicon-64.png`, `favicon.ico`, `favicon-192.png`, `favicon-512.png` | Browser tabs and web app manifest |
+| Apple touch icon | `apple-touch-icon.png` | iOS home screen |
+
+The original `logo.jpeg` is kept in the project root as the source file. If you replace it, regenerate these assets from it (trimmed transparent background, emblem square crop and recoloured light variant).
+
+The business/about photograph is still a placeholder:
 
 | Placeholder | Path | Replace with |
 | --- | --- | --- |
-| Logo mark | `public/images/logo-mark.svg` | Approved SUGANTA GLOBAL logo |
 | About/business image | `public/images/about-farmer.webp` | Approved business or product photograph |
 
-Asset paths are defined in `src/data/siteConfig.js`.
-
-If you change a filename, update the path in `siteConfig.assets` and any matching data file.
+Asset paths are defined in `src/data/siteConfig.js`. If you change a filename, also update `index.html` and `public/manifest.json`, where the favicons are referenced.
 
 ### Other placeholder photography
 
@@ -162,7 +171,7 @@ Replace them with approved business photography before launch. Keep the existing
 - About image: portrait, approximately 4:4.7
 - Open Graph image: 1200×630
 
-Recommended formats are WebP for photographs and SVG for the logo.
+Recommended formats are WebP for the logo and photographs, and PNG/ICO for favicons.
 
 ## SEO
 

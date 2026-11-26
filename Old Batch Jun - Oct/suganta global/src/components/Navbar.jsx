@@ -86,15 +86,6 @@ export default function Navbar() {
             <WhatsAppIcon size={18} />
           </a>
         </nav>
-
-        <div className="navbar__actions">
-          <a className="btn btn--gold navbar__inquiry" href="#contact">
-            Send Inquiry
-            <span aria-hidden="true">
-              <WhatsAppIcon size={18} />
-            </span>
-          </a>
-        </div>
       </div>
 
       {menuOpen && (

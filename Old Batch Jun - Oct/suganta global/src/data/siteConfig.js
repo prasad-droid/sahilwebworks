@@ -23,12 +23,14 @@ export const siteConfig = {
   formEndpoint: import.meta.env.VITE_FORM_ENDPOINT || '',
   markets: ['United Arab Emirates', 'Iraq'],
   assets: {
-    /**
-     * The Google Drive logo could not be accessed without a Google sign-in.
-     * This is a replaceable brand-mark placeholder. Save the supplied logo
-     * and update this path (or replace /public/images/logo-mark.svg).
-     */
-    logoMark: '/images/logo-mark.svg',
+    /** Business-provided logo, prepared for light and dark backgrounds. */
+    logo: '/images/logo-horizontal.webp',
+    logoLight: '/images/logo-horizontal-light.webp',
+    /** Original stacked lockup, kept for rich-result and social metadata. */
+    logoStacked: '/images/logo.webp',
+    /** Square emblem crops used by browsers, the web app manifest and iOS. */
+    favicon: '/images/favicon-512.png',
+    appleTouchIcon: '/images/apple-touch-icon.png',
     /**
      * Replace this stock placeholder with the business-provided image.
      * Suggested final path: /images/business-photo.webp

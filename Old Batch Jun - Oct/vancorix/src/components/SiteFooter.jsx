@@ -1,6 +1,8 @@
-import { ArrowUpRight, MessageCircle } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { Mail, MessageCircle } from 'lucide-react';
 import logo from '../assets/images/vancorix-logo.png';
-import { whatsappLink } from '../data/site';
+import { DEVELOPER_URL, EMAIL, INSTAGRAM_URL, quoteMessage, whatsappLink } from '../data/site';
 
 const year = new Date().getFullYear();
 
@@ -9,7 +11,7 @@ const links = [
   { label: 'Quality', href: '#quality' },
   { label: 'Markets', href: '#markets' },
   { label: 'Process', href: '#process' },
-  { label: 'Request Quote', href: '#quote' },
+  { label: 'Request Quote', href: whatsappLink(quoteMessage()), external: true },
 ];
 
 const SiteFooter = () => {
@@ -25,7 +27,14 @@ const SiteFooter = () => {
         <nav className="footer-links" aria-label="Footer navigation">
           <h3>Explore</h3>
           {links.map((link) => (
-            <a key={link.href} href={link.href}>{link.label}</a>
+            <a
+              key={link.label}
+              href={link.href}
+              target={link.external ? '_blank' : undefined}
+              rel={link.external ? 'noreferrer' : undefined}
+            >
+              {link.label}
+            </a>
           ))}
         </nav>
 
@@ -38,14 +47,20 @@ const SiteFooter = () => {
           >
             <MessageCircle size={16} strokeWidth={1.8} /> WhatsApp
           </a>
-          <a href="#" aria-label="LinkedIn"><ArrowUpRight size={16} strokeWidth={1.8} /> LinkedIn</a>
-          <a href="#" aria-label="Facebook"><ArrowUpRight size={16} strokeWidth={1.8} /> Facebook</a>
-          <a href="#" aria-label="Instagram"><ArrowUpRight size={16} strokeWidth={1.8} /> Instagram</a>
+          <a href={`mailto:${EMAIL}`}>
+            <Mail size={16} strokeWidth={1.8} /> {EMAIL}
+          </a>
+          <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
+            <FontAwesomeIcon icon={faInstagram} /> @vancorix.global
+          </a>
         </div>
       </div>
       <div className="shell footer-bottom">
         <span>© {year} Vancorix International. All rights reserved.</span>
         <span>Export-grade botanical powders · Batch-traceable · Vacuum-sealed</span>
+        <a href={DEVELOPER_URL} target="_blank" rel="noreferrer">
+          Developed and designed by Sahilwebworks
+        </a>
       </div>
     </footer>
   );

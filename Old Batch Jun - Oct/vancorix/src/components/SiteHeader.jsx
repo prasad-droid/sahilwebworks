@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { ArrowUpRight, Menu, MessageCircle, X } from 'lucide-react';
+import { ArrowUpRight, Menu, MessageCircle, ShoppingBag, X } from 'lucide-react';
 import logo from '../assets/images/vancorix-logo.png';
-import { whatsappLink } from '../data/site';
+import { quoteMessage, whatsappLink } from '../data/site';
 
 const links = [
   { label: 'Products', href: '#products' },
@@ -10,7 +10,9 @@ const links = [
   { label: 'Process', href: '#process' },
 ];
 
-const SiteHeader = () => {
+const quoteHref = whatsappLink(quoteMessage());
+
+const SiteHeader = ({ cartCount = 0, onCartClick }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -36,12 +38,27 @@ const SiteHeader = () => {
               {link.label}
             </a>
           ))}
-          <a className="nav-mobile-cta" href="#quote" onClick={closeMenu}>
+          <a
+            className="nav-mobile-cta"
+            href={quoteHref}
+            target="_blank"
+            rel="noreferrer"
+            onClick={closeMenu}
+          >
             Request Quote <ArrowUpRight size={16} strokeWidth={2} />
           </a>
         </nav>
 
         <div className="header-actions">
+          <button
+            className="header-cart"
+            type="button"
+            onClick={onCartClick}
+            aria-label={`Open checkout, ${cartCount} item${cartCount === 1 ? '' : 's'}`}
+          >
+            <ShoppingBag size={19} strokeWidth={2} />
+            {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
+          </button>
           <a
             className="header-chat"
             href={whatsappLink('Hello Vancorix International, I would like to discuss a botanical powder requirement.')}
@@ -51,7 +68,7 @@ const SiteHeader = () => {
           >
             <MessageCircle size={19} strokeWidth={2} />
           </a>
-          <a className="btn btn-gold header-cta" href="#quote">
+          <a className="btn btn-gold header-cta" href={quoteHref} target="_blank" rel="noreferrer">
             Request Quote <ArrowUpRight size={16} strokeWidth={2} />
           </a>
           <button

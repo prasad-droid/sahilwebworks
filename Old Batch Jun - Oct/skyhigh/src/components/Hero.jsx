@@ -1,15 +1,8 @@
 import { ArrowRight, ChevronDown } from 'lucide-react';
-<<<<<<< HEAD
-import towelsColors from '../assets/Bath Towels in different colors.jpeg';
-import bathTowel from '../assets/Bath Towel.jpeg';
-import bathSheet from '../assets/Bath Sheet.jpeg';
-import handTowel from '../assets/Hand Towels.jpeg';
-=======
 import bathTowelsColors from '../assets/Bath Towels in different colors.jpeg';
 import bathTowel from '../assets/Bath Towel.jpeg';
 import bathSheet from '../assets/Bath Sheet.jpeg';
 import handTowels from '../assets/Hand Towels.jpeg';
->>>>>>> 095db21ae4a094ca066145fe1626c870859c6cb3
 import '../styles/hero.css';
 
 const Hero = () => {
@@ -58,11 +51,7 @@ const Hero = () => {
         </div>
         <div className="hero-images">
           <img 
-<<<<<<< HEAD
-            src={towelsColors} 
-=======
             src={bathTowelsColors} 
->>>>>>> 095db21ae4a094ca066145fe1626c870859c6cb3
             alt="Premium terry towels in different colors" 
             className="hero-image-main"
             loading="eager"
@@ -76,11 +65,7 @@ const Hero = () => {
             className="hero-image-secondary"
             loading="eager"
             onError={(e) => {
-<<<<<<< HEAD
-              e.target.src = handTowel;
-=======
               e.target.src = handTowels;
->>>>>>> 095db21ae4a094ca066145fe1626c870859c6cb3
             }}
           />
         </div>

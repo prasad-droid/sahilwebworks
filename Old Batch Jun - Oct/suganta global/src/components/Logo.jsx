@@ -1,7 +1,9 @@
 import { siteConfig } from '../data/siteConfig';
 import '../styles/Logo.css';
 
-export default function Logo({ variant = 'dark', showTagline = true, className = '' }) {
+export default function Logo({ variant = 'dark', className = '' }) {
+  const src = variant === 'gold' ? siteConfig.assets.logoLight : siteConfig.assets.logo;
+
   return (
     <a
       className={`logo logo--${variant}${className ? ` ${className}` : ''}`}
@@ -9,19 +11,13 @@ export default function Logo({ variant = 'dark', showTagline = true, className =
       aria-label={`${siteConfig.name} — home`}
     >
       <img
-        className="logo__mark"
-        src={siteConfig.assets.logoMark}
+        className="logo__image"
+        src={src}
         alt=""
-        width="46"
-        height="46"
+        width="432"
+        height="160"
         decoding="async"
       />
-      <span className="logo__text">
-        <span className="logo__name">
-          Suganta <span className="logo__name-accent">Global</span>
-        </span>
-        {showTagline && <span className="logo__tagline">{siteConfig.tagline}</span>}
-      </span>
     </a>
   );
 }

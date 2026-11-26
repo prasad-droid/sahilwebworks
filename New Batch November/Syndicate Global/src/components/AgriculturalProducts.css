@@ -1,0 +1,220 @@
+.agriculture {
+  background: var(--cream);
+  border-top: 1px solid var(--line);
+}
+
+.agri-product {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(40px, 6vw, 84px);
+  align-items: center;
+  margin-top: 76px;
+}
+
+.agri-product--reverse {
+  margin-top: 100px;
+}
+
+.agri-product--reverse .agri-product__visual {
+  order: 2;
+}
+
+.agri-product__visual {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.agri-product__visual img {
+  width: 100%;
+  height: clamp(380px, 44vw, 520px);
+  object-fit: cover;
+  transition: transform 0.9s var(--ease);
+}
+
+.agri-product__visual:hover img {
+  transform: scale(1.05);
+}
+
+.agri-product__visual-tag {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  padding: 8px 16px;
+  border-radius: 100px;
+  background: var(--teal-800);
+  color: var(--gold);
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.agri-product__eyebrow {
+  color: var(--teal-600);
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.agri-product h3 {
+  margin-top: 12px;
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+}
+
+.agri-product__varieties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.agri-product__varieties span {
+  padding: 6px 13px;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  background: var(--white);
+  color: var(--teal-700);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.agri-product__desc {
+  margin-top: 16px;
+  max-width: 530px;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.agri-product h4 {
+  margin-top: 32px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--teal-700);
+}
+
+.agri-product__list {
+  margin-top: 18px;
+  display: grid;
+  gap: 12px;
+}
+
+.agri-product__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--ink);
+  font-size: 0.93rem;
+  line-height: 1.55;
+}
+
+.agri-product__list li span {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: var(--gold-soft);
+  color: var(--teal-800);
+}
+
+.agri-product__list li svg {
+  width: 13px;
+  height: 13px;
+  stroke-width: 3;
+}
+
+.agri-product__content .btn {
+  margin-top: 32px;
+}
+
+.onion-varieties {
+  margin-top: 96px;
+}
+
+.onion-varieties__label {
+  margin-bottom: 20px;
+  color: var(--teal-700);
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.onion-varieties__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.variety-card {
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.variety-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease);
+}
+
+.variety-card:hover img {
+  transform: scale(1.06);
+}
+
+.variety-card figcaption {
+  padding: 16px 20px;
+  color: var(--teal-900);
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+@media (max-width: 1024px) {
+  .agri-product,
+  .agri-product--reverse {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-top: 64px;
+  }
+
+  .agri-product--reverse .agri-product__visual {
+    order: 0;
+  }
+
+  .agri-product__visual img {
+    height: 420px;
+  }
+
+  .onion-varieties {
+    margin-top: 72px;
+  }
+}
+
+@media (max-width: 640px) {
+  .agri-product__visual img {
+    height: 300px;
+  }
+
+  .onion-varieties__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .variety-card img {
+    height: 240px;
+  }
+}

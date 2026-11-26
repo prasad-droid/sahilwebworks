@@ -1,0 +1,132 @@
+.trade {
+  position: relative;
+  overflow: hidden;
+  padding-block: 110px;
+  background: var(--navy);
+  background-image: radial-gradient(circle at 82% 20%, rgba(23, 105, 170, 0.35), transparent 45%),
+    radial-gradient(circle at 8% 90%, rgba(217, 164, 65, 0.1), transparent 40%);
+}
+
+.trade__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+  align-items: center;
+  gap: 72px;
+}
+
+.trade__content .section-heading {
+  margin-bottom: 32px;
+}
+
+.trade__visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 470px;
+}
+
+.trade__globe-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(540px, 115%);
+  color: #5aa7dd;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.trade__globe {
+  width: 100%;
+  height: auto;
+  opacity: 0.55;
+}
+
+.trade__route {
+  animation: trade-dash 18s linear infinite;
+}
+
+@keyframes trade-dash {
+  to {
+    stroke-dashoffset: -150;
+  }
+}
+
+.trade__photo {
+  position: relative;
+  z-index: 1;
+  width: 82%;
+  overflow: hidden;
+  border: 6px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  box-shadow: 0 36px 80px rgba(0, 0, 0, 0.4);
+}
+
+.trade__photo img {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease);
+}
+
+.trade__visual:hover .trade__photo img {
+  transform: scale(1.05);
+}
+
+.trade__badge {
+  position: absolute;
+  z-index: 2;
+  bottom: 18px;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 17px;
+  border-radius: 10px;
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+  color: var(--navy);
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.trade__badge svg {
+  color: var(--blue);
+}
+
+@media (max-width: 980px) {
+  .trade__inner {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .trade__visual {
+    min-height: 400px;
+  }
+
+  .trade__photo {
+    width: 88%;
+  }
+}
+
+@media (max-width: 560px) {
+  .trade {
+    padding-block: 72px;
+  }
+
+  .trade__visual {
+    min-height: 320px;
+  }
+
+  .trade__photo img {
+    height: 240px;
+  }
+
+  .trade__badge {
+    left: 6px;
+    bottom: 4px;
+    font-size: 0.76rem;
+  }
+}

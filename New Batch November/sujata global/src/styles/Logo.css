@@ -1,0 +1,53 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  line-height: 1;
+}
+
+.logo--text {
+  flex-direction: column;
+  gap: 4px;
+}
+
+.logo__name {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  color: var(--navy);
+  transition: color 0.25s ease;
+}
+
+.logo__sub {
+  font-family: var(--font-heading);
+  font-size: 0.59rem;
+  font-weight: 800;
+  letter-spacing: 0.27em;
+  color: var(--gold);
+}
+
+.logo--inverse .logo__name {
+  color: var(--white);
+}
+
+.logo--image img {
+  width: auto;
+  height: 48px;
+  max-width: 190px;
+  object-fit: contain;
+}
+
+@media (max-width: 560px) {
+  .logo__name {
+    font-size: 1.3rem;
+  }
+
+  .logo__sub {
+    font-size: 0.52rem;
+  }
+
+  .logo--image img {
+    height: 40px;
+  }
+}

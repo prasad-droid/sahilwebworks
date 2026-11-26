@@ -1,0 +1,23 @@
+{
+  "name": "Sunscape Enterprises",
+  "short_name": "Sunscape",
+  "description": "Connecting businesses. Creating global opportunities. Import and export business inquiries.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a2138",
+  "theme_color": "#0a2138",
+  "icons": [
+    {
+      "src": "/brand/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/brand/logo-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

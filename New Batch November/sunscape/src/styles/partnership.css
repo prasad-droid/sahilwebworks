@@ -1,0 +1,129 @@
+.partnership {
+  background: var(--surface);
+}
+
+.partnership__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(48px, 7vw, 96px);
+}
+
+.partnership__intro .section-heading {
+  margin-bottom: 36px;
+}
+
+.partnership__image {
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+}
+
+.partnership__image img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease);
+}
+
+.partnership__image:hover img {
+  transform: scale(1.04);
+}
+
+.partnership__cards {
+  display: grid;
+  gap: 18px;
+}
+
+.partnership-card {
+  display: grid;
+  grid-template-columns: 54px 1fr auto;
+  align-items: center;
+  gap: 20px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface-soft);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s var(--ease),
+    background-color 0.3s ease;
+}
+
+.partnership-card:hover {
+  border-color: rgba(230, 170, 61, 0.5);
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+  transform: translateX(5px);
+}
+
+.partnership-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 15px;
+  background: rgba(230, 170, 61, 0.13);
+  color: var(--gold-dark);
+}
+
+.partnership-card h3 {
+  margin-bottom: 5px;
+  color: var(--navy);
+  font-size: 1.1rem;
+}
+
+.partnership-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.87rem;
+}
+
+.partnership-card button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 15px;
+  border: 1px solid rgba(10, 33, 56, 0.18);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--navy);
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.partnership-card button:hover {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--navy-deep);
+}
+
+@media (max-width: 1000px) {
+  .partnership__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .partnership__image {
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 620px) {
+  .partnership-card {
+    grid-template-columns: 46px 1fr;
+    gap: 14px;
+    padding: 20px;
+  }
+
+  .partnership-card__icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .partnership-card button {
+    grid-column: 1 / -1;
+    justify-content: center;
+  }
+}

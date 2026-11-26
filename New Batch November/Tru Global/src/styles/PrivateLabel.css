@@ -1,0 +1,121 @@
+.private-label__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+.private-label__head .section-heading {
+  margin-bottom: 0;
+}
+
+.private-label__head-cta {
+  flex: none;
+  margin-bottom: 4px;
+}
+
+.private-label__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.pl-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+
+.pl-card:hover {
+  transform: translateY(-7px);
+  box-shadow: var(--shadow-md);
+}
+
+.pl-card__image {
+  position: relative;
+  height: 225px;
+  overflow: hidden;
+}
+
+.pl-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease);
+}
+
+.pl-card:hover .pl-card__image img {
+  transform: scale(1.07);
+}
+
+.pl-card__icon {
+  position: absolute;
+  left: 20px;
+  bottom: -20px;
+  width: 52px;
+  height: 52px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  background: var(--green);
+  color: var(--white);
+  box-shadow: 0 10px 24px rgba(88, 131, 33, 0.3);
+  z-index: 2;
+}
+
+.pl-card__icon svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 1.8;
+}
+
+.pl-card__body {
+  padding: 38px 26px 28px;
+}
+
+.pl-card__number {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--green);
+  letter-spacing: 0.14em;
+}
+
+.pl-card h3 {
+  font-size: 1.14rem;
+  margin: 8px 0 10px;
+}
+
+.pl-card p {
+  color: var(--muted);
+  font-size: 0.91rem;
+  line-height: 1.72;
+}
+
+@media (max-width: 1020px) {
+  .private-label__head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .private-label__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .private-label__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .private-label__head-cta {
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+}
